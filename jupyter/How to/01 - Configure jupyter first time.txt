@@ -1,0 +1,4 @@
+1. Install anaconda
+2. Launch git bash
+3. cd to the directory you want the notebook to use as its root
+4. execute "jupyter notebook" command
