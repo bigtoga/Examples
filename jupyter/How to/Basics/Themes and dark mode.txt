@@ -1,0 +1,13 @@
+# Launch git bash
+pip install jupyterthemes
+
+# list themes
+jt -l 
+
+# Choose a themes
+jt -t gruvbox3
+
+# Revert the theme 
+jt -r 
+
+jupyter notebook
