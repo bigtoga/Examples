@@ -1,3 +1,6 @@
+# Misc
+Line break - end with a backslash
+
 # Cheatsheets
 [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
