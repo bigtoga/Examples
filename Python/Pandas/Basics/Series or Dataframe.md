@@ -12,3 +12,9 @@ data.groupby('month')['duration'].sum()
 
 ## Creates a Pandas DataFrame
 data.groupby('month')[['duration']].sum()
+
+# Data Series
+One-dimensional ndarray with axis labels
+
+# Data Frame
+Two-dimensional, size-mutable, potentially heterogeneous tabular data.  
