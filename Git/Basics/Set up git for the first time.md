@@ -56,5 +56,9 @@ Start menu → Credential Manager → Windows Credentials → find the line (Git
 git config --global credential.helper wincred
 ~~~
 
-## Step 5: Init a repo
+## Step 5: Clone a repo
+~~~
+rem cd to the directory you want your respotory stored in
+rem Then clone the repo:
+git clone https://github.com/bigtoga/Examples/tree/master
 git init MyRepo
