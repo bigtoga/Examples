@@ -13,8 +13,8 @@ Each level overrides values in the previous level, so values in .git/config trum
 On Windows systems, Git looks for the .gitconfig file in the $HOME directory (*C:\Users\$USER* for most people). 
 
 # Overview of using git bash in Windows:
-#   git config has multiple layers:
-#     -- global config          uses global config file
-#     -- system config          uses system config file
-#       -- local config         uses repostitory-based config file
-#         -- worktree config    uses config file in a directory inside a repogit sh
+git config has multiple layers:
+1. global config          uses global config file
+2. system config          uses system config file
+3. local config         uses repostitory-based config file
+4. worktree config    uses config file in a directory inside a repogit sh
