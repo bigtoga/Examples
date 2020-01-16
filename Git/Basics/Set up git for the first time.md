@@ -1,5 +1,15 @@
 [Source article](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
 
+# Do this for each repo
+## Step 1: Set your origin url
+~~~
+git config remote.origin.url https://you:password@github.com/you/example.git
+
+git config remote.origin.url https://github.com/bigtoga/Examples/tree/master
+~~~
+
+
+
 # Steps that need to be done only ONE TIME:
 ## Step 1: Install Git
 <a href="https://git-scm.com/downloads" target="_new">https://git-scm.com/downloads</a>
@@ -17,7 +27,14 @@ git config user.name
 git config --list --show-origin
 ~~~
 
-## Step 3: Set up your credentials
+## Step 3: Create a personal access token
+[Create a personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+1. Github Settings
+2. Developer Settings
+3. Generate personal access token
+4. Add to password vault
+
+## Step 4: Set up your credentials
 Clear out the previous:
 ~~~
 git config --global credential.helper cache
@@ -39,9 +56,5 @@ Start menu → Credential Manager → Windows Credentials → find the line (Git
 git config --global credential.helper wincred
 ~~~
 
-## Step 4: Set your origin url
-~~~
-git config remote.origin.url https://you:password@github.com/you/example.git
-
-
-~~~
+## Step 5: Init a repo
+git init MyRepo
