@@ -1,14 +1,16 @@
 [Source article](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
 
 # Do this for each repo
-## Step 1: Set your origin url
+## Step 1: cd to your directory and clone a repo
 ~~~
-git config remote.origin.url https://you:password@github.com/you/example.git
-
-git config remote.origin.url https://github.com/bigtoga/Examples/tree/master
+rem cd to the directory you want your respotory stored in
+rem Then clone the repo:
+git clone https://github.com/bigtoga/Examples/
 ~~~
 
+## Step 2: Make your changes
 
+## Step 3: Commit!
 
 # Steps that need to be done only ONE TIME:
 ## Step 1: Install Git
@@ -54,11 +56,3 @@ Start menu → Credential Manager → Windows Credentials → find the line (Git
 ~~~
 # Obsolete:
 git config --global credential.helper wincred
-~~~
-
-## Step 5: Clone a repo
-~~~
-rem cd to the directory you want your respotory stored in
-rem Then clone the repo:
-git clone https://github.com/bigtoga/Examples/tree/master
-git init MyRepo
