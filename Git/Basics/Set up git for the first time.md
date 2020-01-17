@@ -7,6 +7,8 @@
 3. cd to that file
 4. git init
 5. git pull <url>
+6. git set-upstream <url>
+7. git push <url>
 ~~~
 rem cd to the directory you want your respotory stored in
 rem Then clone the repo:
