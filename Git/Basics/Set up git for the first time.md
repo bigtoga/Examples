@@ -2,6 +2,11 @@
 
 # Do this for each repo
 ## Step 1: cd to your directory and clone a repo
+1. cd to the directory you want to store your repo in
+2. Create a folder to hold the files
+3. cd to that file
+4. git init
+5. git pull <url>
 ~~~
 rem cd to the directory you want your respotory stored in
 rem Then clone the repo:
