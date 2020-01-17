@@ -9,15 +9,6 @@
 5. git pull <url>
 6. git set-upstream <url>
 7. git push <url>
-~~~
-rem cd to the directory you want your respotory stored in
-rem Then clone the repo:
-git clone https://github.com/bigtoga/Examples/
-~~~
-
-## Step 2: Make your changes
-
-## Step 3: Commit!
 
 # Steps that need to be done only ONE TIME:
 ## Step 1: Install Git
