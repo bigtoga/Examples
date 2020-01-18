@@ -1,3 +1,9 @@
+# Best option - just reset the index:
+~~~
+avgs = cap.groupby("Weight (g)")[aggColumn].mean().round(2)
+avgs.reset_index(name="AvgTumorVol")
+~~~
+
 # Option 1
 ~~~
 pd.DataFrame({'email':sf.index, 'list':sf.values})
