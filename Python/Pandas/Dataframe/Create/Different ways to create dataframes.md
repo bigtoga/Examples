@@ -1,3 +1,9 @@
+### Create a dataframe from a list:
+~~~
+import pandas as pd   
+lst = ['a1', 'b2', 'a3', 'is',  'portal', 'for', 'Geeks']  
+df = pd.DataFrame(lst) 
+~~~
 ~~~
 import pandas as pd
 df = pd.DataFrame({
