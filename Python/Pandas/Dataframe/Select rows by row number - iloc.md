@@ -1,4 +1,6 @@
 # Use iloc to find rows by row number
+### Gotchas!
+.iloc returns a Pandas Series when one row is selected, and a Pandas DataFrame when multiple rows are selected, or if any column in full is selected. To counter this, pass a single-valued list if you require DataFrame output.
 
 ~~~
 # The iloc indexer for Pandas Dataframe is used for integer-location based indexing / selection by position.
