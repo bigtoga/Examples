@@ -1,4 +1,7 @@
-[Best answer I've seen](https://stackoverflow.com/questions/15891038/change-data-type-of-columns-in-pandas)
+[Best answer I've seen - covers many scenarios](https://stackoverflow.com/questions/15891038/change-data-type-of-columns-in-pandas)
+
+### Have pandas soft convert all columns automatically
+df = df.infer_objects()
 
 ### Convert all columns of DataFrame
 Multiple options: 
