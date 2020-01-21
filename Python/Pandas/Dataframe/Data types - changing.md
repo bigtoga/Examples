@@ -7,7 +7,7 @@ df = df.apply(pd.to_numeric)
 
 pd.to_numeric(df)
 
-
+df = df.astype(str)
 
 ### Convert specific columns:
 Multiple options:
@@ -17,6 +17,4 @@ df[["a", "b"]] = df[["a", "b"]].apply(pd.to_numeric)
 df["a"] = pd.to_numeric(df["a"])
 
 df = df.astype({"a": int, "b": complex})
-
-df = s.astype(str)
 
