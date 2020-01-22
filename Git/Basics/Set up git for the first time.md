@@ -6,15 +6,15 @@
 2. Create a folder to hold the files
 3. cd to that folder
 4. git init
-5. git pull <url>
-6. git checkout <branch>
+5. git pull (url)
+6. git checkout (branch)
 7. Make whatever changes you need
 8. git add .
 9. git commit -m "Update"
-7. git set-upstream <url>
-8. git push <url>
+7. git set-upstream (url)
+8. git push (url)
 1. git checkout master
-1. git merge <branch>
+1. git merge (branch)
 
 # Steps that need to be done only ONE TIME:
 ## Step 1: Install Git
