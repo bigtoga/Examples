@@ -11,3 +11,8 @@ export_csv = df.to_csv (r'export_dataframe.csv'
   , header=True
 ) 
 ~~~
+
+### Encoding
+~~~
+census_data.to_csv("../Resources/state_census_data.csv", encoding="utf-8", index=False)
+~~~
