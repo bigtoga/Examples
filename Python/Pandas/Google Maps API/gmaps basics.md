@@ -4,6 +4,8 @@
 
 [Installing and working with gmaps](https://jupyter-gmaps.readthedocs.io/en/latest/)
 
+[Tutorial for gmaps heatmaps](https://jupyter-gmaps.readthedocs.io/en/latest/tutorial.html#heatmaps)
+
 ### Loading google sample data set + heatmap
 ~~~
 # expects that you have your gmaps key in a config file
