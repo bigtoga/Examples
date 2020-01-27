@@ -1,0 +1,66 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "resourceGroupName": "AADesignLab08-spoke2-vnet-rg",
+                    "settings": [
+                        {
+                            "name": "spoke2-vnet",
+                            "addressPrefixes": [
+                                "10.2.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "mgmt",
+                                    "addressPrefix": "10.2.0.64/27"
+                                },
+                                {
+                                    "name": "workload",
+                                    "addressPrefix": "10.2.1.0/24"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "name": "spoke2-hub-peer",
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "useRemoteGateways": false,
+                                    "remoteVirtualNetwork": {
+                                        "resourceGroupName": "AADesignLab08-hub-vnet-rg",
+                                        "name": "hub-vnet"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "resourceGroupName": "AADesignLab08-spoke2-vnet-rg",
+                        "vmCount": 1,
+                        "namePrefix": "s2jb",
+                        "computerNamePrefix": "s2jb",
+                        "adminUsername": "",
+                        "adminPassword": "",
+                        "osType": "windows",
+                        "virtualNetwork": {
+                            "resourceGroupName": "AADesignLab08-spoke2-vnet-rg",
+                            "name": "spoke2-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "subnetName": "mgmt"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

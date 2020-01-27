@@ -1,0 +1,53 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "resourceGroupName": "AADesignLab08-hub-vnet-rg",
+                    "settings": [
+                        {
+                            "name": "hub-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "nva",
+                                    "addressPrefix": "10.0.0.32/27"
+                                },
+                                {
+                                    "name": "mgmt",
+                                    "addressPrefix": "10.0.0.64/27"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "resourceGroupName": "AADesignLab08-hub-vnet-rg",
+                        "vmCount": 1,
+                        "namePrefix": "hubjb",
+                        "computerNamePrefix": "hubjb",
+                        "adminUsername": "",
+                        "adminPassword": "",
+                        "osType": "windows",
+                        "virtualNetwork": {
+                            "name": "hub-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "subnetName": "mgmt"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

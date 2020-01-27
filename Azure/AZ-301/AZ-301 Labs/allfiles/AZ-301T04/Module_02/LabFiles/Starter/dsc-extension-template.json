@@ -1,0 +1,39 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineName": {
+            "type": "string",
+            "defaultValue": "lab03vm0"
+        },
+        "configurationModuleUrl": {
+            "type": "string"
+        },
+        "extensionFunction": {
+            "type": "string",
+            "defaultValue": "IISWebServer.ps1\\IISWebServer"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('virtualMachineName'), '/dscExtension')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.76",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "ModulesUrl": "[parameters('configurationModuleUrl')]",
+                    "ConfigurationFunction": "[parameters('extensionFunction')]",
+                    "Properties": {
+                        "MachineName": "[parameters('virtualMachineName')]"
+                    }
+                },
+                "protectedSettings": null
+            }
+        }
+    ]
+}
