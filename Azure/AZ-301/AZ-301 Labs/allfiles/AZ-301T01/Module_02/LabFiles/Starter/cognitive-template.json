@@ -1,0 +1,30 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "serviceName": "[concat('cgnt', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-04-18",
+            "type": "Microsoft.CognitiveServices/accounts",
+            "name": "[variables('serviceName')]",
+            "kind": "TextAnalytics",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "S1"
+            },
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "cognitiveEndpointUrl": {
+            "type": "string",
+            "value": "[reference(variables('serviceName')).endpoint]"
+        },
+        "cognitiveEndpointKey": {
+            "type": "string",
+            "value": "[listKeys(variables('serviceName'), '2017-04-18').key1]"
+        }
+    }
+}

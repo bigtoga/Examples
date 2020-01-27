@@ -1,0 +1,286 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUserName": {
+            "type": "string",
+            "metadata": {
+                "description": "Admin user name"
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Admin user password"
+            }
+        },
+        "instanceCount": {
+            "type": "int",
+            "defaultValue": 3,
+            "minValue": 2,
+            "maxValue": 5,
+            "metadata": {
+                "description": "Number of VM instances"
+            }
+        },
+        "overprovision": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Indicates whether the scale set should spin up more VMs than requested"
+            }
+        },
+        "configurationModuleUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "URL for the DSC configuration module"
+            }
+        }
+    },
+    "variables": {
+        "vmss": {
+            "name": "[concat('vmss', uniqueString(resourceGroup().id))]",
+            "prefix": "[substring(concat('vm', uniqueString(resourceGroup().id)), 0, 9)]",
+            "count": "[parameters('instanceCount')]",
+            "overprovisionInstances": "[parameters('overprovision')]"
+        },
+        "vm": {
+            "size": "Standard_A1_v2",
+            "authentication": {
+                "username": "Student",
+                "password": "StudentPa55w.rd"
+            },
+            "os": "2016-Datacenter",
+            "extensions": [
+                {
+                    "name": "dscExtension",
+                    "function": "IISWebServer.ps1\\IISWebServer",
+                    "url": "[parameters('configurationModuleUrl')]"
+                }
+            ]
+        },
+        "vnet": {
+            "name": "[concat('vnet', uniqueString(resourceGroup().id))]",
+            "addressPrefix": "10.0.0.0/16",
+            "subnets": [
+                {
+                    "name": "subnet-web",
+                    "addressPrefix": "10.0.0.0/24"
+                }
+            ]
+        },
+        "pip": {
+            "name": "[concat('pip', uniqueString(resourceGroup().id))]"
+        },
+        "lb": {
+            "name": "[concat('lb', uniqueString(resourceGroup().id))]",
+            "frontEnd": "lbFrontEnd",
+            "backEnd": "lbBackEnd",
+            "probe": "lbProbe",
+            "natPool": "lbNatPool",
+            "rule": "roundRobinLBRule"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-10-01",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[variables('pip').name]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Basic"
+            },
+            "properties": {
+                "publicIPAllocationMethod": "Dynamic"
+            }
+        },
+        {
+            "apiVersion": "2017-10-01",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('vnet').name]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('vnet').addressPrefix]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('vnet').subnets[0].name]",
+                        "properties": {
+                            "addressPrefix": "[variables('vnet').subnets[0].addressPrefix]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2017-10-01",
+            "type": "Microsoft.Network/loadBalancers",
+            "name": "[variables('lb').name]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses/', variables('pip').name)]"
+            ],
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "[variables('lb').frontEnd]",
+                        "properties": {
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('pip').name)]"
+                            }
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "[variables('lb').backEnd]"
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "[variables('lb').probe]",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 80,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 2
+                        }
+                    }
+                ],
+                "inboundNatPools": [
+                    {
+                        "name": "[variables('lb').natPool]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', variables('lb').name), '/frontendIPConfigurations/', variables('lb').frontEnd)]"
+                            },
+                            "protocol": "Tcp",
+                            "frontendPortRangeStart": 50000,
+                            "frontendPortRangeEnd": 50019,
+                            "backendPort": 22
+                        }
+                    }
+                ],
+                "loadBalancingRules": [
+                    {
+                        "name": "[variables('lb').rule]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', variables('lb').name), '/frontendIPConfigurations/', variables('lb').frontEnd)]"
+                            },
+                            "backendAddressPool": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', variables('lb').name), '/backendAddressPools/', variables('lb').backEnd)]"
+                            },
+                            "protocol": "Tcp",
+                            "frontendPort": 80,
+                            "backendPort": 80,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 5,
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', variables('lb').name), '/probes/', variables('lb').probe)]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmss').name]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', variables('lb').name)]"
+            ],
+            "sku": {
+                "name": "[variables('vm').size]",
+                "capacity": "[variables('vmss').count]"
+            },
+            "properties": {
+                "overprovision": "[variables('vmss').overprovisionInstances]",
+                "upgradePolicy": {
+                    "mode": "Manual"
+                },
+                "virtualMachineProfile": {
+                    "storageProfile": {
+                        "imageReference": {
+                            "publisher": "MicrosoftWindowsServer",
+                            "offer": "WindowsServer",
+                            "sku": "[variables('vm').os]",
+                            "version": "latest"
+                        },
+                        "osDisk": {
+                            "createOption": "FromImage"
+                        },
+                        "dataDisks": [
+                            {
+                                "diskSizeGB": 128,
+                                "lun": 0,
+                                "createOption": "Empty"
+                            }
+                        ]
+                    },
+                    "osProfile": {
+                        "computerNamePrefix": "[variables('vmss').prefix]",
+                        "adminUsername": "[variables('vm').authentication.username]",
+                        "adminPassword": "[variables('vm').authentication.password]"
+                    },
+                    "networkProfile": {
+                        "networkInterfaceConfigurations": [
+                            {
+                                "name": "nic",
+                                "properties": {
+                                    "primary": true,
+                                    "ipConfigurations": [
+                                        {
+                                            "name": "ipconfig",
+                                            "properties": {
+                                                "subnet": {
+                                                    "id": "[concat(resourceId('Microsoft.Network/virtualNetworks',variables('vnet').name), '/subnets/', variables('vnet').subnets[0].name)]"
+                                                },
+                                                "loadBalancerBackendAddressPools": [
+                                                    {
+                                                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lb').name, '/backendAddressPools/', variables('lb').backEnd)]"
+                                                    }
+                                                ],
+                                                "loadBalancerInboundNatPools": [
+                                                    {
+                                                        "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lb').name, '/inboundNatPools/', variables('lb').natPool)]"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "Microsoft.Powershell.DSC",
+                                "properties": {
+                                    "publisher": "Microsoft.Powershell",
+                                    "type": "DSC",
+                                    "typeHandlerVersion": "2.76",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "ModulesUrl": "[variables('vm').extensions[0].url]",
+                                        "ConfigurationFunction": "[variables('vm').extensions[0].function]",
+                                        "Properties": {
+                                            "MachineName": "localhost"
+                                        }
+                                    },
+                                    "protectedSettings": null
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}

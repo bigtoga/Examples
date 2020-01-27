@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vnetNamePrefix": {
+            "type": "string",
+            "defaultValue": "vnet-",
+            "metadata": {
+                "description": "Name prefix of the vnet"
+             }
+        },
+        "vnetIPPrefix": {
+            "type": "string",
+            "defaultValue": "10.2.0.0/16",
+            "metadata": {
+                "description": "IP address prefix of the vnet"
+            }
+        },
+        "subnetNamePrefix": {
+            "type": "string",
+            "defaultValue": "subnet-",
+            "metadata": {
+                "description": "Name prefix of the subnets"
+            }
+        },
+        "subnetIPPrefix": {
+            "defaultValue": "10.2.0.0/24",
+            "type": "string",
+            "metadata": {
+                "description": "IP address prefix of the first subnet"
+            }
+        }
+    },
+    "variables": {
+        "vnetName": "[concat(parameters('vnetNamePrefix'), resourceGroup().name)]",
+        "subnetNameSuffix": "0"
+    },
+    "resources": [
+    {
+        "apiVersion": "2018-02-01",
+        "name": "[variables('vnetName')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "location": "[resourceGroup().location]",
+        "scale": null,
+        "properties": {
+            "addressSpace": {
+                "addressPrefixes": [
+                    "[parameters('vnetIPPrefix')]"
+                ]
+            },
+            "subnets": [
+                {
+                    "name": "[concat(parameters('subnetNamePrefix'), variables('subnetNameSuffix'))]",
+                    "properties": {
+                        "addressPrefix": "[parameters('subnetIPPrefix')]"
+                    }
+                }
+            ],
+            "virtualNetworkPeerings": [],
+            "enableDdosProtection": false,
+            "enableVmProtection": false
+        },
+        "dependsOn": []
+        }
+    ]
+}

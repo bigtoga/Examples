@@ -1,0 +1,110 @@
+{
+    "$schema": "http://schemas.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+        "appService": {
+            "apiApp": {
+                "name": "[concat('api', uniqueString(resourceGroup().id))]"
+            },
+            "plan": {
+                "name": "[concat('pln', uniqueString(resourceGroup().id))]",
+                "sku": {
+                    "name": "Shared",
+                    "code": "D1",
+                    "workerSize": 0
+                }
+            }
+        },
+        "repository": {
+            "url": "https://github.com/azure-labs/cosmos-api",
+            "branch": "master"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2016-09-01",
+            "type": "Microsoft.Web/serverfarms",
+            "name": "[variables('appService').plan.name]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "name": "[variables('appService').plan.name]",
+                "workerSizeId": "[variables('appService').plan.sku.workerSize]",
+                "numberOfWorkers": "1"
+            },
+            "sku": {
+                "tier": "[variables('appService').plan.sku.name]",
+                "name": "[variables('appService').plan.sku.code]"
+            }
+        },
+        {
+            "apiVersion": "2016-03-01",
+            "type": "Microsoft.Web/sites",
+            "name": "[variables('appService').apiApp.name]",
+            "location": "[resourceGroup().location]",
+            "kind": "api",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', variables('appService').plan.name)]"
+            ],
+            "properties": {
+                "name": "[variables('appService').apiApp.name]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appService').plan.name)]",
+                "siteConfig": {
+                    "cors": {
+                        "allowedOrigins": [
+                            "*"
+                        ]
+                    },
+                    "appSettings": [
+                        {
+                            "name": "CosmosDB:DatabaseId",
+                            "value": "FinancialClubDatabase"
+                        },
+                        {
+                            "name": "CosmosDB:CollectionId",
+                            "value": "MemberCollection"
+                        },
+                        {
+                            "name": "CosmosDB:StoredProcedureId",
+                            "value": "genDocuments"
+                        },
+                        {
+                            "name": "CosmosDB:EndpointUrl",
+                            "value": ""
+                        },
+                        {
+                            "name": "CosmosDB:AuthorizationKey",
+                            "value": ""
+                        },
+                        {
+                            "name": "Search:IndexId",
+                            "value": "memberindex"
+                        },
+                        {
+                            "name": "Search:AccountName",
+                            "value": ""
+                        },
+                        {
+                            "name": "Search:QueryKey",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            "resources": [
+                {
+                    "apiVersion": "2015-08-01",
+                    "name": "web",
+                    "type": "sourcecontrols",
+                    "dependsOn": [
+                        "[resourceId('Microsoft.Web/Sites', variables('appService').apiApp.name)]"
+                    ],
+                    "properties": {
+                        "RepoUrl": "[variables('repository').url]",
+                        "branch": "[variables('repository').branch]",
+                        "IsManualIntegration": true
+                    }
+                }
+            ]
+        }
+    ]
+}

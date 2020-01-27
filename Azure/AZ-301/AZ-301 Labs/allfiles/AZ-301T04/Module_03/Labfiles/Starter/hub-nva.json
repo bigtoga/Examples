@@ -1,0 +1,113 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "resourceGroupName": "AADesignLab08-hub-nva-rg",
+                    "settings": {
+                        "vmCount": 1,
+                        "namePrefix": "nva",
+                        "computerNamePrefix": "nva",
+                        "adminUsername": "",
+                        "adminPassword": "",
+                        "osType": "linux",
+                        "virtualNetwork": {
+                            "resourceGroupName": "AADesignLab08-hub-vnet-rg",
+                            "name": "hub-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.0.0.36",
+                                "subnetName": "nva",
+                                "enableIPForwarding": true
+                            }
+                        ],
+                        "extensions": [
+                            {
+                                "name": "enable-iptables-routes",
+                                "publisher": "Microsoft.Azure.Extensions",
+                                "type": "CustomScript",
+                                "typeHandlerVersion": "2.0",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "fileUris": [
+                                        "https://raw.githubusercontent.com/mspnp/reference-architectures/master/scripts/linux/enable-ip-forwarding.sh"
+                                    ],
+                                    "commandToExecute": "bash enable-ip-forwarding.sh"
+                                },
+                                "protectedSettings": {}
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "RouteTable",
+                    "resourceGroupName": "AADesignLab08-hub-nva-rg",
+                    "settings":[
+                        {
+                            "name": "spoke1-rt",
+                            "routes": [
+                                {
+                                    "name": "toSpoke2",
+                                    "addressPrefix": "10.2.0.0/16",
+                                    "nextHop": "10.0.0.36"
+                                },
+                                {
+                                    "name": "default",
+                                    "addressPrefix": "0.0.0.0/0",
+                                    "nextHop": "VnetLocal"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "resourceGroupName": "AADesignLab08-spoke1-vnet-rg",
+                                    "name": "spoke1-vnet",
+                                    "subnets": [
+                                        "mgmt",
+                                        "workload"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "RouteTable",
+                    "resourceGroupName": "AADesignLab08-hub-nva-rg",
+                    "settings":[
+                        {
+                            "name": "spoke2-rt",
+                            "routes": [
+                                {
+                                    "name": "toSpoke1",
+                                    "addressPrefix": "10.1.0.0/16",
+                                    "nextHop": "10.0.0.36"
+                                },
+                                {
+                                    "name": "default",
+                                    "addressPrefix": "0.0.0.0/0",
+                                    "nextHop": "VnetLocal"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "resourceGroupName": "AADesignLab08-spoke2-vnet-rg",
+                                    "name": "spoke2-vnet",
+                                    "subnets": [
+                                        "mgmt",
+                                        "workload"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
