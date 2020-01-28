@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Data: Parses JSON",
+    "id": "AI013600",
+    "description": "Data: Parses JSON",
+    "applies_to": [ "javascript" ],
+    "tags": [
+      "Data.Parsing.JSON"
+    ],
+    "severity": "moderate",
+    "patterns": [
+      {
+        "pattern": "JSON.Parse",
+        "type": "string",
+        "scopes": [
+          "code"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Data: Parses JSON",
+    "id": "AI013700",
+    "description": "Data: Parses JSON",
+    "applies_to": [ "csharp" ],
+    "tags": [
+      "Data.Parsing.JSON"
+    ],
+    "severity": "moderate",
+    "patterns": [
+      {
+        "pattern": "JSON\\.createParser|JObject\\.Parse",
+        "type": "regex",
+        "scopes": [
+          "code"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Data: Parses JSON",
+    "id": "AI013800",
+    "description": "Data: Parses JSON",
+    "tags": [
+      "Data.Parsing.JSON"
+    ],
+    "severity": "moderate",
+    "patterns": [
+      {
+        "pattern": "json.*parser",
+        "type": "regex",
+        "scopes": [
+          "code"
+        ]
+      }
+    ]
+  }
+] 
