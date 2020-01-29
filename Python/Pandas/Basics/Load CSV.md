@@ -1,3 +1,14 @@
+Multiple options
+
+~~~
+import os
+import pandas as pd
+
+csvpath = os.path.join("..", "source_data", "detail_listings.zip")
+df = pd.read_csv(csvpath, low_memory=False)
+~~~
+
+~~~
 import pandas as pd
 import dateutil
 
@@ -32,3 +43,4 @@ dtype: int64
 # Number of non-null unique network entries
 data['network'].nunique()
 Out[42]: 9
+~~~
