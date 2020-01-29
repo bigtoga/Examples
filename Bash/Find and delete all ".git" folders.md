@@ -1,9 +1,10 @@
-1. cd to the root folder
+### Step 1: cd to the root folder
+**cd G:\GithubRepos\MyRepo**
 
-# List matching subfolders of directory
-2. **find -name ".git" -type d** 
+### Step 2: List matching subfolders of directory
+**find -name ".git" -type d** 
   
-# Delete folders with no prompt:  
-3. **find -name ".git" -type d -exec rm -rf {} +** 
+### Step 3: Delete folders with no prompt:  
+**find -name ".git" -type d -exec rm -rf {} +** 
 
 rm-r # Deletes the folder and its contents but will prompt you once per file it encounters
