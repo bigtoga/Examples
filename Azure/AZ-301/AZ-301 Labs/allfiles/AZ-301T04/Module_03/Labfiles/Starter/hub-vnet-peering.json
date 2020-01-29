@@ -1,0 +1,54 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "resourceGroupName": "AADesignLab08-hub-vnet-rg",
+                    "settings": [
+                        {
+                            "name": "hub-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "nva",
+                                    "addressPrefix": "10.0.0.32/27"
+                                },
+                                {
+                                    "name": "mgmt",
+                                    "addressPrefix": "10.0.0.64/27"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "name": "hub-spoke1-peer",
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "useRemoteGateways": false,
+                                    "remoteVirtualNetwork": {
+                                        "resourceGroupName": "AADesignLab08-spoke1-vnet-rg",
+                                        "name": "spoke1-vnet"
+                                    }
+                                },
+                                {
+                                    "name": "hub-spoke2-peer",
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "useRemoteGateways": false,
+                                    "remoteVirtualNetwork": {
+                                        "resourceGroupName": "AADesignLab08-spoke2-vnet-rg",
+                                        "name": "spoke2-vnet"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

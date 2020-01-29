@@ -1,0 +1,39 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vaultName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "secretName": "storageConnectionString",
+        "storageName": "[concat('stor', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-10-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "[resourceGroup().location]",
+            "kind": "Storage",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "properties": {
+            }
+        },
+        {
+            "apiVersion": "2016-10-01",
+            "type": "Microsoft.KeyVault/vaults/secrets",
+            "name": "[concat(parameters('vaultName'), '/', variables('secretName'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"
+            ],
+            "properties": {
+                "contentType": "text/plain",
+                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageName'), ';', 'AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).keys[0].value, ';')]"
+            }
+        }
+    ]
+}

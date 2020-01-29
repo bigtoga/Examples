@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Metric: Class Definition",
+    "id": "AI025700",
+    "description": "Metric: Classes Defined",
+    "tags": [
+      "Metric.Code.Class.Defined"
+    ],
+    "severity": "moderate",
+    "applies_to": [ "csharp", "cpp", "javascript", "pyton", "vb", "rust", "ruby", "groovy", "php" ],
+    "patterns": [
+      {
+        "pattern": "class",
+        "type": "regex-word",
+        "scopes": [ "code" ],
+        "confidence": "high",
+        "_comment": "langs defined to exclude css class reference vs class data structure which provides complexity/size insight"
+      }
+    ]
+  },
+  {
+    "name": "Metric: Function Definition",
+    "id": "AI025800",
+    "description": "Metric: Function Defined",
+    "tags": [
+      "Metric.Code.Function.Defined"
+    ],
+    "severity": "moderate",
+    "patterns": [
+      {
+        "pattern": "(def|function|fun) (.*)",
+        "type": "regex-word",
+        "scopes": [ "code" ],
+        "confidence": "medium",
+        "_comment": "doesn't detect a number of other potential patterns at present"
+      }
+    ]
+  },
+  {
+    "name": "Metric: HTML Form Definition",
+    "id": "AI025900",
+    "description": "Metric: HTML Form Defined",
+    "tags": [
+      "Metric.Code.HTMLForm.Defined"
+    ],
+    "severity": "moderate",
+    "_comment": "",
+    "patterns": [
+      {
+        "pattern": "<form",
+        "type": "regex-word",
+        "scopes": [ "code" ],
+        "confidence": "high",
+        "_comment": ""
+      }
+    ]
+  },
+  {
+    "name": "Metric: Exception Caught",
+    "id": "AI026000",
+    "description": "Metric: Exception Caught",
+    "tags": [
+      "Metric.Code.Exception.Caught"
+    ],
+    "severity": "moderate",
+    "_comment": "may need to divide results by 2 to get more accurate counts i.e. pairs=single handling",
+    "patterns": [
+      {
+        "pattern": "catch|except|exception",
+        "type": "regex-word",
+        "scopes": [ "code" ],
+        "confidence": "medium",
+        "_comment": ""
+      }
+    ]
+  },
+  {
+    "name": "Metric: Logging Call",
+    "id": "AI026100",
+    "description": "Logging Call",
+    "tags": [
+      "Metric.Code.Logging.Call"
+    ],
+    "severity": "moderate",
+    "_comment": "",
+    "patterns": [
+      {
+        "pattern": "log|logger",
+        "type": "regex-word",
+        "scopes": [ "code" ],
+        "confidence": "high",
+        "modifiers": [ "i" ],
+        "_comment": ""
+      }
+    ]
+  },
+  {
+    "name": "Metric: Sample Code",
+    "id": "AI026200",
+    "description": "Sample Code",
+    "tags": [
+      "Metric.Code.SampleCode"
+    ],
+    "severity": "moderate",
+    "_comment": "",
+    "patterns": [
+      {
+        "pattern": "(sample|example) code",
+        "type": "regex",
+        "scopes": [ "code" ],
+        "confidence": "high",
+        "_comment": "only matched if sample exclusions arg set"
+      }
+    ]
+  },
+  {
+    "name": "Metric: URL Reference",
+    "id": "AI026300",
+    "description": "URL Reference",
+    "tags": [
+      "Metric.Code.URL"
+    ],
+    "severity": "moderate",
+    "_comment": "",
+    "patterns": [
+      {
+        "pattern": "https*",
+        "type": "regex-word",
+        "scopes": [ "code" ],
+        "confidence": "high",
+        "_comment": ""
+      }
+    ]
+  }
+]
