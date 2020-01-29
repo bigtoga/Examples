@@ -8,7 +8,7 @@ The push commits any changes in the local branch "master" to the remote named or
 ### git push origin 
 Yikes! This pushes all local branches to origin
 
-### git push origin MyBranch
+### git push origin DEV
 Safer.
 
 ### git remote add origin git@github.com:bigtoga/first_app.git
