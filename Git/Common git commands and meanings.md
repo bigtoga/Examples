@@ -5,6 +5,9 @@ If you created your local repo as a clone of another, existing repo, then "origi
 Probably terrible idea - writes local changes directly to master branch. If master did not exist remotely, it would be created.
 The push commits any changes in the local branch "master" to the remote named origin
 
+### git push origin 
+Yikes! This pushes all local branches to origin
+
 ### git push origin MyBranch
 Safer.
 
