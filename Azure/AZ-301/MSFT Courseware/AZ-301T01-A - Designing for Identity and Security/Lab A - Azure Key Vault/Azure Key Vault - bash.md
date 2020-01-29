@@ -5,12 +5,17 @@
 4. Bash:
 
 ~~~
-# Install Azure CLI:
+# Is Azure CLI installed and available to bash?
+where az 
+where az.cmd 
 
-# Set alias:
+# If not, install Azure CLI
+
+# Then set alias:
 alias az=az.cmd 
 
 # Login!
+# Will open browser and ask you to log in to the Azure portal
 az login
 
 # Define variables
