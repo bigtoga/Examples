@@ -13,3 +13,12 @@ Safer.
 
 ### git remote add origin git@github.com:bigtoga/first_app.git
 Creates a remote repo, and defines that "origin" is now this remote repo
+
+### git checkout master
+Switches your local "working" branch to the master branch
+
+### git checkout DEV
+Switches your local working branch to DEV. DEV must already exist.
+
+### git checkout -b DEV
+Create a new local branch named "DEV" and use it
