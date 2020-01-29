@@ -44,4 +44,10 @@ git revert commit-A-id (reverts the git commit but everything else is still in p
 
 You can also go with the previous reset, checkout to file, etc.
 
+### Another option:
+~~~
+git checkout master
+git fetch origin
+git reset --hard origin/master
+~~~
 
