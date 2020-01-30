@@ -1,8 +1,3 @@
-### Source links:
-1. Stack overflow - https://stackoverflow.com/questions/19576742/how-to-clone-all-repos-at-once-from-github
-2. Github API reference - https://developer.github.com/v3/
-3. How to clone all - https://medium.com/@kevinsimper/how-to-clone-all-repositories-in-a-github-organization-8ccc6c4bd9df
-
 ### Step 1: Launch an elevated git bash shell
 
 ### Step 2: Install jq for json parsing
@@ -39,5 +34,5 @@ curl -u $MYUSERNAME:$TOKEN -s $URL | jq -r '.[].clone_url' | xargs -L1 git clone
 
 ### Step 7: Delete the .git folders if you want:
 ~~~
-
+find -name ".git" -type d -exec rm -rf {} +
 ~~~
