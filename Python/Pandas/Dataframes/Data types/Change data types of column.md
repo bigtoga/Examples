@@ -1,3 +1,15 @@
+~~~
+# Just the columns:
+df.dtypes
+
+# Columns along w nullability
+df.info()
+
+# Also np.float64 np.int64
+if df.dtypes['Name'] == np.object:
+  print "oops!"
+~~~   
+
 [Best answer I've seen - covers many scenarios](https://stackoverflow.com/questions/15891038/change-data-type-of-columns-in-pandas)
 
 ### Have pandas soft convert all columns automatically
