@@ -9,7 +9,7 @@ pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 
 # Downgrade a package
 pip uninstall pandas
-pip install pandas==0.25
+pip install pandas==0.25.3
 pip list
 
 ~~~
