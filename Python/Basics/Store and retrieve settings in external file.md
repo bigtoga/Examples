@@ -1,7 +1,6 @@
 ### File: api_keys.py
 ~~~
 g_key = "Your Google API key"
-
 ~~~
 
 ### Jupyter Notebook Python code:
