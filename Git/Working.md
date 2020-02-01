@@ -23,6 +23,11 @@ git pull updates your local HEAD copy with the changes on the remote.
 1. mkdir a directory for your local copy of the remote branch (branchName)
 2. cd to that directory
 3. git init 
+4. git clone --single-branch -branch DEV https://github.com/bigtoga/Walking-In-Paris
+
+1. mkdir a directory for your local copy of the remote branch (branchName)
+2. cd to that directory
+3. git init 
 4. git remote add origin https://github.com/bigtoga/Walking-In-Paris
 5. git fetch origin 
 6. git branch -r # list all branches at remote (i.e. what branch can I pull/clone?)
