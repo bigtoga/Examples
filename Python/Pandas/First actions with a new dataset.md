@@ -61,8 +61,10 @@ df.plot(figsize=(18,d5))
 # "Group by 'seasons' and calculate the basic aggregates against 'precip' column"
 df.groupby(["seasons"])[["precip"]].describe()
 ~~~
-| | | precip | | | | |
-|--- |--- |--- |--- |---|---|--- 
+| |precip| | | | | | | | 
+|--- |--- |--- |--- |--- |--- |--- |--- |--- |--- 
+|1 |1 |1 |1 |1 |1 |1 |1 |1 |1 
+
 | |count|mean|std|min|25%|50%|75%|max|
 
 ||months|precip|seasons|precip_in|
