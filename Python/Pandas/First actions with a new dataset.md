@@ -54,7 +54,9 @@ df.groupby(["seasons"])[["precip"]].describe()
 
 ### Print a diagonal correlation matrix with seaborn
 ~~~
-import...
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
 
 # Create data frame correlation
 corr = df.corr()
@@ -82,9 +84,11 @@ sns.heatmap(
     square=True, 
     linewidths=.5, 
     cbar_kws={"shrink": .5}
-).get_figure().savefig('correlation_matrix.png') # Save to a file
+) #.get_figure().savefig('correlation_matrix.png') # to save to a file
 
 plt.show()
+
+~~~
 
 ~~~
 # Drop all data outside 3 standard deviations from the mean:
