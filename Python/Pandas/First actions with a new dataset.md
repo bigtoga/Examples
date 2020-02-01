@@ -1,7 +1,31 @@
 ~~~
+df.head()
+df.tail()
+
+df.info() # Columns, metadata, memory usage
+
 df.isnull().values.any()
 df.hist()
-df.plot(figsize=(18,5))
+df.describe()
+df.describe(include='all') # entire dataframe
+df['Price'].describe() # one column only
+
+stats_float = df['Price'].describe()
+stats_numeric = df['Price'].describe().astype (int)
+
+# Number of rows and columns
+df.shape
+
+df['DataFrame Column'].quantile(q=0.50)
+df['DataFrame Column'].quartile(q=0.50)
+
+df.plot(figsize=(18,d5))
+
+df.sort_values(by="column_name", ascending = True)
+
+# Group data by seasons and summarize precip 
+# "Group by 'seasons' and calculate the basic aggregates against 'precip' column"
+df.groupby(["seasons"])[["precip"]].describe()
 
 # Drop all data outside 3 standard deviations from the mean:
 from scipy import stats
