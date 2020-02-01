@@ -15,7 +15,10 @@ stats_numeric = df['Price'].describe().astype (int)
 
 # Number of rows and columns
 df.shape
+~~~
 
+### Start looking at the data itself - start w summary statistical info
+~~~
 df['DataFrame Column'].quantile(q=0.50)
 df['DataFrame Column'].quartile(q=0.50)
 
@@ -27,6 +30,24 @@ df.sort_values(by="column_name", ascending = True)
 # "Group by 'seasons' and calculate the basic aggregates against 'precip' column"
 df.groupby(["seasons"])[["precip"]].describe()
 
+||months|precip|seasons|precip_in|
+|--- |--- |--- |--- |--- |
+|0|Jan|17.780|Winter|0.70|
+|1|Feb|19.050|Winter|0.75|
+|2|Mar|46.990|Spring|1.85|
+|3|Apr|74.422|Spring|2.93|
+|4|May|77.470|Spring|3.05|
+|5|June|51.308|Summer|2.02|
+|6|July|49.022|Summer|1.93|
+|7|Aug|41.148|Summer|1.62|
+|8|Sept|46.736|Fall|1.84|
+|9|Oct|33.274|Fall|1.31|
+|10|Nov|35.306|Fall|1.39|
+|11|Dec|21.336|Winter|0.84|
+
+~~~
+
+~~~
 # Drop all data outside 3 standard deviations from the mean:
 from scipy import stats
 std_dev = 3
