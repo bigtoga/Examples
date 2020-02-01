@@ -1,7 +1,5 @@
+### Metadata about the data (rows, columns, data types, etc)
 ~~~
-df.head()
-df.tail()
-
 df.info() # Columns, metadata, memory usage
 
 df.isnull().values.any()
@@ -17,19 +15,28 @@ stats_numeric = df['Price'].describe().astype (int)
 df.shape
 ~~~
 
-### Start looking at the data itself - start w summary statistical info
+### Start looking at the data itself 
+~~~
+df.head()
+df.tail()
+
+df.sort_values(by="column_name", ascending = True)
+
+df = df.rename
+~~~
+
+### Look at statistical summary of the data
 ~~~
 df['DataFrame Column'].quantile(q=0.50)
 df['DataFrame Column'].quartile(q=0.50)
 
 df.plot(figsize=(18,d5))
 
-df.sort_values(by="column_name", ascending = True)
 
 # Group data by seasons and summarize precip 
 # "Group by 'seasons' and calculate the basic aggregates against 'precip' column"
 df.groupby(["seasons"])[["precip"]].describe()
-
+~~~
 ||months|precip|seasons|precip_in|
 |--- |--- |--- |--- |--- |
 |0|Jan|17.780|Winter|0.70|
@@ -45,7 +52,39 @@ df.groupby(["seasons"])[["precip"]].describe()
 |10|Nov|35.306|Fall|1.39|
 |11|Dec|21.336|Winter|0.84|
 
+### Print a diagonal correlation matrix with seaborn
 ~~~
+import...
+
+# Create data frame correlation
+corr = df.corr()
+
+# Generate a mask for the upper triangle
+mask = np.triu(np.ones_like(corr, dtype=np.bool))
+
+# Set up the matplotlib figure
+f, ax = plt.subplots(figsize=(11, 9))
+
+# Generate a custom diverging colormap
+#cmap = sns.diverging_palette(220, 10, as_cmap=True)
+cmap='coolwarm'
+
+# Labels
+ax.set_title('Diagonal Correlation Matrix Using Seaborn')
+
+# Draw the heatmap with the mask and correct aspect ratio
+sns.heatmap(
+    corr, 
+    mask=mask, 
+    cmap=cmap, 
+    vmax=.3, 
+    center=0,
+    square=True, 
+    linewidths=.5, 
+    cbar_kws={"shrink": .5}
+).get_figure().savefig('correlation_matrix.png') # Save to a file
+
+plt.show()
 
 ~~~
 # Drop all data outside 3 standard deviations from the mean:
