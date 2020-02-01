@@ -1,4 +1,5 @@
 ### Import dependencies
+~~~
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -17,14 +18,13 @@ import json
 from time import sleep
 from datetime import date
 import zipfile
-
+~~~
 ### Load the dataset
 ~~~
 csvpath = os.path.join("..", "source_data", "detail_listings.zip")
 zf = zipfile.ZipFile(csvpath);
 df = pd.read_csv(zf.open('detail_listings.csv'), low_memory=False)
 ~~~
-
 ### Metadata about the data (rows, columns, data types, etc)
 ~~~
 df.info() # Columns, metadata, memory usage
@@ -41,7 +41,6 @@ stats_numeric = df['Price'].describe().astype (int)
 # Number of rows and columns
 df.shape
 ~~~
-
 ### Start looking at the data itself 
 ~~~
 df.head()
@@ -51,14 +50,12 @@ df.sort_values(by="column_name", ascending = True)
 
 df = df.rename
 ~~~
-
 ### Look at statistical summary of the data
 ~~~
 df['DataFrame Column'].quantile(q=0.50)
 df['DataFrame Column'].quartile(q=0.50)
 
 df.plot(figsize=(18,d5))
-
 
 # Group data by seasons and summarize precip 
 # "Group by 'seasons' and calculate the basic aggregates against 'precip' column"
@@ -128,7 +125,6 @@ df.plot(figsize=(18,5))
 plt.scatter(df[‘OAT (F)’], df[‘Power (kW)’])
 
 ~~~
-
 # Look at the column relationships - find the hot red and cold blue:
 ~~~
 import seaborn as sns
@@ -156,7 +152,6 @@ sns.heatmap(
     cbar_kws={"shrink": .5}
 )
 ~~~~
-
 # Find the pairwise relationships in a dataset
 ~~~
 iris = sns.load_dataset("iris")
