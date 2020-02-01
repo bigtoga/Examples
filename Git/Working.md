@@ -1,4 +1,39 @@
+# Git Basics
+There are generally 3 copies of your work on your local computer:
+1. Your local repo (which contains you commit history)
+2. Your working copy where you are editing and building (not yet committed, where you stash, where you stage)
+3. Your local "cached" copy of the remote repo
+
+### Fetch: get the latest metadata from a repo. 
+Will show you changes in repo since your last pull, and also enables things like git branch -r (to view remote branches). Will never make changes to your local repo but will update your "cached" local copy of it (which is great - you can now diff and see changes).
+
+Examples:
+1. How to view what changes will be applied tio your local without actually applying them
+  * git fetch origin
+  * git diff ...origin
+  
+Recommendation: git fetch all the time!
+
+### Clone: a duplicate of a specific branch of a repo 
+
+### Pull: runs git fetch and also downloads changes from the remote repo
+git pull updates your local HEAD copy with the changes on the remote.
+
 ~~~
+1. mkdir a directory for your local copy of the remote branch (branchName)
+2. cd to that directory
+3. git init 
+4. git remote add origin https://github.com/bigtoga/Walking-In-Paris
+5. git fetch origin 
+6. git branch -r # list all branches at remote (i.e. what branch can I pull/clone?)
+6. git pull origin branchName
+
+
+
+
+
+
+
 1. mkdir a directory for your local copy of the remote branch (branchName)
 2. cd to that directory
 3. git init 
