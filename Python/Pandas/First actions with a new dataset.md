@@ -107,6 +107,14 @@ plt.show()
 
 ~~~
 
+### Do you want to do multi-variable correlation?
+~~~
+# Look at the table of correlations
+df.corr()
+df.corr(method=histogram_intersection)
+
+~~~
+
 ~~~
 # Drop all data outside 3 standard deviations from the mean:
 from scipy import stats
