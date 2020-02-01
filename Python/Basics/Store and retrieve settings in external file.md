@@ -3,7 +3,7 @@
 g_key = "Your Google API key"
 ~~~
 
-### File: MyJupyterNotebook.ipynb:
+### File: MyJupyterNotebook.ipynb
 (api_keys.py must be in same location as jupyer notebook in this example)
 ~~~
 from api_keys import g_key
