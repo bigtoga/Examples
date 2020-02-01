@@ -61,8 +61,11 @@ df.plot(figsize=(18,d5))
 # "Group by 'seasons' and calculate the basic aggregates against 'precip' column"
 df.groupby(["seasons"])[["precip"]].describe()
 ~~~
+| | | precip | | | | |
+|--- |--- |--- |--- |---|---|--- 
+| |count|mean|std|min|25%|50%|75%|max|
+
 ||months|precip|seasons|precip_in|
-|--- |--- |--- |--- |--- |
 |0|Jan|17.780|Winter|0.70|
 |1|Feb|19.050|Winter|0.75|
 |2|Mar|46.990|Spring|1.85|
@@ -75,6 +78,9 @@ df.groupby(["seasons"])[["precip"]].describe()
 |9|Oct|33.274|Fall|1.31|
 |10|Nov|35.306|Fall|1.39|
 |11|Dec|21.336|Winter|0.84|
+
+
+count	mean	std	min	25%	50%	75%	max
 
 ### Print a diagonal correlation matrix with seaborn
 ~~~
