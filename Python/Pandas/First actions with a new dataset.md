@@ -1,3 +1,30 @@
+### Import dependencies
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import requests
+
+# Import statistic library
+import scipy.stats as stats
+import scipy.stats as stats
+from scipy.stats import linregress
+
+# Import seaborn library to create figure
+import seaborn as sns
+
+import pprint
+import json
+from time import sleep
+from datetime import date
+import zipfile
+
+### Load the dataset
+~~~
+csvpath = os.path.join("..", "source_data", "detail_listings.zip")
+zf = zipfile.ZipFile(csvpath);
+df = pd.read_csv(zf.open('detail_listings.csv'), low_memory=False)
+~~~
+
 ### Metadata about the data (rows, columns, data types, etc)
 ~~~
 df.info() # Columns, metadata, memory usage
