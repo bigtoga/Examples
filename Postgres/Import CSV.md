@@ -1,3 +1,9 @@
+### Create the table during the import:
+~~~
+COPY table_name FROM '/path_to_csv_file.csv' DELIMITERS ',' CSV;
+~~~
+
+### Insert the data into an existing table
 ~~~
 
 CREATE TABLE public.address
