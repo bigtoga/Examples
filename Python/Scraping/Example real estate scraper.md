@@ -94,7 +94,21 @@ for page in range(0,900):
 
 print('You scraped {} pages containing {} properties.'.format(n_pages, len(titles)))
 
+cols = ['Title', 'Zone', 'Price', 'Size (m²)', 'Status', 'Description', 'Date', 'URL', 'Image']
 
+lisboa = pd.DataFrame({'Title': titles,
+                           'Price': prices,
+                           'Size (m²)': areas,
+                           'Zone': zone,
+                           'Date': created,
+                           'Status': condition,
+                           'Description': descriptions,
+                           'URL': urls,
+                           'Image': thumbnails})[cols]
+
+lisboa.to_excel('lisboa_raw.xls')
+
+# lisboa = pd.read_excel('lisboa_raw.xls')
 
 
 
