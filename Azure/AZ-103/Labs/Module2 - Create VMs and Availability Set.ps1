@@ -1,15 +1,11 @@
 # https://github.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/blob/master/Instructions/Labs/02a%20-%20Deploy%20and%20Manage%20Virtual%20Machines%20(az-100-03).md
 
+# Do manual portal part first
+
 # Sign in:
 # Disconnect-AzAccount
 Connect-AzAccount
 $context = (Get-AzContext | Select -ExpandProperty Account)
-
-$vmName = 'az1000301-vm1'
-$vmSize = 'Standard_DS2_v2'
-
-$resourceGroup = Get-AzResourceGroup -Name 'az1000301-RG'
-$location = $resourceGroup.Location
 
 $availabilitySet = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup.ResourceGroupName -Name 'az1000301-avset0'
 $vnet = Get-AzVirtualNetwork -Name 'az1000301-RG-vnet' -ResourceGroupName $resourceGroup.ResourceGroupName
