@@ -1,3 +1,6 @@
+# https://github.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/blob/master/Instructions/Labs/02a%20-%20Deploy%20and%20Manage%20Virtual%20Machines%20(az-100-03).md
+
+# In Git Bash, run with "sh Thisfile.sh"
 alias az=az.cmd 
 
 # Login!
