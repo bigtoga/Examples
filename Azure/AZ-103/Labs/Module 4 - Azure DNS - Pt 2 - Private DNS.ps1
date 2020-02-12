@@ -1,4 +1,3 @@
-~~~
 ####################################################################
 #
 # Part 2: Private Domains
@@ -32,4 +31,3 @@ $vnet2link = New-AzPrivateDnsVirtualNetworkLink -ZoneName $zone.Name -ResourceGr
   -Name "vnet2Link" -VirtualNetworkId $vnet2.id
   
 Get-AzPrivateDnsZone -ResourceGroupName $rg2.ResourceGroupName
-~~~
