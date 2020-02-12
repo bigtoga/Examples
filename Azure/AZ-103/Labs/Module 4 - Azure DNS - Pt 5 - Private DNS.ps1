@@ -1,5 +1,5 @@
 # RDP to az1000402b-vm2 and run:
-
+# This will fail from cloud shell b/c that's public cloud
 nslookup az1000402b-vm1.adatum.corp
 
 # Create www entry
