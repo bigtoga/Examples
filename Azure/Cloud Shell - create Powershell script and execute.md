@@ -3,7 +3,7 @@
 2. Launch the editor (the two curly braces)
 3. Write your script, save, and close the editor
 4. In Cloud Shell, execute "ls" - you will see your file. 
-  4.4. It's unusable as is though - you cannot execute it yet
+* * It's unusable as is though - you cannot execute it yet
 5. cd $HOME
 6. .\Myfile.ps1
 
