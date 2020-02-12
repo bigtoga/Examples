@@ -7,8 +7,9 @@ $vnet_rg2 = Get-AzVirtualNetwork -Name "az1010302b-vnet1" -ResourceGroupName $rg
 
 # From vnet_rg1 side: 
 $peering_name_rg1 = "az1010301b-vnet1-to-az1010302b-vnet2"
+
 Add-AzVirtualNetworkPeering `
-  -Name $peering_name_rg1
+  -Name $peering_name_rg1 `
   -VirtualNetwork $vnet_rg1 `
   -RemoteVirtualNetworkId $vnet_rg2.Id
   
