@@ -7,6 +7,7 @@ $rg2 = Get-AzResourceGroup -Name 'az1000402b-RG'
 $raw_deploy_file = "https://raw.githubusercontent.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/master/Allfiles/Labfiles/Module_04/Configure_Azure_DNS/az-100-04b_01_azuredeploy.json"
 $raw_params_file = "https://raw.githubusercontent.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/master/Allfiles/Labfiles/Module_04/Configure_Azure_DNS/az-100-04_azuredeploy.parameters.json"
 
+# Use "TemplateUri" and "TemplateParameterUri" when you want to deploy from https
 New-AzResourceGroupDeployment -ResourceGroupName $rg2.ResourceGroupName -TemplateUri $raw_deploy_file `
   -TemplateParameterUri $raw_params_file -AsJob
 
