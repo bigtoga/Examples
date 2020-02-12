@@ -18,3 +18,11 @@ $raw_params_file = "https://raw.githubusercontent.com/MicrosoftLearning/AZ-103-M
 $rg2 = New-AzResourceGroup -Name 'az1010302b-RG' -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $rg2.ResourceGroupName -TemplateUri $raw_deploy_file `
   -TemplateParameterUri $raw_params_file -AsJob
+
+#####################
+#                    ####################
+#                                        ####################
+# Go to "Task 3: Establish peering between Azure virtual networks" after this
+#                                        ####################
+#                    ####################
+#####################
