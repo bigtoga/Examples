@@ -2,7 +2,7 @@
 
 # I want to reference raw github file
 $location = "eastus"
-$rg1 = Net-AzResourceGroup -Name 'az1000401-RG' -Location $location
+$rg1 = New-AzResourceGroup -Name 'az1000401-RG' -Location $location
 
 $raw_deploy_file = "https://raw.githubusercontent.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/master/Allfiles/Labfiles/Module_05/VNet_Peering_and_Service_Chaining/az-100-04_01_azuredeploy.json"
 $raw_params_file = "https://raw.githubusercontent.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/master/Allfiles/Labfiles/Module_05/VNet_Peering_and_Service_Chaining/az-100-04_azuredeploy.parameters.json"
