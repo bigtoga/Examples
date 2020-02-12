@@ -2,8 +2,8 @@ $location = "eastus"
 $rg1 = Get-AzResourceGroup -Name 'az1010301b-RG' -Location $location
 $rg2 = Get-AzResourceGroup -Name 'az1010302b-RG' -Location $location
 
-$vnet_rg1 = Get-AzVirtualNetwork -Name "az1010301b-vnet1" -ResourceGroupName $rg1 
-$vnet_rg2 = Get-AzVirtualNetwork -Name "az1010302b-vnet1" -ResourceGroupName $rg2 
+$vnet_rg1 = Get-AzVirtualNetwork -Name "az1010301b-vnet1" -ResourceGroupName $rg1.ResourceGroupName 
+$vnet_rg2 = Get-AzVirtualNetwork -Name "az1010302b-vnet1" -ResourceGroupName $rg2.ResourceGroupName 
 
 # From vnet_rg1 side: 
 $peering_name_rg1 = "az1010301b-vnet1-to-az1010302b-vnet2"
@@ -14,7 +14,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $vnet_rg2.Id
   
 # PeeringState is now "Initiated" and will stay that way until you pair from the other side
-Get-AzVirtualNetworkPeering -Name $peering_name_rg1 -VirtualNetwork $vnet_rg1  -ResourceGroupName $rg1
+Get-AzVirtualNetworkPeering -Name $peering_name_rg1 -VirtualNetwork $vnet_rg1  -ResourceGroupName $rg1.ResourceGroupName
 
 # Powershell Documentation: https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-3.4.0#network_watcher
 
