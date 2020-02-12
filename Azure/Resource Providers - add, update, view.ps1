@@ -1,10 +1,15 @@
 # List all resource providers
 Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 
+# List all resources that are registered for your subscription:
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState `
+  | Where {$_.RegistrationState -eq "Registered" `
+  | Sort-Object -Property ProviderNamespace
+  
 # List Microsoft resources that are not yet registered for your subscription:
 Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState `
   | Where {$_.RegistrationState -eq "NotRegistered" -and $_.ProviderNamespace -like "Microsoft.*"} `
-  | Sort -Property ProviderNamespace
+  | Sort-Object -Property ProviderNamespace
 
 # Get a specific resource provider
 Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
