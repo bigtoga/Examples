@@ -1,4 +1,4 @@
-# the lab says to upload .json file and run New-AzResourceGroupDeployment -ResourceGroupName $rg2.ResourceGroupName -TemplateFile "./az-100-04b_01_azuredeploy.json" -TemplateParameterFile "./az-100-04_azuredeploy.parameters.json" -AsJob
+# https://github.com/MicrosoftLearning/AZ-103-MicrosoftAzureAdministrator/blob/master/Instructions/Labs/06%20-%20Azure%20Network%20Watcher%20(az-101-03b).md
 
 # I want to reference raw github file
 $location = "eastus"
