@@ -3,6 +3,8 @@
 nslookup az1000402b-vm1.adatum.corp
 
 # Create www entry
+$rg2 = Get-AzResourceGroup -Name 'az1000402b-RG' 
+
 New-AzPrivateDnsRecordSet -ResourceGroupName $rg2.ResourceGroupName -Name www -RecordType A `
   -ZoneName adatum.corp -Ttl 3600 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address "10.104.0.4")
 
