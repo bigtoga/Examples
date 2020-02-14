@@ -1,4 +1,3 @@
-~~~
 # Pandas
 import pandas as pd
 
@@ -16,4 +15,3 @@ data = pd.read_sql("SELECT * FROM Census_Data", conn)
 
 # Preview the Data
 data.head()
-~~~
