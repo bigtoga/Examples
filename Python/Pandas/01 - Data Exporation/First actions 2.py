@@ -60,7 +60,6 @@ for col in df.columns:
     print('{} - {}%'.format(col, round(pct_missing*100)))
 
 
-
 ######################################
 # Identify Missing Data Technique 3: Histogram  
 #     Use when there might be a lot of features
@@ -73,17 +72,15 @@ for col in df.columns:
     num_missing = np.sum(missing)
 
 ######################################
-    
-    if num_missing > 0:  
-        print('created missing indicator for: {}'.format(col))
-        df['{}_ismissing'.format(col)] = missing
+# 
+######################################
 
 
-# then based on the indicator, plot the histogram of missing values
-ismissing_cols = [col for col in df.columns if 'ismissing' in col]
-df['num_missing'] = df[ismissing_cols].sum(axis=1)
-
-df['num_missing'].value_counts().reset_index().sort_values(by='index').plot.bar(x='index', y='num_missing')
+######################################
+# 
+######################################
 
 
-
+######################################
+# 
+######################################
