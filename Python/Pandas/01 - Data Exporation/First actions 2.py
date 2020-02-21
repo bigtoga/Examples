@@ -103,14 +103,53 @@ df_less_hos_beds_raion = df.drop(cols_to_drop, axis=1)
 #    When to use: 
 ######################################
 
+### Single feature:
 # replace missing values with the median.
 med = df['life_sq'].median()
 print(med)
 df['life_sq'] = df['life_sq'].fillna(med)
 
+### All NUMERIC features at once:
+
+# impute the missing values and create the missing value indicator variables for each numeric column.
+df_numeric = df.select_dtypes(include=[np.number])
+numeric_cols = df_numeric.columns.values
+
+for col in numeric_cols:
+    missing = df[col].isnull()
+    num_missing = np.sum(missing)
+    
+    if num_missing > 0:  # only do the imputation for the columns that have missing values.
+        print('imputing missing values for: {}'.format(col))
+        df['{}_ismissing'.format(col)] = missing
+        med = df[col].median()
+        df[col] = df[col].fillna(med)
+
+### All CATEGORICAL features are once:
+
+# impute the missing values and create the missing value indicator variables for each non-numeric column.
+df_non_numeric = df.select_dtypes(exclude=[np.number])
+non_numeric_cols = df_non_numeric.columns.values
+
+for col in non_numeric_cols:
+    missing = df[col].isnull()
+    num_missing = np.sum(missing)
+    
+    if num_missing > 0:  # only do the imputation for the columns that have missing values.
+        print('imputing missing values for: {}'.format(col))
+        df['{}_ismissing'.format(col)] = missing
+        
+        top = df[col].describe()['top'] # impute with the most frequent value.
+        df[col] = df[col].fillna(top)
+
 ######################################
 # Missing Data Cleanup Techniques
-#    Technique #1:
-#    What it is: 
+#    Technique #4: Substitution 
+#    What it is: Group all missing Data for feature into one bucket
 #    When to use: 
 ######################################
+# categorical
+df['sub_area'] = df['sub_area'].fillna('_MISSING_')
+
+# numeric
+df['life_sq'] = df['life_sq'].fillna(-999)
