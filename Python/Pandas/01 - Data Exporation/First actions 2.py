@@ -82,21 +82,31 @@ for col in df.columns:
 ind_missing = df[df['num_missing'] > 35].index
 df_less_missing_rows = df.drop(ind_missing, axis=0)
 
-######################################
-# Missing Data Cleanup Techniques
-#    Technique #1: 
-#    What it is: 
-#    When to use: 
-######################################
-
 
 ######################################
 # Missing Data Cleanup Techniques
-#    Technique #1:
-#    What it is: 
+#    Technique #2: Drop features
+#    What it is: Drop entire column
+#    When to use: Feature may not be robust enough or have enough/any data
+######################################
+
+# hospital_beds_raion has a lot of missing.
+cols_to_drop = ['hospital_beds_raion']
+df_less_hos_beds_raion = df.drop(cols_to_drop, axis=1)
+
+######################################
+# Missing Data Cleanup Techniques
+#    Technique #3: Imputation (replacement)
+#    What it is: Replace missing row and/or feature values
+#       - Numeric features: replace missing with median or average values for the feature 
+#       - Categorical features: replace missing with the mode (most frequently occurring value)
 #    When to use: 
 ######################################
 
+# replace missing values with the median.
+med = df['life_sq'].median()
+print(med)
+df['life_sq'] = df['life_sq'].fillna(med)
 
 ######################################
 # Missing Data Cleanup Techniques
