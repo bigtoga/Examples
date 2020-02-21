@@ -72,15 +72,35 @@ for col in df.columns:
     num_missing = np.sum(missing)
 
 ######################################
-# 
+# Missing Data Cleanup Techniques
+#    Technique #1: Listwise Deletion
+#    What it is: Dropping entire rows
+#    When to use: When you are 100% sure you do not need this data/observation/row
+######################################
+# Decision: "Drop any rows that are missing 35 or more features (ie column values in that row)
+# drop rows with a lot of missing values.
+ind_missing = df[df['num_missing'] > 35].index
+df_less_missing_rows = df.drop(ind_missing, axis=0)
+
+######################################
+# Missing Data Cleanup Techniques
+#    Technique #1: 
+#    What it is: 
+#    When to use: 
 ######################################
 
 
 ######################################
-# 
+# Missing Data Cleanup Techniques
+#    Technique #1:
+#    What it is: 
+#    When to use: 
 ######################################
 
 
 ######################################
-# 
+# Missing Data Cleanup Techniques
+#    Technique #1:
+#    What it is: 
+#    When to use: 
 ######################################
