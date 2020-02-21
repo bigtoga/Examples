@@ -17,3 +17,11 @@ inspector.get_table_names()
 columns = inspector.get_columns('dow')
 for column in columns:
     print(column["name"], column["type"])
+
+# Multiple options for opening / referring to files:
+#Unix/Mac - 4 initial slashes in total
+# engine = create_engine('sqlite:////absolute/path/to/foo.db')
+#Windows
+# engine = create_engine('sqlite:///C:\\path\\to\\foo.db')
+#Windows alternative using raw string
+# engine = create_engine(r'sqlite:///C:\path\to\foo.db')
