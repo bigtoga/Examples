@@ -8,6 +8,6 @@ Bootstrap: https://getbootstrap.com
 3.            div class="row"
 4.             div class="col" (along with how many columns of the 12 flexbox model) it should take up
 
-The *row* is the 12-box system (not the container)
+So you have 1 container with n rows. In each row, you 1-12 columns (the flexbox model/grid system)
 
 Bootstratp 4, Font awesome = 4 - VS Code extension
