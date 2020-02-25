@@ -20,7 +20,7 @@ matplotlib.rcParams['figure.figsize'] = (12,8)
 pd.options.mode.chained_assignment = None
 
 ######################################
-# Import and explore the data
+# Import and explore the full dataset
 ######################################
 
 df = pd.read_csv('sberbank.csv')
@@ -28,6 +28,21 @@ df = pd.read_csv('sberbank.csv')
 # shape and data types of the data
 print(df.shape)
 print(df.dtypes)
+
+df.head()
+df.tail()
+df.sample() # random rows
+df.describe()
+
+# Which columns have nulls?
+df.isnull()
+
+# TChain sum() to get total number of nulls per column
+# easier - smaller set to look at
+df.isnull().sum()
+
+# And again to count total mum's in entire dataset
+df.isnull().sum().sum()
 
 # select numeric columns
 df_numeric = df.select_dtypes(include=[np.number])
@@ -38,6 +53,24 @@ print(numeric_cols)
 df_non_numeric = df.select_dtypes(exclude=[np.number])
 non_numeric_cols = df_non_numeric.columns.values
 print(non_numeric_cols)
+
+######################################
+# Column level exploration 
+#####################################
+df.describe("column_name")
+
+# Return 5 rows w smallest value 
+# SQL Top(5) Order by column_name
+df.nsmallest("column_name") 
+
+df.nlargest(5, column_name)
+
+# How many values exist in a column?
+# Group By w Count
+# Best for categorical 
+df["Cannes"].value_counts() # does not count null
+
+df["Cannes"].value_counts(dropna=false) # Counts nulls
 
 ######################################
 # Identify Missing Data Technique 1: Heatmap 
