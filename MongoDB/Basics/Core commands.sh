@@ -23,3 +23,7 @@ db.divers.insert({
 db.divers.updateMany({}, {$set: {"yearsDiving": 1}})
 
 db.divers.remove({"Country": "Canada"})
+
+# Delete database: 
+use ExistingDb
+db.dropDatabase()
