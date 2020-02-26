@@ -22,3 +22,4 @@ db.divers.insert({
 # Update same field in every document
 db.divers.updateMany({}, {$set: {"yearsDiving": 1}})
 
+db.divers.remove({"Country": "Canada"})
