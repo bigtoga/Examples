@@ -23,7 +23,7 @@ pd.options.mode.chained_assignment = None
 # Import and explore the full dataset
 ######################################
 
-df = pd.read_csv('sberbank.csv')
+df = pd.read_csv('sberbank.csv', encoding = "utf-8")
 
 # shape and data types of the data
 print(df.shape)
