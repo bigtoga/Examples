@@ -24,7 +24,11 @@ pd.options.mode.chained_assignment = None
 ######################################
 
 df = pd.read_csv('sberbank.csv')
+# , nrows=20
+# , skiprows=1000000
+
 # add , encoding = "utf-8") for unicode issues
+# or ,encoding='utf-8-sig'
 
 # If you get pink results with lots of "Skipping line 18367: expected 1 fields, saw 2"
 # add ", sep='\t')" if this is tab-delimited
