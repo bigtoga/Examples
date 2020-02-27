@@ -30,6 +30,9 @@ df = pd.read_csv('sberbank.csv')
 # add , encoding = "utf-8") for unicode issues
 # or ,encoding='utf-8-sig'
 
+# If you still have encoding issues, use "file" command in bash for the file - it will tell you what the file encoding is
+# Little-endian UTF-16 (UTF16) is funky and reads all rows 2x with NaN for all
+
 # If you get pink results with lots of "Skipping line 18367: expected 1 fields, saw 2"
 # add ", sep='\t')" if this is tab-delimited
 
