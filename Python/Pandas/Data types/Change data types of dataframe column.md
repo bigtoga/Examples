@@ -42,3 +42,15 @@ is_string_dtype(df['price'])
 is_numeric_dtype(df['price'])
 df["price"]
 ~~~
+### Erratic results w astype() but sometimes works
+~~~
+# df = df.astype({"a": int, "b": complex})
+df = df.astype({
+    'SR #': str
+    , 'Owner': str
+    , 'Area': str
+    , 'Status': str
+    , 'Urgency': str
+    , 'Requestor Last Name': str
+})
+~~~
