@@ -18,10 +18,12 @@ df = df.infer_objects()
 ### Convert all columns of DataFrame
 
 ~~~
-df = df.apply(pd.to_numeric) 
+# Convert all to string
+dfn = df.convert_dtypes()
 pd.to_numeric(df)
-df = df.astype(str)
 
+# Convert all to numbers
+df = df.apply(pd.to_numeric) 
 ~~~
 
 ### Convert specific columns:
