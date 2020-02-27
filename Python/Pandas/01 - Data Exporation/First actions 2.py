@@ -23,7 +23,9 @@ pd.options.mode.chained_assignment = None
 # Import and explore the full dataset
 ######################################
 
-df = pd.read_csv('sberbank.csv', encoding = "utf-8")
+df = pd.read_csv('sberbank.csv')
+# add , encoding = "utf-8") for unicode issues
+# add ", encoding='ISO-8859–1')" # If you get the  UnicodeDecodeError: 'utf-8' codec can't decode byte 0xba in position 16: invalid start byte
 
 # shape and data types of the data
 print(df.shape)
