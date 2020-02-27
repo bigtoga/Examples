@@ -12,6 +12,8 @@ pip uninstall pandas
 pip install pandas==0.25.3
 pip list
 
+python3 -m pip install --upgrade pandas
+
 ~~~
 
 To copy/paste into Git Bash, copy the text, and then hit the "Insert" key on your keyboard
