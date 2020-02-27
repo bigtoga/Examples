@@ -25,6 +25,10 @@ pd.options.mode.chained_assignment = None
 
 df = pd.read_csv('sberbank.csv')
 # add , encoding = "utf-8") for unicode issues
+
+# If you get pink results with lots of "Skipping line 18367: expected 1 fields, saw 2"
+# add ", sep='\t')" if this is tab-delimited
+
 # add ", encoding='ISO-8859–1')" # If you get the  UnicodeDecodeError: 'utf-8' codec can't decode byte 0xba in position 16: invalid start byte
 
 # shape and data types of the data
