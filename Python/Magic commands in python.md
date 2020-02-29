@@ -5,8 +5,13 @@
 * Magic commands - multiple syntaxes
 * Magic methods / functions
 
-# My favorites 
+# My favorites
+###Timing
 %timeit - runs timer over next single line of code. Can automatically run multiple iterations and provide aggregates at end
+
+%timeit numpy.random.normal(size=100)\
+The slowest run took 13.85 times longer than the fastest. This could mean that an intermediate result is being cached.
+100000 loops, best of 3: 6.35 µs per loop
 
 %%timeit - Same as %timeit but for the entire cell in a jupyter notebook
 
@@ -63,6 +68,26 @@ train_test_split??
 
 \# you can use ? to get details about magics\
 %pycat?
+
+\# View source code of a file w pycat\
+%pycat pythoncode.py
+
+### Saving python scripts
+~~~
+# Will save cell code as pythoncode.py
+%%writefile pythoncode.py
+
+import numpy
+def append_if_not_exists(arr, x):
+    if x not in arr:
+        arr.append(x)
+        
+def some_useless_slow_function():
+    arr = list()
+    for i in range(10000):
+        x = numpy.random.randint(0, 10000)
+        append_if_not_exists(arr, x)
+~~~
 
 
 # Help available
