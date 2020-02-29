@@ -1,7 +1,7 @@
 [Documentation on python magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html)
 
 # Python has lots of magic built in
-* Magic commands 
+* Magic commands - multiple syntaxes
 * Magic methods / functions
 
 # My favorites 
@@ -12,6 +12,35 @@
 %env - environment variables mgmt. Scope of environment variable is all notebooks running on the jupyter server
 * %env # no arguments = "list all environment variables in play"
 * %env NUM_PROCESSES = 2 # creates new variable
+
+### Suppressing output 
+**Semi-colon is an instruction to suppress last line output**
+It works w native python but some libraries do not honor
+
+x = 1 + 1\
+x; # Output suppressed 
+
+%matplotlib inline\
+from matplotlib import pyplot as plt\
+import numpy\
+x = numpy.linspace(0, 1, 1000)**1.5\
+plt.hist(x); # Output not suppressed w/ semicolon
+
+### Running shell commands
+You can run any shell command by preforming it with !
+* !pip install numpy
+* !pip list | grep Theano
+
+### View source code of method
+
+from sklearn.cross_validation import train_test_split
+
+Show the sources of train_test_split function in the pop-up window\
+train_test_split??
+
+\# you can use ? to get details about magics\
+%pycat?
+
 
 # Help available
 * %lsmagic - lists all magic commands and functions available 
