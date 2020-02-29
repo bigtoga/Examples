@@ -1,3 +1,4 @@
+[Source for most of this](http://arogozhnikov.github.io/2016/09/10/jupyter-features.html)\
 [Documentation on python magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html)
 
 # Python has lots of magic built in
@@ -9,14 +10,31 @@
 
 %%timeit - Same as %timeit but for the entire cell in a jupyter notebook
 
+### Passing data between notebooks 
 %env - environment variables mgmt. Scope of environment variable is all notebooks running on the jupyter server
 * %env # no arguments = "list all environment variables in play"
 * %env NUM_PROCESSES = 2 # creates new variable
+
+data = 'this is the string I want to pass to different notebook'\
+%store data\
+del data # deleted variable\
+Stored 'data' (str)\
+
+\# in second notebook I will use:\
+%store -r data\
+print data\
+this is the string I want to pass to different notebook
+
+%who allows you to see global variables\
+%who str \# lists all global string variables
 
 ### Re-using code from other scripts and notebooks 
 Can execute.py files or jupyter notebooks\
 \# this will execute all the code cells from different notebooks\
 %run ./2015-09-29-NumpyTipsAndTricks1.ipynb
+
+\%load will load script from external source into a cell
+\%load http://matplotlib.org/mpl_examples/pylab_examples/contour_demo.py
 
 ### Suppressing output 
 **Semi-colon is an instruction to suppress last line output**
