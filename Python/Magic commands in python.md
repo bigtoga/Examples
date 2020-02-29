@@ -1,4 +1,5 @@
 [Source for most of this](http://arogozhnikov.github.io/2016/09/10/jupyter-features.html)\
+[Another great resource I used](https://blog.dominodatalab.com/lesser-known-ways-of-using-notebooks/)
 [Documentation on python magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html)
 
 # Python has lots of magic built in
@@ -7,6 +8,8 @@
 
 # My favorites
 ###Timing
+%time - times whatever you have
+
 %timeit - runs timer over next single line of code. Can automatically run multiple iterations and provide aggregates at end
 
 %timeit numpy.random.normal(size=100)\
@@ -58,6 +61,19 @@ plt.hist(x); # Output not suppressed w/ semicolon
 You can run any shell command by preforming it with !
 * !pip install numpy
 * !pip list | grep Theano
+
+### Charting and plotting
+
+%matplotlib inline \# to show matplotlib plots inline the notebook.
+
+### Misc
+%pastebin 'file.py' to upload code to pastebin and get the url returned.
+
+%bash to run cell with bash in a subprocess.
+
+%%latex to render cell contents as LaTeX (math)
+
+%%HTML - renders cell as HTML
 
 ### View source code of method
 
