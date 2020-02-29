@@ -13,6 +13,11 @@
 * %env # no arguments = "list all environment variables in play"
 * %env NUM_PROCESSES = 2 # creates new variable
 
+### Re-using code from other scripts and notebooks 
+Can execute.py files or jupyter notebooks\
+\# this will execute all the code cells from different notebooks\
+%run ./2015-09-29-NumpyTipsAndTricks1.ipynb
+
 ### Suppressing output 
 **Semi-colon is an instruction to suppress last line output**
 It works w native python but some libraries do not honor
