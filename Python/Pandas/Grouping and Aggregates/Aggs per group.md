@@ -24,3 +24,18 @@ aggs = df.groupby(["ClosedMonth", "Owner"]).agg({
 })
 aggs
 ~~~
+
+~~~
+aggs = df.groupby(["ClosedMonth", "Owner"]).agg({
+        'DaysOpen': [
+            np.count_nonzero
+            , np.mean
+            , np.median
+            , np.var
+            , np.std
+        ]
+}).reset_index() # Gets rid of auto aggregation/hierarchy
+aggs
+# aggs = aggs.to_frame()
+# aggs = aggs.reset_index(level=['ClosedMonth', 'Owner'])
+~~~
