@@ -191,4 +191,58 @@ df.head().style.format(format_dict).bar(color='red', subset=['data science', 'de
 df.head(10).style.format(format_dict).background_gradient(
 	subset=['data science', 'machine learning'], cmap='BuGn').highlight_max(color='yellow')
 
-# Continue to "Missing Data - Find and Fix.py"
+######################################
+# Aggregations
+######################################
+
+# Group data by features and summarize  
+df.groupby(["ClosedYear"])[["Owner"]].describe()
+
+aggs = df.groupby(["ClosedMonth", "Owner"]).agg({
+        'DaysOpen': [
+            np.count_nonzero
+            , np.mean
+            , np.median
+            , np.var
+            , np.std
+        ]
+        , 'MinutesOpen': [
+            np.mean
+        ]
+}).reset_index() # Gets rid of auto aggregation/hierarchy
+aggs
+# aggs = aggs.to_frame()
+# aggs = aggs.reset_index(level=['ClosedMonth', 'Owner'])
+aggs.to_csv(r'PandasSiebel.csv')
+
+######################################
+# Charting
+######################################
+
+aggs.hist()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
