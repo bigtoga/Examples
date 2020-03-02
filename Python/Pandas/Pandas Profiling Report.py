@@ -8,4 +8,9 @@ df = pd.DataFrame(
 )
 
 profile = ProfileReport(df, title='Pandas Profiling Report', html={'style':{'full_width':True}})
+
+# Create a tabbed "application" style report
 profile.to_widgets()
+
+# A more SPA style report
+profile.to_notebook_iframe()
