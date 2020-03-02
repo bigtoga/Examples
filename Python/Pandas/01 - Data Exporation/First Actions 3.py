@@ -39,14 +39,20 @@ df = pd.read_csv('sberbank.csv')
 
 # add ", encoding='ISO-8859–1')" # If you get the  UnicodeDecodeError: 'utf-8' codec can't decode byte 0xba in position 16: invalid start byte
 
+######################################
+# Dataset overview
+######################################
 # shape and data types of the data
 print(df.shape)
 print(df.dtypes)
 
+# List columns, # of rows w non-null in each column, column data types 
+df.info()
+df.describe()
+
 df.head()
 df.tail()
 df.sample() # random rows
-df.describe()
 
 # Which columns have nulls?
 df.isnull()
@@ -55,18 +61,8 @@ df.isnull()
 # easier - smaller set to look at
 df.isnull().sum()
 
-# And again to count total mum's in entire dataset
+# And again to count total num's in entire dataset
 df.isnull().sum().sum()
-
-# select numeric columns
-df_numeric = df.select_dtypes(include=[np.number])
-numeric_cols = df_numeric.columns.values
-print(numeric_cols)
-
-# select non numeric / categorical columns
-df_non_numeric = df.select_dtypes(exclude=[np.number])
-non_numeric_cols = df_non_numeric.columns.values
-print(non_numeric_cols)
 
 ######################################
 # Column level exploration 
@@ -86,117 +82,113 @@ df["Cannes"].value_counts() # does not count null
 
 df["Cannes"].value_counts(dropna=false) # Counts nulls
 
-######################################
-# Identify Missing Data Technique 1: Heatmap 
-#    Use when there are relatively few features 
-######################################
-
-cols = df.columns[:30] # first 30 columns
-colours = ['#000099', '#ffff00'] # specify the colours - yellow is missing. blue is not missing.
-sns.heatmap(df[cols].isnull(), cmap=sns.color_palette(colours))
-
-
-######################################
-# Identify Missing Data Technique 2: Percentages 
-#     Use when there might be a lot of features
-#     Use when large dataset   
-######################################
-# % of missing.
-for col in df.columns:
-    pct_missing = np.mean(df[col].isnull())
-    print('{} - {}%'.format(col, round(pct_missing*100)))
-
-
-######################################
-# Identify Missing Data Technique 3: Histogram  
-#     Use when there might be a lot of features
-#     Use when large dataset   
-######################################
-
-# first create missing indicator for features with missing data
-for col in df.columns:
-    missing = df[col].isnull()
-    num_missing = np.sum(missing)
-
-######################################
-# Missing Data Cleanup Techniques
-#    Technique #1: Listwise Deletion
-#    What it is: Dropping entire rows
-#    When to use: When you are 100% sure you do not need this data/observation/row
-######################################
-# Decision: "Drop any rows that are missing 35 or more features (ie column values in that row)
-# drop rows with a lot of missing values.
-ind_missing = df[df['num_missing'] > 35].index
-df_less_missing_rows = df.drop(ind_missing, axis=0)
-
-
-######################################
-# Missing Data Cleanup Techniques
-#    Technique #2: Drop features
-#    What it is: Drop entire column
-#    When to use: Feature may not be robust enough or have enough/any data
-######################################
-
-# hospital_beds_raion has a lot of missing.
-cols_to_drop = ['hospital_beds_raion']
-df_less_hos_beds_raion = df.drop(cols_to_drop, axis=1)
-
-######################################
-# Missing Data Cleanup Techniques
-#    Technique #3: Imputation (replacement)
-#    What it is: Replace missing row and/or feature values
-#       - Numeric features: replace missing with median or average values for the feature 
-#       - Categorical features: replace missing with the mode (most frequently occurring value)
-#    When to use: 
-######################################
-
-### Single feature:
-# replace missing values with the median.
-med = df['life_sq'].median()
-print(med)
-df['life_sq'] = df['life_sq'].fillna(med)
-
-### All NUMERIC features at once:
-
-# impute the missing values and create the missing value indicator variables for each numeric column.
+# select numeric columns
 df_numeric = df.select_dtypes(include=[np.number])
 numeric_cols = df_numeric.columns.values
+print(numeric_cols)
 
-for col in numeric_cols:
-    missing = df[col].isnull()
-    num_missing = np.sum(missing)
-    
-    if num_missing > 0:  # only do the imputation for the columns that have missing values.
-        print('imputing missing values for: {}'.format(col))
-        df['{}_ismissing'.format(col)] = missing
-        med = df[col].median()
-        df[col] = df[col].fillna(med)
-
-### All CATEGORICAL features are once:
-
-# impute the missing values and create the missing value indicator variables for each non-numeric column.
+# select non numeric / categorical columns
 df_non_numeric = df.select_dtypes(exclude=[np.number])
 non_numeric_cols = df_non_numeric.columns.values
-
-for col in non_numeric_cols:
-    missing = df[col].isnull()
-    num_missing = np.sum(missing)
-    
-    if num_missing > 0:  # only do the imputation for the columns that have missing values.
-        print('imputing missing values for: {}'.format(col))
-        df['{}_ismissing'.format(col)] = missing
-        
-        top = df[col].describe()['top'] # impute with the most frequent value.
-        df[col] = df[col].fillna(top)
+print(non_numeric_cols)
 
 ######################################
-# Missing Data Cleanup Techniques
-#    Technique #4: Substitution 
-#    What it is: Group all missing Data for feature into one bucket
-#    When to use: 
-######################################
-# categorical
-df['sub_area'] = df['sub_area'].fillna('_MISSING_')
+# Change any data type issues
+#####################################
+# Reminder: "object" is string - str / string data types weren't introduced until 1.0
 
-# numeric
-df['life_sq'] = df['life_sq'].fillna(-999)
+# Convert categorical data to string
+# df = df.astype({"a": int, "b": str})
+
+# Pandas 1.0+ 
+#df = df.convert_dtypes()
+
+# Convert to datetime
+# df['Created']= pd.to_datetime(df['Created']) 
+
+######################################
+# Add additional time hierarchies
+#####################################
+# Add year 
+df['ClosedYear'] = pd.DatetimeIndex(df['Closed Date']).year
+
+# Add feature for YYYY-MM
+df['ClosedMonth'] = df['Closed Date'].dt.to_period('M')
+
+# Add feature for week 
+df['ClosedWeek'] = df['Closed Date'].dt.to_period(freq = 'W')  
+
+df['ClosedQuarter'] = pd.PeriodIndex(df['Closed Date'], freq='Q-MAR').strftime('Q%q') # Q1
+df['ClosedQtr'] = pd.PeriodIndex(df['Closed Date'], freq='Q') # 2017Q1
+
+df['ClosedDayOfWeek'] = df['Closed Date'].dt.dayofweek # 0 = Sunday 
+df['ClosedDay'] = df['Closed Date'].dt.day_name()
+df['Closed_IsWeekend'] = np.where(df['ClosedDay'].isin(['Saturday', 'Sunday']), 1, 0) # Add a boolean column 
+
+######################################
+# View a report 
+#####################################
+# pip install pandas-profiling - careful, will uninstall pandas versions newer than 0.25.3 and install latest 
+# pip install https://github.com/pandas-profiling/pandas-profiling/archive/master.zip
+pandas_profiling.ProfileReport(df)
+
+profile = ProfileReport(df, title='Pandas Profiling Report', html={'style':{'full_width':True}})
+
+# Application style report w tabs
+profile.to_widgets()
+
+# SPA style report 
+profile.to_notebook_iframe()
+
+######################################
+# See if you can identify any correlations
+#####################################
+df.corr()
+
+
+######################################
+# Make the data more legible and human-readable 
+#####################################
+# Define a format dictionary so that the numbers are shown in a legible way (with a certain number of decimals, date and hour in a relevant format, with a percentage, with a currency, …) 
+# 	- this only changes the display and does not change the underlying data 
+
+# 
+format_dict = {
+	'OrderAmount':'${0:,.2f}'
+	, 'CreateDate':'{:%m-%Y}'
+    , 'ShipDate':'{:%Y-%m-%d}'
+	, 'NumericValue':'{:.2%}'
+}
+
+# Apply the style to the visualization
+df.head().style.format(format_dict)
+
+# Simplify - remove hours/minutes
+format_dict = {
+	'CreateDate':'{:%m-%Y}' #Simplified format dictionary with values that do make sense for our data
+}
+
+######################################
+# Initial visualizations (FYI these work best with mostly numeric data)
+#####################################
+# highlight maximum and minimum values with colours.
+df.head().style.format(format_dict).highlight_max(color='darkgreen').highlight_min(color='#ff0000')
+
+df.head().style.format(format_dict).bar(color='red', subset=['data science', 'deep learning'])
+# Change to a color gradient style for categorical columns
+df.head(10).style.format(format_dict).background_gradient(
+	subset=[
+		'data science'
+		, 'machine learning'
+	]
+	, cmap='BuGn'
+)
+
+# Show data values in bars (data bars)
+df.head().style.format(format_dict).bar(color='red', subset=['data science', 'deep learning'])
+
+# Combine the previous 
+df.head(10).style.format(format_dict).background_gradient(
+	subset=['data science', 'machine learning'], cmap='BuGn').highlight_max(color='yellow')
+
+# Continue to "Missing Data - Find and Fix.py"
