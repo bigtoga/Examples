@@ -1,0 +1,90 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "settings": [
+                        {
+                            "name": "msft-hub-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "firewall",
+                                    "addressPrefix": "10.0.1.0/24"
+                                },
+                                {
+                                    "name": "mgmt",
+                                    "addressPrefix": "10.0.2.0/24"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-spoke1-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": true,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "tags": {
+                                "department": "Central IT",
+                                "managedBy": "Admins"
+                            }
+                        },
+                        {
+                            "name": "msft-spoke1-vnet",
+                            "addressPrefixes": [
+                                "10.1.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "web",
+                                    "addressPrefix": "10.1.1.0/24"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-hub-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "tags": {
+                                "department": "HR",
+                                "managedBy": "DevOps"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 1,
+                        "osType": "windows",
+                        "namePrefix": "jb",
+                        "adminUsername": "tutorialAdmin",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "mgmt",
+                                "isPublic": true
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "name": "msft-hub-vnet"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

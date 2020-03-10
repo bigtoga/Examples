@@ -1,0 +1,97 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "settings": [
+                        {
+                            "name": "msft-hub-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "firewall",
+                                    "addressPrefix": "10.0.1.0/24"
+                                },
+                                {
+                                    "name": "ad",
+                                    "addressPrefix": "10.0.2.0/24"
+                                },
+                                {
+                                    "name": "mgmt",
+                                    "addressPrefix": "10.0.3.0/24"
+                                },                                
+                                {
+                                    "name": "GatewaySubnet",
+                                    "addressPrefix": "10.0.0.0/27"
+                                }
+                            ],
+                            "dnsServers": [
+                                "10.0.2.4",
+                                "10.0.2.5",
+                                "168.63.129.16"
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-spoke1-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": true,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "tags": {
+                                "department": "Central IT",
+                                "managedBy": "Admins"
+                            }
+                        },
+                        {
+                            "name": "msft-spoke1-vnet",
+                            "addressPrefixes": [
+                                "10.1.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "web",
+                                    "addressPrefix": "10.1.1.0/24"
+                                },
+                                {
+                                    "name": "biz",
+                                    "addressPrefix": "10.1.2.0/24"
+                                },
+                                {
+                                    "name": "data",
+                                    "addressPrefix": "10.1.3.0/24"
+                                }                                
+                            ],
+                            "dnsServers": [
+                                "10.0.2.4",
+                                "10.0.2.5",
+                                "168.63.129.16"
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-hub-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "tags": {
+                                "department": "HR",
+                                "managedBy": "DevOps"
+                            }                            
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

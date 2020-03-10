@@ -1,0 +1,35 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "osType": "linux",
+                        "namePrefix": "lin-kv",
+                        "adminPassword": {
+                            "reference": {
+                                "keyVault": {
+                                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resource-group-name/providers/Microsoft.KeyVault/vaults/kv-name"
+                                },
+                                "secretName": "adminPassword"
+                            }
+                        },
+                        "nics": [
+                            {
+                                "subnetName": "web",
+                                "isPublic": true
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "name": "vnet-rg1-centralus"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

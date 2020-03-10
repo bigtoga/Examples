@@ -1,0 +1,84 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deploymentContext": {
+            "type": "object"
+        },
+        "source": {
+            "type": "object"
+        }
+    },
+    "variables": {
+        "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('source'))))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-', parameters('source').name, '-ref-', variables('templateUniqueString'))]",
+            "resourceGroup": "[parameters('source').resourceGroupName]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "resources": [
+                    ],
+                    "outputs": {
+                        "diskEncryptionKeyUrl": {
+                            "type": "string",
+                            "value": "[reference(resourceId('Microsoft.Compute/virtualMachines/extensions',  parameters('source').name, parameters('source').encryptionSettings.extensionName), '2016-04-30-preview').instanceView.statuses[0].message]"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-', parameters('source').name, '-encrypt-', variables('templateUniqueString'))]",
+            "resourceGroup": "[parameters('source').resourceGroupName]",
+            "dependsOn": [
+                "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-', parameters('source').name, '-ref-', variables('templateUniqueString'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "resources": [
+                        {
+                            "apiVersion": "2016-04-30-preview",
+                            "type": "Microsoft.Compute/virtualMachines",
+                            "name": "[parameters('source').name]",
+                            "location": "[parameters('source').location]",
+                            "properties": {
+                                "storageProfile": {
+                                    "osDisk": {
+                                        "encryptionSettings": {
+                                            "diskEncryptionKey": {
+                                                "sourceVault": {
+                                                    "id": "[parameters('source').encryptionSettings.diskEncryptionKeyVault]"
+                                                },
+                                                "secretUrl": "[reference(concat(parameters('deploymentContext').parentTemplateUniqueString, '-', parameters('source').name, '-ref-', variables('templateUniqueString'))).outputs.diskEncryptionKeyUrl.value]"
+                                            },
+                                            "keyEncryptionKey": {
+                                                "sourceVault": {
+                                                    "id": "[parameters('source').encryptionSettings.keyEncryptionKeyVault]"
+                                                },
+                                                "keyUrl": "[parameters('source').encryptionSettings.keyEncryptionKeyUrl]"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

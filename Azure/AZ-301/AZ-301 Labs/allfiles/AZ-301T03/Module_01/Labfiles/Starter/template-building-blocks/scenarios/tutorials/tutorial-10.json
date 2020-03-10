@@ -1,0 +1,927 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "settings": [
+                        {
+                            "name": "msft-hub-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "firewall",
+                                    "addressPrefix": "10.0.1.0/24"
+                                },
+                                {
+                                    "name": "mgmt",
+                                    "addressPrefix": "10.0.2.0/24"
+                                },
+                                {
+                                    "name": "ad",
+                                    "addressPrefix": "10.0.3.0/24"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-spoke1-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": true,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "dnsServers": [
+                                "10.0.3.4",
+                                "10.0.3.5",
+                                "168.63.129.16"
+                            ],
+                            "tags": {
+                                "department": "Central IT",
+                                "managedBy": "Admins"
+                            }
+                        },
+                        {
+                            "name": "msft-spoke1-vnet",
+                            "addressPrefixes": [
+                                "10.1.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "web",
+                                    "addressPrefix": "10.1.1.0/24"
+                                },
+                                {
+                                    "name": "biz",
+                                    "addressPrefix": "10.1.2.0/24"
+                                },
+                                {
+                                    "name": "sql",
+                                    "addressPrefix": "10.1.3.0/24"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-hub-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "dnsServers": [
+                                "10.0.3.4",
+                                "10.0.3.5",
+                                "168.63.129.16"
+                            ],
+                            "tags": {
+                                "department": "HR",
+                                "managedBy": "DevOps"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "osType": "windows",
+                        "namePrefix": "jb",
+                        "adminUsername": "tutorialAdmin",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "mgmt",
+                                "isPublic": false,
+                                "backendPoolNames": [
+                                    "BackendPool1"
+                                ],
+                                "inboundNatRulesNames": [
+                                    "RDP-VM"
+                                ]
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "name": "msft-hub-vnet"
+                        },
+                        "loadBalancerSettings": {
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "LoadBalancerFrontEnd",
+                                    "loadBalancerType": "Public"
+                                }
+                            ],
+                            "backendPools": [
+                                {
+                                    "name": "BackendPool1",
+                                    "nicIndex": 0
+                                }
+                            ],
+                            "inboundNatRules": [
+                                {
+                                    "name": "RDP-VM",
+                                    "frontendIPConfigurationName": "LoadBalancerFrontEnd",
+                                    "protocol": "Tcp",
+                                    "startingFrontendPort": 50001,
+                                    "backendPort": 3389,
+                                    "enableFloatingIP": false
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "osType": "windows",
+                        "namePrefix": "ad",
+                        "adminUsername": "tutorialAdmin",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "ad",
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.0.3.4"
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "name": "msft-hub-vnet"
+                        },
+                        "imageReference": {
+                            "publisher": "MicrosoftWindowsServer",
+                            "offer": "WindowsServer",
+                            "sku": "2012-R2-Datacenter",
+                            "version": "latest"
+                        },
+                        "dataDisks": {
+                            "count": 1,
+                            "diskSizeGB": 127,
+                            "caching": "None",
+                            "createOption": "empty"
+                        }
+                    }
+                },
+                {
+                    "type": "VirtualMachineExtension",
+                    "settings": [
+                        {
+                            "vms": [
+                                "ad-vm1"
+                            ],
+                            "extensions": [
+                                {
+                                    "name": "install-adds-forest",
+                                    "publisher": "Microsoft.Compute",
+                                    "type": "CustomScriptExtension",
+                                    "typeHandlerVersion": "1.8",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "fileUris": [
+                                            "https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-extend-domain/extensions/adds-forest.ps1"
+                                        ]
+                                    },
+                                    "protectedSettings": {
+                                        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File adds-forest.ps1 -DomainName contoso.com -DomainNetbiosName contoso -SafeModePassword Saf3M0de@PW"
+                                    }
+                                },
+                                {
+                                    "name": "install-adds-forest",
+                                    "publisher": "Microsoft.Compute",
+                                    "type": "CustomScriptExtension",
+                                    "typeHandlerVersion": "1.8",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "fileUris": [
+                                            "https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-extend-domain/extensions/adds-replication-site.ps1"
+                                        ]
+                                    },
+                                    "protectedSettings": {
+                                        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File adds-replication-site.ps1 -DomainName contoso.com -AdminUser tutorialAdmin -AdminPassword testPassw0rd!23 -SiteName Azbb-Tutorial-Site -OnPremsiteName Default-First-Site-Name -Cidr 10.0.0.0/16 -ReplicationFrequency 10"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachineExtension",
+                    "settings": [
+                        {
+                            "vms": [
+                                "ad-vm2"
+                            ],
+                            "extensions": [
+                                {
+                                    "name": "join-ad-domain",
+                                    "publisher": "Microsoft.Compute",
+                                    "type": "JsonADDomainExtension",
+                                    "typeHandlerVersion": "1.3",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "Name": "contoso.com",
+                                        "OUPath": "",
+                                        "User": "contoso.com\\tutorialAdmin",
+                                        "Restart": true,
+                                        "Options": 3
+                                    },
+                                    "protectedSettings": {
+                                        "Password": "testPassw0rd!23"
+                                    }
+                                },
+                                {
+                                    "name": "install-adds",
+                                    "publisher": "Microsoft.Compute",
+                                    "type": "CustomScriptExtension",
+                                    "typeHandlerVersion": "1.8",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "fileUris": [
+                                            "https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-extend-domain/extensions/adds.ps1"
+                                        ]
+                                    },
+                                    "protectedSettings": {
+                                        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File adds.ps1 -DomainName contoso.com -DomainNetbiosName contoso -SafeModePassword Saf3M0de@PW -AdminUser tutorialAdmin -AdminPassword testPassw0rd!23 -SiteName Default-First-Site-Name"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualNetwork",
+                    "settings": [
+                        {
+                            "name": "msft-hub-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "firewall",
+                                    "addressPrefix": "10.0.1.0/24"
+                                },
+                                {
+                                    "name": "mgmt",
+                                    "addressPrefix": "10.0.2.0/24"
+                                },
+                                {
+                                    "name": "ad",
+                                    "addressPrefix": "10.0.3.0/24"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-spoke1-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": true,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "dnsServers": [
+                                "10.0.3.4",
+                                "10.0.3.5"
+                            ],
+                            "tags": {
+                                "department": "Central IT",
+                                "managedBy": "Admins"
+                            }
+                        },
+                        {
+                            "name": "msft-spoke1-vnet",
+                            "addressPrefixes": [
+                                "10.1.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "web",
+                                    "addressPrefix": "10.1.1.0/24"
+                                },
+                                {
+                                    "name": "biz",
+                                    "addressPrefix": "10.1.2.0/24"
+                                },
+                                {
+                                    "name": "sql",
+                                    "addressPrefix": "10.1.3.0/24"
+                                }
+                            ],
+                            "virtualNetworkPeerings": [
+                                {
+                                    "remoteVirtualNetwork": {
+                                        "name": "msft-hub-vnet"
+                                    },
+                                    "allowForwardedTraffic": true,
+                                    "allowGatewayTransit": false,
+                                    "useRemoteGateways": false
+                                }
+                            ],
+                            "dnsServers": [
+                                "10.0.3.4",
+                                "10.0.3.5"
+                            ],
+                            "tags": {
+                                "department": "HR",
+                                "managedBy": "DevOps"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "sql",
+                        "size": "Standard_DS3_v2",
+                        "computerNamePrefix": "sql",
+                        "adminUsername": "tutorialAdmin",
+                        "adminPassword": "testPassw0rd!23",
+                        "osType": "windows",
+                        "imageReference": {
+                            "offer": "SQL2016-WS2012R2",
+                            "publisher": "MicrosoftSQLServer",
+                            "sku": "Enterprise",
+                            "version": "latest"
+                        },
+                        "dataDisks": {
+                            "count": 2,
+                            "properties": {
+                                "diskSizeGB": 1000,
+                                "caching": "None",
+                                "createOption": "empty"
+                            }
+                        },
+                        "virtualNetwork": {
+                            "name": "msft-spoke1-vnet"
+                        },
+                        "storageAccounts": {
+                            "count": 2,
+                            "managed": true
+                        },
+                        "diagnosticStorageAccounts": {
+                            "count": 1,
+                            "encryptBlobStorage": true,
+                            "encryptFileStorage": true
+                        },
+                        "nics": [
+                            {
+                                "isPrimary": true,
+                                "isPublic": false,
+                                "subnetName": "sql",
+                                "privateIPAllocationMethod": "Dynamic",
+                                "dnsServers": [
+                                    "10.0.3.4",
+                                    "10.0.3.5"
+                                ],
+                                "backendPoolsNames": [
+                                    "lbbep1"
+                                ]
+                            }
+                        ],
+                        "loadBalancerSettings": {
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "lbfe1",
+                                    "loadBalancerType": "Internal",
+                                    "internalLoadBalancerSettings": {
+                                        "privateIPAddress": "10.1.3.4",
+                                        "subnetName": "sql"
+                                    }
+                                }
+                            ],
+                            "loadBalancingRules": [
+                                {
+                                    "name": "SQLAlwaysOnEndPointListener",
+                                    "frontendPort": 1433,
+                                    "backendPort": 1433,
+                                    "protocol": "Tcp",
+                                    "backendPoolName": "lbbep1",
+                                    "frontendIPConfigurationName": "lbfe1",
+                                    "enableFloatingIP": false,
+                                    "probeName": "lbp1"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "lbp1",
+                                    "port": 59999,
+                                    "protocol": "Tcp",
+                                    "requestPath": null
+                                }
+                            ],
+                            "backendPools": [
+                                {
+                                    "name": "lbbep1",
+                                    "nicIndex": 0
+                                }
+                            ],
+                            "inboundNatRules": []
+                        },
+                        "extensions": [
+                            {
+                                "name": "join-ad-domain",
+                                "publisher": "Microsoft.Compute",
+                                "type": "JsonADDomainExtension",
+                                "typeHandlerVersion": "1.3",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "Name": "contoso.com",
+                                    "OUPath": "",
+                                    "User": "contoso.com\\tutorialAdmin",
+                                    "Restart": true,
+                                    "Options": 3
+                                },
+                                "protectedSettings": {
+                                    "Password": "testPassw0rd!23"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 1,
+                        "namePrefix": "fsw",
+                        "size": "Standard_DS1_v2",
+                        "computerNamePrefix": "fsw",
+                        "adminUsername": "tutorialAdmin",
+                        "adminPassword": "testPassw0rd!23",
+                        "osType": "windows",
+                        "virtualNetwork": {
+                            "name": "msft-spoke1-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "isPrimary": true,
+                                "subnetName": "sql",
+                                "privateIPAllocationMethod": "Dynamic",
+                                "dnsServers": [
+                                    "10.0.3.4",
+                                    "10.0.3.5"
+                                ]
+                            }
+                        ],
+                        "dataDisks": {
+                            "count": 1,
+                            "properties": {
+                                "diskSizeGB": 128,
+                                "caching": "None",
+                                "createOption": "empty"
+                            }
+                        },
+                        "extensions": [
+                            {
+                                "name": "join-ad-domain",
+                                "publisher": "Microsoft.Compute",
+                                "type": "JsonADDomainExtension",
+                                "typeHandlerVersion": "1.3",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "Name": "contoso.com",
+                                    "OUPath": "",
+                                    "User": "contoso.com\\tutorialAdmin",
+                                    "Restart": true,
+                                    "Options": 3
+                                },
+                                "protectedSettings": {
+                                    "Password": "testPassw0rd!23"
+                                }
+                            },
+                            {
+                                "name": "createFileShareWitness",
+                                "publisher": "Microsoft.Powershell",
+                                "type": "DSC",
+                                "typeHandlerVersion": "2.16",
+                                "autoUpgradeMinorVersion": false,
+                                "settings": {
+                                    "modulesURL": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/virtual-machines/n-tier-windows/extensions/CreateFileShareWitness.ps1.zip",
+                                    "configurationFunction": "CreateFileShareWitness.ps1\\CreateFileShareWitness",
+                                    "properties": {
+                                        "domainName": "contoso.com",
+                                        "SharePath": "sql-fs",
+                                        "adminCreds": {
+                                            "userName": "tutorialAdmin",
+                                            "password": "privateSettingsRef:adminPassword"
+                                        }
+                                    }
+                                },
+                                "protectedSettings": {
+                                    "items": {
+                                        "adminPassword": "testPassw0rd!23"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "VirtualMachineExtension",
+                    "settings": [
+                        {
+                            "vms": [
+                                "sql-vm1",
+                                "sql-vm2"
+                            ],
+                            "extensions": [
+                                {
+                                    "name": "SqlVmIaasExtension",
+                                    "type": "SqlIaaSAgent",
+                                    "publisher": "Microsoft.SqlServer.Management",
+                                    "typeHandlerVersion": "1.2",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "AutoTelemetrySettings": {
+                                            "Region": "West US 2"
+                                        },
+                                        "AutoPatchingSettings": {
+                                            "PatchCategory": "WindowsMandatoryUpdates",
+                                            "Enable": true,
+                                            "DayOfWeek": "Sunday",
+                                            "MaintenanceWindowStartingHour": "12",
+                                            "MaintenanceWindowDuration": "60"
+                                        },
+                                        "AutoBackupSettings": {
+                                            "Enable": false,
+                                            "RetentionPeriod": "30",
+                                            "EnableEncryption": false
+                                        }
+                                    },
+                                    "protectedSettings": {}
+                                }
+                            ]
+                        },
+                        {
+                            "vms": [
+                                "sql-vm1"
+                            ],
+                            "extensions": [
+                                {
+                                    "name": "sqlAOPrepare",
+                                    "publisher": "Microsoft.Powershell",
+                                    "type": "DSC",
+                                    "typeHandlerVersion": "2.19",
+                                    "autoUpgradeMinorVersion": false,
+                                    "settings": {
+                                        "modulesURL": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/virtual-machines/n-tier-windows/extensions/PrepareAlwaysOnSqlServer.ps1.zip",
+                                        "configurationFunction": "PrepareAlwaysOnSqlServer.ps1\\PrepareAlwaysOnSqlServer",
+                                        "properties": {
+                                            "domainName": "contoso.com",
+                                            "sqlAlwaysOnEndpointName": "ra-ntier-sql-hadr",
+                                            "adminCreds": {
+                                                "userName": "tutorialAdmin",
+                                                "password": "privateSettingsRef:adminPassword"
+                                            },
+                                            "sqlServiceCreds": {
+                                                "userName": "sqlservicetestuser",
+                                                "password": "privateSettingsRef:sqlServerServiceAccountPassword"
+                                            },
+                                            "NumberOfDisks": "2",
+                                            "WorkloadType": "GENERAL"
+                                        }
+                                    },
+                                    "protectedSettings": {
+                                        "items": {
+                                            "adminPassword": "testPassw0rd!23",
+                                            "sqlServerServiceAccountPassword": "AweS0me@SQLServicePW"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "vms": [
+                                "sql-vm2"
+                            ],
+                            "extensions": [
+                                {
+                                    "name": "configuringAlwaysOn",
+                                    "publisher": "Microsoft.Powershell",
+                                    "type": "DSC",
+                                    "typeHandlerVersion": "2.19",
+                                    "autoUpgradeMinorVersion": false,
+                                    "settings": {
+                                        "modulesURL": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/virtual-machines/n-tier-windows/extensions/CreateFailoverCluster.ps1.zip",
+                                        "configurationFunction": "CreateFailoverCluster.ps1\\CreateFailoverCluster",
+                                        "properties": {
+                                            "domainName": "contoso.com",
+                                            "clusterName": "ra-ntier-sql-fc",
+                                            "sharePath": "\\\\fsw-vm1\\sql-fs",
+                                            "nodes": [
+                                                "sql-vm1",
+                                                "sql-vm2"
+                                            ],
+                                            "sqlAlwaysOnEndpointName": "ra-ntier-sql-hadr",
+                                            "sqlAlwaysOnAvailabilityGroupName": "alwayson-ag",
+                                            "sqlAlwaysOnAvailabilityGroupListenerName": "alwayson-ag-listener",
+                                            "SqlAlwaysOnAvailabilityGroupListenerPort": "1433",
+                                            "databaseNames": "AutoHa-sample",
+                                            "lbName": "ra-ntier-sql-lb",
+                                            "lbAddress": "10.1.3.4",
+                                            "primaryReplica": "sql-vm2",
+                                            "secondaryReplica": "sql-vm1",
+                                            "dnsServerName": "ad-vm1",
+                                            "adminCreds": {
+                                                "userName": "tutorialAdmin",
+                                                "password": "privateSettingsRef:adminPassword"
+                                            },
+                                            "sqlServiceCreds": {
+                                                "userName": "sqlservicetestuser",
+                                                "password": "privateSettingsRef:sqlServerServiceAccountPassword"
+                                            },
+                                            "SQLAuthCreds": {
+                                                "userName": "sqlsa",
+                                                "password": "privateSettingsRef:sqlAuthPassword"
+                                            },
+                                            "NumberOfDisks": "2",
+                                            "WorkloadType": "GENERAL"
+                                        }
+                                    },
+                                    "protectedSettings": {
+                                        "items": {
+                                            "adminPassword": "testPassw0rd!23",
+                                            "sqlServerServiceAccountPassword": "AweS0me@SQLServicePW",
+                                            "sqlAuthPassword": "AweS0me@SQLPW"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "biz",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "tutorialAdmin",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "msft-spoke1-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "subnetName": "biz",
+                                "backendPoolNames": [
+                                    "BizBackendPool1"
+                                ]
+                            }
+                        ],
+                        "osType": "windows",
+                        "scaleSetSettings": {},
+                        "loadBalancerSettings": {
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "BizLoadBalancerFrontEnd",
+                                    "loadBalancerType": "Internal",
+                                    "internalLoadBalancerSettings": {
+                                        "privateIPAddress": "10.1.2.4",
+                                        "subnetName": "biz"
+                                    }
+                                }
+                            ],
+                            "loadBalancingRules": [
+                                {
+                                    "name": "BizLBRule",
+                                    "frontendPort": 80,
+                                    "backendPort": 80,
+                                    "protocol": "Tcp",
+                                    "backendPoolName": "BizBackendPool1",
+                                    "frontendIPConfigurationName": "BizLoadBalancerFrontEnd",
+                                    "idleTimeoutInMinutes": 15,
+                                    "enableFloatingIP": false,
+                                    "probeName": "bizprobe"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "bizprobe",
+                                    "protocol": "Tcp",
+                                    "port": 80,
+                                    "intervalInSeconds": 15,
+                                    "numberOfProbes": 2
+                                }
+                            ],
+                            "backendPools": [
+                                {
+                                    "name": "BizBackendPool1",
+                                    "nicIndex": 0
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 3,
+                        "namePrefix": "web",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "tutorialAdmin",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "msft-spoke1-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.1.1.4",
+                                "subnetName": "web"
+                            }
+                        ],
+                        "osType": "windows",
+                        "extensions": [
+                            {
+                                "name": "iis-config-ext",
+                                "publisher": "Microsoft.Powershell",
+                                "type": "DSC",
+                                "typeHandlerVersion": "2.1",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "ModulesUrl": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/virtual-machines/multi-vm/extensions/windows/iisaspnet.ps1.zip",
+                                    "configurationFunction": "iisaspnet.ps1\\iisaspnet"
+                                },
+                                "protectedSettings": {}
+                            }
+                        ],
+                        "applicationGatewaySettings": {
+                            "name": "webAppGateway",
+                            "sku": {
+                                "size": "Small",
+                                "capacity": 2,
+                                "tier": "Standard"
+                            },
+                            "gatewayIPConfigurations": [
+                                {
+                                    "name": "webIPConfig",
+                                    "subnetName": "web"
+                                }
+                            ],
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "webFrontEndIPConfig1",
+                                    "applicationGatewayType": "Internal",
+                                    "internalApplicationGatewaySettings": {
+                                        "subnetName": "web"
+                                    }
+                                }
+                            ],
+                            "frontendPorts": [
+                              {
+                                  "name": "webFrontEndPort1",
+                                  "port": 80
+                              }  
+                            ],
+                            "backendAddressPools": [
+                                {
+                                    "name": "webBackendAddressPool",
+                                    "backendAddresses": [
+                                        {
+                                            "ipAddress": "10.1.1.4"
+                                        },
+                                        {
+                                            "ipAddress": "10.1.1.5"
+                                        },
+                                        {
+                                            "ipAddress": "10.1.1.6"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "backendHttpSettings": [
+                                {
+                                    "name": "webBackendHttpSetting1",
+                                    "port": 80,
+                                    "protocol": "Http",
+                                    "cookieBasedAffinity": "Disabled"
+                                }
+                            ],
+                            "httpListeners": [
+                                {
+                                    "name":"webHttpListener1",
+                                    "frontendIPConfigurationName": "webFrontEndIPConfig1",
+                                    "frontendPortName": "webFrontEndPort1",
+                                    "protocol": "Http"
+                                }
+                            ],
+                            "requestRoutingRules": [
+                                {
+                                    "name": "webRule1",
+                                    "ruleType": "Basic",
+                                    "httpListenerName": "webHttpListener1",
+                                    "backendAddressPoolName": "webBackendAddressPool",
+                                    "backendHttpSettingName": "webBackendHttpSetting1"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "NetworkSecurityGroup",
+                    "settings": [
+                        {
+                            "name": "mgmt-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "RDP"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-hub-vnet",
+                                    "subnets": [
+                                        "mgmt"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "ad-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "RDP",
+                                    "sourceAddressPrefix": "10.0.2.0/24"
+                                },
+                                {
+                                    "name": "ActiveDirectory"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-hub-vnet",
+                                    "subnets": [
+                                        "ad"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "web-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "HTTP",
+                                    "sourceAddressPrefix": "10.0.1.0/24"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-spoke1-vnet",
+                                    "subnets": [
+                                        "web"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "biz-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "HTTP",
+                                    "sourceAddressPrefix": "10.1.1.0/24"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-spoke1-vnet",
+                                    "subnets": [
+                                        "biz"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "sql-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "MSSQL",
+                                    "sourceAddressPrefix": "10.1.2.0/24"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-spoke1-vnet",
+                                    "subnets": [
+                                        "sql"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

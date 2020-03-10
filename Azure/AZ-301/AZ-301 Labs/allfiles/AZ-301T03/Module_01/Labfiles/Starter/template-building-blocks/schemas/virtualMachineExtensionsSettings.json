@@ -1,0 +1,84 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/virtualMachineExtensionsSettings.json#",
+    "type": "object",
+    "definitions": {
+        "extension": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "types.json#/definitions/subResource"
+                },
+                {
+                    "properties": {
+                        "autoUpgradeMinorVersion": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                },
+                {
+                    "oneOf": [
+                        {
+                            "$ref": "extensions/windows/customScriptExtension1_4.json#"
+                        },
+                        {
+                            "$ref": "extensions/windows/customScriptExtension1_7.json#"
+                        },
+                        {
+                            "$ref": "extensions/windows/dsc.json#"
+                        },
+                        {
+                            "$ref": "extensions/windows/microsoftMonitoringAgent.json#"
+                        },
+                        {
+                            "$ref": "extensions/windows/jsonADDomainExtension.json#"
+                        },
+                        {
+                            "$ref": "extensions/linux/customScript.json#"
+                        },
+                        {
+                            "$ref": "extensions/linux/omsAgentForLinux.json#"
+                        },
+                        {
+                            "$ref": "extensions/linux/osPatchingForLinux.json#"
+                        }
+                    ]
+                }
+            ],
+            "required": [
+                "publisher",
+                "type",
+                "typeHandlerVersion",
+                "settings",
+                "protectedSettings"
+            ]
+        },
+        "extensions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/extension"
+            }
+        },
+        "settings": {
+            "type": "object",
+            "properties": {
+                "extensions": {
+                    "$ref": "#/definitions/extensions"
+                },
+                "vms": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "extensions",
+                "vms"
+            ]
+        }
+    }
+}

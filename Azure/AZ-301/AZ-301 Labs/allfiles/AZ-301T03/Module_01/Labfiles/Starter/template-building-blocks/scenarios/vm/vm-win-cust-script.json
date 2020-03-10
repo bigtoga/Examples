@@ -1,0 +1,49 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "win-cs",
+                        "size": "Standard_DS2_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "vnet-rg1-centralus"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": true,
+                                "privateIPAllocationMethod": "Dynamic",
+                                "publicIPAllocationMethod": "Static",
+                                "subnetName": "web"
+                            }
+                        ],
+                        "osType": "windows",
+                        "extensions": [
+                            {
+                                "name": "DotNetCore",
+                                "publisher": "Microsoft.Compute",
+                                "type": "CustomScriptExtension",
+                                "typeHandlerVersion": "1.9",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                  "fileUris": [
+                                    "https://raw.githubusercontent.com/mspnp/template-building-blocks/e303d98fcd0d0e7c0314f2743589548f48bcaee2/scenarios/vm/scripts/dotnetcore.ps1"
+                                  ]
+                                },
+                                "protectedSettings": {
+                                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File dotnetcore.ps1"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

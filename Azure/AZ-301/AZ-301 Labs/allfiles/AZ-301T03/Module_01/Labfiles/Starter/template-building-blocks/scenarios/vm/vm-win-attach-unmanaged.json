@@ -1,0 +1,56 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "w-u-att",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "vnet-rg1-centralus"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.1.1.164",
+                                "subnetName": "web"
+                            }
+                        ],
+                        "storageAccounts": {
+                            "managed": false,
+                            "accounts": [
+                                "storage-account-name"
+                            ]
+                        },                        
+                        "osType": "windows",
+                        "osDisk": {
+                            "createOption": "attach",
+                            "images": [
+                                "http://storage-account-name.blob.core.windows.net/vhds/disk1-os.vhd",
+                                "http://storage-account-name.blob.core.windows.net/vhds/disk2-os.vhd"
+                            ]
+                        },
+                        "dataDisks": {
+                            "disks": [
+                                {
+                                    "createOption": "attach",
+                                    "images": [
+                                        ["http://storage-account-name.blob.core.windows.net/vhds/disk1-data.vhd"],
+                                        ["http://storage-account-name.blob.core.windows.net/vhds/disk2-data.vhd"]
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

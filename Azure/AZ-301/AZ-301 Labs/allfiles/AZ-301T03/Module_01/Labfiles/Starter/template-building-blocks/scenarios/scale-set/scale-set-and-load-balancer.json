@@ -1,0 +1,95 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "settings": [
+                        {
+                            "name": "msft-simple-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "subnet1",
+                                    "addressPrefix": "10.0.2.0/24"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "msft-sl",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "msft-simple-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.0.2.4",
+                                "subnetName": "subnet1",
+                                "backendPoolNames": [
+                                    "ss-lb-bep1"
+                                ]
+                            }
+                        ],
+                        "osType": "windows",
+                        "dataDisks": {
+                            "count": 1
+                        },
+                        "scaleSetSettings": {
+                            "name": "scaleSet-lb",
+                            "upgradePolicy": "Automatic",
+                            "overprovision": true,
+                            "singlePlacementGroup": true
+                        },
+                        "loadBalancerSettings": {
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "ss-lb-fe-config1",
+                                    "loadBalancerType":"Public"
+                                }
+                            ],
+                            "loadBalancingRules": [
+                                {
+                                    "name": "lbr1",
+                                    "frontendPort": 80,
+                                    "backendPort": 80,
+                                    "protocol": "Tcp",
+                                    "backendPoolName": "ss-lb-bep1",
+                                    "frontendIPConfigurationName": "ss-lb-fe-config1",
+                                    "enableFloatingIP": false,
+                                    "probeName": "lbp1"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "lbp1",
+                                    "port": 80,
+                                    "protocol": "Http",
+                                    "requestPath": "/"
+                                }
+                            ],
+                            "backendPools": [
+                                {
+                                    "name": "ss-lb-bep1",
+                                    "nicIndex": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

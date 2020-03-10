@@ -1,0 +1,76 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "web2",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "msft-simple-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "subnetName": "subnet1",
+                                "backendPoolNames": [
+                                    "BackendPool1"
+                                ]
+                            }
+                        ],
+                        "osType": "windows",
+                        "availabilitySet": {
+                            "name": "msft-complete-web-as"
+                        },
+                        "loadBalancerSettings": {
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "LoadBalancerFrontEnd",
+                                    "loadBalancerType":"Internal",
+                                    "internalLoadBalancerSettings": {
+                                        "privateIPAddress": "10.0.2.6",
+                                        "subnetName": "subnet1"    
+                                    }
+                                }
+                            ],
+                            "loadBalancingRules": [
+                                {
+                                    "name": "LBRule",
+                                    "frontendPort": 80,
+                                    "backendPort": 80,
+                                    "protocol": "Tcp",
+                                    "backendPoolName": "BackendPool1",
+                                    "frontendIPConfigurationName": "LoadBalancerFrontEnd",
+                                    "idleTimeoutInMinutes": 15,
+                                    "enableFloatingIP": false,
+                                    "probeName": "lbprobe"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "lbprobe",
+                                    "protocol": "Tcp",
+                                    "port": 80,
+                                    "intervalInSeconds": 15,
+                                    "numberOfProbes": 2
+                                }
+                            ],
+                            "backendPools": [
+                                {
+                                    "name": "BackendPool1",
+                                    "nicIndex": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

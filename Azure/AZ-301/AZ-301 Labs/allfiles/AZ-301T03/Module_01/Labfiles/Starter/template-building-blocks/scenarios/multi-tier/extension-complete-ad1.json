@@ -1,0 +1,37 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachineExtension",
+                    "settings": [
+                        {
+                            "vms": [
+                                "ad-vm1"
+                            ],
+                            "extensions": [
+                                {
+                                    "name": "install-adds-forest",
+                                    "publisher": "Microsoft.Compute",
+                                    "type": "CustomScriptExtension",
+                                    "typeHandlerVersion": "1.8",
+                                    "autoUpgradeMinorVersion": true,
+                                    "settings": {
+                                        "fileUris": [
+                                            "https://raw.githubusercontent.com/mspnp/reference-architectures/master/virtual-machines/n-tier-windows/extensions/adds-forest.ps1"
+                                        ]
+                                    },
+                                    "protectedSettings": {
+                                        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File adds-forest.ps1"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

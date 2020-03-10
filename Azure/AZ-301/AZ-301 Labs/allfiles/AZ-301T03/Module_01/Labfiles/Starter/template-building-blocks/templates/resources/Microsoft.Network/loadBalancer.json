@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deploymentContext": {
+            "type": "object"
+        },
+        "loadBalancers": {
+            "type": "array"
+        }
+    },
+    "variables": {
+        "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('loadBalancers'))))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-lb-', copyIndex(), '-', variables('templateUniqueString'))]",
+            "resourceGroup": "[parameters('loadBalancers')[copyIndex()].resourceGroupName]",
+            "copy": {
+                "name": "loadBalancers",
+                "count": "[length(parameters('loadBalancers'))]",
+                "mode": "Parallel"
+            },
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Network/loadBalancers",
+                            "apiVersion": "2018-11-01",
+                            "location": "[parameters('loadBalancers')[copyIndex()].location]",
+                            "name": "[parameters('loadBalancers')[copyIndex()].name]",
+                            "properties": "[parameters('loadBalancers')[copyIndex()].properties]",
+                            "sku": "[parameters('loadBalancers')[copyIndex()].sku]"
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

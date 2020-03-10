@@ -1,0 +1,47 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "RouteTable",
+                    "settings": [
+                        {
+                            "name": "msft-complete-rt",
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-multiple-vnet",
+                                    "subnets": [
+                                        "firewall",
+                                        "ad"
+                                    ]
+                                }
+                            ],
+                            "routes": [
+                                {
+                                    "name": "route1",
+                                    "addressPrefix": "10.0.1.0/24",
+                                    "nextHop": "VnetLocal"
+                                },
+                                {
+                                    "name": "route2",
+                                    "addressPrefix": "10.0.2.0/24",
+                                    "nextHop": "192.168.1.1"
+                                },
+                                {
+                                    "name": "route3",
+                                    "addressPrefix": "10.0.3.0/24",
+                                    "nextHop": "VirtualNetworkGateway"
+                                }
+                            ],
+                            "tags": {
+                                "department": "administration"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

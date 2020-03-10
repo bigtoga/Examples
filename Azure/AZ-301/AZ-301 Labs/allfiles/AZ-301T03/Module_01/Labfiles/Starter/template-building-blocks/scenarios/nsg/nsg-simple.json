@@ -1,0 +1,37 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "NetworkSecurityGroup",
+                    "settings": [
+                        {
+                            "name": "msft-simple-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "HTTP"
+                                },
+                                {
+                                    "name": "HTTPS"
+                                },
+                                {
+                                    "name": "RDP"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-simple-vnet",
+                                    "subnets": [
+                                        "subnet1"
+                                    ]
+                                }
+                            ]
+                        }                        
+                    ]
+                }
+            ]
+        }
+    }
+}

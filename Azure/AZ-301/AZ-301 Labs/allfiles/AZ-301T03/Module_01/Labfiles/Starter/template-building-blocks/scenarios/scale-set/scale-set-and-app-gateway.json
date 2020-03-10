@@ -1,0 +1,205 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 1,
+                        "osType": "windows",
+                        "namePrefix": "ss-gatw",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "firewall"
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "name": "msft-multiple-address-subnet-vnet"
+                        },
+                        "applicationGatewaySettings": {
+                            "sku": {
+                                "tier": "WAF",
+                                "size": "Medium",
+                                "capacity": 2
+                            },
+                            "gatewayIPConfigurations": [
+                                {
+                                    "name": "ss-gw-IpConfig",
+                                    "subnetName": "ad"
+                                }
+                            ],
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "ss-gw-FrontendIP",
+                                    "applicationGatewayType": "Public"
+                                },
+                                {
+                                    "name": "testfec",
+                                    "applicationGatewayType": "Internal",
+                                    "internalApplicationGatewaySettings": {
+                                        "subnetName": "ad"
+                                    }
+                                }
+                            ],
+                            "frontendPorts": [
+                                {
+                                    "name": "ss-gw-FrontendPort",
+                                    "port": 80
+                                },
+                                {
+                                    "name": "list1-http1",
+                                    "port": 81
+                                },
+                                {
+                                    "name": "list-http2",
+                                    "port": 82
+                                }
+                            ],
+                            "backendAddressPools": [
+                                {
+                                    "name": "ss-gw-BackendPool",
+                                    "backendAddresses": [
+                                        {
+                                            "fqdn": "www.contoso.com"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "bp2",
+                                    "backendIPConfigurations": []
+                                }
+                            ],
+                            "backendHttpSettingsCollection": [
+                                {
+                                    "name": "ss-gw-BackendHttpSettings",
+                                    "port": 80,
+                                    "protocol": "Http",
+                                    "cookieBasedAffinity": "Disabled",
+                                    "pickHostNameFromBackendAddress": false,
+                                    "probeEnabled": true,
+                                    "requestTimeout": 30
+                                },
+                                {
+                                    "name": "test-settings",
+                                    "port": 80,
+                                    "protocol": "Http",
+                                    "cookieBasedAffinity": "Enabled",
+                                    "pickHostNameFromBackendAddress": false,
+                                    "probeEnabled": true,
+                                    "requestTimeout": 20,
+                                    "probeName": "p1"
+                                }
+                            ],
+                            "httpListeners": [
+                                {
+                                    "name": "ss-gw-HttpListener",
+                                    "frontendIPConfigurationName": "ss-gw-FrontendIP",
+                                    "frontendPortName": "ss-gw-FrontendPort",
+                                    "protocol": "Http",
+                                    "requireServerNameIndication": false
+                                },
+                                {
+                                    "name": "list1",
+                                    "frontendIPConfigurationName": "testfec",
+                                    "frontendPortName": "list1-http1",
+                                    "protocol": "Http",
+                                    "requireServerNameIndication": false
+                                },
+                                {
+                                    "name": "list2",
+                                    "frontendIPConfigurationName": "testfec",
+                                    "frontendPortName": "list-http2",
+                                    "protocol": "Http",
+                                    "requireServerNameIndication": false
+                                }
+                            ],
+                            "urlPathMaps": [
+                                {
+                                    "name": "pb-rule1",
+                                    "defaultBackendAddressPoolName": "ss-gw-BackendPool",
+                                    "defaultBackendHttpSettingName": "ss-gw-BackendHttpSettings",
+                                    "pathRules": [
+                                        {
+                                            "name": "p1",
+                                            "paths": [
+                                                "/foo"
+                                            ],
+                                            "backendAddressPoolName": "bp2",
+                                            "backendHttpSettingName": "test-settings"
+                                        },
+                                        {
+                                            "name": "p2",
+                                            "paths": [
+                                                "/bar"
+                                            ],
+                                            "backendAddressPoolName": "ss-gw-BackendPool",
+                                            "backendHttpSettingName": "ss-gw-BackendHttpSettings"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "requestRoutingRules": [
+                                {
+                                    "name": "rule1",
+                                    "ruleType": "Basic",
+                                    "httpListenerName": "ss-gw-HttpListener",
+                                    "backendAddressPoolName": "ss-gw-BackendPool",
+                                    "backendHttpSettingName": "ss-gw-BackendHttpSettings"
+                                },
+                                {
+                                    "name": "rule2",
+                                    "ruleType": "Basic",
+                                    "httpListenerName": "list1",
+                                    "backendAddressPoolName": "bp2",
+                                    "backendHttpSettingName": "test-settings"
+                                },
+                                {
+                                    "name": "pb-rule1",
+                                    "ruleType": "PathBasedRouting",
+                                    "httpListenerName": "list2",
+                                    "urlPathMapName": "pb-rule1"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "p1",
+                                    "protocol": "Http",
+                                    "host": "contoso.com",
+                                    "path": "/",
+                                    "interval": 30,
+                                    "timeout": 30,
+                                    "unhealthyThreshold": 3,
+                                    "pickHostNameFromBackendHttpSettings": false,
+                                    "minServers": 0,
+                                    "match": {}
+                                }
+                            ],
+                            "redirectConfigurations": [],
+                            "webApplicationFirewallConfiguration": {
+                                "enabled": false,
+                                "firewallMode": "Prevention",
+                                "ruleSetType": "OWASP",
+                                "ruleSetVersion": "3.0",
+                                "disabledRuleGroups": []
+                            },
+                            "sslPolicy": {
+                                "policyType": "Custom",
+                                "cipherSuites": ["TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"],
+                                "minProtocolVersion": "TLSv1_2"                            
+                            },
+                            "scaleSetSettings": {
+                                "name": "scaleset-gateway",
+                                "upgradePolicy": "Automatic",
+                                "overprovision": true,
+                                "singlePlacementGroup": true
+                            }                            
+                        }                        
+                    }
+                }
+            ]
+        }
+    }
+}

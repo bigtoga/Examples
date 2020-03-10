@@ -1,0 +1,39 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "ad",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "resourceGroupName": "msft-complete-bbv2-vnet-rg",
+                            "name": "msft-hub-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.0.2.4",
+                                "subnetName": "ad"
+                            }
+                        ],
+                        "osType": "windows",
+                        "dataDisks": {
+                            "count": 1
+                        },
+                        "availabilitySet": {
+                            "name": "msft-complete-ad-as"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

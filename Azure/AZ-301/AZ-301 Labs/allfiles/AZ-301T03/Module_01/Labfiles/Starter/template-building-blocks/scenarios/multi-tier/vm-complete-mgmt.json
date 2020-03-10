@@ -1,0 +1,63 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 1,
+                        "namePrefix": "jb",
+                        "size": "Standard_DS2_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "resourceGroupName": "msft-complete-bbv2-vnet-rg",
+                            "name": "msft-hub-vnet"
+                        },
+                        "diagnosticStorageAccounts": {
+                            "count": 1,
+                            "encryptBlobStorage": true,
+                            "encryptFileStorage": true
+                        },
+                        "nics": [
+                            {
+                                "isPublic": true,
+                                "privateIPAllocationMethod": "Dynamic",
+                                "publicIPAllocationMethod": "Static",
+                                "subnetName": "mgmt"
+                            }
+                        ],
+                        "osType": "windows",
+                        "extensions": [
+                            {
+                                "name": "IaaSAntimalware",
+                                "publisher": "Microsoft.Azure.Security",
+                                "type": "IaaSAntimalware",
+                                "typeHandlerVersion": "1.3",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "AntimalwareEnabled": true,
+                                    "RealtimeProtectionEnabled": "true",
+                                    "ScheduledScanSettings": {
+                                        "isEnabled": "false",
+                                        "day": "7",
+                                        "time": "120",
+                                        "scanType": "Quick"
+                                    },
+                                    "Exclusions": {
+                                        "Extensions": "",
+                                        "Paths": "",
+                                        "Processes": ""
+                                    }
+                                },
+                                "protectedSettings": {}
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

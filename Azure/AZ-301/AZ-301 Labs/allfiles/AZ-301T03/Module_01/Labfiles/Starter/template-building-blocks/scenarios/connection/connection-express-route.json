@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "buildingBlocks": {
+      "value": [
+        {
+          "type": "Connection",
+          "settings": [
+            {
+              "name": "msft-exp-rt-connection",
+              "connectionType": "ExpressRoute",
+              "routingWeight": 10,
+              "virtualNetworkGateway": {
+                  "name": "msft-express-route-vnet-gateway"
+              },
+              "expressRouteCircuit": {
+                  "name": "msft-exp-rt"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

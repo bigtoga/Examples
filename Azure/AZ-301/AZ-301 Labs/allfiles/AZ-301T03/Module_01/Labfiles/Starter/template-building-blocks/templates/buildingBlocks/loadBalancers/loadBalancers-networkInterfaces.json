@@ -1,0 +1,90 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "deploymentContext": {
+        "type": "object"
+      },
+      "ipConfigurations": {
+        "type": "array"
+      }
+    },
+    "variables": {
+      "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('ipConfigurations'))))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-nicipc-', copyIndex(), '-', variables('templateUniqueString'))]",
+            "resourceGroup": "[parameters('ipConfigurations')[copyIndex()].resourceGroupName]",
+            "subscriptionId": "[parameters('ipConfigurations')[copyIndex()].subscriptionId]",
+            "dependsOn": [
+            ],
+            "copy": {
+              "name": "ipConfigurations",
+              "count": "[length(parameters('ipConfigurations'))]",
+              "mode": "Serial"
+            },
+            "properties": {
+              "mode": "Incremental",
+              "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {},
+                "resources": [
+                ],
+                "outputs": {
+                    "properties": {
+                        "type": "object",
+                        "value": {
+                            "ipConfigurations": [
+                                {
+                                    "name": "[last(split(parameters('ipConfigurations')[copyIndex()].ipConfigurationId, '/'))]",
+                                    "properties": "[union(reference(parameters('ipConfigurations')[copyIndex()].ipConfigurationId, '2016-06-01', 'Full').properties, parameters('ipConfigurations')[copyIndex()].properties)]"
+                                }
+                            ]
+                        }
+                    }
+                }
+              }
+            }
+          },
+      {
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "2017-05-10",
+        "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-nic-', copyIndex(), '-', variables('templateUniqueString'))]",
+        "resourceGroup": "[parameters('ipConfigurations')[copyIndex()].resourceGroupName]",
+        "subscriptionId": "[parameters('ipConfigurations')[copyIndex()].subscriptionId]",
+        "dependsOn": [
+            "ipConfigurations"
+        ],
+        "copy": {
+          "name": "nics",
+          "count": "[length(parameters('ipConfigurations'))]",
+          "mode": "Serial"
+        },
+        "properties": {
+          "mode": "Incremental",
+          "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {},
+            "variables": {},
+            "resources": [
+              {
+                "type": "Microsoft.Network/networkInterfaces",
+                "apiVersion": "2016-06-01",
+                "location": "[resourceGroup().location]",
+                "name": "[parameters('ipConfigurations')[copyIndex()].name]",
+                "properties": "[union(reference(parameters('ipConfigurations')[copyIndex()].id, '2016-06-01'), reference(concat(parameters('deploymentContext').parentTemplateUniqueString, '-nicipc-', copyIndex(), '-', variables('templateUniqueString'))).outputs.properties.value)]"
+              }
+            ],
+            "outputs": {}
+          }
+        }
+      }
+    ],
+    "outputs": {}
+  }

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentContext": {
+      "type": "object"
+    },
+    "applicationGateways": {
+      "type": "array",
+      "defaultValue": []
+    },
+    "publicIpAddresses": {
+      "type": "array",
+      "defaultValue": []
+    }
+  },
+  "variables": {
+    "pipTemplate": "[concat(uri(deployment().properties.templateLink.uri, '../../resources/Microsoft.Network/publicIPAddresses.json'), parameters('deploymentContext').sasToken)]",
+    "agwTemplate": "[concat(uri(deployment().properties.templateLink.uri, '../../resources/Microsoft.Network/applicationGateways.json'), parameters('deploymentContext').sasToken)]",
+    "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('applicationGateways')), string(parameters('publicIpAddresses'))))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployPips-', variables('templateUniqueString'))]",
+      "condition": "[greater(length(parameters('publicIpAddresses')), 0)]",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('pipTemplate')]"
+        },
+        "parameters": {
+          "deploymentContext": {
+            "value": {
+              "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-deployPips')]",
+              "sasToken": "[parameters('deploymentContext').sasToken]"
+            }
+          },
+          "publicIPAddresses": {
+            "value": "[parameters('publicIpAddresses')]"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployAgws-', variables('templateUniqueString'))]",
+      "condition": "[greater(length(parameters('applicationGateways')), 0)]",
+      "dependsOn": [
+        "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployPips-', variables('templateUniqueString'))]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('agwTemplate')]"
+        },
+        "parameters": {
+          "deploymentContext": {
+            "value": {
+              "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-deployAgws')]",
+              "sasToken": "[parameters('deploymentContext').sasToken]"
+            }
+          },
+          "applicationGateways": {
+            "value": "[parameters('applicationGateways')]"
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

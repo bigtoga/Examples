@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "buildingBlocks": {
+      "value": [
+        {
+          "type": "VirtualNetworkGateway",
+          "settings": [
+            {
+              "name": "msft-vpn-vnet-gateway",
+              "gatewayType": "Vpn",
+              "vpnType": "RouteBased",
+              "sku": "VpnGw1",
+              "isPublic": true,
+              "publicIpAddressVersion": "IPv4",
+              "virtualNetwork": {
+                  "name": "msft-multiple-address-subnet-vnet"
+              },
+              "enableBgp": false              
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

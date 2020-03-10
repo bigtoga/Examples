@@ -1,0 +1,44 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "l-ciu-3",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "vnet-rg1-centralus"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.1.1.114",
+                                "subnetName": "web"
+                            }
+                        ],
+                        "storageAccounts": {
+                            "managed": false,
+                            "accounts": [
+                                "storage-account-name"
+                            ]
+                        },                        
+                        "osType": "linux",
+                        "osDisk": {
+                            "createOption": "fromImage",
+                            "images": [
+                                "https://storage-account-name.blob.core.windows.net/vhds/osdisk-name.vhd"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

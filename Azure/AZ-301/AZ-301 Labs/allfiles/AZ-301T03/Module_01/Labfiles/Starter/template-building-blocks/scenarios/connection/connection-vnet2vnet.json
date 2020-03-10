@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "buildingBlocks": {
+      "value": [
+        {
+          "type": "Connection",
+          "settings": [
+            {
+              "name": "msft-vnet2vnet-connection",
+              "connectionType": "Vnet2Vnet",
+              "routingWeight": 10,
+              "sharedKey": "_Hg[^^ECgLGGPF^RXTQfDDWQ][YAAB",
+              "virtualNetworkGateway1": {
+                  "name": "msft-vpn-vnet-gateway"
+              },
+              "virtualNetworkGateway2": {
+                  "name": "msft-vpn-gpw"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

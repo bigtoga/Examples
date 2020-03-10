@@ -1,0 +1,32 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualNetwork",
+                    "settings": [
+                        {
+                            "name": "msft-dns-vnet",
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ],
+                            "subnets": [
+                                {
+                                    "name": "firewall",
+                                    "addressPrefix": "10.0.0.0/24"
+                                }
+                            ],
+                            "dnsServers": [
+                                "10.0.2.4",
+                                "10.0.2.5",
+                                "168.63.129.16"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

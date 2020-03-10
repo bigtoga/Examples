@@ -1,0 +1,58 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deploymentContext": {
+            "type": "object"
+        },
+        "scaleSets": {
+            "type": "array"
+        },
+        "authentication": {
+            "type": "securestring"
+        },
+        "secrets": {
+            "type": "secureObject"
+        }
+    },
+    "variables": {
+        "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('scaleSets'))))]",
+        "updatedSource": "[json(replace(concat(string(parameters('scaleSets'))), '$AUTHENTICATION$', parameters('authentication')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-vmss-', copyIndex(), '-', variables('templateUniqueString'))]",
+            "resourceGroup": "[variables('updatedSource')[copyIndex()].resourceGroupName]",
+            "copy": {
+                "name": "virtualMachineScaleSets",
+                "count": "[length(variables('updatedSource'))]",
+                "mode": "Parallel"
+            },
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Compute/virtualMachineScaleSets",
+                            "apiVersion": "2017-03-30",
+                            "location": "[variables('updatedSource')[copyIndex()].location]",
+                            "name": "[variables('updatedSource')[copyIndex()].name]",
+                            "sku": "[variables('updatedSource')[copyIndex()].sku]",
+                            "properties": "[json(replace(string(variables('updatedSource')[copyIndex()].properties), '\"$EXTENSIONS$\"', string(parameters('secrets').extensionsProtectedSettings[string(copyIndex())])))]",
+                            "identity": {
+                                "type": "SystemAssigned"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }    
+        }
+    ]
+}

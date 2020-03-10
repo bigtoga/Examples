@@ -1,0 +1,13 @@
+{
+    "check-coverage": false,
+    "per-file": true,
+    "produce-source-map": true,
+    "include": [
+        "src/**/*.js"
+    ],
+    "reporter": [
+        "lcov",
+        "text"
+    ],
+    "temp-directory": "coverage/.nyc_output"
+}

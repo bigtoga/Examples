@@ -1,0 +1,105 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "NetworkSecurityGroup",
+                    "settings": [
+                        {
+                            "name": "msft-dmz-one",
+                            "securityRules": [
+                                {
+                                  "name": "RDP",
+                                  "sourceAddressPrefix": "Internet",
+                                  "priority": 100
+                                },
+                                {
+                                  "name": "HTTP",
+                                  "sourceAddressPrefix": "Internet",
+                                  "priority": 101
+                                }
+                            ]
+                        },
+                        {
+                            "name": "msft-dmz-two",
+                            "securityRules": [
+                                {
+                                  "name": "HTTPS",
+                                  "sourceAddressPrefix": "10.0.0.0/24",
+                                  "priority": 100
+                                },
+                                {
+                                  "name": "Block_RDP_Internet",
+                                  "protocol": "TCP",
+                                  "sourcePortRange": "*",
+                                  "destinationPortRange": 3389,
+                                  "sourceAddressPrefix": "Internet",
+                                  "destinationAddressPrefix": "*",
+                                  "access": "Deny",
+                                  "priority": 101,
+                                  "direction": "Inbound"
+                                },
+                                {
+                                  "name": "Block_Internet_Outbound",
+                                  "protocol": "*",
+                                  "sourcePortRange": "*",
+                                  "destinationPortRange": "*",
+                                  "sourceAddressPrefix": "*",
+                                  "destinationAddressPrefix": "Internet",
+                                  "access": "Deny",
+                                  "priority": 200,
+                                  "direction": "Outbound"
+                                }
+                            ]                      
+                        },
+                        {
+                            "name": "msft-dmz-three",
+                            "securityRules": [
+                                {
+                                  "name": "MSSQL",
+                                  "sourceAddressPrefix": "10.0.1.0/24",
+                                  "priority": 100
+                                },
+                                {
+                                  "name": "Block_FE",
+                                  "protocol": "*",
+                                  "sourcePortRange": "*",
+                                  "destinationPortRange": "*",
+                                  "sourceAddressPrefix": "10.0.0.0/24",
+                                  "destinationAddressPrefix": "*",
+                                  "access": "Deny",
+                                  "priority": 101,
+                                  "direction": "Inbound"
+                                },
+                                {
+                                  "name": "Block_App",
+                                  "protocol": "*",
+                                  "sourcePortRange": "*",
+                                  "destinationPortRange": "*",
+                                  "sourceAddressPrefix": "10.0.1.0/24",
+                                  "destinationAddressPrefix": "*",
+                                  "access": "Deny",
+                                  "priority": 102,
+                                  "direction": "Inbound"
+                                },
+                                {
+                                  "name": "Block_Internet",
+                                  "protocol": "*",
+                                  "sourcePortRange": "*",
+                                  "destinationPortRange": "*",
+                                  "sourceAddressPrefix": "*",
+                                  "destinationAddressPrefix": "Internet",
+                                  "access": "Deny",
+                                  "priority": 200,
+                                  "direction": "Outbound"
+                                }
+                            ]                            
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

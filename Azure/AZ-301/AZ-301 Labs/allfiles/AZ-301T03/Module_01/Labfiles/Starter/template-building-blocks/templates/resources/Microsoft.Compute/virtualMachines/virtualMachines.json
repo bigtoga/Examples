@@ -1,0 +1,115 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deploymentContext": {
+            "type": "object"
+        },
+        "virtualMachines": {
+            "type": "array"
+        },
+        "authentication": {
+            "type": "securestring"
+        },
+        "secrets": {
+            "type": "secureObject"
+        }
+    },
+    "variables": {
+        "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('virtualMachines'))))]",
+        "updatedSource": "[json(replace(concat(string(parameters('virtualMachines'))), '$AUTHENTICATION$', parameters('authentication')))]",
+        "extensionsTemplate": "[concat(uri(deployment().properties.templateLink.uri, '../../../buildingBlocks/virtualMachineExtensions/virtualMachineExtensions.json'), parameters('deploymentContext').sasToken)]",
+        "encryptionTemplate": "[concat(uri(deployment().properties.templateLink.uri, 'virtualMachineEncryption.json'), parameters('deploymentContext').sasToken)]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-vm-', copyIndex(), '-', variables('templateUniqueString'))]",
+            "resourceGroup": "[variables('updatedSource')[copyIndex()].resourceGroupName]",
+            "copy": {
+                "name": "virtualMachines",
+                "count": "[length(variables('updatedSource'))]",
+                "mode": "Parallel"
+            },
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Compute/virtualMachines",
+                            "apiVersion": "2016-04-30-preview",
+                            "location": "[variables('updatedSource')[copyIndex()].location]",
+                            "name": "[variables('updatedSource')[copyIndex()].name]",
+                            "properties": "[variables('updatedSource')[copyIndex()].properties]",
+                            "tags": "[variables('updatedSource')[copyIndex()].tags]",
+                            "plan": "[variables('updatedSource')[copyIndex()].plan]",
+                            "zones": "[variables('updatedSource')[copyIndex()].zones]",
+                        },
+                        {
+                            "type": "Microsoft.Resources/deployments",
+                            "apiVersion": "2017-05-10",
+                            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-', variables('updatedSource')[copyIndex()].name, '-deployExt-', variables('templateUniqueString'))]",
+                            "condition": "[greater(length(variables('updatedSource')[copyIndex()].extensions), 0)]",
+                            "dependsOn": [
+                                "[variables('updatedSource')[copyIndex()].name]"
+                            ],
+                            "properties": {
+                                "mode": "Incremental",
+                                "templateLink": {
+                                    "uri": "[variables('extensionsTemplate')]"
+                                },
+                                "parameters": {
+                                    "deploymentContext": {
+                                        "value": {
+                                            "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-deployExt')]",
+                                            "sasToken": "[parameters('deploymentContext').sasToken]"
+                                        }
+                                    },
+                                    "extensions": {
+                                        "value": "[variables('updatedSource')[copyIndex()].extensions]"
+                                    },
+                                    "extensionsProtectedSettings": {
+                                        "value": "[parameters('secrets').extensionsProtectedSettings[copyIndex()]]"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type": "Microsoft.Resources/deployments",
+                            "apiVersion": "2017-05-10",
+                            "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-', variables('updatedSource')[copyIndex()].name, '-encrypt-', variables('templateUniqueString'))]",
+                            "resourceGroup": "[variables('updatedSource')[copyIndex()].resourceGroupName]",
+                            "condition": "[variables('updatedSource')[copyIndex()].encryptionSettings.useExtension]",
+                            "dependsOn": [
+                                "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-', variables('updatedSource')[copyIndex()].name, '-deployExt-', variables('templateUniqueString'))]"
+                            ],
+                            "properties": {
+                                "mode": "Incremental",
+                                "templateLink": {
+                                    "uri": "[variables('encryptionTemplate')]"
+                                },
+                                "parameters": {
+                                    "deploymentContext": {
+                                        "value": {
+                                            "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-encrypt')]",
+                                            "sasToken": "[parameters('deploymentContext').sasToken]"
+                                        }
+                                    },
+                                    "source": {
+                                        "value": "[variables('updatedSource')[copyIndex()]]"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}

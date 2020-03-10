@@ -1,0 +1,233 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 1,
+                        "osType": "windows",
+                        "namePrefix": "vm-aglb",
+                        "adminPassword": "testPassw0rd!23",
+                        "nics": [
+                            {
+                                "subnetName": "firewall"
+                            }
+                        ],
+                        "virtualNetwork": {
+                            "name": "msft-multiple-address-subnet-vnet"
+                        },
+                        "applicationGatewaySettings": {
+                            "sku": {
+                                "tier": "WAF",
+                                "size": "Medium",
+                                "capacity": 2
+                            },
+                            "gatewayIPConfigurations": [
+                                {
+                                    "name": "agIpConfig",
+                                    "subnetName": "ad"
+                                }
+                            ],
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "agFrontendIP",
+                                    "applicationGatewayType": "Public"
+                                },
+                                {
+                                    "name": "agInternalIP",
+                                    "applicationGatewayType": "Internal",
+                                    "internalApplicationGatewaySettings": {
+                                        "subnetName": "ad"
+                                    }
+                                }
+                            ],
+                            "frontendPorts": [
+                                {
+                                    "name": "list1-http0",
+                                    "port": 80
+                                },
+                                {
+                                    "name": "list1-http1",
+                                    "port": 81
+                                },
+                                {
+                                    "name": "list-http2",
+                                    "port": 82
+                                }
+                            ],
+                            "backendAddressPools": [
+                                {
+                                    "name": "bp1",
+                                    "backendAddresses": [
+                                        {
+                                            "fqdn": "www.contoso.com"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "bp2",
+                                    "backendIPConfigurations": []
+                                }
+                            ],
+                            "backendHttpSettingsCollection": [
+                                {
+                                    "name": "bhs1",
+                                    "port": 80,
+                                    "protocol": "Http",
+                                    "cookieBasedAffinity": "Disabled",
+                                    "pickHostNameFromBackendAddress": false,
+                                    "probeEnabled": true,
+                                    "requestTimeout": 30
+                                },
+                                {
+                                    "name": "bhs2",
+                                    "port": 80,
+                                    "protocol": "Http",
+                                    "cookieBasedAffinity": "Enabled",
+                                    "pickHostNameFromBackendAddress": false,
+                                    "probeEnabled": true,
+                                    "requestTimeout": 20,
+                                    "probeName": "p1"
+                                }
+                            ],
+                            "httpListeners": [
+                                {
+                                    "name": "list0",
+                                    "frontendIPConfigurationName": "agFrontendIP",
+                                    "frontendPortName": "list1-http0",
+                                    "protocol": "Http",
+                                    "requireServerNameIndication": false
+                                },
+                                {
+                                    "name": "list1",
+                                    "frontendIPConfigurationName": "agInternalIP",
+                                    "frontendPortName": "list1-http1",
+                                    "protocol": "Http",
+                                    "requireServerNameIndication": false
+                                },
+                                {
+                                    "name": "list2",
+                                    "frontendIPConfigurationName": "agInternalIP",
+                                    "frontendPortName": "list-http2",
+                                    "protocol": "Http",
+                                    "requireServerNameIndication": false
+                                }
+                            ],
+                            "urlPathMaps": [
+                                {
+                                    "name": "pm-rule1",
+                                    "defaultBackendAddressPoolName": "bp1",
+                                    "defaultBackendHttpSettingName": "bhs1",
+                                    "pathRules": [
+                                        {
+                                            "name": "p1",
+                                            "paths": [
+                                                "/foo"
+                                            ],
+                                            "backendAddressPoolName": "bp2",
+                                            "backendHttpSettingName": "bhs2"
+                                        },
+                                        {
+                                            "name": "p2",
+                                            "paths": [
+                                                "/bar"
+                                            ],
+                                            "backendAddressPoolName": "bp1",
+                                            "backendHttpSettingName": "bhs1"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "requestRoutingRules": [
+                                {
+                                    "name": "rr-rule1",
+                                    "ruleType": "Basic",
+                                    "httpListenerName": "list0",
+                                    "backendAddressPoolName": "bp1",
+                                    "backendHttpSettingName": "bhs1"
+                                },
+                                {
+                                    "name": "rr-rule2",
+                                    "ruleType": "Basic",
+                                    "httpListenerName": "list1",
+                                    "backendAddressPoolName": "bp2",
+                                    "backendHttpSettingName": "bhs2"
+                                },
+                                {
+                                    "name": "rr-rule3",
+                                    "ruleType": "PathBasedRouting",
+                                    "httpListenerName": "list2",
+                                    "urlPathMapName": "pm-rule1"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "p1",
+                                    "protocol": "Http",
+                                    "host": "contoso.com",
+                                    "path": "/",
+                                    "interval": 30,
+                                    "timeout": 30,
+                                    "unhealthyThreshold": 3,
+                                    "pickHostNameFromBackendHttpSettings": false,
+                                    "minServers": 0,
+                                    "match": {}
+                                }
+                            ],
+                            "redirectConfigurations": [],
+                            "webApplicationFirewallConfiguration": {
+                                "enabled": false,
+                                "firewallMode": "Prevention",
+                                "ruleSetType": "OWASP",
+                                "ruleSetVersion": "3.0",
+                                "disabledRuleGroups": []
+                            },
+                            "sslPolicy": {
+                                "policyType": "Custom",
+                                "cipherSuites": ["TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"],
+                                "minProtocolVersion": "TLSv1_2"                            
+                            }
+                        },
+                        "loadBalancerSettings": {
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "glb-fe-config1",
+                                    "loadBalancerType":"Public"
+                                }
+                            ],
+                            "loadBalancingRules": [
+                                {
+                                    "name": "lbr1",
+                                    "frontendPort": 80,
+                                    "backendPort": 80,
+                                    "protocol": "Tcp",
+                                    "backendPoolName": "glb-bep1",
+                                    "frontendIPConfigurationName": "glb-fe-config1",
+                                    "enableFloatingIP": false,
+                                    "probeName": "lbp1"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "lbp1",
+                                    "port": 80,
+                                    "protocol": "Http",
+                                    "requestPath": "/"
+                                }
+                            ],
+                            "backendPools": [
+                                {
+                                    "name": "glb-bep1",
+                                    "nicIndex": 0
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

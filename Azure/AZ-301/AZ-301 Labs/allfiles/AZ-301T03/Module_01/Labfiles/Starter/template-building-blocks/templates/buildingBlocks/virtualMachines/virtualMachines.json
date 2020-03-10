@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentContext": {
+      "type": "object"
+    },
+    "virtualMachines": {
+      "type": "array"
+    },
+    "secrets": {
+      "type": "secureObject"
+    }
+  },
+  "variables": {
+    "virtualMachineTemplate": "[concat(uri(deployment().properties.templateLink.uri, 'virtualMachine.json'), parameters('deploymentContext').sasToken)]",
+    "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('virtualMachines')), string(parameters('secrets'))))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployVm-', copyIndex(), '-', variables('templateUniqueString'))]",
+      "copy": {
+        "name": "virtualMachines",
+        "count": "[length(parameters('virtualMachines'))]",
+        "mode": "Parallel"
+      },
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('virtualMachineTemplate')]"
+        },
+        "parameters": {
+          "deploymentContext": {
+            "value": {
+              "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-deployVm')]",
+              "sasToken": "[parameters('deploymentContext').sasToken]"
+            }
+          },
+          "publicIpAddresses": {
+            "value": "[parameters('virtualMachines')[copyIndex()].publicIpAddresses]"
+          },
+          "networkInterfaces": {
+            "value": "[parameters('virtualMachines')[copyIndex()].networkInterfaces]"
+          },
+          "storageAccounts": {
+            "value": "[parameters('virtualMachines')[copyIndex()].storageAccounts]"
+          },
+          "diagnosticStorageAccounts": {
+            "value": "[parameters('virtualMachines')[copyIndex()].diagnosticStorageAccounts]"
+          },
+          "availabilitySet": {
+            "value": "[parameters('virtualMachines')[copyIndex()].availabilitySet]"
+          },
+          "virtualMachines": {
+            "value": "[parameters('virtualMachines')[copyIndex()].virtualMachines]"
+          },
+          "loadBalancers": {
+            "value": "[if(contains(parameters('virtualMachines')[copyIndex()], 'loadBalancers'), parameters('virtualMachines')[copyIndex()]['loadBalancers'], json('[]'))]"
+          },
+          "scaleSets": {
+            "value": "[if(contains(parameters('virtualMachines')[copyIndex()], 'scaleSets'), parameters('virtualMachines')[copyIndex()]['scaleSets'], json('[]'))]"
+          },
+          "autoScaleSettings": {
+            "value": "[if(contains(parameters('virtualMachines')[copyIndex()], 'autoScaleSettings'), parameters('virtualMachines')[copyIndex()]['autoScaleSettings'], json('[]'))]"
+          },
+          "applicationGateways": {
+            "value": "[if(contains(parameters('virtualMachines')[copyIndex()], 'applicationGateways'), parameters('virtualMachines')[copyIndex()]['applicationGateways'], json('[]'))]"
+          },
+          "secrets": {
+            "value": "[parameters('secrets').secrets[copyIndex()]]"
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

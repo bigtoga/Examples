@@ -1,0 +1,107 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentContext": {
+      "type": "object"
+    },
+    "loadBalancers": {
+      "type": "array",
+      "defaultValue": []
+    },
+    "publicIpAddresses": {
+      "type": "array",
+      "defaultValue": []
+    },
+    "ipConfigurations": {
+      "type": "array",
+      "defaultValue": []
+    }
+  },
+  "variables": {
+    "pipTemplate": "[concat(uri(deployment().properties.templateLink.uri, '../../resources/Microsoft.Network/publicIPAddresses.json'), parameters('deploymentContext').sasToken)]",
+    "lbTemplate": "[concat(uri(deployment().properties.templateLink.uri, '../../resources/Microsoft.Network/loadBalancer.json'), parameters('deploymentContext').sasToken)]",
+    "lbNetworkInterfaceTemplate": "[concat(uri(deployment().properties.templateLink.uri, 'loadBalancers-networkInterfaces.json'), parameters('deploymentContext').sasToken)]",
+    "networkInterfaceDeploymentTemplateName": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-associateNetworkInterfaces-', variables('templateUniqueString'))]",
+    "templateUniqueString": "[uniqueString(concat(string(parameters('deploymentContext')), string(parameters('loadBalancers')), string(parameters('publicIpAddresses'))))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployPips-', variables('templateUniqueString'))]",
+      "condition": "[greater(length(parameters('publicIpAddresses')), 0)]",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('pipTemplate')]"
+        },
+        "parameters": {
+          "deploymentContext": {
+            "value": {
+              "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-deployPips')]",
+              "sasToken": "[parameters('deploymentContext').sasToken]"
+            }
+          },
+          "publicIPAddresses": {
+            "value": "[parameters('publicIpAddresses')]"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployLbs-', variables('templateUniqueString'))]",
+      "condition": "[greater(length(parameters('loadBalancers')), 0)]",
+      "dependsOn": [
+        "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployPips-', variables('templateUniqueString'))]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('lbTemplate')]"
+        },
+        "parameters": {
+          "deploymentContext": {
+            "value": {
+              "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-deployLbs')]",
+              "sasToken": "[parameters('deploymentContext').sasToken]"
+            }
+          },
+          "loadBalancers": {
+            "value": "[parameters('loadBalancers')]"
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "name": "[variables('networkInterfaceDeploymentTemplateName')]",
+      "condition": "[greater(length(parameters('ipConfigurations')), 0)]",
+      "dependsOn": [
+        "[concat(parameters('deploymentContext').parentTemplateUniqueString, '-deployLbs-', variables('templateUniqueString'))]"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('lbNetworkInterfaceTemplate')]"
+        },
+        "parameters": {
+          "deploymentContext": {
+            "value": {
+              "parentTemplateUniqueString": "[concat(variables('templateUniqueString'), '-associateNetworkInterfaces')]",
+              "sasToken": "[parameters('deploymentContext').sasToken]"
+            }
+          },
+          "ipConfigurations": {
+            "value": "[parameters('ipConfigurations')]"
+          }
+        }
+
+      }
+    }
+  ],
+  "outputs": {}
+}

@@ -1,0 +1,72 @@
+{
+  "name": "@mspnp/azure-building-blocks",
+  "version": "2.2.3",
+  "description": "A tool for deploying Azure infrastructure based on proven practices. Azure building blocks take advantage of the Azure CLI and Azure Resource Manager templates to provision collections of resources as logical units with production-ready settings.",
+  "keywords": [
+    "azure",
+    "resource manager",
+    "infrastructure",
+    "deployment",
+    "templates",
+    "microsoft",
+    "resource",
+    "cloud",
+    "iaas",
+    "devops",
+    "automation"
+  ],
+  "contributors": [
+    "Andrew Oakley",
+    "Peter Taylor",
+    "Rohit Sharma",
+    "Telmo Sampaio"
+  ],
+  "private": false,
+  "engines": {
+    "node": ">=10.16.2",
+    "npm": ">=6.9.0"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "commander": "^2.9.0",
+    "lodash": "^4.17.15",
+    "murmurhash3js": "^3.0.1",
+    "semver": "^5.4.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.5",
+    "debug": "^2.6.9",
+    "eslint": "^6.0.1",
+    "eslint-config-google": "^0.7.1",
+    "jasmine": "^2.8.0",
+    "nyc": "^14.1.1",
+    "rewire": "^2.5.2"
+  },
+  "main": "./src/index.js",
+  "preferGlobal": true,
+  "scripts": {
+    "debug": "cross-env RUN_TRANSFORM=true node --nolazy --debug-brk=5858 node_modules/jasmine/bin/jasmine.js --config=jasmine.json",
+    "test": "npm run unit-tests",
+    "unit-tests": "cross-env RUN_TRANSFORM=true npm run jasmine",
+    "unit-tests-no-transform": "cross-env RUN_TRANSFORM=false npm run jasmine",
+    "precoverage": "npm run eslint",
+    "coverage": "nyc npm run unit-tests",
+    "precoverage-no-transform": "npm run eslint",
+    "coverage-no-transform": "nyc npm run unit-tests-no-transform",
+    "eslint": "eslint --config .eslintrc.json src/**/*.js test/**/*.js",
+    "jasmine": "jasmine --config=jasmine.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mspnp/template-building-blocks.git"
+  },
+  "author": "patterns & practices <mspnp@microsoft.com> (https://aka.ms/architecture)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mspnp/template-building-blocks/issues"
+  },
+  "homepage": "https://github.com/mspnp/template-building-blocks#readme",
+  "bin": {
+    "azbb": "./src/index.js"
+  }
+}

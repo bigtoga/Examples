@@ -1,0 +1,99 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "web2",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "msft-simple-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "subnetName": "subnet1",
+                                "backendPoolNames": [
+                                    "BackendPool1"
+                                ],
+                                "inboundNatRulesNames": [
+                                    "RDP-VM"
+                                ]
+                            }
+                        ],
+                        "osType": "windows",
+                        "availabilitySet": {
+                            "name": "msft-complete-web-as"
+                        },
+                        "extensions": [
+                            {
+                                "name": "iis-config-ext",
+                                "publisher": "Microsoft.Powershell",
+                                "type": "DSC",
+                                "typeHandlerVersion": "2.1",
+                                "autoUpgradeMinorVersion": true,
+                                "settings": {
+                                    "ModulesUrl": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/virtual-machines/multi-vm/extensions/windows/iisaspnet.ps1.zip",
+                                    "configurationFunction": "iisaspnet.ps1\\iisaspnet"
+                                },
+                                "protectedSettings": {}
+                            }
+                        ],
+                        "loadBalancerSettings": {
+                            "frontendIPConfigurations": [
+                                {
+                                    "name": "LoadBalancerFrontEnd",
+                                    "loadBalancerType":"Public"
+                                }
+                            ],
+                            "loadBalancingRules": [
+                                {
+                                    "name": "LBRule",
+                                    "frontendPort": 80,
+                                    "backendPort": 80,
+                                    "protocol": "Tcp",
+                                    "backendPoolName": "BackendPool1",
+                                    "frontendIPConfigurationName": "LoadBalancerFrontEnd",
+                                    "idleTimeoutInMinutes": 15,
+                                    "enableFloatingIP": false,
+                                    "probeName": "lbprobe"
+                                }
+                            ],
+                            "probes": [
+                                {
+                                    "name": "lbprobe",
+                                    "protocol": "Tcp",
+                                    "port": 80,
+                                    "intervalInSeconds": 15,
+                                    "numberOfProbes": 2
+                                }
+                            ],
+                            "backendPools": [
+                                {
+                                    "name": "BackendPool1",
+                                    "nicIndex": 0
+                                }
+                            ],
+                            "inboundNatRules": [
+                                {
+                                    "name": "RDP-VM",
+                                    "frontendIPConfigurationName": "LoadBalancerFrontEnd",
+                                    "protocol": "Tcp",
+                                    "startingFrontendPort": 50001,
+                                    "backendPort": 3389,
+                                    "enableFloatingIP": false
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

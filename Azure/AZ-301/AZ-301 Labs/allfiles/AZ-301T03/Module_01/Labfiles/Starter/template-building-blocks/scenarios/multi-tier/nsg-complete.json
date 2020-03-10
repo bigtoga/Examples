@@ -1,0 +1,110 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "NetworkSecurityGroup",
+                    "settings": [
+                        {
+                            "name": "msft-complete-ad-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "ActiveDirectory",
+                                    "sourceAddressPrefix": "10.0.0.0/8"
+                                },
+                                {
+                                    "name": "rdp",
+                                    "direction": "Inbound",
+                                    "priority": 101,
+                                    "sourceAddressPrefix": "10.0.3.0/24",
+                                    "destinationAddressPrefix": "*",
+                                    "sourcePortRange": "*",
+                                    "destinationPortRange": 3389,
+                                    "access": "Allow",
+                                    "protocol": "*"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-hub-vnet",
+                                    "subnets": [
+                                        "ad"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "msft-complete-mgmt-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "RDP"
+                                },
+                                {
+                                    "name": "SSH"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-hub-vnet",
+                                    "subnets": [
+                                        "mgmt"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "msft-complete-web-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "HTTP"
+                                },
+                                {
+                                    "name": "HTTPS"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-hub-vnet",
+                                    "subnets": [
+                                        "firewall"
+                                    ]
+                                },
+                                {
+                                    "name": "msft-spoke1-vnet",
+                                    "subnets": [
+                                        "web",
+                                        "biz"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "msft-complete-data-nsg",
+                            "securityRules": [
+                                {
+                                    "name": "HTTP"
+                                },
+                                {
+                                    "name": "HTTPS"
+                                },
+                                {
+                                    "name": "MSSQL"
+                                }
+                            ],
+                            "virtualNetworks": [
+                                {
+                                    "name": "msft-spoke1-vnet",
+                                    "subnets": [
+                                        "data"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

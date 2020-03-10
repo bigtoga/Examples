@@ -1,0 +1,41 @@
+{
+    "$schema": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/schemas/buildingBlocks.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "buildingBlocks": {
+            "value": [
+                {
+                    "type": "VirtualMachine",
+                    "settings": {
+                        "vmCount": 2,
+                        "namePrefix": "msft-ss",
+                        "size": "Standard_DS1_v2",
+                        "adminUsername": "testadminuser",
+                        "adminPassword": "test$!Passw0rd111",
+                        "virtualNetwork": {
+                            "name": "msft-simple-vnet"
+                        },
+                        "nics": [
+                            {
+                                "isPublic": false,
+                                "privateIPAllocationMethod": "Static",
+                                "startingIPAddress": "10.0.2.4",
+                                "subnetName": "subnet1"
+                            }
+                        ],
+                        "osType": "windows",
+                        "dataDisks": {
+                            "count": 1
+                        },
+                        "scaleSetSettings": {
+                            "name": "scaleSet1",
+                            "upgradePolicy": "Automatic",
+                            "overprovision": true,
+                            "singlePlacementGroup": true
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
