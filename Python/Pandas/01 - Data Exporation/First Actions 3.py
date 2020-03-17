@@ -67,6 +67,13 @@ df.isnull().sum().sum()
 ######################################
 # Column level exploration 
 #####################################
+# Verify the column names are what you think they are:
+print(df.columns.tolist()) # look for a space before
+
+# If you want / need to remove spaces in column names:
+df = pd.read_csv('df.csv', sep=r'\s*,\s*', header=0, encoding='ascii', engine='python')
+
+
 df.describe("column_name")
 
 # Return 5 rows w smallest value 
