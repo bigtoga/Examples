@@ -29,8 +29,13 @@ For more information on dyno sleeping and how to upgrade, see:
 https://devcenter.heroku.com/articles/dyno-sleeping
 
 === web (Free): gunicorn app:app (1)
-web.1: crashed 2020/03/28 10:38:23 -0500 (~ 34s ago)
+web.1: up 2020/03/28 10:55:39 -0500 (~ 4m ago)
 ~~~
+
+### If your app crashed
+I had a lot of trouble w pip freeze - it simply was not accurately capturing the dependencies (used Anaconda prompt on Windows 10). I created my requirements.txt, then added additional items that were imported in app.py
+
+** You can look at logs (below) to see Import failures **
 
 ### Heroku sets up logging automatically - it retains recent 1,500 lines of your consolidated logs, which expire after 1 week
 ~~~
