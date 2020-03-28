@@ -4,20 +4,20 @@ https://pybit.es/deploy-flask-heroku.html
 
 https://medium.com/the-andela-way/deploying-a-python-flask-app-to-heroku-41250bda27d0
 
-1. YOUR MACHINE: Build your Flask app and get it working. Make sure to use "app.py"
-2. HEROKU: Create a new Heroku app ("MyApp") and choose "Heroku CLI" - this will create a repository as well
+1. YOUR MACHINE: Build your Flask app and get it working. Make sure to use `app.py`
+2. HEROKU: Create a new Heroku app (`MyApp`) and choose `Heroku CLI` - this will create a repository as well
 3. YOUR MACHINE: Install Heroku CLI
 4. YOUR MACHINE: Log in to CLI 
 5. YOUR MACHINE: Clone your repo to a local folder:
 	cd MyFolder 
 	git clone https://heroku.com/bigtoga/repos/MyApp.git 
 6. YOUR MACHINE: Copy your app files to this new directory
-7. YOUR MACHINE: git add .; git commit -am "Msg"; git push heroku aster
-8. YOUR MACHINE: In the folder, run "pip install gunicorn"
-9. YOUR MACHINE: In the folder, run "pip freeze > requirements.txt"
-10. YOUR MACHINE: In the folder, create a file named "Procfile" w/ one line: "web: gunicorn app:app". The "app:app" says "I have a Python script named app.py - run that using python"
+7. YOUR MACHINE: git add .; git commit -am `Msg`; git push heroku aster
+8. YOUR MACHINE: In the folder, run `pip install gunicorn`
+9. YOUR MACHINE: In the folder, run `pip freeze > requirements.txt`
+10. YOUR MACHINE: In the folder, create a file named `Procfile` w/ one line: `web: gunicorn app:app`. The `app:app` says `I have a Python script named app.py - run that using python`
 11. YOUR MACHINE: Re-do the git add/commit/push to get all files up there
-11. YOUR MACHINE: spin up the app! "heroku ps:scale web=1" # starts a heroku "dyno" - a worker
+11. YOUR MACHINE: spin up the app! `heroku ps:scale web=1` # starts a heroku `dyno` - a worker
 12. YOUR MACHINE: heroku open
 
 ### Do I have any workers currently running?
