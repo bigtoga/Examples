@@ -6,8 +6,9 @@ My code samples and scripts that I use to hopefully save time in the future. Som
 // Basic:\
 `var myArray = [5, 10, 15, 20, 25];`
 
-// Nested\
-`var nested = {
+// Nested
+~~~
+var nested = {
     "hello":{
         "english":"hello",
         "french":"bonjour",
@@ -15,7 +16,8 @@ My code samples and scripts that I use to hopefully save time in the future. Som
     },
     "good day":{...},
     "how are you":{...}
-}`
+}
+~~~
 
 Python: `myArray = [5, 10, 15, 20, 25];`
 
