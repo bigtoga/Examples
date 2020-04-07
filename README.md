@@ -19,6 +19,14 @@ var nested = {
 }
 ~~~
 
+// Maps 
+~~~
+var nums = [4, 9, 16, 25];
+var x = nums.map(Math.sqrt)
+document.getElementById("demo").innerHTML = x;
+~~~
+>> 2,3,4,5
+
 ### Python: 
 `myArray = [5, 10, 15, 20, 25];`
 
