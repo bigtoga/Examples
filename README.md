@@ -19,10 +19,16 @@ var nested = {
 }
 ~~~
 
-Python: `myArray = [5, 10, 15, 20, 25];`
+### Python: 
+`myArray = [5, 10, 15, 20, 25];`
 
 ## Dictionary syntax
-JavaScript: `var myDict = {"Name": "Scott", "State": "TX"};`
+### JavaScript
+// Note: In JavaScript, dict and "object" are interchangeable\
+// Most people typically refer to these as objects in JS\
+`var myDict = {"Name": "Scott", "State": "TX"};`
 
-Python: `myDict = {"Name": "Scott", "State": "TX"};`
+### Python:
+\# Just plain dictionaries in Python
+`myDict = {"Name": "Scott", "State": "TX"};`
 
