@@ -3,10 +3,10 @@ My code samples and scripts that I use to hopefully save time in the future. Som
 
 ## Array syntax
 ### JavaScript: 
-\\ Basic:
+// Basic:
 `var myArray = [5, 10, 15, 20, 25];`
 
-\\ Nested
+// Nested
 `var nested = {
     "hello":{
         "english":"hello",
