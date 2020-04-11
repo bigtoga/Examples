@@ -46,3 +46,6 @@ Start menu → Credential Manager → Windows Credentials → find the line (Git
 ~~~
 # Obsolete:
 git config --global credential.helper wincred
+
+## Step 5: Configure line endings
+`git config --global core.autocrlf true` - configures Git to ensure line endings in files you checkout are correct for Windows. For compatibility, line endings are converted to Unix style when you commit files.
