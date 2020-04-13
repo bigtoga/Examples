@@ -44,6 +44,9 @@ My colors: `#C6E48B` `#7AC96F` `#249A3C` `#196127`
 488 cd /opt/LLL/controller/laser/
 489 vi LLLSDLaserControl.c
 490 make
+</pre>
+</details>
+</summary>
 ~~~
 
 <details>
@@ -52,6 +55,9 @@ My colors: `#C6E48B` `#7AC96F` `#249A3C` `#196127`
 488 cd /opt/LLL/controller/laser/
 489 vi LLLSDLaserControl.c
 490 make
+</pre>
+</details>
+</summary>
 
 # Cheatsheets
 [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
