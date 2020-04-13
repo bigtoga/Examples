@@ -1,10 +1,35 @@
 # Misc
 Line break - end with a backslash
 
-Code (single line): prefix/end with back tick\
-Code (multi line): prefix w 3 tildes and end w 3 tildes
+## Lists
+1. One liner `1. One liner`
+1. 1. Sub-bullet `1. 1. Sub-bullet`
+* One-liner `* One-liner`
+* * Sub-bullet `* * Sub-bullet`
 
-# Misc
+### Code highliting
+~~~
+Execute `git status` in your terminal 
+~~~ 
+Execute `git status` in your terminal
+
+<pre>
+~~~
+pip install pandas
+import pandas as PD
+~~~
+</pre>
+
+~~~
+pip install pandas
+import pandas as PD
+~~~
+
+~~~
+Use the html <pre> tag
+~~~
+Then you can do whatever 
+
 ### How to insert keyboard callouts 
 ~~~
 Press <kbd>W</kbd> to go up, and <kbd>A</kbd> to go down.
