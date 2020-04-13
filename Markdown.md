@@ -84,9 +84,15 @@ My colors: `#C6E48B` `#7AC96F` `#249A3C` `#196127`
 </details>
 </summary>
 
+# Tables
+* Convert to tables - [Table Magic](https://github.com/stevecat/table-magic) - concert anything to markdown 
+* Convert to HTML - [Convert Markdown to HTML (uses Turndown)](https://domchristie.github.io/turndown/)
+* Convert to tables - [Markdown table generator](https://www.tablesgenerator.com/markdown_tables)
+
+tables
+
 # Cheatsheets
 [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-# Utilties / Helpers
-* [Convert Markdown to HTML (uses Turndown)](https://domchristie.github.io/turndown/)
-* [Markdown table generator](https://www.tablesgenerator.com/markdown_tables)
+# Good resources 
+* Good tips on formatting - https://github.blog/2020-04-09-github-protips-tips-tricks-hacks-and-secrets-from-lee-reilly/
