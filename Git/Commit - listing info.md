@@ -17,3 +17,8 @@ Reminder - to exit vim in Windows, click ESC+:q
 ### View commits in a pending push (a.k.a. what will I push?)
 `git log origin/master..HEAD`
 
+### View commits by contributor 
+`git shortlog -sn`
+
+### Exclude merge commits
+`git shortlog -an --no-merges`
