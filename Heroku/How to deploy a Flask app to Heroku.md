@@ -56,6 +56,12 @@ I had a lot of trouble w pip freeze - it simply was not accurately capturing the
 
 ** You can look at logs (below) to see Import failures **
 
+[Heroku CLI commands documentation](https://devcenter.heroku.com/articles/heroku-cli-commands)
+
+[Heroku's gunicorn python docs](https://devcenter.heroku.com/articles/python-gunicorn)
+
+heroku ps:restart --app exotic-tiger
+
 ### Heroku sets up logging automatically - it retains recent 1,500 lines of your consolidated logs, which expire after 1 week
 ~~~
 heroku logs 
