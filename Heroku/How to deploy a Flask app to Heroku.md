@@ -60,7 +60,9 @@ I had a lot of trouble w pip freeze - it simply was not accurately capturing the
 
 [Heroku's gunicorn python docs](https://devcenter.heroku.com/articles/python-gunicorn)
 
-heroku ps:restart --app exotic-tiger
+`heroku ps --app exotic-tiger` - what workers do I have and are they started or crashed?
+
+`heroku ps:restart --app exotic-tiger`
 
 ### Heroku sets up logging automatically - it retains recent 1,500 lines of your consolidated logs, which expire after 1 week
 ~~~
