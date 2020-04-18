@@ -1,4 +1,20 @@
 How to deploy a Flask app to Heroku
+# How to deploy using github as source repo
+1. GITHUB: create a new repo
+2. YOUR MACHINE: clone the repo and create a new branch if needed
+3. YOUR MACHINE: Build your Flask app and get it working. Make sure to use `app.py`
+4. YOUR MACHINE: test by running `python app.py` and verify all is good
+5. YOUR MACHINE: In the repo folder, `pip install gunicorn` (needed for Heroku)
+6. YOUR MACHINE: In the repo folder, `pip freeze > requirements.txt` (needed for Heroku)
+7. YOUR MACHINE: In the folder, create a file named `Procfile` w/ one line: `web: gunicorn app:app`. The `app:app` says `I have a Python script named app.py - run that using python`
+8. YOUR MACHINE: Add/commit/push/merge your changes from local branch to master in GITHUB
+9. HEROKU: Create a new app `MyApp` (actually it has to be a globally unique name)
+10. HEROKU: In `MyApp` config, set up a **Deployment Method** of Github. Search/find your repo and click `Connect` 
+11. HEROKU: In `MyApp` config, set up a **Automatic Deployment** from `master` branch so that merged changes automatically trigger a new deployment in Heroku
+12: HEROKU: In `MyApp` config, under **Manual Deployment**, select `master` and then click `Deploy branch`. Troubleshoot the failures - for me, there's usually an issue w pip freeze and/or my version in anaconda. Rewrite requirements.txt to use supported versions 
+
+
+# How to deploy using just Heroku
 
 https://pybit.es/deploy-flask-heroku.html
 
