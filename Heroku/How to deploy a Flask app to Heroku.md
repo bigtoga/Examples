@@ -12,7 +12,10 @@ How to deploy a Flask app to Heroku
 10. HEROKU: In `MyApp` config, set up a **Deployment Method** of Github. Search/find your repo and click `Connect` 
 11. HEROKU: In `MyApp` config, set up a **Automatic Deployment** from `master` branch so that merged changes automatically trigger a new deployment in Heroku
 12: HEROKU: In `MyApp` config, under **Manual Deployment**, select `master` and then click `Deploy branch`. Troubleshoot the failures - for me, there's usually an issue w pip freeze and/or my version in anaconda. Rewrite requirements.txt to use supported versions 
-
+13. YOUR MACHINE: Install Heroku CLI
+14. YOUR MACHINE: Log in to CLI 
+15. YOUR MACHINE: spin up the app! `heroku ps:scale web=1` # starts a heroku `dyno` - a worker
+16. YOUR MACHINE: heroku open
 
 # How to deploy using just Heroku
 
