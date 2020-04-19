@@ -9,7 +9,7 @@ Original source: https://support.geckoboard.com/hc/en-us/articles/360006412678-I
 5. Select File > Save
 6. Name your code(aka Project as of 2020) "ImportJSON"
 7. Close the Script editor and navigate back to your Google Sheet
-8. In cell A1, type =ImportJSON("xxx"). Replace xxx with your API endpoint. For example http://api.openweathermap.org/data/3.0/measurements (be sure to keep the quotes and parenthesis)
+8. In cell A1, type =ImportJSON("xxx"). Replace xxx with your API endpoint.
 9. Press enter. Your Google Sheet should now populate with your JSON data
 
 I forked a copy of the script in case it later gets removed - [here is my forked copy of v 1.1 as of 2020-04-17](https://gist.github.com/bigtoga/1f66c125e1133e0650c64c47a0863790)
