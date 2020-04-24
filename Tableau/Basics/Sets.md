@@ -1,7 +1,8 @@
 ## Sets in Tableau
 A Set in Tableau is simply a subset of dimensional members
 * Dimension "Year"
-* Set of the dimension: 2014, 2017, 2020
+* Data: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
+* A `Set` of the dimension: 2014, 2017, 2020
 
 You can now agg / view those items in the set
 
