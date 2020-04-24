@@ -36,7 +36,8 @@ your basic code review.
 that have also merged into master since when you started your development. 
 Best practice now to sync your local folder with master: 
 `git switch master; git pull;` will download the latest changes to your computer. 
-
+12.  Depending on your flow, you might want to create a new branch for your next changes, 
+or just use your previous branch. 
 
 Some tips on writing a good commit message: https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
  
