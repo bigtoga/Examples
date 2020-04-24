@@ -26,12 +26,16 @@ Git tracks the linking already.
 *origin* is not really a git keyword per se (you could use any word actually) 
 But it is convention to associate the word "origin" with the branch
 You are pushing to. 
+8. Go create a pull request. A pull request is a concept external to git. 
+It's an organizational workflow, not a characteristic of git itself.
+9. Someone will now need to review your pull request/PR. If they approve, they will
+approve the pull request, or they will decline if it they do not approve. This is
+your basic code review. 
+10. Your approved PR is now `git merge` into `master` - you did it!
+10. Assuming your code got merged to _master_ in the 
+remote repo, you can then go to your LOCAL master branch and update: _git checkout mast
+er_ then _git pull_ used to using a modal editor, you might get stuck here. 
+You can avoid the editor by doing _git commit -m "My commit message"_. 
 
- 
-9. At this point you would create a pull request (in Bitbucket, GitHub, 
-wherever). A pull request is a concept external to git. It's an organizational 
-workflow, not a characteristic of git itself. The end result of your pull request 
-is that your code is merged or declined.
-
-10. Assuming your code got merged to _master_ in the remote repo, you can then go to your LOCAL master branch and update: _git checkout master_ then _git pull_ used to using a modal editor, you might get stuck here. You can avoid the editor by doing _git commit -m "My commit message"_. Some tips on writing a good commit message: https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+Some tips on writing a good commit message: https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
  
