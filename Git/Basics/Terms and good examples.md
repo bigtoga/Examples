@@ -32,10 +32,11 @@ It's an organizational workflow, not a characteristic of git itself.
 approve the pull request, or they will decline if it they do not approve. This is
 your basic code review. 
 10. Your approved PR is now `git merge` into `master` - you did it!
-10. Assuming your code got merged to _master_ in the 
-remote repo, you can then go to your LOCAL master branch and update: _git checkout mast
-er_ then _git pull_ used to using a modal editor, you might get stuck here. 
-You can avoid the editor by doing _git commit -m "My commit message"_. 
+11. At this point your local branch is possibly out of sync with other changes 
+that have also merged into master since when you started your development. 
+Best practice now to sync your local folder with master: 
+`git switch master; git pull;` will download the latest changes to your computer. 
+
 
 Some tips on writing a good commit message: https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
  
