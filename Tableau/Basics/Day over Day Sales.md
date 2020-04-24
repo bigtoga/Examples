@@ -7,4 +7,5 @@ At this point, you a stacked bar chart showing sales per day by category
 # Calculate a day over day comparison
 1. Do the above
 2. Add SUM(Sales) again to the Rows
-3. Something
+3. Right click on it and go to "Quick Calculation"
+4. Choose "Difference"
