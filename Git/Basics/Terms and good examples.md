@@ -1,13 +1,14 @@
 ## Example working on existing repo 
-1. Clone the repo (`git clone`) to a local folder
+1. Clone the repo (`git clone`) to a local folder. This is now known as your ** Local Repository **. And it is now in sync with the ** Remote Repository **. 
 2. Create a new branch (`git checkout -b my_branch_name`)
 3. Make changes and save your files. You are now using your "working area", 
 working tree, one of the three git areas.
-4. `git status` will show you two things at this point: 
-what files you have changed, and "untracked" files. Essentially 
-you have "dirty" changes - these changes are not saved anywhere 
-except in your local computer in your new branch. Git
-Is not tracking changes to the new files; only that they exist. 
+4. `git status` will show you three things at this point: 
+(1) Where your local repository is, (2) what files you have changed, and (3) new files you have created since you checked out your new branch (aka "untracked" files). 
+At this point, you have "dirty" changes - these changes are not saved anywhere 
+except in your local computer in your new branch. The remote repository doesn't know about them, and 
+git is not tracking your changes except to note "This file has been
+modified since the `git clone`. Git Is not tracking changes to the new files; only that they exist. 
 Any new files you created in the previous step are 
 untracked by default, meaning git will not track changes (yet)
 5. `git add` to add any untracked files to git 
