@@ -35,10 +35,11 @@ that measures temperature with an internal formula)
 (-20F to +500F for ex), a given measurement could fall anywhere within that
 range. 
 
-With continuous data,
-likelihood that a given measurement could literally be any one of thousands of
-possible numbers 
-
+With continuous data, note the likelihood that a given measurement could 
+literally be any one of thousands of
+possible numbers (due to either a large "realistic range"
+or the precision needed as expressed by many decimal 
+places). 
 
 # Quiz - Discrete or continuous?
 ** You record a log of how many push-ups per day you could achieve for 30 days **
