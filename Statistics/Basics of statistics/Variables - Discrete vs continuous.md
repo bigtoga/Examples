@@ -24,7 +24,21 @@ These numbers often need to be highly accurate and often have many decimal place
 ### Examples of continuous data
 * Weight of newborn babies
 * Wind speed 
-* 
+* Temperature of a sensor
+
+Although something like `Temperature of a sensor` cannot be broken down 
+further, there are three clues that this is continuou Data:
+1. the need for precision (89.62974 degrees)
+2. the process to arrive at this number (using a machine
+that measures temperature with an internal formula)
+3. that, while we have a realistic range that these temperatures could fall within
+(-20F to +500F for ex), a given measurement could fall anywhere within that
+range. 
+
+With continuous data,
+likelihood that a given measurement could literally be any one of thousands of
+possible numbers 
+
 
 # Quiz - Discrete or continuous?
 ** You record a log of how many push-ups per day you could achieve for 30 days **
