@@ -10,14 +10,15 @@ according to our SLA with our web host. However if the site
 goes offline today for two minutes, we cannot predict when the
 next outage is not for how long. 
 
-Criteria to determine whether you are working with a `Poisson Process`:
-1. point is we know the average time between 
-events but they are randomly spaced (stochastic). 
+Criteria to determine whether you are 
+working with a `Poisson Process`:
+1. Events are randomly occurring (stochastic)
+2. Events are independent of one another 
+3. Two Events cannot occur simultaneously 
 
-We might have back-to-back failures, but we could also go years between failures due to the randomness of the process.
-A Poisson Process meets the following criteria (in
-
-Events are independent of each other. The occurrence of one event does not affect the probability another event will occur.
+We might have back-to-back failures, but we could also go years
+between failures due to the randomness of the process.
+The occurrence of one event does not affect the probability another event will occur.
 The average rate (events per time period) is constant.
 Two events cannot occur at the same time.
 The last point — events are not simultaneous — means we can think of each sub-interval of a Poisson process as a Bernoulli Trial, that is, either a success or a failure. With our website, the entire interval may be 600 days, but each sub-interval — one day — our website either goes down or it doesn’t.
