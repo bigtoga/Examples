@@ -63,4 +63,4 @@ small, each measurement could be any number in between. The
 The precision / accuracy to "whole numbers only".  If you
 did that, your range would be 0-7 making this discrete. If you add even one
 decimal place, the number of possible values goes up
-exponentially (literally).  
+exponentially (literally) which changes this to continuous. 
