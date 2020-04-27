@@ -14,9 +14,17 @@ Discrete data can also be qualitative. Your nationality is a discrete value. The
 Each of the above, although the numbers might be measured "over time", the numbers themselves represent ** discrete ** data points that cannot be broken down further and are concrete representations. 
 
 # Continuous data points
-Continuous data involves complex numbers that are measured across a specific time interval.
+Continuous data involves complex numbers that are measured across a specific time interval. 
+These numbers often need to be highly accurate and often have many decimal places. 
 
-A simple way to describe the difference between the two is to visualize a scatter plot graph vs. a line graph.
+`A fun rule of thumb is that, if your spreadsheet has values like 2.84739, you are dealing with a continuous variable`
+
+`Another fun rule of thumb is that, if the data was measured using a formula or machine, it's likely to be continuous data`
+
+### Examples of continuous data
+* Weight of newborn babies
+* Wind speed 
+* 
 
 # Quiz - Discrete or continuous?
 ** You record a log of how many push-ups per day you could achieve for 30 days **
