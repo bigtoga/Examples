@@ -1,4 +1,7 @@
 # Discrete data points
+### ELI5
+Discrete data can only take a small, predefined set of values. 
+
 Discrete data involves round, concrete numbers that are determined by counting. Discrete data relates to individual, countable items.
 Some synonyms for the word “discrete” include: disconnected, separate and distinct. 
 
@@ -14,6 +17,9 @@ Discrete data can also be qualitative. Your nationality is a discrete value. The
 Each of the above, although the numbers might be measured "over time", the numbers themselves represent ** discrete ** data points that cannot be broken down further and are concrete representations. 
 
 # Continuous data points
+### ELI5
+Continuous data can take on any value from a range. 
+
 Continuous data involves complex numbers that are measured across a specific time interval. 
 These numbers often need to be highly accurate and often have many decimal places. 
 
