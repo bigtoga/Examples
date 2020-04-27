@@ -4,12 +4,16 @@ average time between events is known, but the exact timing of events
 is random. The arrival of an event is independent of the event before 
 or after. We work with Poisson processes all day, every day:
 
-A good example is "Website uptime %".  
+### Examples 
+* **Website uptime %** -   
 On average we know that our website will be
 offline for 1 hour and 36 minutes this year
 according to our SLA with our web host. However if the site
 goes offline today for two minutes, we cannot predict when the
 next outage is not for how long. 
+* **Inbound customer service calls** - on average we might know
+that we receive 423 calls on Mondays between 8-5
+* Wikipedia has many examples - https://en.wikipedia.org/wiki/Poisson_distribution
 
 Criteria to determine whether you are 
 working with a `Poisson Process`:
