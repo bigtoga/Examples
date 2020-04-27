@@ -52,5 +52,15 @@ places).
 Discrete because (a) you are recording a counting of things that (b) cannot be broken into smaller parts. You don't count a half a push-up - it's a discrete value that can't be broken down further.  
 
 **You track the results of throwing two numbers laying dice in a spreadsheet** Discrete because, although this could
-be "any number within a range" (2-12), it is such a limited number 
+be "any number within a range" (2-12), the recorded data can only be one of a fixed number 
 of realistic data points. 
+
+**You want to record the people in your neighborhood's
+height** Tricky - it sounds continuous and most likely is. You could
+say "Continuous" because, although we have a realistic range that is 
+small, each measurement could be any number in between. The 
+"trick" is that you could force this to be discrete by limiting
+The precision / accuracy to "whole numbers only".  If you
+did that, your range would be 0-7 making this discrete. 
+
+likely very small, the number recorded could be 
