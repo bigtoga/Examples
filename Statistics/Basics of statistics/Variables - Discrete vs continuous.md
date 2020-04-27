@@ -56,11 +56,11 @@ be "any number within a range" (2-12), the recorded data can only be one of a fi
 of realistic data points. 
 
 **You want to record the people in your neighborhood's
-height** Tricky - it sounds continuous and most likely is. You could
+height.** Tricky - it sounds continuous and most likely is. You could
 say "Continuous" because, although we have a realistic range that is 
 small, each measurement could be any number in between. The 
 "trick" is that you could force this to be discrete by limiting
 The precision / accuracy to "whole numbers only".  If you
-did that, your range would be 0-7 making this discrete. 
-
-likely very small, the number recorded could be 
+did that, your range would be 0-7 making this discrete. If you add even one
+decimal place, the number of possible values goes up
+exponentially (literally).  
