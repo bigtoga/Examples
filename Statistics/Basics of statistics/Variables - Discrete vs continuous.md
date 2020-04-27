@@ -4,6 +4,13 @@ Some synonyms for the word “discrete” include: disconnected, separate and di
 
 `A fun rule of thumb is that, in many cases, discrete data can be preceded by “the number of.”`
 
+### Examples of discrete data
+* The number of customers who bought different items
+* The number of computers in each department
+* The number of items you buy at the grocery store each week
+
+Each of the above, although the numbers might be measured "over time", the numbers themselves represent ** discrete ** data points that cannot be broken down further and are concrete representations. 
+
 # Continuous data points
 Continuous data involves complex numbers that are measured across a specific time interval.
 
