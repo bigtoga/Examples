@@ -48,5 +48,9 @@ or the precision needed as expressed by many decimal
 places). 
 
 # Quiz - Discrete or continuous?
-** You record a log of how many push-ups per day you could achieve for 30 days **
+**You record a log of how many push-ups per day you could achieve for 30 days**
 Discrete because (a) you are recording a counting of things that (b) cannot be broken into smaller parts. You don't count a half a push-up - it's a discrete value that can't be broken down further.  
+
+**You track the results of throwing two numbers laying dice in a spreadsheet** Discrete because, although this could
+be "any number within a range" (2-12), it is such a limited number 
+of realistic data points. 
