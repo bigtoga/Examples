@@ -4,6 +4,8 @@ Some synonyms for the word “discrete” include: disconnected, separate and di
 
 `A fun rule of thumb is that, in many cases, discrete data can be preceded by “the number of.”`
 
+Discrete data can also be qualitative. Your nationality is a discrete value. The national census is entirely composed of discrete data, both qualitative (nationality, ethnicity, et al) and quantitative (number of children living in the home, et al). 
+
 ### Examples of discrete data
 * The number of customers who bought different items
 * The number of computers in each department
