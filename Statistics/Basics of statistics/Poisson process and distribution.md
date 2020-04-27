@@ -1,8 +1,13 @@
 # Poisson Process
-A `Poisson Process` is a model for a series of discrete event where the 
+A `Poisson Process` is a model for a series of discrete "events" where the 
 average time between events is known, but the exact timing of events 
 is random. The arrival of an event is independent of the event before 
-(waiting time between events is memoryless). 
+or after. We work with Poisson processes all day, every day:
+* Website uptime % - we know that, on average, our website will be
+offline for 1 hour and 36 minutes on average this year
+according to our SLA with our web host. However if the site
+goes offline today for two minutes, we cannot predict when the
+next outage is not for how long. 
 
 For example, suppose we own a website which our content delivery network 
 (CDN) tells us goes down on average once per 60 days, but one failure 
