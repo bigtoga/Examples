@@ -5,6 +5,12 @@ the dependent variable increases (or decreases) in tandem.
 
 ![x](https://i.imgur.com/RqJmngb.png)
 
+The relationship between variables "Y" and "X" is represented by this equation: Y`i = mX + b
+* X is the independent variable — the variable we are using to make predictions
+* Y is the dependent variable (the variable we are trying to predict)
+* m is the slope of the regression line — it represent the effect X has on Y. In other words, if X increases by 1 unit, Y will increase by exactly m units. 
+* b is a constant, also known as the Y-intercept. If X equals 0, Y would be equal to b . This is not necessarily applicable in real life
+
 https://bigdata-madesimple.com/how-to-run-linear-regression-in-python-scikit-learn/
 
 https://benalexkeen.com/linear-regression-in-python-using-scikit-learn/
