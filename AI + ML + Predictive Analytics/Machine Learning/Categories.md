@@ -17,3 +17,6 @@ figured out a way to set up a reward system that allowed the computer to try to 
 -----
 # Clustering: k="3"
 ![x](https://i.imgur.com/NJ0nApU.png)
+
+# Clustering might not be what/where you think it is
+![x](https://i.imgur.com/DKbRZur.png)
