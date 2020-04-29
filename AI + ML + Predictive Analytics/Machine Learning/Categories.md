@@ -1,5 +1,6 @@
 **Unsupervised ML** - we don't know the outcome
-* Clustering - finding groups within a population
+* Clustering - finding groups within a population; used for recommender systems, targeted marketing, customer segmentation
+* Dimensionality Reduction 
 
 **Supervised ML** - we know the outcome
 * Classification - applying labels to data. **spam email filtering** is classification
