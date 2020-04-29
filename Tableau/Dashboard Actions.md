@@ -8,3 +8,7 @@ Demo from https://public.tableau.com/profile/eman.alvani#!/vizhome/EA_Some_Advan
 4. Go to **Dashboard --> Actions**, click on **Select**, then select the Source and Target sheets
 
 ![Tableau Actions](https://i.imgur.com/hBdtlJa.png)
+
+When you click on one of the bars, the action kicks in:
+
+![Tableau action result](https://i.imgur.com/2S7bYD8.png)
