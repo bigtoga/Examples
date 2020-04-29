@@ -1,6 +1,6 @@
-# R2*
-Higher R2* values signify that the variable is highly predictive. 
-An R2* value of 0.90 means that our model roughly accounts for 90% of the variability in the data
+# R<sup>2</sup>
+Higher R<sup>2</sup> values signify that the variable is highly predictive. 
+An R<sup>2</sup> value of 0.90 means that our model roughly accounts for 90% of the variability in the data
 
 Outlier detection / removal 
 
