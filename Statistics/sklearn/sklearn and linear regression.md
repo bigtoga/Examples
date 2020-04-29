@@ -1,5 +1,19 @@
 Linear regression is a statistical model that examines the `linear relationship` between two (Simple Linear Regression or SLR) 
 or more (Multiple Linear Regression or MLR) variables — a dependent variable and independent variable(s). 
+* Independent variables: Data that can be controlled directly
+* Dependent variables: Data that cannot be controlled directly
+
+**Linear** implies the following: arranged in or extending along a straight or nearly straight line. Linear suggests that the relationship between dependent and independent variable can be expressed in a straight line. Remember the equation for a line?
+~~~
+y = mx + c
+~~~
+Linear regression is based on this equation where
+* y is the dependent variable i.e. the variable that needs to be estimated and predicted.
+* x is the independent variable i.e. the variable that is controllable. It is the input.
+* m is the slope. It determines what will be the angle of the line. It is the parameter denoted as β.
+* c is the intercept. A constant that determines the value of y when x is 0.
+
+
 * `Linear relationship` basically means that when one (or more) independent variables increases (or decreases), 
 the dependent variable increases (or decreases) in tandem.
 * The factor that is being predicted (the factor that the equation *solves for*) is called the dependent variable. The factors that are used to predict the value of the dependent variable are called the independent variables.
