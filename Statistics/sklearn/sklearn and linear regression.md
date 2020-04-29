@@ -1,10 +1,13 @@
-Linear regression is a statistical model that examines the linear relationship between two (Simple Linear Regression ) 
-or more (Multiple Linear Regression) variables — a dependent variable and independent variable(s). 
-Linear relationship basically means that when one (or more) independent variables increases (or decreases), 
+Linear regression is a statistical model that examines the `linear relationship` between two (Simple Linear Regression or SLR) 
+or more (Multiple Linear Regression or MLR) variables — a dependent variable and independent variable(s). 
+* `Linear relationship` basically means that when one (or more) independent variables increases (or decreases), 
 the dependent variable increases (or decreases) in tandem.
+* The factor that is being predicted (the factor that the equation *solves for*) is called the dependent variable. The factors that are used to predict the value of the dependent variable are called the independent variables.
 * [Simple linear regression](https://en.wikipedia.org/wiki/Simple_linear_regression) typically uses OLS ([Ordinary Least Squares](https://en.wikipedia.org/wiki/Ordinary_least_squares)
 
 ![x](https://i.imgur.com/RqJmngb.png)
+
+SLR models also include the errors in the data (also known as *residuals*). Residuals are basically the differences between the true value of Y and the predicted/estimated value of Y. 
 
 The relationship between variables "Y" and "X" is represented by this equation: ![x](https://wikimedia.org/api/rest_v1/media/math/render/svg/968be557dd22b1a2e536b8d22369cfdb37f58703)
 * X is the independent variable — the variable we are using to make predictions
