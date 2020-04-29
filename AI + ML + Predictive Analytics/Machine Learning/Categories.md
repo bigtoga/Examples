@@ -1,6 +1,9 @@
 Unsupervised ML - we don't know the outcome
+* Clustering - finding groups within a population
 
 Supervised ML - we know the outcome
+* Classification - applying labels to data
+* Regression - fitting data to predict where a new data point lies
 
 Reinforcement ML - you set up a reward system for a sequence of events, and the computer optimizes to get the reward
 * Drones - people know that drones could work, but they kept trying to program them to "be level". Eventually someone 
