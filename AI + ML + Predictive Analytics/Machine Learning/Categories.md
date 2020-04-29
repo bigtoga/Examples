@@ -13,3 +13,7 @@ figured out a way to set up a reward system that allowed the computer to try to 
 
 # Regression
 ![x](https://i.imgur.com/IDZc8qt.png)
+
+-----
+# Clustering: k="3"
+![x](https://i.imgur.com/NJ0nApU.png)
