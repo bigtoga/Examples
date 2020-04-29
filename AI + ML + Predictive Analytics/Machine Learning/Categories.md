@@ -10,3 +10,6 @@ Reinforcement ML - you set up a reward system for a sequence of events, and the 
 figured out a way to set up a reward system that allowed the computer to try to game the system, the drone itself was figuring out the balance 
 
 ![x](https://i.imgur.com/qVoZaZ1.png)
+
+# Regression
+![x](https://i.imgur.com/IDZc8qt.png)
