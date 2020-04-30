@@ -4,6 +4,8 @@ df[0:2]
 
 # Select certain columns only
 df[['a','b']]
+
+df[df['Status'] == 'Closed']
 ~~~
 
 Love examples from Chris Albon here: https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/
