@@ -36,3 +36,32 @@ df[american & elderly]
     </tr>
   </tbody>
 </table>
+
+~~~
+# Select all cases where the first name is not missing and nationality is USA 
+df[df['first_name'].notnull() & (df['nationality'] == "USA")]
+~~~
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>nationality</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Jason</td>
+      <td>USA</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Molly</td>
+      <td>USA</td>
+      <td>52</td>
+    </tr>
+  </tbody>
+</table>
