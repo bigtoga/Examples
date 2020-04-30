@@ -4,8 +4,8 @@ from sklearn.linear_model import LinearRegression
 
 # Generate some data
 X, y = make_regression(
-  n_samples=20
-  , n_features=1
+  n_samples=20 # The more samples, generally the better
+  , n_features=1 # 1 creates a simple linear regression (SLR) (single dependent variable)
   , random_state=0
   , noise=4
   , bias=100.0
@@ -32,10 +32,10 @@ predicted = model.predict(X)
 mse = mean_squared_error(y, predicted)
 r2 = r2_score(y, predicted)
 
-print(f"Mean Squared Error (MSE): {mse}")
+print(f"Mean Squared Error (MSE): {mse} (aka deviance)")
 print(f"R-squared (R2 ): {r2}")
 
->> Mean Squared Error (MSE): 11.933040779746149
+>> Mean Squared Error (MSE): 11.933040779746149 (aka deviance)
 >> R-squared (R2 ): 0.903603363418708
   
 # Overall Score for the model
