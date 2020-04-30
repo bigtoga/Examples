@@ -8,6 +8,13 @@ df[['a','b']]
 df[df['Status'] == 'Closed']
 
 df = df[df['Status'] == 'Closed'][['SR #', 'Closed Date', 'Owner']]
+
+# Multiple conditions
+df = df[
+    (df['Status'] == 'Closed') 
+    &
+    (df['Type'] == 'Operations')
+][['SR #', 'Closed Date', 'Owner']]
 df.dtypes
 ~~~
 
