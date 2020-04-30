@@ -6,6 +6,9 @@ df[0:2]
 df[['a','b']]
 
 df[df['Status'] == 'Closed']
+
+df = df[df['Status'] == 'Closed'][['SR #', 'Closed Date', 'Owner']]
+df.dtypes
 ~~~
 
 Love examples from Chris Albon here: https://chrisalbon.com/python/data_wrangling/pandas_selecting_rows_on_conditions/
