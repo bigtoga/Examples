@@ -4,3 +4,5 @@ df[0:2]
 # Select certain columns only
 df[['a','b']]
 
+df['a'] == "USA"
+
