@@ -1,8 +1,9 @@
 #############################################################
 # f you want equal distribution of the items in your bins, use qcut. 
 # If you want to define your own numeric bin ranges, then use cut. 
+# binning, bins
 #############################################################
-
+# https://www.programcreek.com/python/example/101361/pandas.cut
 # https://pbpython.com/pandas-qcut-cut.html
 
 # qcut - you define the number of quantiles and let pandas figure out how to divide up the data. 
