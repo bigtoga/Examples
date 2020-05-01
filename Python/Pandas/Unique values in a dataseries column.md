@@ -1,3 +1,4 @@
+~~~
 # Set ipython's max row display
 pd.set_option('display.max_row', 1000)
 
@@ -6,6 +7,7 @@ pd.set_option('display.max_columns', 50)
 
 # Count of unique values:
 df['ClosedWeek'].nunique();
+~~~
 
 ```diff
 - df.sort_values(by="ClosedWeek", ascending = True)['ClosedWeek'].unique
