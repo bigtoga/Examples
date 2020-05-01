@@ -1,5 +1,18 @@
+# bins are numbers, labels are strings (typically)
+# Always 1 more bin than label
+bins_7 = [0, 2, 6, 10, 14, 18, 22]
+labels_6 = ['1st 2 wks', '2nd 4 wks', '3rd 4 wks', '4th 4 wks', '5th 4 wks', '6th 4 wks']
+
+final ['Group'] = pd.cut(
+    final['ClosedWeekNumber']
+    , bins=bins_7
+    , labels=labels_6
+)
+
+final
+
 #############################################################
-# f you want equal distribution of the items in your bins, use qcut. 
+# if you want equal distribution of the items in your bins, use qcut. 
 # If you want to define your own numeric bin ranges, then use cut. 
 # binning, bins
 #############################################################
