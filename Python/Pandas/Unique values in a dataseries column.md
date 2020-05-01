@@ -23,5 +23,11 @@ dfAgg.head()
 Length: 18, dtype: period[W-SUN]
 ```
 
+### Another option is using ravel():
+```shell
+df = df.sort_values(by="ClosedWeekNumber", ascending = True);
+pd.unique(df[['ClosedWeek', 'ClosedWeekNumber']].values.ravel('K'))
+```
+
 https://chrisalbon.com/python/data_wrangling/pandas_list_unique_values_in_column/
 
