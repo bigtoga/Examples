@@ -77,3 +77,16 @@ df[df['first_name'].notnull() & (df['nationality'] == "USA")]
     </tr>
   </tbody>
 </table>
+
+~~~
+import pandas as pd  
+data = pd.read_csv("nba.csv") 
+  
+# overwriting column with replaced value of age  
+data["Team"]= data["Team"].str.replace("boston", "New Boston", case = False) 
+  
+filter = data["Team"]=="New Boston Celtics"
+  
+# printing only filtered columns  
+data.where(filter).dropna() 
+~~~
