@@ -12,6 +12,10 @@ df['ClosedWeek'].nunique();
 ```diff
 - df.sort_values(by="ClosedWeek", ascending = True)['ClosedWeek'].unique
 + df.sort_values(by="ClosedWeek", ascending = True)['ClosedWeek'].unique()
+
+dfAgg = pd.DataFrame(df.sort_values(by="ClosedWeek", ascending = True)[['ClosedWeek'].unique())
+dfAgg.columns = ['ClosedWeek']
+dfAgg.head()
 ```
 ```shell
 <PeriodArray>
