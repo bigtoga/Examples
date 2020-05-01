@@ -1,3 +1,5 @@
+# distinct 
+
 # Return the unique values found in different columns as one series
 df = pd.DataFrame({
     'Col1': ['Bob', 'Joe', 'Bill', 'Mary', 'Joe']
