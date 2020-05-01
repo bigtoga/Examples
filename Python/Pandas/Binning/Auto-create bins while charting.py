@@ -1,3 +1,4 @@
+# binning, bins
 ax = df_salaries.hist(column='salary', bins=10, grid=False, figsize=(12,8), color='#86bf91', zorder=2, rwidth=0.9)
 
 ax = ax[0]
