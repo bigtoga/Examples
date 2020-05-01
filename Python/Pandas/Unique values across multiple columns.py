@@ -6,3 +6,8 @@ df = pd.DataFrame({
 )
 
 pd.unique(df[['Col1', 'Col2']].values.ravel('K'))
+
+
+##############################################################
+# This might also work:
+pd.concat([df['Col1'], df['Col2']]).unique()
