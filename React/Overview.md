@@ -11,5 +11,10 @@ $ npm outdated # again - are there any outdated packages remaining?
 $ Go manually open package.json and update the dependencies
 $ npm-ls # list all installed packages
 $ npm audit # Review vulnerabilities
+
+$ npm run test
+
 $ npm start
 ```
+## Running tests in node
+Every time you want to check your work locally you can run `npm run test`, and it will report the status of every task in that module. You can target only specific modules as well via `npm run test:module1`
