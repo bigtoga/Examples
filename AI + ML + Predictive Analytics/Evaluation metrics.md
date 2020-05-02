@@ -20,7 +20,7 @@ Recall represents "out of all of the Positive pregnancy predictions, what **perc
 
 ![x](https://i.imgur.com/UEsgBgf.gif)
 
-### Precision
+### Precision a.k.a. Specificity
 Out of all of the classes that were predicted to be "Positive", how many were TP?
 
 ![x](https://i.imgur.com/J3DHXzO.gif)
