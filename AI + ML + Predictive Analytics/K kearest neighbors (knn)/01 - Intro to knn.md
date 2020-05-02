@@ -1,7 +1,7 @@
 knn
 
-Classification mostly but sometimes regression
-Fairly simply, particularly when compared to modern neural networks in other libraries (TensorFlow)
+Classification mostly but sometimes regression. High memory requirements.
+Fairly simply, particularly when compared to modern neural networks in other libraries (tensorflow keras packages)
 
 k=*n*
 
