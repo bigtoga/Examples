@@ -18,12 +18,12 @@ The results themselves are called `classes` for whatever reason. TP refers to th
 ### Recall a.k.a. True Positive Rate (TPR) a.k.a. Sensitivity
 Recall represents "out of all of the Positive pregnancy predictions, what **percentage** were correct?"
 
-![x](https://i.imgur.com/iWHPP8L.png)
+![x](https://i.imgur.com/UEsgBgf.gif)
 
 ### Precision
 Out of all of the classes that were predicted to be "Positive", how many were TP?
 
-![x](https://i.imgur.com/pVtBnss.png)
+![x](https://i.imgur.com/J3DHXzO.gif)
 
 ### Accuracy
 simply a ratio of "correctly predicted observations" to the "total observations". Out of all the classes, what percentage did we predict correctly? **This should be high as possible**
