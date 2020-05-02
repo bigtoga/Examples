@@ -1,3 +1,3 @@
-https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html?highlight=gridsearchcv#sklearn.model_selection.GridSearchCV
+[scikit-learn](https://scikit-learn.org/) -> [machine learning & sklearn](https://scikit-learn.org/stable/) -> [models, classifiers, splitters](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection) -> [GridSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html?highlight=gridsearchcv#sklearn.model_selection.GridSearchCV)
 
-sklearn's GridSearchCV
+sklearn's GridSearchCV is a "Hyper-parameter optimizer" that allows you to segment your data into subsets, and then it runs your SVMs over each subset to tell you what the best ultimate recommedation/best parameters for this dataset. It is a way of automating machine learning. 
