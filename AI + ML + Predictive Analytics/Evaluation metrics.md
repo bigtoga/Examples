@@ -28,6 +28,8 @@ Out of all of the classes that were predicted to be "Positive", how many were TP
 ### Accuracy
 simply a ratio of "correctly predicted observations" to the "total observations". Out of all the classes, what percentage did we predict correctly? **This should be high as possible**
 
+![x](https://i.imgur.com/6ZLrUHb.gif)
+
 ### F1 a.k.a. F-Score
 It is difficult to compare two models with "low precision and high recall" or vice versa. F1 measures both Recall and Precision and using the Harmonic Mean instead of Arithmetic Mean which means it "punishes" the extremes and outliers
 more.
