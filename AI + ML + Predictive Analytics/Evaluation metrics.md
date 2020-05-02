@@ -6,12 +6,29 @@ This page is all about understanding the **Confusion Matrix**, a handy way to me
 From https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
 ![x](https://i.imgur.com/5K9y5Q3.png)
 
+TP = True Positives (good)
+NP = True Negatives (good)
+FP = False Positives (bad)
+FN = False Negatives (bad) 
+
+The results themselves are called `classes` for whatever reason. TP refers to the true positives class
+
 * https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
 
-### Recall
-Recall represents "out of all of the Positive pregnancy predictions, what **percentage** were correct? 
+### Recall a.k.a. True Positive Rate (TPR) a.k.a. Sensitivity
+Recall represents "out of all of the Positive pregnancy predictions, what **percentage** were correct?"
+![x](https://i.imgur.com/iWHPP8L.png)
 
-![x](https://i.imgur.com/qfOPpK4.gif)
+### Precision
+Out of all of the classes that were predicted to be "Positive", how many were TP?
+![x](https://i.imgur.com/pVtBnss.png)
+
+### Accuracy
+simply a ratio of "correctly predicted observations" to the "total observations". Out of all the classes, what percentage did we predict correctly? **This should be high as possible**
+
+### F1 a.k.a. F-Score
+It is difficult to compare two models with "low precision and high recall" or vice versa. F1 measures both Recall and Precision and using the Harmonic Mean instead of Arithmetic Mean which means it "punishes" the extremes and outliers
+more.
 
 [Understanding ROC curves](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
 * AUC (Area Under The Curve) 
