@@ -84,5 +84,67 @@ After adding the first layer to the model:
 The final output layer:
 ![output](https://i.imgur.com/1N8JBQy.png)
 
+Output of model.summary()
+![sds](https://i.imgur.com/8M7OHiZ.png)
+
 </details>
-<details><summary>1. Data preprocessing</summary>
+<details><summary>3. Compile the model</summary>
+  
+## Compile the Model
+Now that we have our model architecture defined, we must compile the model using a loss function and optimizer. We can also specify additional training metrics such as **accuracy**.  
+  
+~~~
+# Use categorical crossentropy for categorical data and mean squared error for regression
+# Hint: your output layer in this example is using software for logistic regression (categorical)
+# If your output layer activation was `linear` then you may want to use `mse` for loss
+model.compile(
+    optimizer='adam'
+    , loss='categorical_crossentropy'
+    , metrics=['accuracy']
+)
+~~~
+
+</details>
+<details><summary>4. Train the model</summary>
+
+## Training the Model
+Training consists of updating our weights using our optimizer and loss function. In this example, we choose 1000 iterations (loops) of training that are called **epochs**. We also choose to shuffle our training data and increase the detail printed out during each training cycle.
+
+~~~
+# Fit (train) the model
+model.fit(
+    X_train_scaled,
+    y_train_categorical,
+    epochs=1000,
+    shuffle=True,
+    verbose=2
+)
+~~~
+
+</details>
+<details><summary>5. Quantifying the model</summary>
+## Quantifying the Model
+We use our testing data to validate our model. This is how we determine the validity of our model (i.e. the ability to predict new and previously unseen data points)
+  
+~~~
+# Evaluate the model using the testing data
+model_loss, model_accuracy = model.evaluate(
+    X_test_scaled, y_test_categorical, verbose=2
+)
+print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
+~~~
+  
+ 
+</details>
+<details><summary>6. Use the model to predict new data</summary>
+## Making Predictions with new data
+
+We can use our trained model to make predictions using `model.predict`  
+  
+~~~
+import numpy as np
+new_data = np.array([[0.2, 0.3, 0.4]])
+print(f"Predicted class: {model.predict_classes(new_data)}")
+~~~
+</details>
+  
