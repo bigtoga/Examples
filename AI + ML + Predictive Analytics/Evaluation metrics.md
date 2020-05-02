@@ -17,10 +17,12 @@ The results themselves are called `classes` for whatever reason. TP refers to th
 
 ### Recall a.k.a. True Positive Rate (TPR) a.k.a. Sensitivity
 Recall represents "out of all of the Positive pregnancy predictions, what **percentage** were correct?"
+
 ![x](https://i.imgur.com/iWHPP8L.png)
 
 ### Precision
 Out of all of the classes that were predicted to be "Positive", how many were TP?
+
 ![x](https://i.imgur.com/pVtBnss.png)
 
 ### Accuracy
@@ -29,6 +31,11 @@ simply a ratio of "correctly predicted observations" to the "total observations"
 ### F1 a.k.a. F-Score
 It is difficult to compare two models with "low precision and high recall" or vice versa. F1 measures both Recall and Precision and using the Harmonic Mean instead of Arithmetic Mean which means it "punishes" the extremes and outliers
 more.
+
+![x](https://i.imgur.com/y2jsWBa.png)
+
+---
+***
 
 [Understanding ROC curves](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
 * AUC (Area Under The Curve) 
