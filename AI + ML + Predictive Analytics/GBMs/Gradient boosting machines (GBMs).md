@@ -10,7 +10,7 @@ Supervised machine learning algos that are built around building an **seuential*
 * gradient boosting 
 
 # Boosting
-The concept of "boosting" is simple - it's just a framework term that can be applied to anything. It almost always comes down to a decision tree at the base. A basic overview/workflow might be:
+The concept of "boosting" is simple - it's just a framework term that can be applied to anything. It almost always comes down to a decision tree at the base. A basic overview/workflow incolves "boosted trees that are grown sequentially with each tree using information from the previously grown trees". The basic algorithm for **boosted regression trees** can be generalized below where *x* is our features and *y* is our response:
 * Fit a decision tree to the data: *F<sup>1</sup>(x)=y*
 * We then fit the next decision tree to the residuals of the previous: *h<sup>1</sup>(x)=y−F<sup>1</sup>(x)*
 * Add this new tree to our algorithm: *F<sup>2</sup>(x) = F<sup>1</sup>(x) + h<sup>1</sup>(x)
@@ -18,7 +18,11 @@ The concept of "boosting" is simple - it's just a framework term that can be app
 * Add this new tree to our algorithm: F<sup>3</sup>(x) = F<sup>2</sup>(x) + h<sup>1</sup>(x)
 * Continue this process until some mechanism (i.e. cross validation) tells us to stop.
 
+It all comes together in the final model where is just a stagewise additive model of *b* individual regression trees:
+![dx](https://i.imgur.com/1NiUxh7.png)
 
+You can see how the first grown trees passed on their knowledge to the next generations (who then sequentially did the same) and that the model gets better over time:
+![df](https://i.imgur.com/K8jJqxx.mp4)
 
 # Source: http://uc-r.github.io/gbm_regression
 > Whereas random forests build an ensemble of deep independent trees, GBMs build an ensemble of shallow and weak successive trees with each tree learning and improving on the previous. When combined, these many weak successive trees produce a powerful “committee” that are often hard to beat with other algorithms
