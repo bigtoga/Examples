@@ -11,7 +11,7 @@ From https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
 ### Recall
 Recall represents "out of all of the Positive pregnancy predictions, what **percentage** were correct? 
 
-![x](https://latex.codecogs.com/gif.latex?\frac&space;{TP}{TP&plus;FN})
+![x](https://i.imgur.com/qfOPpK4.gif)
 
 [Understanding ROC curves](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
 * AUC (Area Under The Curve) 
