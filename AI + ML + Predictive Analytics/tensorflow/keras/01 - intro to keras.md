@@ -34,11 +34,22 @@ y_test_categorical = to_categorical(y_test)
 ~~~
 
 ## 2. Create the model
+Note: I'm using a classifier model - these steps may not be same for regressor
+
 1. Decide what kind of model to apply
 * For numerical data, we use a regressor model
-* For categorical data, we use a classifier model
+* For categorical data, we use a classifier model 
+2. Define the model architecture (a.k.a. layers)
+** We used a Sequential model for classifiers in class
+3.1. Add the first layer. This layer requires you to specify:
+** The number of inputs
+** The number of nodes that you want in the hidden layer
 
 
-In this example, we will use a classifier to build the following network:
+Dan: Start out w the most amount of inputs (nodes) in your first epoch, and then fewer inputs as you get closer to Output
 
+Example of a classifier network: 
 ![Classifier](https://i.imgur.com/IGmef7C.png)
+
+After adding the first layer to the model:
+![qwer](https://i.imgur.com/hvBwS6Y.png)
