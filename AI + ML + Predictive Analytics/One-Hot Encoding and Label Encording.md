@@ -8,13 +8,12 @@ import pandas as pd
 brain = pd.read_csv('Resources/brain_categorical.csv')
 brain.head()
 ~~~
-|*--|*--|*--|*--
-| gender \ age \ size \ weight
-0	Male	20-46	4512	1530
-1	Male	20-46	3738	1297
-2	Male	20-46	4261	1335
-3	Male	20-46	3777	1282
-4	Male	20-46	4177	1590
+|  | gender | age | size  	| weight|
+|---	|---	|---	|---	|--- |
+|  0 	|  Male 	|  20-46 	|   4512	| 1530 |
+|   1	|   Male	|   20-46	|   3738	|1335 |
+|   2	|   Female	|   20-46	|4261| 1335 |
+
 ~~~
 X = brain[["gender", "age", "size"]]
 y = brain["weight"].values.reshape(-1, 1)
