@@ -1,5 +1,6 @@
 Good resources:
 * https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761?gi=44925b046a9
+* https://scikit-learn.org/stable/auto_examples/neighbors/plot_nca_classification.html#sphx-glr-download-auto-examples-neighbors-plot-nca-classification-py
 
 Step 1: Use the cookie cutter code below to plot the k values across your test dataset 
 and your training data set
