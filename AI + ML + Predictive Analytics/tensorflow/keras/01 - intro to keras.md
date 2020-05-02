@@ -90,7 +90,7 @@ Output of model.summary()
 </details>
 <details><summary>3. Compile the model</summary>
   
-## Compile the Model
+## 3. Compile the Model
 Now that we have our model architecture defined, we must compile the model using a loss function and optimizer. We can also specify additional training metrics such as **accuracy**.  
   
 ~~~
@@ -107,7 +107,7 @@ model.compile(
 </details>
 <details><summary>4. Train the model</summary>
 
-## Training the Model
+## 4. Training the Model
 Training consists of updating our weights using our optimizer and loss function. In this example, we choose 1000 iterations (loops) of training that are called **epochs**. We also choose to shuffle our training data and increase the detail printed out during each training cycle.
 
 ~~~
@@ -123,7 +123,8 @@ model.fit(
 
 </details>
 <details><summary>5. Quantifying the model</summary>
-## Quantifying the Model
+  
+## 5. Quantifying the Model
 We use our testing data to validate our model. This is how we determine the validity of our model (i.e. the ability to predict new and previously unseen data points)
   
 ~~~
@@ -137,7 +138,8 @@ print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
  
 </details>
 <details><summary>6. Use the model to predict new data</summary>
-## Making Predictions with new data
+  
+## 6. Use the model to predict new data
 
 We can use our trained model to make predictions using `model.predict`  
   
