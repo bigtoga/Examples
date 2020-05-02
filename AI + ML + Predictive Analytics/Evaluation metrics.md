@@ -1,3 +1,33 @@
+This page is all about understanding the confusion matrix - 
+
+![x](https://camo.githubusercontent.com/cbf1108232b7174dfe69d05fdd1cb3ef6a59bd0f/68747470733a2f2f692e696d6775722e636f6d2f336e5a376331512e706e67)
+
+* https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
+
+[Understanding ROC curves](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
+* AUC (Area Under The Curve) 
+* ROC (Receiver Operating Characteristics)
+* AUC-ROC is sometimes called AUROC (Area Under the Receiver Operating Characteristics)
+* When it comes to a classification problem, we can count on an AUC - ROC Curve. When we need to check or visualize the performance of the multi - class classification problem, we use AUC (Area Under The Curve) ROC (Receiver Operating Characteristics) curve. 
+* **It is one of the most important evaluation metrics for checking any classification model’s performance** 
+* 
+* 
+* 
+* 
+* 
+* 
+
+[Accuracy, Precision, Recall & F1 Score: Interpretation of Performance Measures](https://blog.exsilio.com/all/accuracy-precision-recall-f1-score-interpretation-of-performance-measures/)
+* Once you have built your model, the most important question that arises is how good is your model?
+* Accuracy, Precision, Recall & F1 Score metrics 
+* **ROC curve** and we can determine whether our ROC curve is good or not by looking at AUC (Area Under the Curve) and other parameters which are also called as Confusion Metrics
+* 
+* 
+* 
+* 
+* 
+
+
 AIC vs. BIC - https://www.methodology.psu.edu/resources/AIC-vs-BIC/
 
 Additional metrics - https://machinelearningmastery.com/metrics-evaluate-machine-learning-algorithms-python/
