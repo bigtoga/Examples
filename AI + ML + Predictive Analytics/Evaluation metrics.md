@@ -1,8 +1,18 @@
-This page is all about understanding the confusion matrix - 
+# Confusion Matrix
+This page is all about understanding the **Confusion Matrix**, a handy way to measure machine learning classification algorithms when the output is two or more `classes`. You will use this when you are trying to decide about Recall, Precision, Specificity, Accuracy and most importantly AUC-ROC Curve.
 
-![x](https://camo.githubusercontent.com/cbf1108232b7174dfe69d05fdd1cb3ef6a59bd0f/68747470733a2f2f692e696d6775722e636f6d2f336e5a376331512e706e67)
+![x](https://i.imgur.com/XisI7v7.png)
+
+From https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
+![x](https://i.imgur.com/5K9y5Q3.png)
 
 * https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
+
+### Recall
+Recall represents "out of all of the Positive pregnancy predictions, what **percentage** were correct? 
+
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+
 
 [Understanding ROC curves](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
 * AUC (Area Under The Curve) 
