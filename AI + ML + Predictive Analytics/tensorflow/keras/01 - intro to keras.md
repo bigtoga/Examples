@@ -81,5 +81,8 @@ Example of a classifier network:
 After adding the first layer to the model:
 ![qwer](https://i.imgur.com/hvBwS6Y.png)
 
+The final output layer:
+![output](https://i.imgur.com/1N8JBQy.png)
+
 </details>
 <details><summary>1. Data preprocessing</summary>
