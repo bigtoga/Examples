@@ -1,7 +1,7 @@
 knn
 
 Classification mostly but sometimes regression
-* Outlier insentsitivity
+Fairly simply, particularly when compared to modern neural networks in other libraries (TensorFlow)
 
 k=*n*
 
