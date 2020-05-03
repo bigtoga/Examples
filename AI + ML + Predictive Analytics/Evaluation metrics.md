@@ -41,7 +41,7 @@ what **percentage** were correct?"
 
 ![x](https://i.imgur.com/UEsgBgf.gif)
 
-### Precision a.k.a. Specificity
+### Precision a.k.a. Positive Predictive Value or Specificity
 Out of all of the classes that were predicted to be "Positive", how many were TP?
 
 ![x](https://i.imgur.com/J3DHXzO.gif)
