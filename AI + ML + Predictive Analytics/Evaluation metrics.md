@@ -50,6 +50,25 @@ Wikipedia has a nice graphic that explains this on the
 [precision and recall wiki](https://en.wikipedia.org/wiki/Precision_and_recall). 
 ![v](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/350px-Precisionrecall.svg.png)
 
+## Examples of precision and recall
+Imagine a new search engine comes online and you want to evaluate whether it is
+better or worse than google. You type in your search term and click the "Search" button. 
+You want to be scientific about this, so you scrutinize and analyze the results,
+and then record them in a database. 
+- Test 1: 
+* * Returned: 30 web pages 
+* * How many were relevant? 20
+* * Google returned: 60 web pages
+
+Precision represents "How useful the results are": 66.6% (20/30)
+
+Recall represents "how comprehensive" the results were": 33.3% (20 out of 60)
+
+When a search engine returns 30 pages only 20 of which were 
+relevant while failing to return 40 additional relevant pages, 
+its precision is 20/30 = 2/3 while its recall is 20/60 = 1/3. 
+So, in this case, precision is "how useful the search results are", and recall is "how complete the results are".
+
 ### Accuracy
 simply a ratio of "correctly predicted observations" to the "total observations". 
 Out of all the classes, what percentage did we predict correctly? 
