@@ -6,10 +6,10 @@ This page is all about understanding the **Confusion Matrix**, a handy way to me
 From https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
 ![x](https://i.imgur.com/5K9y5Q3.png)
 
-TP = True Positives (good)
-NP = True Negatives (good)
-FP = False Positives (bad)
-FN = False Negatives (bad) 
+TP = True Positives (good) - the model predicted "True" and the data shows it was actually "True"
+NP = True Negatives (good) - the model predicted "False" and was correct 
+FP = False Positives (bad) - the model predicted "True" but actual data was "False"
+FN = False Negatives (bad) - the model predicted "False" but actual data was "True"
 
 The results themselves are called `classes` for whatever reason. TP refers to the true positives class
 
@@ -26,7 +26,9 @@ Out of all of the classes that were predicted to be "Positive", how many were TP
 ![x](https://i.imgur.com/J3DHXzO.gif)
 
 ### Accuracy
-simply a ratio of "correctly predicted observations" to the "total observations". Out of all the classes, what percentage did we predict correctly? **This should be high as possible**
+simply a ratio of "correctly predicted observations" to the "total observations". 
+Out of all the classes, what percentage did we predict correctly? 
+This should generally be as high as possible
 
 ![x](https://i.imgur.com/6ZLrUHb.gif)
 
