@@ -1,9 +1,16 @@
 knn
 
 Classification mostly but sometimes regression. High memory requirements.
-Fairly simply, particularly when compared to modern neural networks in other libraries (tensorflow keras packages)
+Fairly simply, particularly when compared to modern neural networks in other 
+libraries (tensorflow keras packages, XGBoost, etc)
 
-k=*n*
+Basic idea is (a) find *n* data points "closest" to the new data point, (b) use a popularity contest
+ to classify the new data point. If *k=3*, then it
+looks at the three closest data points, and classifies the new data point 
+to be whatever classification is found the most. A [much more in-depth explanation](https://stats.stackexchange.com/questions/45580/dealing-with-ties-weights-and-voting-in-knn)
+discusses ties, distincts, etc. 
+
+# `k=*n*`
 
 When `k=1`, this is simply 'nearest neighbor' to the current data point:
 1. Find the point nearest your new data point
