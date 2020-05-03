@@ -83,6 +83,30 @@ more.
 ![x](https://i.imgur.com/y2jsWBa.png)
 
 ---
+# Speculating on the performance of a given model
+1. Build your model
+2. Score the model 
+3. Tweak or throwaway the model
+
+Good breakdown: https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5
+
+## What's a "good score"?
+1. An excellent model has AUC near "1.00" which means it has good measure of `separability`. In fact, 1.00 is the best or ideal measure of separability.
+2. A poor model has AUC near "0.00" which means it has *worst* measure of separability. A "0.00" model is 100% incorrectly predicting 0s as 1s and 1s as 0s. 
+3. A weak model is "up to you - what do you think?". For some use cases, a weak model is anything below 1.00 while for others a weak model might be anything below 0.20. 
+4. When AUC is 0.5, it means model has no `class separation capacity` whatsoever.
+
+# ROC Curve and "class separation"
+The ROC curve is a curve of probability. ROC curves typically feature true positive rate on the Y axis, and false positive rate on the X axis. This means that the top left corner of the plot is the “ideal” point - a false positive rate of zero, and a true positive rate of one. This is not very realistic, but ***it does mean that a larger area under the curve (AUC) is usually better***.
+
+The “steepness” of ROC curves is also important, since ***it is ideal to maximize the true positive rate while minimizing the false positive rate***.
+
+ROC curves are ideal for single-label (input) classification. If you want to use multi-label classification, you'll have to `binarize` the output (using one-hot encoding). 
+
+# AUC
+AUC represents the degree or measure of separability.
+
+---
 ***
 
 [Understanding ROC curves](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
