@@ -1,5 +1,22 @@
-Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outliers detection.
-https://scikit-learn.org/stable/modules/svm.html
+Support vector machines (SVMs) are a set of supervised learning methods
+used for classification, regression and outliers detection.
+
+Support Vector Machines work by establishing a boundary between data points, where
+the majority of one class falls on one side of the boundary (a.k.a. line
+in the 2D case) and the majority of the other class falls on the other side.
+
+The **margin** is defined as `the distance between the **nearest** point of each class and 
+the boundary`. New data points are then plotted and put into a
+class depending on which side of the boundary they fall on.
+
+![c](https://i.imgur.com/InH3euo_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+SVMs are most commonly used as models for classification but you can also use SVMs 
+for regressions. 
+
+# Resources
+* http://scikit-learn.org/stable/modules/svm.html
+* https://towardsdatascience.com/machine-learning-models-explained-to-a-five-year-old-f2f540d9dcea
 
 The advantages of support vector machines are:
 * Effective in high dimensional spaces.
