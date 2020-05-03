@@ -5,8 +5,6 @@ https://en.wikipedia.org/wiki/Binary_classification
 > When there are only two categories the problem is known as `statistical binary classification`.
 
 Common Statistical binary classification algorithms 
-
-Some of the methods commonly used for binary classification are:
 - Decision trees
 - Random forests
 - Bayesian networks
@@ -15,8 +13,13 @@ Some of the methods commonly used for binary classification are:
 - Logistic regression
 - Probit model
 
-# Confusion Matrix
-This page is all about understanding the **Confusion Matrix**, a handy way to measure machine learning classification algorithms when the output is two or more `classes`. You will use this when you are trying to decide about Recall, Precision, Specificity, Accuracy and most importantly AUC-ROC Curve.
+# Using a Confusion Matrix to Evaluate Model Performance 
+*Note: "performance* in this context means "the quality of the predictions" 
+rather than "how long it took to finish".*
+
+The **Confusion Matrix** is a handy way to measure machine learning 
+classification algorithms when the output is two or more `classes`. 
+You will use this when you are trying to decide about Recall, Precision, Specificity, Accuracy and most importantly AUC-ROC Curve.
 
 ![x](https://i.imgur.com/XisI7v7.png)
 
