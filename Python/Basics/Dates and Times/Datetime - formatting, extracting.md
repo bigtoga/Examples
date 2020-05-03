@@ -1,3 +1,19 @@
+Many many ways... One way is to use `strftime`
+```python
+today = date.today()
+daynum = today.strftime("%d")
+month = today.strftime("%m")
+year = today.strftime("%Y")
+day = int(daynum) - 7
+print(f"Today: {today} \n\tyear: {year} \n\tmonth: {month} \n\tday of month: {daynum} ")
+```
+```shell
+Today: 2020-05-03 
+	year: 2020 
+	month: 05 
+	day of month: 03 
+```
+
 man pages: http://man7.org/linux/man-pages/man3/strftime.3.html
 
 |Type |Hierarchy|Code|Meaning|Example|
