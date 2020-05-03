@@ -1,6 +1,12 @@
 # Misc
 Line break - end with a backslash
 
+LaTEX math equations / syntax in markdown
+1. Build your equation on https://www.codecogs.com/latex/eqneditor.php
+2. Download the image
+3. Upload to https://imgur.com
+4. Embed imgur link as image
+
 ## Lists
 1. One liner `1. One liner`
 1. 1. Sub-bullet `1. 1. Sub-bullet`
