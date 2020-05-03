@@ -14,7 +14,7 @@ Common Statistical binary classification algorithms
 - Probit model
 
 # Using a Confusion Matrix to Evaluate Model Performance 
-*Note: "performance* in this context means "the quality of the predictions" 
+*Note: "performance" in this context means "the quality of the predictions" 
 rather than "how long it took to finish".*
 
 The **Confusion Matrix** is a handy way to measure machine learning 
@@ -45,6 +45,10 @@ what **percentage** were correct?"
 Out of all of the classes that were predicted to be "Positive", how many were TP?
 
 ![x](https://i.imgur.com/J3DHXzO.gif)
+
+Wikipedia has a nice graphic that explains this on the 
+[precision and recall wiki](https://en.wikipedia.org/wiki/Precision_and_recall). 
+![v](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/350px-Precisionrecall.svg.png)
 
 ### Accuracy
 simply a ratio of "correctly predicted observations" to the "total observations". 
