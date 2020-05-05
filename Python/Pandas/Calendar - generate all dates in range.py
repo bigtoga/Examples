@@ -1,4 +1,4 @@
-iport pandas as pd
+import pandas as pd
 import datetime as dt
 
 start_date = dt.datetime(2020, 2, 15)
