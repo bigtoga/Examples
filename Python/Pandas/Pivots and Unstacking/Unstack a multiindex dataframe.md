@@ -21,6 +21,7 @@ values = np.random.randint(low=20, high=100, size=len(index))
 data = pd.DataFrame(data={'val': values}, index=index)
 data.head()
 ```
+Result is similar to a pandas groupby result 
 ![x](https://i.imgur.com/hiCyvSe.png)
 
 ```python
