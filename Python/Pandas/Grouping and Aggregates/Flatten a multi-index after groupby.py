@@ -17,6 +17,10 @@ gbAggs.columns = ["Country", "Date", "ConfirmedCases"];
 gbAggs.head()
 
 ########################################################
+# Pandas flattens multiindexes when saving to csv
+df_clean.to_csv('flattened_data.csv')
+
+########################################################
 # Pandas also has .get_level_values() to allow you to address/get a specific axis' values
 # https://riptutorial.com/pandas/example/13285/select-from-multiindex-by-level
 df = pd.DataFrame(np.random.randn(6, 3), columns=['A', 'B', 'C'])
