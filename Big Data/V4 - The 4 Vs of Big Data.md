@@ -1,5 +1,12 @@
 # Four Vs of Big Data
 
+Note - I disagree a bit w this as I think there are other major factors. 
+1. I think "Big data" is a relevant-to-you term. If we measure purely velocity by "How much data Google can ingest per minute" and compare to your computer, it's a joke. Budgets, on-premise hardware, etc all come into play
+2. What percentage of the data is unstructured? Makes a **massive** difference 
+3. Expectations - if you are expected to aggregate, predict against it, and create up to the minute interactive visualizations within 30 seconds of the data being added to the system of record, you could argue that is Big Data b/c you cannot process it using your current methods in the time the business wants it processed.
+
+Big data in a more "relevant to me" way is "anything you need to load that you cannot load within the time you need to load it"
+
 Big four V’s of big data - **can be any one or any combination of the below**
 
 * Volume: Big data is always large in terms of volume. Some have predicted that the amount of data generated in the last 
