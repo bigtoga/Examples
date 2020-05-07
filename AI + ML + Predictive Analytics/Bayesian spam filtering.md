@@ -14,3 +14,5 @@ that were identified as not being spam (sometimes called ham)**.
 
 ### False positives
 The objective of the learning ability is to reduce the number of false positives. 
+
+> Baye's Theorem combines the probability of a hypothesis (the "prior") with the likelihood of the data given the hypothesis and the base rate of the cause to get the posterior probability, or probability of the hypothesis given the data.
