@@ -4,7 +4,7 @@
 * Variety
 * Veracity
 
-If you tack on "unusual" or "a lot of", makes more sense
+If you tack on "unusual" or "a lot of", makes more sense to say, "Big data is data that meets one or more of the following criteria:"
 * Unusual volume
 * Unusual velocity
 * Unusual variety
