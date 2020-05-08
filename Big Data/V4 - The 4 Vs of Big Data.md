@@ -1,4 +1,14 @@
 # Four Vs of Big Data
+* Velocity
+* Volume
+* Variety
+* Veracity
+
+If you tack on "unusual" or "a lot of", makes more sense
+* Unusual volume
+* Unusual velocity
+* Unusual variety
+* Unusual veracity
 
 Note - I like the 4Vs model as it is all true, but I also think there are other factors that make certain problems more 'Big Data-like' in certain situations/scenarios
 1. 'Big data' can be a *relevant-to-you* term. 
