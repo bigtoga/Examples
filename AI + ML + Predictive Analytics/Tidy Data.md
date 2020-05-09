@@ -9,16 +9,35 @@ Tidy data is an alternative name for the common statistical form called a model 
 correspond to sample individuals and columns to variables, so that the entry in the ith row and 
 jth column gives the value of the jth variate as measured or observed on the ith individual.
 
-# Hadley Wickham
+# Notes from Hadley Wickham's original PDF about Tidy Data
 [Original PDF about Tidy Data](https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf)
 
 > “Happy families are all alike; every unhappy family is unhappy in its own way.” –– Leo Tolstoy
 > “Tidy datasets are all alike, but every messy dataset is messy in its own way.” –– Hadley Wickham
 
+* Every `value` belongs to a variable *and* an observation
+* A `variable` contains all values that measure the **same underlying attribute** (like height, temperature, duration) across `units`
+* An `observation` contains all values measured on the same unit (like a person, or a day, or a race) across attributes
+
+> A dataset is messy or tidy depending on how rows, columns and tables are matched up with observations, variables and types. In tidy data:
+1. Each `variable` forms a column.
+2. Each `observation` forms a row.
+3. Each type of `observational unit` forms a table.
+
+> This is Codd's 3rd normal form, but with the constraints framed in statistical language, and the focus put on a single dataset rather than the many connected datasets common in relational databases. **Messy data is any other other arrangement of the data.**
+> Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset.
+
+> Computer scientists often call fixed variables `dimensions`, and statisticians usually denote them
+with subscripts on random variables. Measured variables are what we actually measure in the
+study. Fixed variables should come rst, followed by measured variables, each ordered so that
+related variables are contiguous. Rows can then be ordered by the rst variable, breaking
+ties with the second and subsequent (xed) variables. This is the convention adopted by all
+tabular displays in this paper.
+
 |  Spreadsheet/Table/Concept 	| What it becomes in "Tidy Data" 	|
 |---	|---	|
 |  Column 	| Variable  	|
-|  Row 	| Case or Observation  	|
+|  Row 	| `Case` or `Observation`  	|
 
 [Really good, clear definitions](https://www.jeannicholashould.com/tidy-data-in-python.html) - some notes:
 Rules of Tidy Data:
