@@ -35,12 +35,9 @@ If you want to only be able to connect from your computer:
    * Click **Save rules**
     
 ### 3. Connect to your database 
-1. Go to the AWS home page, search for **RDS** and click through
-1. In the left menu, click <kbd>Databases</kbd>
-1. On the Databases page, click on your database
-1. In the "Connectivity & security" tab, locate the `Endpoint` and `Port`
 1. Launch pgAdmin in a new tab
 2. In pgAdmin, create a new Server
    * Give it a name
    * Go to the <kbd>Connections</kbd> tab
-   * Enter 
+   * Paste in the `Endpoint` from AWS
+   * 
