@@ -10,7 +10,8 @@ correspond to sample individuals and columns to variables, so that the entry in 
 jth column gives the value of the jth variate as measured or observed on the ith individual.
 
 # Notes from Hadley Wickham's original PDF about Tidy Data
-[Original PDF about Tidy Data](https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf)
+* [Original PDF about Tidy Data](https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf)
+* [GitHub for Tidy Data](https://github.com/hadley/tidy-data)
 
 > “Happy families are all alike; every unhappy family is unhappy in its own way.” –– Leo Tolstoy
 > “Tidy datasets are all alike, but every messy dataset is messy in its own way.” –– Hadley Wickham
@@ -27,12 +28,14 @@ jth column gives the value of the jth variate as measured or observed on the ith
 > This is Codd's 3rd normal form, but with the constraints framed in statistical language, and the focus put on a single dataset rather than the many connected datasets common in relational databases. **Messy data is any other other arrangement of the data.**
 > Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset.
 
-> Computer scientists often call fixed variables `dimensions`, and statisticians usually denote them
-with subscripts on random variables. Measured variables are what we actually measure in the
-study. Fixed variables should come rst, followed by measured variables, each ordered so that
-related variables are contiguous. Rows can then be ordered by the rst variable, breaking
-ties with the second and subsequent (xed) variables. This is the convention adopted by all
-tabular displays in this paper.
+> Computer scientists often call fixed variables `dimensions`, and statisticians usually denote them with subscripts on random variables. `Measured variables` are what we actually measure in the study. 
+
+### How to order your variables and sort your data
+1. Fixed variables should come first
+2. Measured variables should come next
+3. Order each set of variables so that related variables are contiguous
+4. Rows can then be ordered by the *first variable*, breaking ties with the second and subsequent (fixed) variables. 
+
 
 |  Spreadsheet/Table/Concept 	| What it becomes in "Tidy Data" 	|
 |---	|---	|
