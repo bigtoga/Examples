@@ -29,32 +29,22 @@ Rules of Tidy Data:
 * One level of observation per sheet
 
 ### Example of "messy data"
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th></th>
-      <th>Treatment A</th>
-      <th>Treatment B</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>John Smith</th>
-      <td>-</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>Jane Doe</th>
-      <td>16</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>Mary Johnson</th>
-      <td>3</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+|              | Treatment A | Treatment B |
+|--------------|-------------|-------------|
+| John Smith   | \-          | 2           |
+| Jane Doe     | 16          | 11          |
+| Mary Johnson | 3           | 1           |
+
+### Example of "Tidy Data"
+| Name         | Treatment | Result |
+|--------------|-----------|--------|
+| John Smith   | a         | \-     |
+| Jane Doe     | a         | 16     |
+| Mary Johnson | a         | 3      |
+| John Smith   | b         | 2      |
+| Jane Doe     | b         | 11     |
+| Mary Johnson | b         | 1      |
+
 
 ![x](https://i.imgur.com/8pVGSzh.png)
 
