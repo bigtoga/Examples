@@ -91,6 +91,7 @@ My colors: `#C6E48B` `#7AC96F` `#249A3C` `#196127`
 </summary>
 
 # Tables
+* Copy/paste HTML tables and convert to Markdown - [TableConvert.com](https://tableconvert.com/)
 * Convert to tables - [Table Magic](https://github.com/stevecat/table-magic) - concert anything to markdown 
 * Convert to HTML - [Convert Markdown to HTML (uses Turndown)](https://domchristie.github.io/turndown/)
 * Convert to tables - [Markdown table generator](https://www.tablesgenerator.com/markdown_tables)
