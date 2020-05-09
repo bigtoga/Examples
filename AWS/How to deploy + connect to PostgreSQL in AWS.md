@@ -40,4 +40,5 @@ If you want to only be able to connect from your computer:
    * Give it a name
    * Go to the <kbd>Connections</kbd> tab
    * Paste in the `Endpoint` from AWS
-   * 
+
+That's all!
