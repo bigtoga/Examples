@@ -1,7 +1,7 @@
 "Most people who want ML / AI really just need linear regression on cleaned-up data" - 
 
 [Wikipedia - Tidy Data](https://en.wikipedia.org/wiki/Tidy_data)
-> Hadley Wickham later defined "Tidy Data" as **data sets that are arranged such that each 
+> Hadley Wickham later defined "Tidy Data" as **data sets that are arranged such that each** 
 > **variable is a column and each observation (or case) is a row.**
 
 Tidy data is an alternative name for the common statistical form called a model matrix or data matrix.
@@ -27,6 +27,34 @@ Rules of Tidy Data:
 * Each type of **observational unit** forms a table
 * One sheet per file (i.e. a CSV)
 * One level of observation per sheet
+
+### Example of "messy data"
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th></th>
+      <th>Treatment A</th>
+      <th>Treatment B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>John Smith</th>
+      <td>-</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Jane Doe</th>
+      <td>16</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>Mary Johnson</th>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
 ![x](https://i.imgur.com/8pVGSzh.png)
 
