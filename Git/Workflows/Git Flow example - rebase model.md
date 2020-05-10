@@ -22,3 +22,6 @@ your changes.
 6. Push the commits
 7. Create a Pull Request
 8. Discuss, review and merge pull request into `master`
+
+![h](https://i.imgur.com/qtG7TB7_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+Image credit: https://blog.soshace.com/understanding-the-git-workflow/
