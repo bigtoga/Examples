@@ -21,4 +21,4 @@ to ensure you have the latest changes
 your changes. 
 6. Push the commits
 7. Create a Pull Request
-8. Discuss, review and merge pull request
+8. Discuss, review and merge pull request into `master`
