@@ -6,6 +6,11 @@ df = pd.DataFrame({
    , 'C': {0: 2, 1: 4, 2: 6}
 })
 ```
+|   	|  A	|  B 	|   C	|
+|---	|---	|---	|---	|
+|  0 	|  a 	|  1 	|  2 	|
+|   1	|  b 	|  3 	|  4 	|
+|   2	|  c 	|  5 	|  6 	|
 
 ```python
 pd.melt(df, id_vars=['A'], value_vars=['B'])
