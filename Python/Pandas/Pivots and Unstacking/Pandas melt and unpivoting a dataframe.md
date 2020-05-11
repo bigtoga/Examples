@@ -13,6 +13,10 @@ df = pd.DataFrame({
 |   2	|  c 	|  5 	|  6 	|
 
 ```python
+# In Pandas melt(), you unpivot a dataframe 
+# Your "identifier variables" (id_vars) remain the same/unchanged 
+# The value_vars go into two new columns, "variable" and "value"
+# "measured variables" (value_vars) are “unpivoted” to the row axis (axis=0)
 pd.melt(df, id_vars=['A'], value_vars=['B'])
 ```
 |   	|  A 	| variable | value |
@@ -22,6 +26,10 @@ pd.melt(df, id_vars=['A'], value_vars=['B'])
 | 2  |   c	|   B	|  5 	|
 
 ```python
+# When you have 2 or more "measured variables", they still get added to the row axis
+# In this case, Pandas will (a) generate the unpivoted data for each column in value_vars separately, 
+#    then (b) essentially pd.concat() the 'B' data and the 'C' data into the same result set
+#    sort of like a SQL union
 pd.melt(df, id_vars=['A'], value_vars=['B', 'C'])
 ```
 |   	|  A 	| variable | value |
