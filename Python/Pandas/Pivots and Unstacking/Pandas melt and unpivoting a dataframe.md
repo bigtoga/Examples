@@ -19,6 +19,7 @@ df = pd.DataFrame({
 # "measured variables" (value_vars) are “unpivoted” to the row axis (axis=0)
 pd.melt(df, id_vars=['A'], value_vars=['B'])
 ```
+Because our value_vars (a) only had a single measure variable (column), and (b) because there are only 3 rows in the dataframe, we get back:
 |   	|  A 	| variable | value |
 |---	|---	|---	| ---	|
 | 0 |   a	|   B	|   1	| 
@@ -32,6 +33,7 @@ pd.melt(df, id_vars=['A'], value_vars=['B'])
 #    sort of like a SQL union
 pd.melt(df, id_vars=['A'], value_vars=['B', 'C'])
 ```
+Now we have two columns in the value_vars thus "number of rows returned" is now (number of columns in value_vars) * (number of rows in the dataframe) = 6
 |   	|  A 	| variable | value |
 |---	|---	|---	|---	|
 | 0 |   a	|   B	|   1	| 
