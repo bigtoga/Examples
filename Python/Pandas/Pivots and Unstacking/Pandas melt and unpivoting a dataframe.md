@@ -52,3 +52,17 @@ pd.melt(df, id_vars=['A'], value_vars=['B'], var_name='myVarname', value_name='m
 | 0 |   a	|   B	|   1	| 
 | 1   |   b	|   B	|   3	|
 | 2  |   c	|   B	|  5 	|
+
+If you pass no `value_vars`, Pandas will automatically treat every column not in `id_vars` as a measure variable:
+```python
+# You can have Pandas create the variable and value columns without values
+pd.melt(df, id_vars=['A'])
+```
+|   	|  A 	| variable | value |
+|---	|---	|---	|---	|
+| 0 |   a	|   B	|   1	| 
+| 1   |   b	|   B	|   3	|
+| 2  |   c	|   B	|  5 	|
+| 3  	|  a 	|   C	|   2	|
+|  4 	|  b 	|   C	|   4	|
+|  5 	|  c 	|   C	|   6	|
