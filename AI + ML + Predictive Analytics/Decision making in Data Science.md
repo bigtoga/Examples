@@ -4,7 +4,7 @@ https://www.kaggle.com/scottwhigham/league-of-legends-win-prediction-using-pycar
 2. Review types, columns
 3. Split into categorical, numerical
 ```python
-#Dividing features into numerical and categorical features
+# Dividing features into numerical and categorical features
 categorical=[]
 numerical=[]
 for col in list(data):
@@ -21,7 +21,7 @@ graph TD;
   q1Yes-->q2{Is your target feature also categorical?}
   q2-->q2Yes(Yes)
   q2-->q2No(No)
-  q2Yes-->q2Done{{Use a chi-square test to find features of importance (< 0.5)}}
+  q2Yes-->q2Done[Use a chi-square test to find features of importance (< 0.5)]
   q1-->q1No(No);
 ```
 
