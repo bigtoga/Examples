@@ -2,7 +2,20 @@
 
 https://mermaid-js.github.io/mermaid/#/examples
 
-Handshake:
+# Graphs
+~~~
+```mermaid
+graph TB
+    A & B--> C & D
+```
+~~~
+
+```mermaid
+graph TB
+    A & B--> C & D
+```
+
+# Handshake:
 ```
 ::: mermaid
 sequenceDiagram
