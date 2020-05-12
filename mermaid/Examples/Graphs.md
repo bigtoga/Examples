@@ -10,12 +10,16 @@ https://mermaid-js.github.io/mermaid/#/examples
 ~~~
 ```mermaid
 graph LR
-    id-->id1[A node]-->id2(A node)-->id3([A node])
+    id-->id1[A node]
+    id1-->id2(A node)
+    id2-->id3([A node])
 ```
 ~~~
 ```mermaid
-graph LR
-    id-->id1[A node]-->id2(A node)-->id3([A node])
+graph LR    
+    id-->id1[A node]
+    id1-->id2(A node)
+    id2-->id3([A node])
 ```
 ---
 
