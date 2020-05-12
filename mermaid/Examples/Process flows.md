@@ -4,6 +4,8 @@ Handshake:
 ```
 ::: mermaid
 sequenceDiagram
+    participant Alice
+    participant Bob
     Alice ->> Bob: Hello Bob, how are you?
     Bob-->>John: How about you John?
     Bob--x Alice: I am good thanks!
@@ -16,6 +18,8 @@ sequenceDiagram
 ```
 ```mermaid
 sequenceDiagram
+    participant Alice
+    participant Bob
     Alice ->> Bob: Hello Bob, how are you?
     Bob-->>John: How about you John?
     Bob--x Alice: I am good thanks!
