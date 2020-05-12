@@ -13,7 +13,7 @@ for col in list(data):
     else:
         numerical.append(col)
 ```
-
+4. Define which of the categorical features are "important"
 ``` mermaid
 graph TD;
   q1{Is most of the data categorical?}
