@@ -17,10 +17,11 @@ for col in list(data):
 ``` mermaid
 graph TD;
   q1{Is most of the data categorical?}
-  q1-->q1Yes;
-  q1-->q1No;
-  B-->D;
-  C-->D;
+  q1-->q1Yes(Yes);
+  q1-->q1No(No);
+  q2{Is your target feature also categorical?}
+  q2-->q2Yes(Yes)
+  q2-->q2No(No)
 ```
 
 If the majority of the features in the data are categorical and the target feature is categorical, we can use Chi-Square test for to get the feature importance.
