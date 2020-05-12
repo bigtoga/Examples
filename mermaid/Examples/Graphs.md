@@ -7,28 +7,15 @@ https://mermaid-js.github.io/mermaid/#/examples
 # Graphs
 * TD or TB means top down or top to bottom
 * LR means left to right
-
 ~~~
 ```mermaid
 graph LR
-   id
+    id --> id1[A node ] --> id2(A node) --> id3([A node])
 ```
 ~~~
 ```mermaid
 graph LR
-   id
-```
----
-
-~~~
-```mermaid
-graph LR
-    id1[A node with text] --> id2(A node with text) --> id3([A node w text])
-```
-~~~
-```mermaid
-graph LR
-    id1[A node with text] --> id2(A node with text) --> id3([A node w text])
+    id --> id1[A node ] --> id2(A node) --> id3([A node])
 ```
 ---
 
