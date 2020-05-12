@@ -1,3 +1,5 @@
+2020-05: Github does not natively support mermaid but you can install the [Chrome extension to add mermaid to github](https://chrome.google.com/webstore/detail/github-%2B-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe/related?hl=en)
+
 https://mermaid-js.github.io/mermaid/#/examples
 
 Handshake:
