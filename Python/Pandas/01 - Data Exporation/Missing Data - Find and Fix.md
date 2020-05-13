@@ -1,4 +1,46 @@
+Many, many choices here - [the docs for dropna() are here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html) but here are a few examples. 
+* Note: don’t forget to include `inPlace=True` if you want to keep the DataFrame in the same variable
+* Note: use `axis=` to specifically target rows (0 or ‘rows’) or columns (1 or ‘columns’). `axis=0` is the default 
+* Note: default value for the `how` parameter is `any` 
 
+Related docs:
+* [dropna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
+* [fillna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna)
+
+# Drop - entire row
+### If row has any NaN or NaT values 
+* Drop rows with any NaN or NaT values in any column `df.dropna()`
+* Drop rows where all row values are NaN `df.dropna(how=‘all’)`
+   * Use case is different from `df.dropna()` - use this when you want to delete “blank lines” while preserving “rows that have just a few NaN values”
+
+### If certain columns have NaN
+* Drop rows if they have specific column(s) that have any NaN: `df.dropna(subset=[‘zipcode’, ‘income’])` to drop rows that had missing values in `zipcode` or `income`
+   * I’m not sure if this is an `and` or `or` operation though and docs don’t help
+
+
+### If the row has a certain % of rows that are NaN
+* Drop any rows with less than 2 actual values (not NaN values): `df.dropna(thresh=2)`
+* Drop rows with that have a % of NaN rows greater than a threshold `df.dropna(df.shape[0] > .9)` to drop any column with less than 90% non-NaN values
+
+# Drop - entire column(s)
+### Drop any columns with NaN
+* Drop any column that has at least one NaN `df.dropna(axis=‘columns’)`
+
+### Drop any columns above a threshold 
+* Drop any columns with less than 2 actual values (not NaN values): `df.dropna(thresh=2, axis=1)`
+
+### Drop specific columns
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+
+
+```python   
 
 # Drop all rows where Area is unassigned
 df = df.dropna(subset=['Owner'])
@@ -117,3 +159,4 @@ df['sub_area'] = df['sub_area'].fillna('_MISSING_')
 
 # numeric
 df['life_sq'] = df['life_sq'].fillna(-999)
+```
