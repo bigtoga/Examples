@@ -28,7 +28,7 @@ graph TD;
 
 If the majority of the features in the data are categorical and the target feature is categorical, we can use Chi-Square test for to get the feature importance.
 * Categorical features are < 30 values in entire column
-* p values <= 0.05 are "important"
+* p values <= 0.05 are "important" (using Levene's test)
 ```python
 def Chi_square(col_1,col_2):
     X=data[col_1].astype('str')
