@@ -1,3 +1,5 @@
+
+
 # Drop all rows where Area is unassigned
 df = df.dropna(subset=['Owner'])
 
