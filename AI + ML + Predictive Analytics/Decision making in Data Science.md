@@ -14,7 +14,7 @@ for col in list(data):
     else:
         numerical.append(col)
 ```
-4. Define which of the categorical features are "important"
+5. Define which of the categorical features are "important"
 ``` mermaid
 graph TD;
   q1{Is most of the data categorical?}
@@ -22,11 +22,13 @@ graph TD;
   q1Yes-->q2{Is your target feature also categorical?}
   q2-->q2Yes(Yes)
   q2-->q2No(No)
-  q2Yes-->q2Done[Use a chi-square test to find features of importance. Features w a chi-square score < 0.5 are important]
+  q2Yes-->q2Done[Use a chi-square test]
   q2No-->q2NoDone[TBD]
 ```
 
 If the majority of the features in the data are categorical and the target feature is categorical, we can use Chi-Square test for to get the feature importance.
+* Categorical features are < 30 values in entire column
+* p values <= 0.05 are "important"
 ```python
 def Chi_square(col_1,col_2):
     X=data[col_1].astype('str')
