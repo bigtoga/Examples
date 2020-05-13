@@ -45,6 +45,7 @@ for col in categorical:
 ```
 
 ## Step 6: Use Backward Elimination for Numerical Features
+**Backward Elimination** is going to just return a list of the best feautures to use with no other info
 ```python
 X=data[numerical]
 y=le.fit_transform(data["blueWins"])
@@ -65,4 +66,21 @@ while (pmax>0.05):
     else:
         breakselected_features_BE = cols
 print("Best features using Backward Elimination: ",cols)
+```
+## Step 7: Try Random forests - different/better results?
+Random Forest is considered to be one of the most unbiased model. As it creates multiple Decision Trees taking into account Random Features for each Decision Tree. Because of this randomness the Random Forest Classifier considerd to be giving most unbiased Feature Importance
+
+Random forest classifier will return details about each feature, enough to plot
+```python
+X_rfc=data.drop(["blueWins"],1)
+y_rfc=data["blueWins"]
+
+rfc=RandomForestClassifier(criterion='entropy',random_state=0,n_estimators=300)
+rfc.fit(X_rfc,y_rfc)
+
+plt.figure(figsize=(10,10))
+plt.barh(list(X_rfc),rfc.feature_importances_)
+plt.title("Feature Imporatance using Random Forest Classifier")
+plt.ylabel("Features")
+plt.xlabel('Feature Importance Value')
 ```
