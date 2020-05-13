@@ -50,6 +50,7 @@ So many choices here!
 * Replace with the regression to predict the correct value
 * Replace with a **Stochastic regression** 
 * Replace with a **Hot-deck imputation** which replaces NaN with a randomly selected value for the same column from another row that has similar values 
+   * See below for `impute` examples
 
 
 ```python   
