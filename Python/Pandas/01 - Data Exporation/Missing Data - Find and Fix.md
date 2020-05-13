@@ -1,6 +1,6 @@
 Many, many choices here - [the docs for dropna() are here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html) but here are a few examples. 
 * Note: don’t forget to include `inPlace=True` if you want to keep the DataFrame in the same variable
-* Note: use `axis=` to specifically target rows (0 or ‘rows’) or columns (1 or ‘columns’). `axis=0` is the default 
+* Note: use `axis=` to specifically target rows (0 or ‘index’ a.k.a rows) or columns (1 or ‘columns’). `axis=0` is the default 
 * Note: default value for the `how` parameter is `any` 
 
 Related docs:
@@ -31,14 +31,25 @@ Related docs:
 
 # Option: replace missing values
 So many choices here!
-* Replace with 0 `df.fillna(0)`
-* Replace with the previous row’s value `df.fillna(method=‘bfill’)` using ‘forward fill’ (similar to lag in SQL)
-* Replace with the next row’s value `df.fillna(method=‘ffill’)` using ‘forward fill’ (similar to lead in SQL)
-* 
-* 
-* 
-* 
-* 
+* Replace with a static value
+   * Replace with 0 `df.fillna(0)`
+   * Replace with a string `df.fillna(‘__MISSING__’)`
+   * The latter allows you to group all NaN into one bucket
+* Replace with the previous row’s value `df.fillna(method=‘bfill’)` using ‘forward fill’ (similar to lag in SQL). `backfill` is also accepted
+* Replace with the next row’s value `df.fillna(method=‘ffill’)` using ‘forward fill’ (similar to lead in SQL). `pad` is also acceptable 
+* Replace with specific values for specific columns 
+   * `values = {‘A’: 0, ‘B’: 1}
+   * `df.fillna(value=values)`
+* Replace only the first NaN `dr.dropna(limit=1)`
+   * If axis is rows, only fills the first NaN in the row leaving any remaining unchanged 
+   * If the axis is columns, only fills the first NaN value in the column leaving any remaining unchanged 
+* Replace with the mean / average 
+   * `med = df[‘life_sq’].median()`
+   * `df[‘life_sq’].fillna(med)`
+* Replace with the mode
+* Replace with the regression to predict the correct value
+* Replace with a **Stochastic regression** 
+* Replace with a **Hot-deck imputation** which replaces NaN with a randomly selected value for the same column from another row that has similar values 
 
 
 ```python   
@@ -47,25 +58,24 @@ So many choices here!
 df = df.dropna(subset=['Owner'])
 
 ######################################
-# Identify Missing Data Technique 1: Heatmap 
-#    Use when there are relatively few features 
+# When there are (a) relatively few features and (b) a relatively small dataset
+# 
+# Use a heatmap 
 ######################################
 
 cols = df.columns[:30] # first 30 columns
 colours = ['#000099', '#ffff00'] # specify the colours - yellow is missing. blue is not missing.
 sns.heatmap(df[cols].isnull(), cmap=sns.color_palette(colours))
 
-
 ######################################
-# Identify Missing Data Technique 2: Percentages 
-#     Use when there might be a lot of features
-#     Use when large dataset   
+# When there are (a) relatively few features and (b) a relatively small dataset
+# 
+# Get the % of missing.
 ######################################
-# % of missing.
 for col in df.columns:
     pct_missing = np.mean(df[col].isnull())
     print('{} - {}%'.format(col, round(pct_missing*100)))
-
+# update to f string
 
 ######################################
 # Identify Missing Data Technique 3: Histogram  
@@ -89,17 +99,6 @@ for col in df.columns:
 ind_missing = df[df['num_missing'] > 35].index
 df_less_missing_rows = df.drop(ind_missing, axis=0)
 
-
-######################################
-# Missing Data Cleanup Techniques
-#    Technique #2: Drop features
-#    What it is: Drop entire column
-#    When to use: Feature may not be robust enough or have enough/any data
-######################################
-
-# hospital_beds_raion has a lot of missing.
-cols_to_drop = ['hospital_beds_raion']
-df_less_hos_beds_raion = df.drop(cols_to_drop, axis=1)
 
 ######################################
 # Missing Data Cleanup Techniques
@@ -148,16 +147,4 @@ for col in non_numeric_cols:
         
         top = df[col].describe()['top'] # impute with the most frequent value.
         df[col] = df[col].fillna(top)
-
-######################################
-# Missing Data Cleanup Techniques
-#    Technique #4: Substitution 
-#    What it is: Group all missing Data for feature into one bucket
-#    When to use: 
-######################################
-# categorical
-df['sub_area'] = df['sub_area'].fillna('_MISSING_')
-
-# numeric
-df['life_sq'] = df['life_sq'].fillna(-999)
 ```
