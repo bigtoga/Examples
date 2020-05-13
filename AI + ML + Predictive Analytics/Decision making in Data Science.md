@@ -24,13 +24,6 @@ graph TD;
   q2-->q2No(No)
   q2Yes-->q2Done[Use a chi-square test to find features of importance. Features w a chi-square score < 0.5 are important]
   q2No-->q2NoDone[TBD]
-  q2Done-->q3{Did you eliminate enough features?}
-  q3-->q3Yes[Yes]
-  q3-->q3No[No, I need to eliminate more!]
-  q3No-->q3Done[TBD]
-  q3Yes-->q3YesDone[TBD]
-  q1-->q1No(No);
-  q1No-->q1NoDone[TBD]
 ```
 
 If the majority of the features in the data are categorical and the target feature is categorical, we can use Chi-Square test for to get the feature importance.
