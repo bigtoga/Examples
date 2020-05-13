@@ -1,9 +1,9 @@
 https://www.kaggle.com/scottwhigham/league-of-legends-win-prediction-using-pycaret/edit
 
-1. Load data
-2. Review types, columns
-3. Identify the `target` - the column you want to predict based on the other features
-3. Split into categorical, numerical
+## Step 1. Load data
+## Step 2: Review types, columns
+## Step 3: Identify the `target` - the column you want to predict based on the other features
+## Step 4: Split the data into categorical, numerical
 ```python
 # Dividing features into numerical and categorical features
 categorical=[]
@@ -14,7 +14,7 @@ for col in list(data):
     else:
         numerical.append(col)
 ```
-5. Define which of the categorical features are "important"
+## Step 5: Define which of the categorical features are "important"
 ``` mermaid
 graph TD;
   q1{Is most of the data categorical?}
@@ -42,4 +42,27 @@ def Chi_square(col_1,col_2):
         
 for col in categorical:
     Chi_square(col,"blueWins")
+```
+
+## Step 6: Use Backward Elimination for Numerical Features
+```python
+X=data[numerical]
+y=le.fit_transform(data["blueWins"])
+
+import statsmodels.api as sm
+cols = list(X.columns)
+pmax = 1
+while (pmax>0.05):
+    p=[]
+    X_1 = X[cols]
+    X_1 = sm.add_constant(X_1)
+    model = sm.OLS(y,X_1).fit()
+    p = pd.Series(model.pvalues.values[1:],index = cols)      
+    pmax = max(p)
+    feature_with_p_max = p.idxmax()
+    if(pmax>0.05):
+        cols.remove(feature_with_p_max)
+    else:
+        breakselected_features_BE = cols
+print("Best features using Backward Elimination: ",cols)
 ```
