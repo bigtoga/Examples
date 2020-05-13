@@ -7,7 +7,7 @@ Related docs:
 * [dropna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
 * [fillna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna)
 
-# Drop - entire row
+# Option: delete rows
 ### If row has any NaN or NaT values 
 * Drop rows with any NaN or NaT values in any column `df.dropna()`
 * Drop rows where all row values are NaN `df.dropna(how=‘all’)`
@@ -22,17 +22,18 @@ Related docs:
 * Drop any rows with less than 2 actual values (not NaN values): `df.dropna(thresh=2)`
 * Drop rows with that have a % of NaN rows greater than a threshold `df.dropna(df.shape[0] > .9)` to drop any column with less than 90% non-NaN values
 
-# Drop - entire column(s)
+# Option: delete columns
 ### Drop any columns with NaN
 * Drop any column that has at least one NaN `df.dropna(axis=‘columns’)`
 
 ### Drop any columns above a threshold 
 * Drop any columns with less than 2 actual values (not NaN values): `df.dropna(thresh=2, axis=1)`
 
-### Drop specific columns
-* 
-* 
-* 
+# Option: replace missing values
+So many choices here!
+* Replace with 0 `df.fillna(0)`
+* Replace with the previous row’s value `df.fillna(method=‘bfill’)` using ‘forward fill’ (similar to lag in SQL)
+* Replace with the next row’s value `df.fillna(method=‘ffill’)` using ‘forward fill’ (similar to lead in SQL)
 * 
 * 
 * 
