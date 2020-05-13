@@ -1,0 +1,30 @@
+{
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    // Override defaults - EDITOR
+    //////////////////////////////////////////////////////////////////////////////////////
+    "editor.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace",
+    "editor.formatOnSave": false,
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    // Override defaults - COLOR
+    //////////////////////////////////////////////////////////////////////////////////////
+    "workbench.colorTheme": "Solarized Dark",
+
+    //////////////////////////////////////////////////////////////////////////////////////
+    // Override defaults - POWERSHELL
+    //////////////////////////////////////////////////////////////////////////////////////
+    "powershell.codeFolding.enable": true,
+    
+    // Enabled real-time script analysis from Powershell Script Analyzer
+    "powershell.scriptAnalysis.enable": true,
+
+    // Have VS Code automatically start the powershell extension when it opens a *.ps1 file
+    "powershell.startAutomatically": false, 
+
+    // Switch focus to consolve on execute
+    "powershell.integratedConsole.focusConsoleOnExecute": true,
+
+    "powershell.promptToUpdatePowerShell": false
+}

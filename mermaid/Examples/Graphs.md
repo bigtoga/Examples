@@ -1,8 +1,58 @@
 2020-05: Github does not natively support mermaid but you can install the [Chrome extension to add mermaid to github](https://chrome.google.com/webstore/detail/github-%2B-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe/related?hl=en)
 
+https://mermaid-js.github.io/mermaid/#/flowchart?id=graph
+
 https://mermaid-js.github.io/mermaid/#/examples
 
 # Graphs
+* TD or TB means top down or top to bottom
+* LR means left to right
+~~~
+```mermaid
+graph LR
+    id-->id1[A node]
+    id1-->id2(A node)
+```
+~~~
+```mermaid
+graph LR    
+    id-->id1[A node]
+    id1-->id2(A node)
+```
+---
+
+~~~
+```mermaid
+graph LR
+    id1(A rounded node with text)
+```
+~~~
+```mermaid
+graph LR
+    id1(A rounded node with text)
+```
+---
+
+~~~
+```mermaid
+
+```
+~~~
+```mermaid
+
+```
+---
+
+~~~
+```mermaid
+
+```
+~~~
+```mermaid
+
+```
+---
+
 ~~~
 ```mermaid
 graph TB
@@ -14,6 +64,8 @@ graph TB
 graph TB
     A & B--> C & D
 ```
+
+
 
 # Handshake:
 ```
