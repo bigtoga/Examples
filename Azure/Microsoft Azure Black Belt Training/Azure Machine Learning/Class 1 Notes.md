@@ -71,3 +71,4 @@ Combo of a set of Azure Cloud Services + Python or R SDK that enable you to:
    * Specialization costs
    * Consumption costs
 4. Biggest mistake you have seen customers at our point ("awareness" phase) make over the next six months? 12 months?
+5. Are Azure Black Belt Fridays still ongoing?
