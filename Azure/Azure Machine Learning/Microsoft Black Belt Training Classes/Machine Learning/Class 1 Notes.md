@@ -42,10 +42,15 @@ Form Recognizer - takes forms, reads, converts to JSON
 
 
 ### Demo: https://oilgas.azurewebsites.net
-https://oilgas.azurewebsites.net
+https://oilgas.azurewebsites.net is built on:
+* Azure Search
+* Cognitive Search
+* Text Analytics
+* Computer Vision
 
 1. Uploaded lots of random documents
 2. Asked Azure Cognitive Services to search using mix of pre-built and some custom code. Cognitive Services scans the documents and creates index + graph / hierarchy over all 
 1. Behind the scenes, he added the translation tool so that it auto-translates documents
 1. Built portal to search
 1. If you search for anything, it can search both English and other languages now. It can find "car" even if the text is "auto" in Spanish.
+
