@@ -34,6 +34,14 @@ Wants "Code" and Has No ML Expertise
 * Azure Cognitive Services
 * Knowledge Mining
 
+## What is Azure Machine Learning?
+Combo of a set of Azure Cloud Services + Python or R SDK that enable you to:
+1. Prepare the data
+2. Build models
+3. Train models
+1. Manage models
+1. Track experiments
+1. Deploy models
 ### Containerization and Azure AI
 Example of containers being used - Sri has a customer who wants shutdown a drilling/etc rig if flame is detected. Can't deploy expensive devices 10,000 feet below easily but they can (a) built a rugged device, (b) create a model that detects accurately an unsafe situation, (c) deploy that model to a container that runs on that device, and (d) have the device shut down if an unsafe condition is met. Form of automation that is more accurate than hand-written code-based
 
