@@ -33,3 +33,17 @@ Wants "No Code" and Has No ML Expertise
 Wants "Code" and Has No ML Expertise
 * Azure Cognitive Services
 * Knowledge Mining
+
+### Containerization and Azure AI
+Example of containers being used - Sri has a customer who wants shutdown a drilling/etc rig if flame is detected. Can't deploy expensive devices 10,000 feet below easily but they can (a) built a rugged device, (b) create a model that detects accurately an unsafe situation, (c) deploy that model to a container that runs on that device, and (d) have the device shut down if an unsafe condition is met. Form of automation that is more accurate than hand-written code-based
+
+### Intelligent Kiosk app
+Form Recognizer - takes forms, reads, converts to JSON
+
+
+### Demo: https://oilgas.azurewebsites.net
+https://oilgas.azurewebsites.net
+
+1. Uploaded lots of random documents
+2. Asked Azure Cognitive Services to search using mix of pre-built and some custom code. Cognitive Services scans the documents and creates index + graph / hierarchy over all 
+3. Built portal to search
