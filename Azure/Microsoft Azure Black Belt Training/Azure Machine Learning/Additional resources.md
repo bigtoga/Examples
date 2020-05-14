@@ -9,3 +9,6 @@
 
 # Demos / apps
 1. [Intelligent Kiosk app](https://github.com/bigtoga/Cognitive-Samples-IntelligentKiosk)
+
+# Misc
+1. [Microsoft's recommended machine learning algorithms](https://docs.microsoft.com/en-us/azure/machine-learning/algorithm-cheat-sheet)
