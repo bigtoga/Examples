@@ -1,4 +1,6 @@
-https://keras.io/api/applications/
+[Code samples from keras](https://keras.io/examples/)
+
+[Models supported in keras](https://keras.io/api/applications/)
 
 |Model|Size|Top-1 Accuracy|Top-5 Accuracy|Parameters|Depth|
 |--- |--- |--- |--- |--- |--- |
