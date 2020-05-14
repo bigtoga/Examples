@@ -62,3 +62,12 @@ Combo of a set of Azure Cloud Services + Python or R SDK that enable you to:
 1. Manage models
 1. Track experiments
 1. Deploy models - this is where Sri sees the most problems w customers
+
+# Questions
+1. Cold path / hot path covered? 
+2. Databricks coverage?
+3. Comparison of costs of auto ML vs. hand-built?
+   * Time costs
+   * Specialization costs
+   * Consumption costs
+4. Biggest mistake you have seen customers at our point ("awareness" phase) make over the next six months? 12 months?
