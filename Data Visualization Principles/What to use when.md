@@ -27,6 +27,15 @@ Variables are columns / dataseries or even subsets of each. If your dataframe ha
 |   |   |   |   |
 |   |   |   |   |
 
+|   |   |   |   |
+|—|—|—|—|
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+
 Discrete 
 
 Continuous 
