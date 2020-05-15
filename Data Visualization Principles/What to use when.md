@@ -15,9 +15,28 @@ Variables are columns / dataseries or even subsets of each. If your dataframe ha
 
 *General rule of thumb*: If you can add to it, it’s likely a numeric variable and thus quantitative. If you can’t add to it, it’s likely categorical and thus qualitative 
 
+## “But Scott, what about dates? Time? I can add to each but they aren’t numeric values?”
+Nuance comes into play here. “It depends who you ask as to whether dates/times are considered categorical or quantitative” is what I’ve found. 
+
+Let’s start with `year` rather than a full `datetime` value. **Is `year` categorical or quantitative?**
+* “I can add to it, so it must be quantitative”
+* That’s why the above is a rule of thumb and not a law - “just because you can doesn’t mean you should”:
+   * Average of two years ((2019 + 2020) / 2) is nonsensical in most situations
+      * If you did a time-based average, the result would be a datetime (“January 1, 2020 00:00:00.000”)
+      * If you did a numerical/qualitative average, the result would be numeric continuous (“2019.5”)
+   * Year data is generally categorical however there are use cases where it can be quantitative 
+   * *Good rule of thumb* is to treat `year` as categorical unless the number of years is “a really large number” at which point interval or quantitative might be better (a.k.a. “It depends on what type of analysis you are trying to do”)
+   
+**But** it all depends on what you’re trying to do. `year` is a discretization of `datetime`. Let’s imagine you have a dataset with three variables: `dateOfMeasurement`, `yearsOfAge`, and `height`. If you create a `year` feature, you might have 80+ years for one individual. It might be entirely meaningful to ask “What was the average height between ages 30 and 50?”
+* Step 1: collect the `year` values where `yearsOfAge` between 30 and 50
+* Step 2: get the average (“2005.3”)
+* Step 3: Get the `height` of the closest measurement to the average
+
+But again: just because you can doesn’t mean you should or would event want to. 
+
 ### Examples 
 | Measure | Data examples | Type of variable | Discrete or continuous? |
-|---|---|---|---|
+|:---|:---|:---|:---|
 | Grade point average | 4.0, 3.5 | Numeric | Continuous |
 | Letter grade Average |  A-, B+ | Categorical | Discrete |
 | Account balance average | $987, $612 | Numeric | Continuous |
