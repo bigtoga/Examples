@@ -21,15 +21,20 @@ From [wikipedia](https://en.wikipedia.org/wiki/Level_of_measurement):
    * No - nominal (e.g. IDENTITY() value)
 1. Yes - does a value of “0.00” mean “none of this item”?
    * Yes - ratio
-1. No - is the difference between two observations meaningful?
+1. No - is the difference between two observations meaningful (a.k.a. qualitative but not quantitative)?
    * Example: Does the difference between the 10th ranked student in a class and the 40th ranked student mean that the 10th ranked student is exactly four times better than the 40th ranked student?
-   * No - ordinal (e.g. 
+   * Example: When offered a self-diagnosis with seven levels of “Current pain”, a user selected “3 - A little bit of pain”
+   * No - ordinal is for ranked data where the difference between two observations is not quantitative 
+   * Someone who ranks themselves a “6 - Severe pain” is not in twice as much pain as someone who selected “3 - A little bit of pain”
 1. Yes - interval
+   * The difference between 20 degrees F and 40 degrees F is exactly twice as much
+   * The difference between 20 degrees F and 40 degrees F is the same as the difference between 100F and 120F
 
 ——
 
 ### Nominal level
 Nominal **differentiates** between items or subjects **based only on their names or (meta-)categories and other qualitative classifications they belong to**
+* Latin for “name”
 * Boolean or dichotomous data (Yes/No answer) involves the construction of `classifications` (a.k.a. classes) for the classification of items
 * Membership to a given classification/class/category is mutually exclusive but not ordered (i.e. a piece of data can only belong to one class/category at a time and the order of the classes is meaningless)
 * Discovery of an exception to a classification can be viewed as *progress*
