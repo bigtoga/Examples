@@ -9,15 +9,15 @@ From [wikipedia](https://en.wikipedia.org/wiki/Level_of_measurement):
 >Stevens proposed his typology in a **1946 Science article titled “On the theory of scales of measurement”**. In that article, Stevens claimed that *all measurement in science was conducted using four different types of scales that he called “nominal”, “ordinal”, “interval”, and “ratio”, unifying both “qualitative” (which are described by his “nominal” type) and “quantitative”)* to a different degree, all the rest of his scales). 
 
 # Four types of variables in Stevens' Typology
-
-Todo: add table from https://en.wikipedia.org/wiki/Level_of_measurement
-
-Todo: add table from https://www.graphpad.com/guides/prism/7/statistics/the_different_kinds_of_variabl.htm
+* Nominal - a.k.a. categorical, qualitative 
+* Ordinal - a.k.a. ranking 
+* Interval a.k.a. 
+* Ratio
 
 # What type of variable am I using?
 1. Can you perform arithmetic on it?
    * No - nominal
-2. Yes - does it make sense to use arithmetic on it?
+2. Yes - does it make *sense* to use arithmetic on it?
    * No - nominal (e.g. IDENTITY() value)
 1. Yes - does a value of “0.00” mean “none of this item”?
    * Yes - ratio
@@ -25,6 +25,8 @@ Todo: add table from https://www.graphpad.com/guides/prism/7/statistics/the_diff
    * Example: Does the difference between the 10th ranked student in a class and the 40th ranked student mean that the 10th ranked student is exactly four times better than the 40th ranked student?
    * No - ordinal (e.g. 
 1. Yes - interval
+
+——
 
 ### Nominal level
 Nominal **differentiates** between items or subjects **based only on their names or (meta-)categories and other qualitative classifications they belong to**
