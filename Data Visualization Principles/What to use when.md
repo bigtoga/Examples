@@ -16,11 +16,11 @@ Variables are columns / dataseries or even subsets of each. If your dataframe ha
 *General rule of thumb*: If you can add to it, it’s likely a numeric variable and thus quantitative. If you can’t add to it, it’s likely categorical and thus qualitative 
 
 ### Examples 
-| Measure |  Data examples |  Type of variable | Discrete or continuous? |
+| Measure | Data examples | Type of variable | Discrete or continuous? |
 |—|—|—|-|
-|  Grade point average | 4.0, 3.5 |  Numeric | Continuous |
-| Letter grade Average |  A-, B+ |  Categorical |  Discrete |
-|   Account balance average |   $987, $612 |   Numeric |   Continuous |
+| Grade point average | 4.0, 3.5 | Numeric | Continuous |
+| Letter grade Average |  A-, B+ | Categorical | Discrete |
+| Account balance average | $987, $612 | Numeric | Continuous |
 |   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
