@@ -17,15 +17,24 @@ From [wikipedia](https://en.wikipedia.org/wiki/Level_of_measurement):
 # What type of variable am I using?
 1. Can you perform arithmetic on it?
    * No - nominal
-2. Yes - does it make *sense* to use arithmetic on it?
+2. Yes - does it make *sense* to use addition or subtraction on it?
    * No - nominal (e.g. IDENTITY() value)
 1. Yes - does a value of “0.00” mean “none of this item”?
+   * Example: a value of “0.00” for `height` represents a lack of height
+   * Example: a value of “0.00” in Fahrenheit for `temperature` means it is cold. Brrrrr!
+   * Yes - ratio
+1. No - does “0.00” represent the start of a scale?
+   * Example: a number of “0.00” in Kelvin for `temperature` is the lowest possible number. This means that a temperature of 20K and exactly twice that of 10K
+   * Yes - ratio
+1. No - can you multiply the values and get meaningful, quantitative results?
+   * Example: 20F is not “twice as much” as 10F
+   * Example: 20K is *exactly* “twice as much” as 10K
    * Yes - ratio
 1. No - is the difference between two observations meaningful (a.k.a. qualitative but not quantitative)?
-   * Example: Does the difference between the 10th ranked student in a class and the 40th ranked student mean that the 10th ranked student is exactly four times better than the 40th ranked student?
    * Example: When offered a self-diagnosis with seven levels of “Current pain”, a user selected “3 - A little bit of pain”
+   * Example: Does the difference between the 10th ranked student and the 40th ranked student mean that the 10th ranked student is exactly four times better than the 40th ranked student?
    * No - ordinal is for ranked data where the difference between two observations is not quantitative 
-   * Someone who ranks themselves a “6 - Severe pain” is not in twice as much pain as someone who selected “3 - A little bit of pain”
+   * Someone who ranks themselves a “6 - Severe pain” is not in quantifiably twice as much pain as someone who selected “3 - A little bit of pain”
 1. Yes - interval
    * The difference between 20 degrees F and 40 degrees F is exactly twice as much
    * The difference between 20 degrees F and 40 degrees F is the same as the difference between 100F and 120F
