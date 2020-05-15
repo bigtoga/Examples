@@ -13,7 +13,7 @@ Variables are columns / dataseries or even subsets of each. If your dataframe ha
 * **Categorical variables** (sometimes called qualitative variables) are categories (like eye color or brand of dog food) 
 * **Numeric variables** (sometimes called quantitative variables) are just that: numbers
 
-*General rule of thumb*: If you can add to it, it’s likely a numeric variable and thus quantitative 
+*General rule of thumb*: If you can add to it, it’s likely a numeric variable and thus quantitative. If you can’t add to it, it’s likely categorical and thus qualitative 
 
 ### Examples 
 | Measure |  Data examples |  Type of variable | Discrete or continuous? |
