@@ -7,10 +7,12 @@
 From [What is Univariate Analysis?](https://www.statisticshowto.com/univariate/):
 >A **variable** in univariate analysis is just a condition or subset that your data falls into. You can think of it as a “category.” For example, the analysis might look at a variable of “age” or it might look at “height” or “weight”. However, it doesn’t look at more than one variable at a time otherwise it becomes bivariate analysis (or in the case of 3 or more variables it would be called multivariate analysis).
 
-Variables are columns / dataseries or even subsets of each. If your dataframe has 50 columns, you have 50 variables at the start. 
+Variables are columns / dataseries or even subsets of each. If your dataframe has 50 columns, you have 50 variables at the start but will likely (a) remove those that are highly correlated to reduce processing time, and (b) add additional *classes* based on categorical analysis. 
 
-# Quantitative or Qualitative Variables?
-* **Categorical variables** (sometimes called qualitative variables) are categories (like eye color or brand of dog food) 
+# What type of variables are you dealing with?
+Variables come in two types: categorical and numeric/quantitative 
+
+* **Categorical variables** (sometimes called qualitative variables) are categories (like eye color or brand of dog food) and answers to Boolean questions (“Are you currently a student? Yes/No”)
 * **Numeric variables** (sometimes called quantitative variables) are just that: numbers
 
 *General rule of thumb*: If you can add to it, it’s likely a numeric variable and thus quantitative. If you can’t add to it, it’s likely categorical and thus qualitative 
@@ -27,10 +29,12 @@ Let’s start with `year` rather than a full `datetime` value. **Is `year` categ
    * Year data is generally categorical however there are use cases where it can be quantitative 
    * *Good rule of thumb* is to treat `year` as categorical unless the number of years is “a really large number” at which point interval or quantitative might be better (a.k.a. “It depends on what type of analysis you are trying to do”)
    
-**But** it all depends on what you’re trying to do. `year` is a discretization of `datetime`. Let’s imagine you have a dataset with three variables: `dateOfMeasurement`, `yearsOfAge`, and `height`. If you create a `year` feature, you might have 80+ years for one individual. It might be entirely meaningful to ask “What was the average height between ages 30 and 50?”
+**But** it all depends on what you’re trying to do. `year` is a *discretization* of `datetime`. Let’s imagine you have a dataset with three variables: `dateOfMeasurement`, `yearsOfAge`, and `height`. If you create a `year` feature, you might have 80+ years for one individual. It might be entirely meaningful to ask “What was the average height between ages 30 and 50?”
 * Step 1: collect the `year` values where `yearsOfAge` between 30 and 50
 * Step 2: get the average (“2005.3”)
 * Step 3: Get the `height` of the closest measurement to the average
+
+In the above example, `year` is a discretization of a **continuous interval variable** which makes it a quantitative/numeric variable. 
 
 But again: just because you can doesn’t mean you should or would event want to. 
 
