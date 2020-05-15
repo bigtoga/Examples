@@ -1,3 +1,8 @@
+Note - this is classic, old school classification and many people disagree that this is “how to classify data” today
+* [Example from stats.stackexchange.com user w over 237,000 reputation](https://stats.stackexchange.com/questions/158214/explanation-of-the-different-variable-types-in-statistics#comment301534_158214)
+
+——-
+
 So many different words for the same thing - hard to wrap your head around it at first. I think
 best choice is to start with [Stevens' Typology of Variable Classification](https://en.wikipedia.org/wiki/Level_of_measurement)
 and learn that "way of thinking" first, then start branching out into some of the other words/naming used
