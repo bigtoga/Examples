@@ -17,7 +17,7 @@ Variables are columns / dataseries or even subsets of each. If your dataframe ha
 
 ### Examples 
 | Measure | Data examples | Type of variable | Discrete or continuous? |
-|—|—|—|-|
+|—|—|—|—|
 | Grade point average | 4.0, 3.5 | Numeric | Continuous |
 | Letter grade Average |  A-, B+ | Categorical | Discrete |
 | Account balance average | $987, $612 | Numeric | Continuous |
