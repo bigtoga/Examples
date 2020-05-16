@@ -14,6 +14,13 @@ Navigate to https://localhost:3000 to test
 
 # Development
 - [x] Open folder w VS Code
+
+## / (root)
+- [ ] Edit `/package.json`
+   * Change `name`, `version`, `description`, `repository`, `keywords`, etc
+   * Update the package requirements
+
+## /public/
 - [ ] Edit `/public/index.html` which is just a template file:
    * Add/update title
    * Add webfonts, meta tags, or analytics to this file
@@ -21,16 +28,6 @@ Navigate to https://localhost:3000 to test
 - [ ] Edit `/public/manifest.json` and change `short_name`, `name`. This file provides metadata used when the app is added to the
       homescreen on Android. [docs](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
    
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-
-
-
 # Deploy
 To create a production bundle, use `npm run build` or `yarn build`.
 
