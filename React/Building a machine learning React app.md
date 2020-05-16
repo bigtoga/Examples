@@ -14,11 +14,11 @@ Navigate to https://localhost:3000 to test
 
 # Development
 - [x] Open folder w VS Code
-- [ ] Edit `//root/index.html` which is just a template file:
+- [ ] Edit `/public/index.html` which is just a template file:
    * Add/update title
    * Add webfonts, meta tags, or analytics to this file
    * Don't add HTML though
-- [ ] Edit `//root/manifest.json` and change title, description. This file provides metadata used when the app is added to the
+- [ ] Edit `/public/manifest.json` and change `short_name`, `name`. This file provides metadata used when the app is added to the
       homescreen on Android. [docs](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
    
 - [ ] 
