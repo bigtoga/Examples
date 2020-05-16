@@ -12,6 +12,25 @@ Tim Creative theme I chose - [demo](https://demos.creative-tim.com/blk-design-sy
 
 Navigate to https://localhost:3000 to test
 
+# Development
+- [ ] Open folder w VS Code
+- [ ] Edit `//root/index.html` which is just a template file:
+   * Add/update title
+   * Add webfonts, meta tags, or analytics to this file
+   * Don't add HTML though
+- [ ] Edit `//root/manifest.json` - it provides metadata used when the app is added to the
+      homescreen on Android. [docs](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/)
+   
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+
+
+
 # Deploy
 To create a production bundle, use `npm run build` or `yarn build`.
 
