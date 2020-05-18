@@ -1,4 +1,23 @@
+# Three Categories of Artificial Neural Networks (ANNs)
+[Wikipedia on Artificial Neural Networks (ANN)](https://en.wikipedia.org/wiki/Artificial_neural_network) and 
+[Wikipedia on Neural Networks](https://en.wikipedia.org/wiki/Neural_network):
+* Function approximation, or regression analysis, including time series prediction and modeling
+* Classification, including pattern and sequence recognition, novelty detection and sequential decision making.
+* Data processing, including filtering, clustering, blind signal separation and compression
 
+# Common Use Cases for NNs
+* nonlinear system identification and control (vehicle control, process control)
+* game-playing and decision making (backgammon, chess, racing)
+* pattern recognition (radar systems, face identification, object recognition)
+* sequence recognition (gesture, speech, handwritten text recognition)
+* medical diagnosis
+* financial applications
+* data mining (or knowledge discovery in databases, “KDD”) and visualization
+* e-mail spam filtering
+
+Image courtesy of Wikipedia: 
+
+![?](https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/1024px-Colored_neural_network.svg.png)
 
 # Recurrent Neural Networks (RNN)
 **Definition** - RNNs can be thought of as multiple copies of the same network, each passing a message to a successor
@@ -39,11 +58,12 @@ LSTM networks are very good at processing data with complex and separated interd
 * image-to-caption generation
 
 ### Variations on LTSM
-#### Grid LTSM
+#### Grid LTSM (*N*-LTSM)
 Proposed 2015 in [this paper](https://arxiv.org/pdf/1507.01526v1.pdf)
 
 > ... a network of LSTM cells arranged in a multidimensional grid that can be applied to vectors, sequences or higher dimensional data such as images. The network differs from existing deep LSTM architectures in that the cells are connected between network layers as well as along the spatiotemporal dimensions of the data. 
-> It therefore provides a uni- fied way of using LSTM for both deep and sequential computation. We apply the model to algorithmic tasks such as integer addition and determining the parity of random binary vectors. It is able to solve these problems for 15-digit integers and 250-bit vectors respectively. We then give results for three empirical tasks. We find that 2D Grid LSTM achieves 1.47 bits per character on the `Wikipedia character prediction benchmark`, which is state-of-the-art among neural approaches. We also observe that a two-dimensional translation model based on Grid LSTM outperforms a phrase-based reference system on a Chinese-to-English translation task, and that 3D Grid LSTM yields a near state-of-the-art error rate of 0.32% on MNIST. 
+> It therefore provides a unified way of using LSTM for both deep and sequential computation. We apply the model to algorithmic tasks such as integer addition and determining the parity of random binary vectors. It is able to solve these problems for 15-digit integers and 250-bit vectors respectively. We then give results for three empirical tasks. 
+> We find that 2D Grid LSTM achieves 1.47 bits per character on the `Wikipedia character prediction benchmark`, which is state-of-the-art among neural approaches. We also observe that a two-dimensional translation model based on Grid LSTM outperforms a phrase-based reference system on a Chinese-to-English translation task, and that 3D Grid LSTM yields a near state-of-the-art error rate of 0.32% on MNIST. 
 
 #### Gated Recurrent Unit (GRU)
 A bit simpler than LTSM and is becoming popular 
