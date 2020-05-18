@@ -18,7 +18,8 @@ graph LR;
    a[Cause: fertilizer amount]-->b[Effect: plant growth];
    v[Manipulated]-->c[Measured];
    s[Applied to]-->t[Response recorded]
-   
+```
+```mermaid
 graph TD;
    a[Given 10mg of medicine]-->r[Patient response];
    b[Given a placebo]-->r[Patient response];
