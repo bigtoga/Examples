@@ -1,8 +1,44 @@
+# Basics of Artificial Neural Networks (ANNs)
+* vaguely inspired by the biological neural networks that constitute animal brains (aka biomimicry). Such systems “learn” to perform tasks by considering examples, generally without being programmed with task-specific rule
+* Example using *image recognition*: they might learn to identify images that contain cats by analyzing example images that have been manually labeled as “cat” or “no cat” and using the results to identify cats in other images. They do this without any prior knowledge of cats, for example, that they have fur, tails, whiskers and cat-like faces. Instead, they automatically generate identifying characteristics from the examples that they process.
+
+ANNs uses a network of connected **neurons** in three layers:
+* The **Input layer** (1)
+* The **Hidden layer(s) (*n*)
+* The **Output layer** (1)
+
+![?](https://i.imgur.com/opIpo9k_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+## The Input layer
+Each node represents a **feature** passed into the ANN. There is one node for each feature you pass I.  
+
+## The Hidden layers
+Hidden layers do all the processing. Rule of thumb: the more hidden layers you have, the more accurate the model will be to a point. Too many layers and you may overfit. 
+
+Each hidden layer receives input from the prior layer, then multiplies that by its own **weights** and **bias**. 
+
+## The Output layer
+Your final target output is here
+
+ANNs use **forward propagation** (a.k.a. feed forward)
+
+### Weights, Biases, and Cost
+Generally speaking, hidden layer nodes start with random weights and random biases. These random values get changed over time as the node iterates through the data, each time learning more and more. These weights and biases get updated by the node calculating the amount of error it currently has. If a certain change in weight results in fewer errors, that value becomes the new weight, and same for bias. 
+
+The above is the **cost** of the neural network and it is calculated by:
+1. Find the difference between the network’s prediction and the desired result 
+2. Find the sum of those values’ squares `(target - output)<sup>2</sup>
+
+The total cost of the NN is the sum of all of the hidden layers’ nodes. 
+
+### Training our model 
+The entire point of training your model is to minimize cost. NNs actually use **backpropagation** (the opposite of feedForward) where they start with the output layer, feed that into the hidden layers, and determine the optimal weights amd biases  
+
 # Three Categories of Artificial Neural Networks (ANNs)
 [Wikipedia on Artificial Neural Networks (ANN)](https://en.wikipedia.org/wiki/Artificial_neural_network) and 
 [Wikipedia on Neural Networks](https://en.wikipedia.org/wiki/Neural_network):
 * Function approximation, or regression analysis, including time series prediction and modeling
-* Classification, including pattern and sequence recognition, novelty detection and sequential decision making.
+* Classification, including pattern and sequence recognition, image recognition, novelty detection and sequential decision making.
 * Data processing, including filtering, clustering, blind signal separation and compression
 
 # Common Use Cases for NNs
