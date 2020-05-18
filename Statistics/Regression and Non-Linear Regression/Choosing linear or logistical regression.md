@@ -8,6 +8,12 @@ If, instead, you wanted to predict, based on size, whether a house would sell fo
 # Linear regression
 You have lots of numeric data and want to output numeric/continuous data. Linear regression makes a linearization of a problem where 𝑦=𝑓(𝑥) with 𝑥 and 𝑦  being continuous variables.
 
+[Great breakdown here](https://statisticsbyjim.com/regression/choosing-regression-analysis/)
+
+> Linear regression, aka ordinary least squares (OLS) and "linear least squares" help us understand the **mean change** in a dependent variable given a one-unit change in each independent variable
+> OLS produces the fitted line that minimizes the sum of the squared differences between the data points and the line
+* **If you have a *continuous dependent variable*, linear regression is probably the first type you should consider**
+
 # Logistical Regression
 Your target is a categorical variable
 * You want to predict a behavior - someone will or will not buy a house, default on a mortgage, etc
