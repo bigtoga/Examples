@@ -1,3 +1,14 @@
+**Model specification** or **model selection** are words that describes the process of determining which independent variables to include/exclude from a regression test. 
+
+[Good explanation here](https://statisticsbyjim.com/regression/model-specification-variable-selection/)
+
+Rule of thumb/"We want to":
+* Exclude all independent variables that are not mathematically related to the dependent variable
+* Include all independent variables that are mathematically related
+
+If we have **too few independent variables**, our results tend to be biased  If we have **too many indendent variables**, our results tend to be overfitted (aka too specifically tuned to "this set of data"). Neither situation will hold up to larger/different data sets (aka they are not generalized enough to be reused woth new/additional data).
+
+
 [Example from stackexchange](https://datascience.stackexchange.com/questions/9362/when-to-use-linear-or-logistic-regression):
 **Linear Regression** is used for predicting continuous variables. **Logistic Regression** is used for predicting variables which has only limited values.
 
@@ -24,4 +35,7 @@ Logistic regression describes the relationship between a set of independent vari
 * Image classification/recognition (output is "pizza slice" or "ice cream cone")
 
 > A categorical variable has values that you can put into a countable number of distinct groups based on a characteristic. > Logistic regression transforms the dependent variable and then uses **Maximum Likelihood Estimation**, rather than least squares, to estimate the parameters
+
+-------
+
 
