@@ -11,6 +11,8 @@ Example of a plant growth study:
 * **What are you wanting to learn?** "Which factors influence plant growth the most?"
 * **What is your dependent variable?** "Plant growth during the study in inches"
 * **What factors do you want to use to see whether they have any impact?** "We will measure daily the amount of fertilizer applied, the soil moisture, and the amount of sunlight"
+* **What is the y value of your plot?** The dependent variable, `plant_growth`
+* **What are the x values of your plot?** The independent variables: `fertilizer_10g_per_day`, `soil_mosture_50pct`, `sunlight_16hrs`
 
 ```mermaid
 graph LR;
