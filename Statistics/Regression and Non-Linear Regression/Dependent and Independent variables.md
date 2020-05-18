@@ -16,5 +16,10 @@ Example of a plant growth study:
 graph LR;
    x[Independent variable]-->y[Dependent variable];
    a[Cause: fertilizer amount]-->b[Effect: plant growth];
-
+   v[Manipulated]-->c[Measured];
+   s[Applied to]-->t[Response recorded]
+   
+graph TD;
+   a[Medicine given]-->r[Patient response];
+   b[Placebo given]-->r
 ```
