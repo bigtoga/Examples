@@ -8,8 +8,7 @@ If, instead, you wanted to predict, based on size, whether a house would sell fo
 # Linear regression
 You have lots of numeric data and want to output numeric/continuous data. Linear regression makes a linearization of a problem where 𝑦=𝑓(𝑥) with 𝑥 and 𝑦  being continuous variables.
 
-
-
 # Logistical Regression
 Your target is a categorical variable
+* You want to predict a behavior - someone will or will not buy a house, default on a mortgage, etc
 * Image classification/recognition (output is "pizza slice" or "ice cream cone")
