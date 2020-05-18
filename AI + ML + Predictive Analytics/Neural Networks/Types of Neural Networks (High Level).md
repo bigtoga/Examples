@@ -15,6 +15,8 @@ We know it’s *French* but RNN has a challenge retaining the key value “Franc
 
 “France” in the above is a **dependency** in RNN speak. The larger the gap between the dependency and the prediction, the less likely RNN will work for you. 
 
+Note that all Deep networks suffer from exactly the same problems as recurrent networks applied to long sequences: namely that information from past computations rapidly attenuates as it progresses through the chain – a.k.a. the `vanishing gradient problem` - made worse by the fact that each subsequent layer cannot dynamically select or ignore its inputs. 
+
 ## LTSM (Long Term Short Memory)
 LTSM is a form of RNN meant specifically to address the primary dependency problem with RNNs. Widely used today - high likelihood that, if you find a project using “prior context” to predict, it is using LTSM or one of it’s variants. 
 
@@ -25,6 +27,16 @@ LTSM uses the same basic flow as RNN but passes “cell state” to each node, a
 - Node A2: keep “summer” as we can use to predict month, activity, or temperature
 - Node A3: Discard “in the”
 - Node A4: Keep “France” as we can use this to predict language, city, region
+
+LTSM networks are RNNs equipped with a special gating mechanism that controls access to memory cells. These gates  prevent the rest of the network from modifying the contents of the memory cells for multiple time steps (aka preserving prior context/data for a long period). This means that LSTM networks preserve signal and propagate errors for much longer than ordinary RNNs. 
+
+LSTM networks are very good at processing data with complex and separated interdependencies and to excel in a range of **sequence learning domains** such as speech recognition, offline hand-writing recognition, machine translation, and image-to-caption generation. 
+
+### Use Cases for LTSM
+* speech recognition
+* offline hand-writing recognition
+* machine translation
+* image-to-caption generation
 
 ### Variations on LTSM
 #### Grid LTSM
