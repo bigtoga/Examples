@@ -20,6 +20,6 @@ graph LR;
    s[Applied to]-->t[Response recorded]
    
 graph TD;
-   a[Medicine given]-->r[Patient response];
-   b[Placebo given]-->r
+   a[Given 10mg of medicine]-->r[Patient response];
+   b[Given a placebo]-->r
 ```
