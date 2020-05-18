@@ -8,7 +8,7 @@ Supervised machine learning algorithms that are founded on a single predictive m
 * naive Bayes
 * support vector machines
 
-Supervised machine learning algos that are built around building an **sequential** ensemble of `models` where each individual model predits the outcome, and then the rest of the ensemble simply averages the predicted values:
+Supervised machine learning algos that are built around building an **sequential** ensemble of `models` where each individual model predits the outcome, and then the rest of the ensemble simply averages the predicted values (a.k.a. **ensembles**):
 * bagging
 * random forests
 * gradient boosting 
