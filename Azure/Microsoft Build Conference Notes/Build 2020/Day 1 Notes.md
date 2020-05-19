@@ -1,4 +1,5 @@
-# Azure: Invent with Purpose session
+<details>
+   <summary> # Azure: Invent with Purpose session
 
 ## Azure Kubernetes
 * ak8s now "enterprise grade" according to MSFT
@@ -39,4 +40,5 @@ Demo: Power App in Teams -> API Mgmt servioce -> Azure k8s -> Azure Cosmos DB. S
 * Publish to Microsoft Teams
    - You can instantly add any Power App to Teams
 
-   
+</summary>
+</details>
