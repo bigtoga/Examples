@@ -115,8 +115,8 @@ Responsible ML / Responsible Machine Learning
 
 </details>
 
-
-# Ask the Team: Azure App Service Team
+<details>
+   <summary>Ask the Team: Azure App Service Team</summary>
 
 ## When do you update the App Service .NET Framework or .NET Core such that it affects everyone?
 Security reasons only, and even those are announced
@@ -156,25 +156,13 @@ No news, but working on it. Maybe 2 months
 
 ## Can App Service container logs be routed to Azure App Insights?
 No, but maybe we could look to do that (i.e. the underlying Docker logs)
+</details>
 
-## 
 
-## 
-
-## 
-
-## 
-
-## 
-
-##  
-
-## 
-
-## 
-
-## 
-
-## 
-
-## 
+<details>
+   <summary>Train and deploy ML models at scale using Azure Machine Learning</summary>
+   Azure VMs in preview with PyTorch/etc pre-installed and configured
+   
+# Azure Machine Learning
+**Datasets**, **Experiments** are projects, **Pipelines, **Models*(
+</details>
