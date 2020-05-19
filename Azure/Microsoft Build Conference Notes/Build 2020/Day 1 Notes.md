@@ -164,5 +164,5 @@ No, but maybe we could look to do that (i.e. the underlying Docker logs)
    Azure VMs in preview with PyTorch/etc pre-installed and configured
    
 # Azure Machine Learning
-**Datasets**, **Experiments** are projects, **Pipelines, **Models*(
+**Datasets**, **Experiments** are projects, the "groupings" of all the attempts to create the model, **Pipelines**, **Models**
 </details>
