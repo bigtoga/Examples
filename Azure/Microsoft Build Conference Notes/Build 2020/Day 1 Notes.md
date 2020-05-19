@@ -117,7 +117,9 @@ Responsible ML / Responsible Machine Learning
 
 <details>
    <summary>Ask the Team: Azure App Service Team</summary>
+Chris Lauren
 
+Sabina Cartacio 
 ## When do you update the App Service .NET Framework or .NET Core such that it affects everyone?
 Security reasons only, and even those are announced
 
@@ -169,6 +171,20 @@ No, but maybe we could look to do that (i.e. the underlying Docker logs)
 Suggestion: 
 1. Use AutoML to do the base/initial feature importance and to identify hyperoptimization pararmeters
 
+## Questions
 How can we control costs relative to Azure compute for data scientists? RBAC
 
+When to use Hyperdrive vs. hyperoptimization? Think of them as being on a continuum - hyperoptimization is running in the backend constantly testing all the modelling algorithms whereas hyperdrive is just doing the ones you want
+
+URLs to the notebook? https://github.com/microsoft/bert-stack-overflow/blob/master/1-Training/AzureServiceClassifier_Training.ipynb
+
+What python libraries can we use with AML? Any including tensorflow
+
+Does AML use Linux or Windows? Linux
+
+Cn automated AML prevent overfitting? Automated ML has guardrails to warn you of overfitting, but in general Azure ML does not take care of this for you.
+
+Can you export automated AML to python code so we could explore? Yes, can download as a pickle file
+
+ML Ops - can we code our model and then deploy automatically? Yes, AML integrates w Azure DevOps such that, when you register the model in the **Model Registry**, that can automatically kick off a release pipeline that validates / tests the model (maybe in Container instance) and then rolls out the model to an Azure Kubernetes cluster.
 </details>
