@@ -114,3 +114,67 @@ Responsible ML / Responsible Machine Learning
 
 
 </details>
+
+
+# Ask the Team: Azure App Service Team
+
+## When do you update the App Service .NET Framework or .NET Core such that it affects everyone?
+Security reasons only, and even those are announced
+
+## Is there a plan for TLS 1.3 in App Service?
+
+## Any plans for Azure private DNS via App Services?
+Yes, but... has to work with Private Link first. Expecting it before Ignite though
+
+## Will App Services eventually run on GPUs?
+Maybe but that's pretty exotic so long time away if ever
+
+## How do the new healthchecks in Azure App Service work?
+Healthchecks are about to go GA but Lots of issues related to ping times. 
+
+## How to prevent access to an app that's not fully warmed up?
+Azure App Service can ping both (a) a path, and (b) an expected HTTP STATUS CODE.
+During your warm up, just have that return 404/500. Only once the warm up is done
+should your app return 200
+
+## Does App Service Plan support udp?
+No, http and http/2
+
+## Will App Service support containers?   
+Yes, but it is not App Service's intent to be a container registry but we want to help 
+
+## Have a mix of MVC+ASP.NET Core virt. apps in IIS exposed via Web Forms website. How to plan migration to App Service?
+
+
+# Can an App Service deliver good performance for web applications which are heavily dependent on DB and Storage interactions? Are there any limitations to consider in this regard?
+Yes, suggest you use connection pooling heavily.
+
+Moderator: Azure Private Endpoints will be in Preview in a few weeks that will allow App Services direct access to your Azure VM-based services
+
+## News about App Service Managed Certificates coming to GA? I'd really like to get some of those in production use. Also what are the plans on naked domain support?
+No news, but working on it. Maybe 2 months
+
+## Can App Service container logs be routed to Azure App Insights?
+No, but maybe we could look to do that (i.e. the underlying Docker logs)
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
+
+##  
+
+## 
+
+## 
+
+## 
+
+## 
+
+## 
