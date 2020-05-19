@@ -1,8 +1,9 @@
 # Favorite parts
-## Data Science / Data Warehouse
-1. Azure Synapse Link
+<details>
+   <summary>Data Science / Data Warehouse: Azure Synapse Link</summary>
    - Able to support Azure Cosmos DB integration to skip ETL and provide Azure Synapse with real time access to Azure Cosmos DB operational data in seconds and without impacting source system
    - [TechCrunch write-up about Azure Synapse Link](https://techcrunch.com/2020/05/19/microsoft-launches-azure-synapse-link-to-help-enterprises-get-faster-insights-from-their-data/)
+</details>
 
 # Sessions
 <details>
