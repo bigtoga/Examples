@@ -1,6 +1,6 @@
 # Sessions
 <details>
-   <summary>&bull; Azure: Invent with Purpose</summary>
+   <summary>Azure: Invent with Purpose with Scott Guthrie</summary>
 
 ## Azure Kubernetes
 * ak8s now "enterprise grade" according to MSFT
