@@ -1,5 +1,6 @@
+# Sessions
 <details>
-   <summary> # Azure: Invent with Purpose session </summary>
+   <summary>&bull; Azure: Invent with Purpose</summary>
 
 ## Azure Kubernetes
 * ak8s now "enterprise grade" according to MSFT
