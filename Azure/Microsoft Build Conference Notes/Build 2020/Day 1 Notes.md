@@ -25,6 +25,7 @@
 * Serverless pricing
 * Auto-scale to maintain single digit ms
 * **Capable of trillions of events per second**
+> Microsoft is also announcing the forthcoming general availability of **Azure Cosmos DB autoscale** provisioned throughput (previously called autopilot), which offers SLA-backed single-digit millisecond latency and 99.999% availability guaranteed while taking the planning and management of throughput capacity off customers’ hands, making it well-suited for large, unpredictable workloads.
 
 ## Azure Cognitive Services
 * Vision, Speech, Search, Language, Decision
