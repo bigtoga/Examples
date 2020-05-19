@@ -5,6 +5,12 @@
    - [TechCrunch write-up about Azure Synapse Link](https://techcrunch.com/2020/05/19/microsoft-launches-azure-synapse-link-to-help-enterprises-get-faster-insights-from-their-data/)
 </details>
 
+<details>
+   <summary>Storage | Azure Storage Explorer is now in Preview in the portal</summary>
+   - Same benefits as Azure File Explorer download without the need to download the tool
+</details>
+
+
 # Sessions
 <details>
    <summary>Azure: Invent with Purpose with Scott Guthrie</summary>
