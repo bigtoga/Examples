@@ -31,3 +31,5 @@ require minimal downtime. The Premium pricing tier is generally available
    - *DMS Premium 4-vCore is free for 6 months (183 days) from the DMS service creation date before incurring any charges*
 
 # DMS Limitations
+* 4 vCores max
+* Customers can create 2 DMS services per subscription. To create additional services, please create a support ticket.
