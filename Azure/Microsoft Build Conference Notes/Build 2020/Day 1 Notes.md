@@ -165,4 +165,10 @@ No, but maybe we could look to do that (i.e. the underlying Docker logs)
    
 # Azure Machine Learning
 **Datasets**, **Experiments** are projects, the "groupings" of all the attempts to create the model, **Pipelines**, **Models**
+
+Suggestion: 
+1. Use AutoML to do the base/initial feature importance and to identify hyperoptimization pararmeters
+
+How can we control costs relative to Azure compute for data scientists? RBAC
+
 </details>
