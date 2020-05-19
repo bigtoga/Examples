@@ -105,7 +105,9 @@ Microsoft has open sourced [InterpretML](https://github.com/interpretml/interpre
 ## Fairness Mitigation
 
 Select `Fairness Criteria` - Democratic Partiy or Equalized Odds?
-Then Select `Mitigation 
+Then Select `Mitigation`
+
+Responsible ML / Responsible Machine Learning
 
 
 
