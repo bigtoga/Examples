@@ -76,3 +76,31 @@ Single click inside the Cosmos DB portal enables it. Holy moly. This is absolute
    <summary>Building the tools to work and learn</summary>
    
 </details>
+
+<details>
+   <summary>Fairness in Machine Learning</summary>
+   
+# Fairlearn - new open source toolkit from Microsoft
+[Fairlearn](https://github.com/fairlearn/fairlearn) - 
+* Integrated within Azure Machine Learning in future
+* Helps determine "Is my model fair?"
+* Helps teams mitigate fairness issues
+
+Input: Sensitive attribute, Performance Metric
+
+## Interpretability techniques
+
+## InterpretML
+Microsoft has open sourced [InterpretML](https://github.com/interpretml/interpret) - blackbox and glassbox modes, Interpret-text tools
+* Glass box models - models that are designed to be inherently interpretable. Lossless explainability
+   - Decision trees
+* Black box models - I can't inspect it, nor can I explain how it works. Approximate explainability - shap, lime, partial dependence, sensitivity analysis
+
+## Fairness Mitigation
+
+Select `Fairness Criteria` - Democratic Partiy or Equalized Odds?
+Then Select `Mitigation 
+
+
+
+</details>
