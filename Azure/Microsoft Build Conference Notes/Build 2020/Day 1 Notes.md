@@ -65,3 +65,8 @@ Links your existing **Cosmos DB** operational databases to Synapse automatically
 Single click inside the Cosmos DB portal enables it. Holy moly. This is absolutely a game changer
 
 </details>
+
+<details>
+   <summary>Building the tools to work and learn</summary>
+   
+</details>
