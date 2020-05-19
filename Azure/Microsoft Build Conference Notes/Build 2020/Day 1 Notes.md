@@ -10,6 +10,7 @@
    - Same benefits as Azure File Explorer download without the need to download the tool
 </details>
 
+* Windows Terminal 1.0 released which means it is enterprise ready
 
 # Sessions
 <details>
