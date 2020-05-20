@@ -70,6 +70,11 @@ and are able to launch 50-60 new apps per year
 * 65% increase in developer productivity
 * 63% reduction in maintenance
 
+## Anypoint Platform
+Does 3 things:
+1. Unlock, unify, and secure data
+1. Ensure business continuity - scale to meet surge in digital demand and solve operational gaps
+1. Transform to increase speed, agility
 
 </details>
 
