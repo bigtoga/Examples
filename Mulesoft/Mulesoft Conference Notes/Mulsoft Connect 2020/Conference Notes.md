@@ -16,3 +16,4 @@ COVID -
 ## Digital imperative: moving faster than ever before
 **It's business unusual for all of our customers**
 
+Many hidden opportunities in current crisis - Things are now suddenly very different, and one key thing is that people are much more willing to try something new. 
