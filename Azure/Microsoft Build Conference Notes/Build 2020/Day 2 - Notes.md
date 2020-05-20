@@ -83,10 +83,10 @@ Everything you can do today with Azure Blue prints & ARM Templates you will also
    - Azure ML is not; it's built on Python and has other goals such as Auto ML
 * Where to learn more? 
    -  Go to [papersincode.com](https://paperswithcode.com/) and follow 
-* 
-   -   
-* 
-   -  
+* What will differentiate us in the future?
+   -   Our domain knowledge
+* Any shortcut for identifying a model / cheat sheet / quick start?
+   -  Auto ML
 * 
    -  
 *   
