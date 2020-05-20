@@ -17,3 +17,7 @@ COVID -
 **It's business unusual for all of our customers**
 
 Many hidden opportunities in current crisis - Things are now suddenly very different, and one key thing is that people are much more willing to try something new. 
+
+With more WFH, no more "swivel chair IT" - where developers can turn around, ask for something, and IT delivers. Now we need more self-service software. 
+
+**Anything that can run remotely should be ready to run remotely** - this drastically elevates the value of IT
