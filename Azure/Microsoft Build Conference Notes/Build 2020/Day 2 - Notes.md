@@ -81,8 +81,8 @@ Everything you can do today with Azure Blue prints & ARM Templates you will also
 * Azure ML vs. Databricks?
    -  Databricks uses Spark ecosystem
    - Azure ML is not; it's built on Python and has other goals such as Auto ML
-* AI / ML 
-   -  
+* Where to learn more? 
+   -  Go to [papersincode.com](https://paperswithcode.com/) and follow 
 * 
    -   
 * 
