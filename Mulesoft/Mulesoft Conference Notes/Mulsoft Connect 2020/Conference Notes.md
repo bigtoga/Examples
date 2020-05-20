@@ -8,6 +8,8 @@ https://vshow.on24.com/vshow/MCD/home
 * Louis Ponticas - COO
 * Simon Parmett - CEO
 
+<details>
+  <summary>Keynote</summary>
 # Keynote
 COVID - 
 * https://mulesoft.com/covid
@@ -21,3 +23,31 @@ Many hidden opportunities in current crisis - Things are now suddenly very diffe
 With more WFH, no more "swivel chair IT" - where developers can turn around, ask for something, and IT delivers. Now we need more self-service software. 
 
 **Anything that can run remotely should be ready to run remotely** - this drastically elevates the value of IT
+
+</details>
+
+<details>
+  <summary></summary>
+  
+</details>
+
+<details>
+  <summary></summary>
+  
+</details>
+
+
+<details>
+  <summary></summary>
+  
+</details>
+
+
+
+
+
+
+
+
+
+
