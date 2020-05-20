@@ -78,7 +78,10 @@ Does 3 things:
 
 ## SVP
 Guidance from Mulesoft - accelerate your time-to-value:
-1. Go fast immediately, accelerate thereafter
+Go fast immediately, accelerate thereafter with:
+1. Global Marketplace - connectors
+2. Developer Productivity - accelerators, tutorials & docs, knowledge hub
+3. Expert community
 
 </details>
 
