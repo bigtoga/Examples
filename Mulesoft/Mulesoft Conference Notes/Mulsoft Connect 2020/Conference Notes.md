@@ -83,6 +83,11 @@ Go fast immediately, accelerate thereafter with:
 2. Developer Productivity - accelerators, tutorials & docs, knowledge hub
 3. Expert community
 
+### Building blocks, not systems
+Systems slow you down and are only "usable by few". To make them "usable by all", use Mulesoft. Composable, connected digital building blocks
+
+The more black boxes you have, the harder future innovation is due to rigidity.
+
 </details>
 
 <details>
