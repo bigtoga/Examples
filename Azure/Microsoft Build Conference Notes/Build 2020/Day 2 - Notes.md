@@ -1,6 +1,7 @@
 # Favorites
 <details>
    <summary></summary>
+* Azure ARM Template Specs with Azure ARM Private Repository
    
 </details>
 
@@ -83,7 +84,17 @@ Everything you can do today with Azure Blue prints & ARM Templates you will also
 * AI / ML 
    -  
 * 
-   - 
+   -   
+* 
+   -  
+* 
+   -  
+*   
+* 
+   -  
+* 
+   -  
+* 
    
 </details>
 
