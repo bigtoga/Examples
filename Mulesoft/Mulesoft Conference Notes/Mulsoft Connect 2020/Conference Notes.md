@@ -53,6 +53,24 @@ IT cannot keep up with all the requests - used to be able to prioritize, but now
 
 * Custom code is the enemy of speed. It creates a bottleneck because only 1-2 people know it
 * IT spends 80% of its time "integrating" instead of "innovating"
+   - Integrating 150 apps takes a LOT of manpower, time
+
+## Amit A. from Mars Corp
+New CEO - wanted to move to cloud, have Digital Transformation. 
+* We started to see huge explosions in "cloud applications"
+* This was great at first but became a huge issue later
+* Trying to get the various cloud applications to "talk to each other" was massive problem
+* We decided on Mulesoft and decided to completely re-architect entire software architecture of
+our entire org. 
+* After going through that hard, long, arduous process, today we have 350+ applications across the business
+and are able to launch 50-60 new apps per year
+
+## Lindsey - Agility, Speed and Efficiency
+* 60% speed improvement
+* 65% increase in developer productivity
+* 63% reduction in maintenance
+
+
 </details>
 
 <details>
