@@ -15,11 +15,12 @@
 * modern apis
 * self-service
 * IT
-* 
-* 
-* 
-* 
-* 
+* connecting
+* reusable building blocks
+* reusable APIs
+* consumption
+* connectors
+* accelerators
 * 
 * 
 * 
