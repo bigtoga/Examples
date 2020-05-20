@@ -24,6 +24,10 @@ With more WFH, no more "swivel chair IT" - where developers can turn around, ask
 
 **Anything that can run remotely should be ready to run remotely** - this drastically elevates the value of IT
 
+## Key change: "Everyone, all at once"
+IT cannot keep up with all the requests - used to be able to prioritize, but now every department is overwhelming IT with requests all at once.
+* Find a way to provide self tools that allow people to "do more on their own" without fear of "making a mess" or "making a mistake"
+
 </details>
 
 <details>
