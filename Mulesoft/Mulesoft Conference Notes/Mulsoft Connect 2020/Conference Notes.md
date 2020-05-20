@@ -76,6 +76,10 @@ Does 3 things:
 1. Ensure business continuity - scale to meet surge in digital demand and solve operational gaps
 1. Transform to increase speed, agility
 
+## SVP
+Guidance from Mulesoft - accelerate your time-to-value:
+1. Go fast immediately, accelerate thereafter
+
 </details>
 
 <details>
