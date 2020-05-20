@@ -1,3 +1,5 @@
+<details>
+<summary>Keynote buzzwords</summary>
 # Keynote
 https://youtu.be/nt_Uy59cK3k
 * Intelligent cloud
@@ -56,8 +58,7 @@ https://youtu.be/nt_Uy59cK3k
 * emergency response
 * need the ability to 
 * {need for a} faster, more agile response
-* Github is "where developers build software together"
-* bringing together the best of 
+* Github is "where developers build software together" 
 * toolchain
 * amplify 
 * tracking
@@ -67,33 +68,14 @@ https://youtu.be/nt_Uy59cK3k
 * Rich scaffolding for...
 * unifying
 * seamless integration
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-
+* cross-section
+* Adoption of...
+* building blocks
+* Faster, easier
+* extensibility taht every developer needs
+* innovating at every layer
+* secure IoT
+* bringing intelligence to physical sustems
 
 ### AI/ML 
 * responsible AI
@@ -114,7 +96,6 @@ https://youtu.be/nt_Uy59cK3k
 * Fluid Framework
 * collaborative canvas
 
-
 # Satya-isms
 * extraordinary times
 * one of my favorite
@@ -126,6 +107,29 @@ https://youtu.be/nt_Uy59cK3k
 * It's incredible to see...
 * It's amazing to see the progress you've made in such a short period of time.  It's remarkable.
 * great example of 
+* That's tremendous
+* bringing together the best of
+* ... two years of growth in two months
+* Our commitment to...
+* ... and that's so critical to...
+* Great to see the progress
+* {it} is the first...
+* This translates to a rich opportunity for ...
+* We've made tremenndous progress
+* And the same is true for your...
+* And we're taking to the next level
+* With {thjng}, you can now ...
+* We're already seeing {those who benefit} have this impact
+</ details>
+
+<details>
+<summary>Template</summary>
+* 
+* 
+* 
+* 
+* 
+* 
 * 
 * 
 * 
@@ -139,3 +143,50 @@ https://youtu.be/nt_Uy59cK3k
 * 
 * 
 
+</details>
+
+<details>
+<summary>Template</summary>
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+
+</details>
+
+<details>
+<summary>Template</summary>
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+
+</details>
