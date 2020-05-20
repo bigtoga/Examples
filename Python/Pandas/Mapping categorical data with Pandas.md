@@ -1,4 +1,8 @@
 https://benalexkeen.com/mapping-categorical-data-in-pandas/
+
+https://pbpython.com/pandas_dtypes_cat.html
+> The category data type in pandas is a hybrid data type. It looks and behaves like a string in many instances but internally is represented by an array of integers. This allows the data to be sorted in a custom order and to more efficiently store the data.
+
 > In python, unlike R, there is no option to represent categorical data as factors. Factors in R are stored as vectors of integer values and can be labelled.
 
 * Any missing categories in this case will be represented by -1
