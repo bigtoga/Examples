@@ -13,5 +13,6 @@ COVID -
 * https://mulesoft.com/covid
 * https://work.com - expert advice to companies on how to reopen safely
 
-
+## Digital imperative: moving faster than ever before
+**It's business unusual for all of our customers**
 
