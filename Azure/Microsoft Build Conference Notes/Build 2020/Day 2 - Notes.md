@@ -87,24 +87,22 @@ Everything you can do today with Azure Blue prints & ARM Templates you will also
    -   Our domain knowledge
 * Any shortcut for identifying a model / cheat sheet / quick start?
    -  Auto ML
-* 
-   -  
-*   
-* 
-   -  
-* 
-   -  
-* 
-   
 </details>
 
-
-
-
-
 <details>
-   <summary></summary>
-   
+   <summary>Kevin Scott - CTO</summary>
+The most powerful GPU device for machine learning that we have today is billions of times more powerful than the Intel 8008 microprocessor that Bill Gates wrote his first commerical programming application.
+
+## The Computing Revolution
+
+Three things that will shape the future
+* End of Moore's law
+* Explosion of data
+* Evolution of the edge
+
+
+
+
 </details>
 
 
