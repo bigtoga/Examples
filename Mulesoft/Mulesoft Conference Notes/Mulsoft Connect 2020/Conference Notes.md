@@ -27,7 +27,32 @@ With more WFH, no more "swivel chair IT" - where developers can turn around, ask
 ## Key change: "Everyone, all at once"
 IT cannot keep up with all the requests - used to be able to prioritize, but now every department is overwhelming IT with requests all at once.
 * Find a way to provide self tools that allow people to "do more on their own" without fear of "making a mess" or "making a mistake"
+* IT should focus more on enablement rather than delivery
+* Need to give people sandbox
+* Measure reactive work - try to limit to 20%
+* Expecting 30% of workforce to still be remote
+* 2021: half your estimated projects and focus more on proactive enablement projects
 
+## Lindsey Irvine - Chief Marketing Officer
+3 main themes:
+1. Responsive: how do I quickly unlock data and integrate data?
+   - Healthcare: virtual care
+   - Retail: surge in retail orders
+   - Pharma: COVID-19 testing
+   - All of these are critical, and require data across the org. 
+1. How can we increase speed and agility?
+1. What investments do I make to set my team and business up for success and growth?
+
+### Integration is the #1 reason new initiatives fail
+1. Legacy infrastructure
+1. Siloed data
+1. Disconnected customer experiences
+1. Inaccurate data
+1. Multiple clouds
+* Compliance FDPR & CCPA
+
+* Custom code is the enemy of speed. It creates a bottleneck because only 1-2 people know it
+* IT spends 80% of its time "integrating" instead of "innovating"
 </details>
 
 <details>
