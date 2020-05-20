@@ -21,6 +21,41 @@
 * consumption
 * connectors
 * accelerators
+* sharing
+* unlock
+* responsive
+* efficient
+* resilient
+* "much faster"
+* "right now"
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
 * 
 * 
 * 
