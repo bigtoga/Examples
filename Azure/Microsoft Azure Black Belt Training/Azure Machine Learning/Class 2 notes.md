@@ -3,8 +3,8 @@ Sriram G
 # Workflow
 1. Data sources
 2. Model Dev
-  - Model Creation
-  - Model Training
+   - Model Creation
+   - Model Training
 3. Model Deployment
 4. Model Monitoring
 5. Retraining Model 
