@@ -20,3 +20,5 @@ Think about what the workload is and how large it is. If I'm doing modeling in R
 
 1. Can I get a golden compute instance that has all dependencies already? 
 Yes, use the SDK instead of portal
+
+1. Integrate w AWS for raw data storage?
