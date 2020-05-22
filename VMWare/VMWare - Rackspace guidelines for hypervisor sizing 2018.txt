@@ -1,0 +1,21 @@
+Hypervisors
+VCPUS
+In production environments, Rackspace supports using 3 vCPUs for 1 physical CPU; however, we realize that other environments, such as test environments, can run at higher ratios with little business risk. Once you have exceeded the 1:1 ratio, it is highly recommended that you review your performances graphs for at least the last 30 days before adding additional resources.
+
+The vCPUs text shows the number of vCPUs you have available, after using the 3:1 virtual-to-physical ratio. The text will be green when you have additional resources available. The text will be red when your solution is over allocated.
+
+Here are the rules we use to determine vCPUs text colors:
+
+Total vCPUs = 3 x Physical CPUs
+Available vCPUs = Total vCPUs - Allocated vCPUs
+When Available vCPUs is not negative, the text is green; otherwise, it is red.
+VRAM
+In production environments, Rackspace supports using 1.25 vRAM to 1 physical RAM; however, we realize that other environments, such as test environments, can run at higher ratios with little business risk. Once you have exceeded the 1:1 ratio, it is highly recommended that you review your performances graphs for at least the last 30 days before adding additional resources.
+
+The vRAM text shows the amount of vRAM you have available, after using the 1.25:1 virtual-to-physical ratio. The text will be green when you have additional resources available. The text will be red when your solution is over allocated.
+
+Here are the rules we use to determine vRAM text colors:
+
+Total vRAM = 1.25 x Physical RAM
+Available vRAM = Total vRAM - Allocated vRAM
+When Available vRAM is not negative, the text is green; otherwise, it is red.

@@ -1,0 +1,286 @@
+Windows Time on a PDC, DC member servers, net time 
+
+Errors we've seen that require fixing the time:
+* Kerberos tickets being out of sync
+* Unable to RDP to servers because of error message "There is a time and/or date difference between the client and server"
+
+Root cause is that a member server is "more than 5 minutes out of sync" with the PDC.
+Which means you'll be able to RDP to any server whose logonserver was the PDC, but unable to RDP to any server that logged on to a member DC.
+
+PDC must not be configured to sync with itself
+
+/***************************************************
+Troubleshooting time issues on a Windows domain:
+***************************************************/
+
+Background you need to know:
+* PDC for domain is configured to be a forest DC 
+* It is configured to use an external time source (usually NIST or Rackspace time servers)
+* The member DCs are all configured to use the PDC as authoritative time source 
+* If any member DC gets out of sync by more than 5 minutes to the PDC, the any member servers that logged on using this member DC will not allow you to RDP
+* You will still be able to RDP to any member server that was logged on by the PDC, and you will still be able to RDP to the PDC and possibly the member DCs 
+* The member servers that you cannot RDP to are "fine" - they will continue to work as normal for background operations
+* NTP and NT5DS are the two "types" of time protocols:
+	- configure the PDC to be NT5DS 
+	- configure the member DCs to be NTP
+* The Microsoft documentation is not accurate: "How to configure an authoritative time server" 
+	- https://support.microsoft.com/en-us/help/816042/how-to-configure-an-authoritative-time-server-in-windows-server
+	- It says to configure the PDC to be NTP - that does not work; it has to be NT5DS 
+	
+When these errors happen, the most likely explanation is that:
+	- (a) the PDC has "lost" its memory of the external time sources
+	- (b) *and* the member servers get confused because they think they might be out of sync
+	- (c) the time service itself is wonky and "just stops working, or forgets its settings" sometimes and there's nothing you can do to prevent its
+	- (d) you need to have documented "Here's what our time settings should be, and here's how to reset them" in the event the PDC barfs and forgets its time config 
+	
+To verify this is the problem:
+
+/****** Start with the PDC **********/
+The PDC is the most likely issue - verify it 
+
+1. RDP to the PDC - you will be able to log on to it since it's "time" is considered by it to be "the authority".
+2. Launch a command prompt as admin 
+
+3. Review the registry settings (which is where the PDC pulls the external time servers from)
+	- from HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\
+
+w32tm /dumpreg /subkey:parameters
+
+Verify that you see the following keys:
+
+Value Name                 Value Type          Value Data
+------------------------------------------------------------
+
+ServiceDllUnloadOnStop     REG_DWORD           1
+ServiceMain                REG_SZ              SvchostEntry_W32Time
+ServiceDll                 REG_EXPAND_SZ       C:\Windows\system32\w32time.DLL
+Type                       REG_SZ              NT5DS
+NtpServer                  REG_SZ              time.ord1.rackspace.com, time2.ord1.rackspace.com (or the nist time servers, etc)
+
+This is "what the registry says this PDC should be using for the time" 
+
+4. Document the above - I like to pipe the results to | clip and paste to a new text file, or just screenshot
+
+5. Verify that the PDC is actually *using* the registry information:
+
+w32tm /query /source 
+
+You should see one of the external time servers listed in Step 3. If you do, all is good! The PDC is not the problem - proceed to logging on to a member DC and troubleshooting.
+
+If you do NOT see the external time server (there's only one that it returns - that's the one it is "using" for sync), you will see:
+Free-running system clock 
+Local CMOS clock 
+
+These are errors - this is how you know the PDC has "lost" it's time settings. It is NOT using what the registry said to use! 
+
+6. If the PDC is not using the external time servers, make sure you backup everything in the registry (particularly the w32tm key). You are about to delete the w32tm key entirely from the registry, and you will have to completely re-do it. 
+
+7. Stop and restart the "Windows Time Service" 
+net Stop W32time
+net Start W32time
+w32tm /query /source 
+
+Did you fix it? Yes? Hooray! You are done. Didn't fix it? Time for drastic changes...
+
+8. Did you backup the w32tm registry key? Seriously - you need to do that before continuing.
+
+9. Delete the w32tm information:
+# /unregister deletes the w32tm configuration and thus deletes your external time server configuration 
+# / register adds the w32tm key back, but it no longer uses an external time server - you'll need to configure that next
+net Stop W32time
+W32tm.exe /unregister
+W32tm.exe /register
+net Start W32time
+
+10. Open the registry editor (yes you can powershell/command prompt too) and browse to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Parameters
+	- If there is an entry for NtpServer, change it to be "time.ord1.rackspace.com, time2.ord1.rackspace.com" (or the nist time servers, etc)
+	- If there is not an entry for NtpServer, add a new String Value named NtpServer and set the value to "time.ord1.rackspace.com, time2.ord1.rackspace.com" (no quotes though)
+
+
+w32tm /query /source 
+
+Did you fix it? It should - this was the nuclear option. BTW - /source will only return one of the time servers, that's just showing you which of the entries you entered it is currently synching with.
+
+
+
+
+/****** From any other member server or member DC **********/
+# how to find what domain controller authenticated this server
+echo %logonserver%
+
+To review NTP settings quickly:
+w32tm /dumpreg /subkey:parameters
+
+To force NTP Sync, this requires elevation:
+W32tm /resync /force
+
+
+             
+MUST run as admin - otherwise it sometimes generates an ICMP error:
+servername.mywindowsdomain.com[[::1]:123]:
+    ICMP: error 0x8007271D
+    NTP: -0.0104588s offset from differentserver.mywindowsdomain.com
+        RefID: cachens1.ord1.rackspace.com [173.203.4.8]
+        Stratum: 4
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpServer
+https://support.microsoft.com/en-us/help/816042/how-to-configure-an-authoritative-time-server-in-windows-server
+
+w32tm /query /status
+
+# Which domain controller has the fsmo role?
+netdom /query fsmo
+
+
+Authoritative Time Server
+
+Force synchronizing the time asap 
+w32tm /resync /nowait
+
+Check NTP configuration 
+w32tm /query /configuration
+
+w32tm /query /source 
+Display time source
+
+w32tm /query /peers 
+Display list of all configured NTP servers and their status
+
+w32tm /query /status 
+Display time service status i.e whether it is getting time from local cmso clock/external NTP server
+
+
+w32tm /query /configuration
+Time /T 
+
+net time - deprecated
+
+w32tm [/? | /register | /unregister ]
+  ? - this help screen.
+  register - register to run as a service and add default
+    configuration to the registry.
+  unregister - unregister service and remove all configuration
+    information from the registry.
+
+w32tm /monitor [/domain:<domain name>]
+               [/computers:<name>[,<name>[,<name>...]]]
+               [/threads:<num>] [/ipprotocol:<4|6>] [/nowarn]
+  domain - specifies which domain to monitor. If no domain name
+    is given, or neither the domain nor computers option is
+    specified, the default domain is used. This option may be
+    used more than once.
+  computers - monitors the given list of computers. Computer
+   names are separated by commas, with no spaces. If a name is
+    prefixed with a '*', it is treated as an AD PDC. This option
+    may be used more than once.
+  threads - how many computers to analyze simultaneously. The
+    default value is 3. Allowed range is 1-50.
+  ipprotocol - specify the IP protocol to use. The default is
+    to use whatever is available.
+  nowarn - skip warning message.
+
+w32tm /ntte <NT time epoch>
+  Convert a NT system time, in (10^-7)s intervals from 0h 1-Jan 1601,
+  into a readable format.
+
+w32tm /ntpte <NTP time epoch>
+  Convert an NTP time, in (2^-32)s intervals from 0h 1-Jan 1900, into
+  a readable format.
+
+w32tm /resync [/computer:<computer>] [/nowait] [/rediscover] [/soft]
+  Tell a computer that it should resynchronize its clock as soon
+  as possible, throwing out all accumulated error statistics.
+  computer:<computer> - computer that should resync. If not
+    specified, the local computer will resync.
+  nowait - do not wait for the resync to occur;
+    return immediately. Otherwise, wait for the resync to
+    complete before returning.
+  rediscover - redetect the network configuration and rediscover
+    network sources, then resynchronize.
+  soft - resync utilizing existing error statistics. Not useful,
+    provided for compatibility.
+
+w32tm /stripchart /computer:<target> [/period:<refresh>]
+    [/dataonly] [/samples:<count>] [/packetinfo] [/ipprotocol:<4|6>]
+  Display a strip chart of the offset between this computer and
+  another computer.
+  computer:<target> - the computer to measure the offset against.
+  period:<refresh> - the time between samples, in seconds. The
+    default is 2s
+  dataonly - display only the data, no graphics.
+  samples:<count> - collect <count> samples, then stop. If not
+    specified, samples will be collected until Ctrl-C is pressed.
+  packetinfo - print out NTP packet response message.
+  ipprotocol - specify the IP protocol to use. The default is 
+    to use whatever is available.
+
+w32tm /config [/computer:<target>] [/update]
+    [/manualpeerlist:<peers>] [/syncfromflags:<source>]
+    [/LocalClockDispersion:<seconds>]
+    [/reliable:(YES|NO)]
+    [/largephaseoffset:<milliseconds>]
+  computer:<target> - adjusts the configuration of <target>. If not
+    specified, the default is the local computer.
+  update - notifies the time service that the configuration has
+    changed, causing the changes to take effect.
+  manualpeerlist:<peers> - sets the manual peer list to <peers>,
+    which is a space-delimited list of DNS and/or IP addresses.
+    When specifying multiple peers, this switch must be enclosed in
+    quotes.
+  syncfromflags:<source> - sets what sources the NTP client should
+    sync from. <source> should be a comma separated list of
+    these keywords (not case sensitive):
+      MANUAL - sync from peers in the manual peer list
+      DOMHIER - sync from an AD DC in the domain hierarchy
+      NO - sync from none
+      ALL - sync from both manual and domain peers 
+  LocalClockDispersion:<seconds> - configures the accuracy of the
+    internal clock that w32time will assume when it can't acquire 
+    time from its configured sources.  
+  reliable:(YES|NO) - set whether this machine is a reliable time source.
+    This setting is only meaningful on domain controllers.  
+      YES - this machine is a reliable time service
+      NO - this machine is not a reliable time service
+  largephaseoffset:<milliseconds> - sets the time difference between 
+    local and network time which w32time will consider a spike.  
+
+w32tm /tz
+  Display the current time zone settings.
+
+w32tm /dumpreg [/subkey:<key>] [/computer:<target>]
+  Display the values associated with a given registry key.
+  The default key is HKLM\System\CurrentControlSet\Services\W32Time
+    (the root key for the time service).
+  subkey:<key> - displays the values associated with subkey <key> 
+    of the default key.
+  computer:<target> - queries registry settings for computer <target>.
+
+w32tm /query [/computer:<target>] 
+    {/source | /configuration | /peers | /status} 
+    [/verbose]
+  Display a computer's windows time service information.
+  computer:<target> - query the information of <target>. If not
+    specified, the default is the local computer.
+  source: display the time source.
+  configuration: display the configuration of run-time and where 
+    the setting comes from. In verbose mode, display the undefined 
+    or unused setting too.
+  peers: display a list of peers and their status.
+  status: display windows time service status.
+  verbose: set the verbose mode to display more information.
+
+w32tm /debug {/disable | {/enable /file:<name> /size:<bytes> /entries:<value>
+    [/truncate]}}  
+  Enable or disable local computer windows time service private log.
+  disable: disable the private log.
+  enable: enable the private log.
+    file:<name> - specify the absolute filename.
+    size:<bytes> - specify the maximum size for circular logging.
+    entries:<value> - contains a list of flags, specified by number and
+      separated by commas, that specify the types of information that 
+      should be logged. Valid numbers are 0 to 300. A range of numbers 
+      is valid, in addition to single numbers, such as 0-100,103,106. 
+      Value 0-300 is for logging all information.
+  truncate: truncate the file if it exists.
+
+  
