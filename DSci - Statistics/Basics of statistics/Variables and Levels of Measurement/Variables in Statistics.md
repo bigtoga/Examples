@@ -12,3 +12,5 @@ What are the types of variables,
   - Ordinal = "ranks"
   - Boolean = dichotomous (Y/N, Off/On, Churn/Stay)
 * **Numerical variables** can be either **continuous** (+, -) or **discrete** (*, /) and manifest as **integers** or **floating point** / decimals
+
+Jason at [Machine Learning Mastery](https://github.com/bigtoga/Examples/blob/8fe4ecaef8b235441ad674e7911b7385b5320945/DSci%20-%20Machine%20Learning/Phase%20-%20EDA/Feature%20Selection/Feature%20Selection.md) has an easy to read graphical approach to explaining also
