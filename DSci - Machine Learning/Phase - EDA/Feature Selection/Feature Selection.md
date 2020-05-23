@@ -11,17 +11,20 @@ Central idea: your data likely contains one or more features that are either:
 * Two categories of variable datatypes: 
    - Numeric: integer, decimal
    - Categorical: boolean (dichotomous), ordinal (ranking), nominal (named)
-* **Input variables** are the features (a.k.a. independent variables)
-* **Output variable** is what you are  trying to predict (a.k.a. dependent variable or response)
+* **Input variables** are the features (a.k.a. independent variables or columns)
+* **Output variable** is what you are  trying to predict (a.k.a. dependent variable or response or target)
+* If your output variable (i.e. what you want to predict) is numeric, use regression
+* If your output variable is categorical, use classification
    
-# Wgen do I perform feature selection?
+# When do I perform feature selection?
 - Step 1: Dimensionality reduction
 - Step 2: Feature selection
 - Step 3: Feature importance
    
 **Feature selection is an alternate to dimensionality reduction** - they are different
 - Feature selection decides what to keep or remove
-- dimensionality reduction creates a 'projection' of the data (new dataframe) resulting in entirely new input features
+- dimensionality reduction creates a 'projection' of the data (new dataframe) containing new/munged features
+- Dimensionality reduction comes before feature selection 
    
 ## Why do we go through feature selection?
 1. To simplify models to make them easier to interpret (by developers, researchers, and users)
@@ -36,11 +39,38 @@ Perform Feature Selection before test/train to:
 1. Increase accuracy by removing potentially misleading data
 1. Reduce overfitting - less redundant data means fewer chances for the machine to make decisions based on noise
 
+**Suggest you stop here and use Jason’s flowcharts - https://machinelearningmastery.com/feature-selection-with-real-and-categorical-data/**
+![x](https://i.imgur.com/BqfMDjM_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+# Key Concept: Which of the four possible options are you solving for?
+## Option 1: Numeric input variable, numeric output variable
+This is a regression problem 
+* Use Pearson’s correlation coefficient for **linear** relationships 
+* Use Spearman’s rank coefficient for nonlinear 
+
+## Option 2: Numeric input variable, Categorical output variable
+Classification problem. Probably most common type we do
+* Use ANOVA correlation coefficient (linear)
+* Use Kendall’s rank coefficient (nonlinear)
+   - Note that Kendall assumes the categorical variable is *ordinal*
+
+## Option 3: Categorical input variable, Numeric output variable
+doubt you will see these as they are rare. This is a regression problem. Note that the use cases below are the opposite of Option 2!
+* Use ANOVA correlation coefficient (nonlinear)
+* Use Kendall’s rank coefficient (linear)
+
+## Option 4: Categorical input  variable, Categorical output variable
+Classification problem 
+* most common correlation measure for categorical data is the **chi-squared test** (contingency tables)
+* Alternative is **mutual information** (information gain) from the field of information theory
+   - It is possible that “mutual information” may prove useful for both categorical and numeric
+
 # Supervised Learning Feature Selection
 Feature selection for Supervised learning compares the features to the target variable in order to identify and **remove irrelevant data**
 Three types:
 - **Wrapper** feature selection searches for well performing subsets of features using RFE
 - **Filtered** feature selection methods use statistical models (such as Pearnson's coefficient) to score the correlation or dependence between input variables that can be filtered to choose the most relevant features
+   - Univariate and low variance happens here
    - Feature Importance methods can also be performed here
 - **Intrinsic** feature selection is when the model has built-in feature selection (and the data scientist does not have to do this)
    - Regession models that penalize low variance automatically: Lasso, all tree-based models (decision trees, ensembles of decision trees such as random forest)
@@ -74,16 +104,16 @@ array([[2, 0],
 VarianceThreshold() auto removed column[0] and column[3] because they had zero variance
 
    
-## How to decide which type pf feature selection to use?
+## How to decide which type of feature selection to use?
 - I want to know which single columns can be removed because of low variance
-   - Univariate
+   - VarianceThreshold() and Univariate
    
 - I want to know which columns can be removed as irrelevant or partially irrelevant
    - Univariate
    
 - I want to know which columns might be redundant because of a strong correlation with another column
    - Multivariate
-
+   
 
 # Types of Feature Selection
 ## Univariate feature selection
