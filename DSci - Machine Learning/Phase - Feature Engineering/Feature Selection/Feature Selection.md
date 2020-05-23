@@ -2,7 +2,7 @@
 
 !!Note: there is no best feature selection method
 
-# Feature Selection 
+# Feature Selection is part of the Data Preprocessing
 Central idea: your data likely contains one or more features that are either:
 - Has low variance
 - Irrelevant to the prediction you are aiming for
