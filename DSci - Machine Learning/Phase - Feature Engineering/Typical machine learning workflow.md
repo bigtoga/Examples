@@ -6,6 +6,7 @@
     1. Get it into Tidy Data format
     1. Dimensionality Reduction
     1. Feature Engineering
+        - Look at [PyCaret documentation](https://topepo.github.io/caret/pre-processing.html) for great list
         - Identify the metrics you want
         - Feature Elimination
             - Strategy: eliminate data with zero to low variance (column has 100% duplicate data - "all 1s")
