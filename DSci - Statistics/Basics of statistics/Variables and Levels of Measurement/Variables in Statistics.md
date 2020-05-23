@@ -11,4 +11,4 @@ What are the types of variables,
   - Nominal = "names"
   - Ordinal = "ranks"
   - Boolean = dichotomous (Y/N, Off/On, Churn/Stay)
-* **Numerical variables** can be either **continuous** (+, -) or **discrete** (*, /)
+* **Numerical variables** can be either **continuous** (+, -) or **discrete** (*, /) and manifest as **integers** or **floating point** / decimals
