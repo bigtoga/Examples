@@ -8,48 +8,66 @@
 
 # My favorites
 ###Timing
-%time - times whatever you have
+`%time` - times whatever you have
 
-%timeit - runs timer over next single line of code. Can automatically run multiple iterations and provide aggregates at end
+`%timeit` - runs timer over next single line of code. Can automatically run multiple iterations and provide aggregates at end
 
-%timeit numpy.random.normal(size=100)\
+`%timeit numpy.random.normal(size=100)` - 
 The slowest run took 13.85 times longer than the fastest. This could mean that an intermediate result is being cached.
 100000 loops, best of 3: 6.35 µs per loop
 
-%%timeit - Same as %timeit but for the entire cell in a jupyter notebook
+`%%timeit` - Same as `%timeit` but for the entire cell in a jupyter notebook
 
 ### Passing data between notebooks 
-%env - environment variables mgmt. Scope of environment variable is all notebooks running on the jupyter server
-* %env # no arguments = "list all environment variables in play"
-* %env NUM_PROCESSES = 2 # creates new variable
+`%env` - environment variables mgmt. Scope of environment variable is all notebooks running on the jupyter server
+* `%env` # no arguments = "list all environment variables in play"
+* `%env NUM_PROCESSES = 2` # creates new variable
 
-data = 'this is the string I want to pass to different notebook'\
-%store data\
-del data # deleted variable\
-Stored 'data' (str)\
+```python
+data = 'this is the string I want to pass to different notebook'
+%store data
+del data # deleted variable
+Stored 'data' (str)
+```
 
-\# in second notebook I will use:\
-%store -r data\
-print data\
+```python
+# in second notebook I will use:
+%store -r data
+print data
+```
+
+```shell
 this is the string I want to pass to different notebook
+```
 
-%who allows you to see global variables\
-%who str \# lists all global string variables
+```python
+# %who allows you to see global variables
+%who str # lists all global string variables
+```
+
 
 ### Re-using code from other scripts and notebooks 
-Can execute.py files or jupyter notebooks\
-\# this will execute all the code cells from different notebooks\
-%run ./2015-09-29-NumpyTipsAndTricks1.ipynb
+Can execute .py files or jupyter notebooks
+```python
+# this will execute all the code cells from a different notebook
+%run ./DatabricksPrep.ipynb
 
-\%load will load script from external source into a cell
-\%load http://matplotlib.org/mpl_examples/pylab_examples/contour_demo.py
+%run app.py
+```
+
+Load a script into the current cell
+```python
+%load http://matplotlib.org/mpl_examples/pylab_examples/contour_demo.py
+```
 
 ### Suppressing output 
 **Semi-colon is an instruction to suppress last line output**
 It works w native python but some libraries do not honor
 
-x = 1 + 1\
+```python
+x = 1 + 1
 x; # Output suppressed 
+```
 
 %matplotlib inline\
 from matplotlib import pyplot as plt\
@@ -94,6 +112,9 @@ train_test_split??
 %%writefile pythoncode.py
 
 import numpy
+~~~
+
+Reset all variables with `%reset_all`
 def append_if_not_exists(arr, x):
     if x not in arr:
         arr.append(x)
