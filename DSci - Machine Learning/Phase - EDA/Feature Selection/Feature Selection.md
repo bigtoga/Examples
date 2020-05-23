@@ -1,3 +1,7 @@
+!! Note - the flowchart you want is under “Key Concept” section below
+
+!!Note: there is no best feature selection method
+
 # Feature Selection 
 Central idea: your data likely contains one or more features that are either:
 - Has low variance
@@ -43,6 +47,10 @@ Perform Feature Selection before test/train to:
 ![x](https://i.imgur.com/BqfMDjM_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
 # Key Concept: Which of the four possible options are you solving for?
+The output / target variable (i.e. what you want to predict) determines the type of problem (regression or classification)
+
+The input variable type determines which type of test must be done
+
 ## Option 1: Numeric input variable, numeric output variable
 This is a regression problem 
 * Use Pearson’s correlation coefficient for **linear** relationships 
@@ -64,6 +72,34 @@ Classification problem
 * most common correlation measure for categorical data is the **chi-squared test** (contingency tables)
 * Alternative is **mutual information** (information gain) from the field of information theory
    - It is possible that “mutual information” may prove useful for both categorical and numeric
+   
+# What tools to use when
+Correlation stats - 
+* scikit-learn
+   - Pearson’s Correlation Coefficient: f_regression()
+   - ANOVA: f_classif()
+   - Chi-Squared: chi2()
+   - Mutual Information: mutual_info_classif() and mutual_info_regression()
+- SciPy
+   - Kendall’s tau
+   - Spearman’s tank coefficient 
+   
+Selection tools (filtering)
+- scikit-learn
+   - SelectKBest
+   SelectPercentile
+   
+# What if I don’t get the results I expected?
+It happens. Maybe try to transform Consider transforming the variables in order to access different statistical methods.
+
+For example, you can transform a categorical variable to ordinal, even if it is not, and see if any interesting results come out.
+
+You can also make a numerical variable discrete (e.g. bins); try categorical-based measures.
+
+Some statistical measures assume properties of the variables, such as Pearson’s that assumes a Gaussian probability distribution to the observations and a linear relationship. You can transform the data to meet the expectations of the test and try the test regardless of the expectations and compare results.
+   
+   
+—-
 
 # Supervised Learning Feature Selection
 Feature selection for Supervised learning compares the features to the target variable in order to identify and **remove irrelevant data**
