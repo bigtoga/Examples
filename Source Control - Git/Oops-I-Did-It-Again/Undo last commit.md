@@ -1,3 +1,14 @@
+Can undo pushed commits or local commits
+
+## If you have pushed the commit
+```python
+# Revert a single commit
+git revert <commit_hash>
+
+# Revert all commits after <oldest_commit_hash> 
+git revert <oldest_commit_hash>..<latest_commit_hash>
+```
+
 https://devconnected.com/how-to-undo-last-git-commit/
 
 ```shell
