@@ -7,6 +7,10 @@
 1. `git lfs track "*.csv"` 
 1. `git lfs track "*.xlsx"`
 1. `git lfs track "*.pkl"`
+1. `git lfs track "*.twbx"`
+1. `git lfs track "*.twb"`
+1. `git lfs track "*.hyper"`
+1. `git lfs track "*.tfe"`
 
 You're all set
 
