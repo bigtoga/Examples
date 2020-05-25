@@ -3,10 +3,12 @@ Category: regression models only
 Bias: the underlying assumptions of the model
 * Bias is row or observation-dependent
 * Adding more rows decreases bias
+* Reducing rows increases bias
 
 Variance: the change in prediction if a different dataset is tested against the model
 * Variance is Feature-dependent 
 * Adding more features increases variance
+* Reducing features decreases variance 
 
 # It’s all about goodness of fit
 During training, the model fits and trains as many data points as possible - and both “number of rows” and “number of features” matter. As the model includes new features, the *model complexity* changes from a basic linear to quadratic to polynomial (i.e. the model is becoming more complex as each additional feature is added). 
