@@ -54,3 +54,7 @@ If we have a low bias algorithm (many features or hidden units making a very com
 * When using gradient descent, increase λ
 * When using neural networks, increase the number of inner layers
 * In neural networks, use cross validation to identify the right number of layers
+
+# Additional resources
+[Good explanation](https://rstudio-pubs-static.s3.amazonaws.com/445029_4db337010d6c4af48c545bb64e01a4f1.html)
+[Good examples](http://wavedatalab.github.io/machinelearningwithr/post4.html)
