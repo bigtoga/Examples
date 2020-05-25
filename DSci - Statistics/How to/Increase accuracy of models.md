@@ -20,6 +20,8 @@ It starts with identifying “where we are” relative to bias and variance
 * Reducing bias can often increase variance and vice versa
 * The regularization parameter (λ) allows the model to find this golden mean more easily 
 
+In other words, in certain cases, an “inferior algorithm,” if given enough data, can outperform a superior algorithm with less data.
+
 Math terms:
 * Θ = error
 * λ = regularization parameter which allows the model to fine tune variance and bias changes 
@@ -30,7 +32,13 @@ Math terms:
 * 20% - cross-validation
 
 # Principal: as the training set’s number of features increase, the number of errors increase
-Simple linear models based on one feature likely have low errors but will probably be underfit. Quadratic models (two or more features) will likely have low errors also but increased errors with each feature. Polynomial models (many features) will have more errors and likely end up overfitting. For quadratic and polynomial models, the error value will plateau out after a certain m, or training set size.
+Simple linear models based on one feature likely have low errors but will probably be underfit. Quadratic models (two or more features) will likely have low errors also but increased errors with each feature. Polynomial models (many features) will have more errors and likely end up overfitting. For quadratic and polynomial models, the error value will plateau out after a certain m, or training set size
+
+# Principle: Use the “human test” to determine the right features
+Given input *x*, would a human expert be able to confidently predict *y*
+
+# Principle: “How much training data” increases as number of features increase
+If we have a low bias algorithm (many features or hidden units making a very complex function), then the larger the training set we use, the less we will have overfitting (and the more accurate the algorithm will be on the test set)
 
 # To fix high variance problems
 * Larger training set
