@@ -1,4 +1,8 @@
-
+# Main ones
+<kbd>shift</kbd> + <kbd>enter</kbd> - execute cell
+<kbd>tab</kbd> - auto complete
+<kbd>shift</kbd> + <kbd>tab</kbd> - in a function shows parameters of function
+<kbd>Alt</kbd> + <kbd>enter</kbd> - add cell
 
 ### View all shortcuts available:
 `cmd + shift + p`
