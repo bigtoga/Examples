@@ -4,14 +4,28 @@
 1. Install git lfs client
 1. cd to the local repo folder
 1. `git lfs install` to set up the hooks
-1. `git lfs track "*.csv"` 
-1. `git lfs track "*.xlsx"`
-1. `git lfs track "*.pkl"`
-1. `git lfs track "*.twbx"`
-1. `git lfs track "*.twb"`
-1. `git lfs track "*.hyper"`
-1. `git lfs track "*.tfe"`
+1. Use `git lfs track` to support specific file types
 
+```python
+# Data files
+git lfs track "*.csv"
+git lfs track "*.xlsx"
+git lfs track "*.xls"
+git lfs track "*.db"
+git lfs track "*.sqlite"
+git lfs track "*.sqldb"
+
+# Models
+git lfs track "*.pkl"
+
+# Tableau:
+git lfs track "*.twbx"
+git lfs track "*.twb"
+git lfs track "*.hyper"
+git lfs track "*.tde"
+git lfs track "*.tds"
+git lfs track "*.tdsx"
+```
 You're all set
 
 ## If you want to clone a repo that has a lot of LFS files quickly
