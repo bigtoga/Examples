@@ -1,6 +1,6 @@
 ```python
 # undo your last commit (if needed)
-git reset HEAD 
+git reset --soft HEAD~1
 
 
 # Unstage the changes made to the files:
