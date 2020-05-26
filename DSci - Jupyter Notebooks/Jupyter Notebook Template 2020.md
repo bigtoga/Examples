@@ -31,5 +31,6 @@ def Important(html_tag, message, color):
 
 DoneNotice()
 
-Important("h1", "Hey!", 'red')
+myNumber = 1234
+Important("h1", f"Hey! {myNumber:,}", 'red')
 ```
