@@ -3,5 +3,5 @@ df[df["type"] == "Confirmed"]
 
 # Multiple filters
 
-dfOptimized = dfOptimized[(dfOptimized['origYear'] == 2011) | (dfOptimized['origYear'] == 2012)]
+dfOptimized = dfOptimized[(dfOptimized['origYear'] == 2011) | (dfOptimized['origYear'] == 2012)].copy()
 dfOptimized.head()
