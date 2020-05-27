@@ -4,6 +4,7 @@ For Windows -
 ```python
 # What version of conda are you on?
 conda info
+conda --version
 
 # Update conda if needed
 conda update conda
