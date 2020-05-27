@@ -20,9 +20,10 @@ conda search "^python$"
 ```
 
 # Creating, listing, saving environments
+Full list of arguments to `conda create`: https://docs.conda.io/projects/conda/en/latest/commands/create.html#Named%20Arguments
 ```python
-# Create the environment from the Anaconda command prompt
-conda create --name py37 python=37.
+# Create the environment from the Anaconda command prompt - display progress but do not ask Y/N to install
+conda create --name py37 python=3.7 --verbose --yes
 
 # Create a new environment and install the "biopython" package
 conda create --name bio-env biopython
