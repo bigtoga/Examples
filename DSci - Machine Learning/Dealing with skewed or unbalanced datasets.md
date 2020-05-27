@@ -37,13 +37,13 @@ We also have to understand the data and make decisions:
     - Decision 1: Data with a null/empty `zerBalCode` has not defaulted not closed - we choose to ignore it for now (i.e. don't build your test/train data on data that has no known "end". Only build train/test for rows that have a known outcome that is what you want to predict)
 
 List of the zero balance codes from the [Fannie Mae User Guide](http://www.freddiemac.com/fmac-resources/research/pdf/user_guide.pdf) (page 17)
-    - 1 - "Prepaid or matured" (a.k.a. successful close of a loan)
-    - 2 - "Third party Sale"
-    - 3 - "Short-sale, Third Party Sale, Note Sale"
-    - 6 - "Repurchased" 
-    - 9 - "Deed-in-lieu or REO Disposition" (REO is a foreclosure)
-    - 15 - "Note sale/Reperforming sale"
-    - 16 - (Unknown - value is in the dataset but not the documentation)
+- 1 - "Prepaid or matured" (a.k.a. successful close of a loan)
+- 2 - "Third party Sale"
+- 3 - "Short-sale, Third Party Sale, Note Sale"
+- 6 - "Repurchased" 
+- 9 - "Deed-in-lieu or REO Disposition" (REO is a foreclosure)
+- 15 - "Note sale/Reperforming sale"
+- 16 - (Unknown - value is in the dataset but not the documentation)
     
 Kip's notes have 16:
 > The zeroBalCode is only populated once a loan either completes "successfully" (a value of 1 = Prepaid or Matured) or it does NOT complete successfully:
@@ -55,7 +55,10 @@ Kip's notes have 16:
 - 15 = Note Sale (A sale of the Non-Performing Mortgage Loan to a third party is a “Note Sale”)
 - 16 = Reperforming (A reperforming loan is a mortgage that became delinquent because the borrower was behind on payments by at least 90 days, but it is "performing" again because the borrower has resumed making payments)
 
-Other resources are [Fannie Mae glossary](https://s3.amazonaws.com/dq-blog-files/lppub_glossary.pdf) and the [File layout for the Acquisition and Performance files](https://s3.amazonaws.com/dq-blog-files/lppub_file_layout.pdf)
+Other resources are:
+* [Fannie Mae glossary](https://s3.amazonaws.com/dq-blog-files/lppub_glossary.pdf)
+* [File layout for the Acquisition and Performance files](https://s3.amazonaws.com/dq-blog-files/lppub_file_layout.pdf)
+* [User guide](http://www.freddiemac.com/fmac-resources/research/pdf/user_guide.pdf)
 
 ```python 
 # valid zero balance codes:
