@@ -47,12 +47,13 @@ List of the zero balance codes from the [Fannie Mae User Guide](http://www.fredd
     
 Kip's notes have 16:
 > The zeroBalCode is only populated once a loan either completes "successfully" (a value of 1 = Prepaid or Matured) or it does NOT complete successfully:
-    - 02 = Third Party Sale
-    - 03 = Short Sale (home sells for less than the balance remaining on their mortgage)
-    - 06 = Repurchased (Buyer stopped making payments and, by law, the original lender had to re-purchase the load. require a lender to repurchase a mortgage loan or an acquired property, or remit a make whole payment, as a result of a breach of the Lender Contract)
-    - 09 = Deed-in-Lieu, REO (Real Estate Owned - Fannie Mae owns the property after a foreclosure)
-    - 15 = Note Sale (A sale of the Non-Performing Mortgage Loan to a third party is a “Note Sale”)
-    - 16 = Reperforming (A reperforming loan is a mortgage that became delinquent because the borrower was behind on payments by at least 90 days, but it is "performing" again because the borrower has resumed making payments)
+
+- 02 = Third Party Sale
+- 03 = Short Sale (home sells for less than the balance remaining on their mortgage)
+- 06 = Repurchased (Buyer stopped making payments and, by law, the original lender had to re-purchase the load. require a lender to repurchase a mortgage loan or an acquired property, or remit a make whole payment, as a result of a breach of the Lender Contract)
+- 09 = Deed-in-Lieu, REO (Real Estate Owned - Fannie Mae owns the property after a foreclosure)
+- 15 = Note Sale (A sale of the Non-Performing Mortgage Loan to a third party is a “Note Sale”)
+- 16 = Reperforming (A reperforming loan is a mortgage that became delinquent because the borrower was behind on payments by at least 90 days, but it is "performing" again because the borrower has resumed making payments)
 
 Other resources are [Fannie Mae glossary](https://s3.amazonaws.com/dq-blog-files/lppub_glossary.pdf) and the [File layout for the Acquisition and Performance files](https://s3.amazonaws.com/dq-blog-files/lppub_file_layout.pdf)
 
