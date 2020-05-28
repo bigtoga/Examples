@@ -74,3 +74,10 @@ heroku logs -n 10
 # "live" log:
 heroku logs --app exotic-tiger --tail
 ~~~
+
+### Misc
+```
+heroku apps:create ragged-potato1234 
+
+heroku apps:errors --app ragged-potato1234 
+```
