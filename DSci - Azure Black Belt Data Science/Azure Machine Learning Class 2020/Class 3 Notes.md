@@ -6,7 +6,8 @@ Benefits:
 4. Will basically do what PyCaret's `compare_model()` does - compares results 
 
 ## Featurization
-Can disable if you don't need it
+* Can disable if you don't need it
+* Can do minimal impute (mean, mode)
 
 Built off of [DP-100 Azure Data Scientist Associate certification](https://docs.microsoft.com/en-us/learn/paths/build-ai-solutions-with-azure-ml-service/)
 
@@ -20,5 +21,16 @@ Built off of [DP-100 Azure Data Scientist Associate certification](https://docs.
   - Unknown - by default it will only explain the winning model but you can save
 5. Difference between Azure's autoML and PyCaret?
   - 
-6. What's the benefit of scripting?
-  - 
+7. Azure Model Registry?
+	- Yes - just called "Models" in ml.azure.com
+8. Can we disable public internet URLs/access? 
+	- Possibly yes w Azure Private Link
+9. Pipelines GUI - is this as awful as SSIS Designer is / was? 
+	- Just script it out
+	- But you can use it as a starting point - it will generate the code for you and you can then tweak
+10. ML Ops - can be kicked off by Azure DevOps pipelines?
+	- Yes
+11. For DP-100 labs, should someone be able to complete all of that using their $50/mth Azure credits?	
+	- Be disciplined and maybe
+	- 
+	
