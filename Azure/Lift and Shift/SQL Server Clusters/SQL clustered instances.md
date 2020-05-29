@@ -2,7 +2,7 @@ Build using Azure Files
 
 Azure requires a little bit different connection strings - 
 * On-prem: 
-* Azure: Azure load balancer is required to access the clustered IPs if you are using Always On availability groups
+* Azure: Azure load balancer is required to access the clustered IPs if you are using Always On availability groups [docs](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure)
 
 # Resizing a node - STORAGE
 1. Go to storage account -> clustered storage -> file shares
