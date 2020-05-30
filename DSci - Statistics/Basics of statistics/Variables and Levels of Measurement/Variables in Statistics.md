@@ -14,3 +14,21 @@ What are the types of variables,
 * **Numerical variables** can be either **continuous** (+, -) or **discrete** (*, /) and manifest as **integers** or **floating point** / decimals
 
 Jason at [Machine Learning Mastery](https://github.com/bigtoga/Examples/blob/8fe4ecaef8b235441ad674e7911b7385b5320945/DSci%20-%20Machine%20Learning/Phase%20-%20EDA/Feature%20Selection/Feature%20Selection.md) has an easy to read graphical approach to explaining also
+
+## Ordinal or Nominal? 
+It can be difficult to decide whether a given categorical feature should be ordinal or nominal. Many hidden ordinal features "look like" nominal features:
+
+Example: You are predicting salary and have a feature named "Education Level" with values like:
+  - High school graduate
+  - Some college but no degree
+  - Associate Degree
+  - Bachelor Degree
+  - Doctorate Degree
+  
+Education Level looks like a nominal but, because we are predicting salary, this is ordinal if we think that the Education Level represents a stair step model for increasing salary. Example - maybe we have a coefficient associated with each change in Education Level:
+1. Base salary of all: 35,000 per year
+2. "High school graduate": coefficient of "+0" (meaning a high school graduate's salary would be predicted as $35,000)
+3. "Some college but no degree": coefficient of "+2,000" (salary would be predicted as $37,000)
+  - "Associate Degree": coefficient of "+12,000" (salary would be predicted as $47,000)
+  - "Bachelor Degree": coefficient of "+32,000" (salary would be predicted as $67,000)
+  - "Doctorate Degree": coefficient of "+72,000" (salary would be predicted as $107,000)
