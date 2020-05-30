@@ -1,6 +1,7 @@
 ```python
 # Add a row to an existing dataframe
-df.loc['my_col'] = [1.0, 'hotel', 'true']
+df = df.append(pd.Series(new_row, index=df.columns, name='my_col'))
+
 ```
 
 ~~~
