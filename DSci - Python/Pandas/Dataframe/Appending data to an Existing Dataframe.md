@@ -1,7 +1,7 @@
 ```python
 # Add a row to an existing dataframe
-df = df.append(pd.Series(new_row, index=df.columns, name='my_col'))
-
+new_row = {'feature':col, 'unique_values':97}
+df = df.append(pd.Series(new_row), ignore_index=True)
 ```
 
 ~~~
