@@ -10,12 +10,31 @@ Using the Fannie Mae mortgage data for single-family homes, our typical steps to
 1. Identify the data sources
 1. Agree on granularity
 
-# Phase 2: EDA for FEEE
+# Phase 2: EDA 
 1. ETL the data into a staging area
-2. EDA to analyze most important features, collinearity issues
+1. Identify the column you want to predict (a.k.a. your **target** or y axis). Everything else are your **potential predictor variables** (a.k.a. x axis features)
+1. Target: identify missing, bad data and document it
+1. Target: remove and/or impute according to your documentation from previous step
+1. Predictors: For every column:
+   - identify missing, bad data and document it
+   - remove and/or impute missing data according to your documentation from previous step
 
-# Phase 3: Prep for ML
-1. Impute or remove missing data
+# Phase 3: Feature Selection
+EDA to analyze most important features, collinearity issues, non-correlated features, etc. FEEI = **F**eature **E**xtraction, **E**limination, **I**mportance
+1. Identify linear dependencies between your predictors
+   - PyCaret's `findLinearCombos()` - https://topepo.github.io/caret/pre-processing.html#lindep
+1. All predictor variables:
+   - Can you eliminate any Zero- and Near Zero-Variance Predictors?
+   - Can RandomForest show you the best features?
+1. Numeric features: Use Backward Elimination to identify the best features
+   - 
+
+# Phase 4: Prep for ML
+1. Get the data into Tidy Data format
+1. Identify your categorical features 
+   - Which are ordinal?
+   - Which are nominal?
+   - Do you need to create any hierarchies?
 1. Label or one-hot encoding for categorical data
 1. Export "machine learning ready" csv file of the data
 
