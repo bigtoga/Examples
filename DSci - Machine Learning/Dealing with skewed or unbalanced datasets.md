@@ -32,12 +32,25 @@ Because we are predicting a dichotomous classification (True/False for loan defa
 - Pass your X_Train data into the oversampling algorithm. Output will be a 50/50 split
 - Use this 50/50 oversampled dataset as your training data
 
+#### Pros:
+- Easy
+- Fast
+
+#### Cons:
+- Generates fake data that may not hold up when you test against the holdout data
+
 ## Option 2: Manually balance the dataset
 Another option would be to:
 1. Find out how many rows are in the unrepresented class (False / bad loans)
 1. Remove all of the over-represented class' data from X_Train except retain the same number of rows as are from previous step
 1. You now have a balanced dataset
 
+#### Pros:
+- No fake data
+
+#### Cons:
+- Takes longer
+- Potentially not enough rows to train with (i.e. you may need more data)
 
 
 ## Step 1: ETL & EDA - Download dataset from Fannie Mae, rip out "bad data", define assumptions, filter dataset
