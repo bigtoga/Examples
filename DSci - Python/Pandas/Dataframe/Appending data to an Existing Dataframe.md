@@ -1,3 +1,8 @@
+```python
+# Add a row to an existing dataframe
+df.loc['my_col'] = [1.0, 'hotel', 'true']
+```
+
 ~~~
 # Add a dataframe to another dataframe
 
