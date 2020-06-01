@@ -1,5 +1,9 @@
 Part of Dimensionality Reduction and is used to reduce features to the most predictive/valuable
 
+**unsupervised dimensionality reduction technique** that constructs relevant features/variables using combinations of the original variables (features). There are two ways PCA works:
+1. linear (linear PCA) - most commonly used
+1. non-linear (kernel PCA) 
+
 # Dimensionality Reduction
 Many techniques to reduce the number of dimensions but most commonly used are:
 - Feature Elimination:
