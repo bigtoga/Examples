@@ -22,3 +22,8 @@ The UCI Wine dataset has two features, "alcohol content" and "malic acid". If le
 StandardScaler will center and scale both features to create a common "standardized" way of looking at the data. Example:
 
 ![V](https://i.imgur.com/roPbp8a.png)
+Source: https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html
+
+## The effects of standardization
+For the UCI Wine dataset example, the prediction accuracy for the "normal" test dataset with PCA was 81.48% but rose to 98.15% for the standardized test dataset.
+
