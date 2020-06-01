@@ -1,15 +1,19 @@
-[Feature selection with sklearn](https://scikit-learn.org/stable/modules/feature_selection.html) -> [Importance of Feature Scaling](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html) -> [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler) -> Centering and Scaling
+[Feature selection with sklearn](https://scikit-learn.org/stable/modules/feature_selection.html) -> [Importance of Feature Scaling](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html) -> multiple scalers are available to perform centering and scaling:
+- [StandardScaler is the most commonly used](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler) 
+- [Excellent walkthrough of every scaler sklearn offers](https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#sphx-glr-auto-examples-preprocessing-plot-all-scaling-py)
 
 **Standardization** involves rescaling the features such that they have the properties of a standard normal distribution with a mean of zero and a standard deviation of one.
 
-Certain algorithms require standardized data:
+Certain algorithms require standardized data (b/c they assume all features are centered around 0 and have variance in the same order):
 - KNN
 - Logistic Regression 
 - SVM
+- SVM RBF (kernel)
+- Linear regression L1 and L2
 - PCA
 
 # PCA and Standardization 
-When we use PCA, we are interested in finding the “components that maximize the variance”. 
+When we use PCA, we are interested in finding the “components that maximize the variance”. If a feature has a variance that is orders of magnitude larger that others, it might dominate the objective function and make the estimator unable to learn from other features correctly as expected.
 
 Example: given a dataset of human height (feet), weight (pounds), and age (years), predict diabetes onset age. 
 - Without standardization, PCA would seek out the combinations of data that result in the largest variance 
@@ -27,3 +31,6 @@ Source: https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling
 ## The effects of standardization
 For the UCI Wine dataset example, the prediction accuracy for the "normal" test dataset with PCA was 81.48% but rose to 98.15% for the standardized test dataset.
 
+# StandardScaler
+sklearn's way of applying automatic standardization to a dataset. **Centering** and **scaling** happen independently on each feature by computing the relevant statistics on the samples in the training set. Mean and standard deviation are then stored to be used on later data using transform.
+If a feature has a variance that is orders of magnitude larger that others, it might dominate the objective function and make the estimator unable to learn from other features correctly as expected.
