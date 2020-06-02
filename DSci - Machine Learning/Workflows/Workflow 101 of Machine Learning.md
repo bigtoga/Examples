@@ -29,13 +29,24 @@ EDA to analyze most important features, collinearity issues, non-correlated feat
 1. Numeric features: Use Backward Elimination to identify the best features
    - 
 
-# Phase 4: Prep for ML
+# Phase 4: Data Preprocessing 
+[sci-kit learn has a good breakdown here](http://scikit-learn.org/stable/modules/preprocessing.html)
+
+1. Standardization using a scaled of some type (StandardScaler, MinMaxScaler, etc)
+1. Transforms
+1. Normalization so that all values have a unit norm
 1. Get the data into Tidy Data format
 1. Identify your categorical features 
    - Which are ordinal?
    - Which are nominal?
    - Do you need to create any hierarchies?
-1. Label or one-hot encoding for categorical data
+1. Label or one-hot encoding for any nominal categorical features
+1. Label encoding for any ordinal categorical features
+1. Evaluate whether you want to implement `discretization` (creating bins for the categorical feature classes) using `K-bins discretization` ([more details at sci-kit learn site](http://scikit-learn.org/stable/auto_examples/preprocessing/plot_discretization_classification.html))
+1. Decide whether you want to implement any `feature binarization` (i.e. re-classifying Feature class values into 1 or 0 based on a threshold
+   - `Affairs` dataset - converting continuous `number_of_affairs` Feature into new feature `had_affair` that is True/False based on whether original column is > 0
+1. Imputation of Missing Values [full discussion here](http://scikit-learn.org/stable/modules/impute.html)
+1. Consider creating `polynomial features` to add complexity to the model
 1. Export "machine learning ready" csv file of the data
 
 # Phase 4: Compare/Test/Train/Holdout
