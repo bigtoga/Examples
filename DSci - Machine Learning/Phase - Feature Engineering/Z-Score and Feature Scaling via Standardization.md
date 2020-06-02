@@ -1,3 +1,5 @@
+System of Engagement -> ETL -> ROLAP -> Data Warehouse -> OLAP Dim Fact -> **Data Preprocessing** -> Model Training and Validation -> Model Deploy -> Model Automation
+
 http://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html
 
 **Standardization** involves rescaling the features such that they have the properties of a standard normal distribution with a mean of zero and a standard deviation of one.

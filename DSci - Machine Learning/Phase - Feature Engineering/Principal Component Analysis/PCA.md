@@ -19,7 +19,8 @@ After Feature Elimination, let’s say you are left with ten independent variabl
 1. You want to reduce the number of independent variables but are not able to identify which variables can be safely removed
 2. **And** you want to ensure your variables are independent of one another
 3. **And** you are okay with making your independent variables less interpretable 
- If you answered “Yes” to all three questions, use PCA!
+
+If you answered “Yes” to all three questions, use PCA!
  
  # 3 common ways to determine how many features to keep/drop
  ## Method 1: hand pick
