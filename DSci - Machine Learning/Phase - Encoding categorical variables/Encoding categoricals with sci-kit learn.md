@@ -51,6 +51,8 @@ Note - if your y label is categorical, use sci-kit learn’s `LabelBinarizer`
 ```python   
 enc = OneHotEncoder(handle_unknown=‘ignore’)
 
+# OneHotEncoder(drop=‘first’).fit(X)
+
 X = [[‘Male’, 1], [‘Female’, 3], [‘Female’, 2]]
 
 enc.fit(X)
