@@ -1,3 +1,6 @@
+# Terms and terminology
+In medicine, `sensitivity` and `specificity` are often used, while in computer science `precision` and `recall` are preferred. 
+
 # A binary classification problem using The Breast Cancer dataset
 UCI’s [breast cancer dataset](http://archive.ics.uci.edu/ml/datasets/Breast+Cancer) contains 9 features (attributes) describing 286 women that have suffered and survived breast cancer and whether or not breast cancer recurred within 5 years. Of the 286 women, 201 did not suffer a recurrence of breast cancer, leaving the remaining 85 that did. Using this dataset, create a machine learning model that predicts whether a woman with breast cancer will have a recurrence.
 
@@ -12,7 +15,7 @@ The default for most classification algorithms. Answers “What percentage of pr
 
 A model that only predicted “no recurrence of breast cancer” would achieve an accuracy of (201/286)*100 or 70.28%. This mod would send home 85 women who would  incorrectly think that their breast cancer was not going to reoccur (high False Negatives).
 
-Our confusion matrix for “All no recurrence”:
+Our confusion matrix for “All no recurrence” has an Accuracy score of 70.28%
 
 ![?](https://i.imgur.com/sZnKjpX_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
@@ -20,10 +23,18 @@ Our confusion matrix for “All no recurrence”:
 
 A model that predicted 100% of women would have a recurrence of breast cancer would achieve an accuracy of (85/286)*100 or 29.72%. This is a terrible accuracy score and would result in sending home 201 women thinking that they would have a recurrence of breast cancer but they actually would not have a recurrence (high False Positives).
 
-The confusion matrix for “All Recurrence”:
+The confusion matrix for “All Recurrence” has an Accuracy score of 29.72%:
 
 ![?](https://i.imgur.com/WuHD4Uj_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
+The above highlights the [accuracy paradox](https://en.wikipedia.org/wiki/Accuracy_paradox): in the case where one target variable class dominates the dataset (i.e. 99% True results), a model can simply default to “All True” predictions and be correct 99% of the time
+
+In our example above, the model could simply choose “All no recurrence” and be right > 70% of predictions. 
+
+# Further reading
+- [Evaluating binary classifiers](https://en.wikipedia.org/wiki/Evaluation_of_binary_classifiers)
+- [Precision vs. Recall](https://en.wikipedia.org/wiki/Precision_and_recall)
+- [Accuracy vs. Precision in Classification](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 # Question 1: what is more important: identifying True Positives or False Negatives?
 To determine whether to focus on “high accuracy “, “high precision”, “high recall”, or “high f1”, we first need to answer this question as it relates to “cost”. The confusion matrix helps here:
