@@ -32,7 +32,37 @@ EDA to analyze most important features, collinearity issues, non-correlated feat
 # Phase 4: Data Preprocessing 
 [sci-kit learn has a good breakdown here](http://scikit-learn.org/stable/modules/preprocessing.html)
 
-1. Standardization using a scaled of some type (StandardScaler, MinMaxScaler, etc)
+
+1. **Normalization** and **standardization** - get the data in each feature into a normalized distribution, while also centering the data to 0 and ensuring that all values are within one standard deviation. 
+   - Normalization: getting each feature into a standard distribution 
+   - Standardization: get each feature centered with a 0 
+
+The formula below is applied to every feature:
+
+![?](https://i.imgur.com/PKcehld_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+```python   
+from sklearn.preprocessing import MinMaxScaler
+
+minmaxscaler = MinMaxScaler()
+minmaxscaler.fit(df.drop(‘TARGET CLASS’, axis=1))
+sc_transform = minmaxscaler.transform(df.drop(‘TARGET CLASS’, axis=1))
+sc_df = pd.DataFrame(sc_transform)
+sc_df.head()
+``` 
+
+The formula for sklearn’s `MinMax` scaler for standardization is applied to each column:
+   
+![?](https://i.imgur.com/E5GCjDp_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+Data before standardization:
+
+![?](https://i.imgur.com/2bDtkX4_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+Data after standardization:
+
+![?](https://i.imgur.com/6ADY6NW_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
 1. Transforms
 1. Normalization so that all values have a unit norm
 1. Get the data into Tidy Data format
