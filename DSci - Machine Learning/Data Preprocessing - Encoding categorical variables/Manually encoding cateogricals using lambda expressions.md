@@ -1,5 +1,7 @@
 Just a “you can also do feature engineering and both label encoding and one-hot encoding by hand” example using python dictionaries 
 ```python   
+# Source: https://www.analyticsvidhya.com/blog/2020/06/feature-engineering-guide-data-science-hackathons/
+
 # Create dicts for your classes:
 gender_dict = {‘F’:0, ‘M’:1}
 age_dict = {‘0-17’:0, ‘18-25’:1, ‘26-35’:2, ‘36-45’:3, ‘46-50’:4, ‘51-55’:5, ‘55+’:6}
