@@ -1,6 +1,6 @@
 Abioudun Olatunji, Scott Donohoo, Sriram Ganapathy
 
-<details><summary> # Azure-centric Modern Data Analytics Platform (MDAP) </summary>
+<details><summary> Azure-centric Modern Data Analytics Platform (MDAP) </summary>
 
 ## 1. Data Sources
 - Flat files
@@ -73,8 +73,8 @@ Abioudun Olatunji, Scott Donohoo, Sriram Ganapathy
   - AutoML
 
 </details>
-<details><summary> # Azure Data Factory  </summary> 
-
+<details><summary> Azure Data Factory  </summary> 
+* Can integrate with source control via Git in Azure DevOps
 </details>
 
 -------
@@ -82,3 +82,9 @@ Abioudun Olatunji, Scott Donohoo, Sriram Ganapathy
 **Hot path / cold path in the MDAP example**
 
 **Azure Notebooks?**
+ 
+ **How do we get plugged in to receive notifications from the Azure Black Belt team in the future (for trainings, webinars, etc)?**
+ 
+ **At what point do teams decide it's worth it to try Synapse? What's the expected learning curve?** 
+ 
+ **Can I use Terraform w Azure ML? Azure Data Factory?** 
