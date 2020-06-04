@@ -93,4 +93,20 @@ Scott Donohoo, Sri Ganapathy - Global Black Belts on AI/ML
 
 **List of best practices for ADF?**
 
+**You are working on the master branch - can we require topic/feature branches for ADF?**
+- I assume that's simply set w Branch policies and Branch security settings
+
+**Downloadable version of ADF?**
+- No
+
+**Is ADF integrated w Azure Data Studio?**
+- 
+
 **Even if ADF is created w GUI, as long as we sync it to a Git repo, it still stores source control history?**
+
+--------------
+# Ideas for future sessions
+- Converting SSIS packages to Azure Data Factory
+- Using Azure Notebooks 
+- When to Use Azure Data Factory, Azure Data Studio, SSMS
+- Status of Machine Learning in SQL Server 2019 vs. Azure ML
