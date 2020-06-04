@@ -22,8 +22,8 @@ Central idea: your data likely contains one or more features that are either:
    
 # When do I perform feature selection?
 - Step 1: Dimensionality reduction
-- Step 2: Feature selection
-- Step 3: Feature importance
+- Step 2: Feature Engineering 
+- Step 3: Feature selection/ Feature importance
    
 **Feature selection is an alternate to dimensionality reduction** - they are different
 - Feature selection decides what to keep or remove
