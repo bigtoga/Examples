@@ -10,6 +10,11 @@ Central idea: your data likely contains one or more features that are either:
 - Redundant
    - Note that if you have two independent features that are **strongly correlated**, you should investigate whether one can be dropped as redundant
    
+# The two goals of feature selection 
+Goal #1: Choose only the features that have the strongest correlation with the target variable
+
+Goal #2: Minimize the amount of overlap / collinearity (a.k.a. optimize for orthogonality / independence of features)
+   
 ## Background needed
 * Columns are variables a.k.a. features
 * Two categories of variable datatypes: 
