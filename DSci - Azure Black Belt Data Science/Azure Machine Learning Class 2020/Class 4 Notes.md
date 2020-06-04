@@ -1,4 +1,6 @@
-Abioudun Olatunji, Scott Donohoo, Sriram Ganapathy
+Abioudun Olatunji - presenter (Ah-bee)
+
+Scott Donohoo, Sri Ganapathy - Global Black Belts on AI/ML
 
 <details><summary> Azure-centric Modern Data Analytics Platform (MDAP) </summary>
 
