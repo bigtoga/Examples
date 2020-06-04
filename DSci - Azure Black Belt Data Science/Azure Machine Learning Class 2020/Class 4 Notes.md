@@ -85,8 +85,12 @@ Scott Donohoo, Sri Ganapathy - Global Black Belts on AI/ML
 
 **Azure Notebooks?**
  
- **How do we get plugged in to receive notifications from the Azure Black Belt team in the future (for trainings, webinars, etc)?**
+**How do we get plugged in to receive notifications from the Azure Black Belt team in the future (for trainings, webinars, etc)?**
  
- **At what point do teams decide it's worth it to try Synapse? What's the expected learning curve?** 
+**At what point do teams decide it's worth it to try Synapse? What's the expected learning curve?** 
  
- **Can I use Terraform w Azure ML? Azure Data Factory?** 
+**Can I use Terraform w Azure ML? Azure Data Factory?** 
+
+**List of best practices for ADF?**
+
+**Even if ADF is created w GUI, as long as we sync it to a Git repo, it still stores source control history?**
