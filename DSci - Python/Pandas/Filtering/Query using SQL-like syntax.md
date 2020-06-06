@@ -6,3 +6,5 @@ df.query(‘Week < 10’)
 df = df.query(‘Month == 3’)
 
 ``` 
+
+[Good article here](https://link.medium.com/VuluDgR156)
