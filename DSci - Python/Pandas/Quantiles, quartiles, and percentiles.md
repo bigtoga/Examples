@@ -106,6 +106,17 @@ df_filtered = subset_by_iqr(
 )
 ``` 
 
+# If you only want the values between Q1 and Q3
+```python   
+iqr = df[‘col’][df[‘col’].between(df[‘col’].quantile(.25), df[‘col’].quantile(.75), inclusive=True)]
+
+# Or a more verbose way of doing the same thing:
+q1 = df[‘col’].quantile(.25)
+q3 = df[‘col’].quantile(.75)
+mask = d[‘col’].between(q1, q2, inclusive=True)
+iqr = d.loc[mask, ‘col’]
+``` 
+
 
 
 
