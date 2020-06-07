@@ -59,8 +59,15 @@ Q1 = df[‘nb’].quantile(0.25)
 Q3 = df[‘nb’].quantile(0.75)
 IQR = Q3 - Q1
 
-``` 
+# Find outliers using common cookie cutter code
+# Values between Q1-1.5IQR and Q3+1.5IQR
+filtered = df.query(‘(@Q1 - 1.5 * @IQR) <= nb <= (@Q3 + 1.5 * @IQR)’)
 
+# Plot!
+df.join(filtered, rsuffix=‘_filtered’).boxplot()
+
+``` 
+![?](https://i.imgur.com/CBWSWgQ_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
 
 
