@@ -117,6 +117,41 @@ mask = d[‘col’].between(q1, q2, inclusive=True)
 iqr = d.loc[mask, ‘col’]
 ``` 
 
+# A generic function that can handle any dataframe you pass to it
+Also from same SO post: https://stackoverflow.com/questions/34782063/how-to-use-pandas-filter-with-iqr
+
+```python   
+def mod_outlier(df):
+        df1 = df.copy()
+        df = df._get_numeric_data()
+
+
+        q1 = df.quantile(0.25)
+        q3 = df.quantile(0.75)
+
+        iqr = q3 - q1
+
+        lower_bound = q1 -(1.5 * iqr) 
+        upper_bound = q3 +(1.5 * iqr)
+
+
+        for col in col_vals:
+            for i in range(0,len(df[col])):
+                if df[col][i] < lower_bound[col]:            
+                    df[col][i] = lower_bound[col]
+
+                if df[col][i] > upper_bound[col]:            
+                    df[col][i] = upper_bound[col]    
+
+
+        for col in col_vals:
+            df1[col] = df[col]
+
+        return(df1)
+
+df = mod_outlier(df)
+
+``` 
 
 
 
