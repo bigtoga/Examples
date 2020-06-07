@@ -60,14 +60,51 @@ Q3 = df[‘nb’].quantile(0.75)
 IQR = Q3 - Q1
 
 # Find outliers using common cookie cutter code
-# Values between Q1-1.5IQR and Q3+1.5IQR
+# 
+# This will remove rows for which the column value are 
+# less than Q1-1.5IQR or greater than Q3+1.5IQR
 filtered = df.query(‘(@Q1 - 1.5 * @IQR) <= nb <= (@Q3 + 1.5 * @IQR)’)
 
 # Plot!
 df.join(filtered, rsuffix=‘_filtered’).boxplot()
 
 ``` 
+The left box plot shows the original dataset with an outlier at 183 (the “+”). The right boxplot shows the filtered dataset which has removed any values outside the IQR 
+
 ![?](https://i.imgur.com/CBWSWgQ_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+Note that `whisker_width = 1.5 is standard practice`
+
+# Alternately you can use a function
+From [this post on SO](https://stackoverflow.com/questions/34782063/how-to-use-pandas-filter-with-iqr)
+
+```python   
+def subset_by_iqr(df, column, whisker_width=1.5):
+    “””Remove outliers from a dataframe by column, including optional 
+       whiskers, removing rows for which the column value are 
+       less than Q1-1.5IQR or greater than Q3+1.5IQR.
+    Args:
+        df (`:obj:pd.DataFrame`): A pandas dataframe to subset
+        column (str): Name of the column to calculate the subset from.
+        whisker_width (float): Optional, loosen the IQR filter by a
+                               factor of `whisker_width` * IQR.
+    Returns:
+        (`:obj:pd.DataFrame`): Filtered dataframe
+    “””
+    # Calculate Q1, Q2 and IQR
+    q1 = df[column].quantile(0.25)                 
+    q3 = df[column].quantile(0.75)
+    iqr = q3 - q1
+    # Apply filter with respect to IQR, including optional whiskers
+    filter = (df[column] >= q1 - whisker_width*iqr) & (df[column] <= q3 + whisker_width*iqr)
+    return df.loc[filter]                                                     
+
+df_filtered = subset_by_iqr(
+   df
+   , ‘column_name’
+   , whisker_width=1.5
+)
+``` 
 
 
 
