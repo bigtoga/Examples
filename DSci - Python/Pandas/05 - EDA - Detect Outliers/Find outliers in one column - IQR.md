@@ -20,6 +20,13 @@ S = pd.Series(np.random.normal(size=200))
 S[~((S-S.mean()).abs() > 3*S.std())]
 ``` 
 
+# Lambda expressions are alternate from same thread
+```python   
+# Remove outliers from column named “B”
+df[((df.B - df.B.mean()) / df.B.std()).abs() < 3]
+```
+
+
 # Find outliers using 99th percentile 
 Same thread - https://stackoverflow.com/questions/23199796/detect-and-exclude-outliers-in-pandas-data-frame
 ```python   
