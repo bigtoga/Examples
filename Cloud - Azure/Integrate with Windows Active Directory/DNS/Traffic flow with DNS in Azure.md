@@ -12,14 +12,15 @@ DNS can be created/managed in multiple places:
   - From another DNS provider
   - From your own public DNS servers
 - Private DNS
-  - From Azure DNS (private)
+  - From Azure DNS (Azure DNS private zones)
+  - From Azure Provided Name Resolution
   - From your Windows Active Directory DNS
   
 # Where you configure the DNS servers for the environment
 1. When you create the virtual network, you assign a set of DNS Servers (Portal -> Virtual Networks -> <choose your vnet> -> DNS Servers)
 2. All resources created within this vnet will now use these DNS Servers
   
-Azure-provided DNS: 
+Azure-provided name resolution: 
   - Pros:
     - You can opt to not create / manage your own DNS servers
     - Azure DNS automatically scales
@@ -30,3 +31,7 @@ Azure-provided DNS:
     - Only A records that are automatically registered by the service are supported (no manual registration of records)
     - No reverse DNS support
     - No query logging  
+
+# Where to get more information
+- [Name resolution for Azure vnets](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
+- [Azure-provided name resolution details](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#azure-provided-name-resolution)
