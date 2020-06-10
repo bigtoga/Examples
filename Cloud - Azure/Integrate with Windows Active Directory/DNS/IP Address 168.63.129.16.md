@@ -10,6 +10,7 @@ Special IP in the Azure world - https://docs.microsoft.com/en-us/azure/virtual-n
 - is owned by Microsoft and will not change
 - We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction)
 - The communication between this special IP address and the resources is safe because **only the internal Azure platform can source a message from this IP address.**
+- Note that sometimes WAFs/security will report this as a Hong Kong-based IP but it is static and owned by Microsoft
 
 https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#azure-platform-considerations
 
