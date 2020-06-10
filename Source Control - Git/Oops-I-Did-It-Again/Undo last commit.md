@@ -22,6 +22,8 @@ git show commit_id
 git log --name-status --diff-filter="ACDMRT" -1 -U c
 
 # Undo the most recent commit with git reset
+# “soft” keeps your changes you’ve made and just undoes the last commit
+# “hard” would also undo your changes
 git reset --soft HEAD~1
 
 git log --oneline --graph
