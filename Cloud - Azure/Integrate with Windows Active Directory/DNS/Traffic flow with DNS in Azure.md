@@ -14,3 +14,6 @@ DNS can be created/managed in multiple places:
 - Private DNS
   - From Azure DNS (private)
   - From your Windows Active Directory DNS
+  
+# Where you configure the DNS servers for the environment
+Each virtual network has a set of automatically-assigned DNS Servers (Portal -> Virtual Networks -> <choose your vnet> -> DNS Servers)
