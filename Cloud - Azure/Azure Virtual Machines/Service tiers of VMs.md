@@ -1,6 +1,7 @@
 Basic overview - good enough to pass exams with:
 
 - If any of the below name “ends with an s”, that means it supports premium SSDs / Azure Premium Files
+- Generally speaking, pricing goes up as the letter goes up. Not 100% true but useful sometimes 
 
 [This documentation page](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/) is where you want to go for more details. I created the chart below based on the “monthly pricing” for each class on that page as of June 2020. I left off Mv2 since it was such an outlier. 
 
@@ -12,6 +13,7 @@ Basic overview - good enough to pass exams with:
    
 - B-Series: B is for burstable, little more power than A but not meant for general use
    - Example use cases include development and test servers, low-traffic web servers, small databases, micro services, servers for proof-of-concepts, build servers
+   - Pricing is deceptively cheap and is listed as low as $3/mth. That’s only because it is expected you keep these on low to no usage during the month and/or dim
    
 # Enterprise grade
 
