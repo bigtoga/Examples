@@ -2,6 +2,7 @@ Azure has two "special" public IP addresses:
 - 168.63.129.16 is a virtual public IP address used in all regions for providing DNS and PaaS connectivity to IaaS-deployed resources
 - 169.254.169.254 is Azure's "Instance Metadata Service" REST Endpoint IP. It is non-routable IP address and can be accessed only from within the VM.
 
+# IP address 168.63.129.16 
 Special IP in the Azure world - https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
 - IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources
 - 168.63.129.16 is a **virtual IP of the host node** and as such it is not subject to user defined routes
