@@ -26,6 +26,19 @@ Supervised learning problems are categorized into "regression" and "classificati
 - In a classification problem, we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories
 
 ## Unsupervised Learning
+Common uses:
+1. Organize computing clusters
+1. Social network analysis
+1. Market segmentation
+1. Astronomical data analysis
+1. Voice analysis / breaking up / segmenting different signals in the audio into separate tracks
+  - Andrew showed examples of using [Octave unsupervised machine learning algorithm](https://mc.ai/machine-learning-in-matlab-octave/), part of MatLAB
+  
+> It turns out the Silicon Valley, for a lot of machine learning algorithms, what we do is first **prototype our software in Octave because software in Octave makes it incredibly fast to implement these learning algorithms.** 
+
+> **SVD function that stands for singular value decomposition**; but that turns out to be a linear algebra routine, that is just built into Octave.
+
+> What I've seen after having taught machine learning for almost a decade now, is that, **you learn much faster if you use Octave as your programming environment**, and if you use Octave as your learning tool and as your prototyping tool, it'll let you learn and prototype learning algorithms much more quickly.
 
 
 
