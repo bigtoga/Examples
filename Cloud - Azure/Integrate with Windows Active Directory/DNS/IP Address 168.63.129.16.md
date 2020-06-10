@@ -1,10 +1,16 @@
-Special IP in the Azure world - https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
+Azure has two "special" public IP addresses: 
+- 168.63.129.16 is a virtual public IP address used in all regions for providing DNS and PaaS connectivity to IaaS-deployed resources
+- 169.254.169.254 is Azure's "Instance Metadata Service" REST Endpoint IP. It is non-routable IP address and can be accessed only from within the VM.
 
-> IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources. Customers can define any address space for their private virtual network in Azure. Therefore, the Azure platform resources must be presented as a unique public IP address. 
-> 168.63.129.16 is a **virtual IP of the host node** and as such it is not subject to user defined routes
-> public IP address 168.63.129.16 is used in **all regions and all national clouds** 
-> public IP address is owned by Microsoft and will not change
-> We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction). The communication between this special IP address and the resources is safe because **only the internal Azure platform can source a message from this IP address.**
+Special IP in the Azure world - https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16
+- IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources
+- 168.63.129.16 is a **virtual IP of the host node** and as such it is not subject to user defined routes
+- Used in **all regions and all national clouds** 
+- is owned by Microsoft and will not change
+- We recommend that you allow this IP address in any local (in the VM) firewall policies (outbound direction)
+- The communication between this special IP address and the resources is safe because **only the internal Azure platform can source a message from this IP address.**
+
+https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#azure-platform-considerations
 
 # What is it used for?
 This virtual public IP address facilitates the following things:
