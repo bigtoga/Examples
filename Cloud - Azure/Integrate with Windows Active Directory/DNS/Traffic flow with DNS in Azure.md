@@ -16,4 +16,17 @@ DNS can be created/managed in multiple places:
   - From your Windows Active Directory DNS
   
 # Where you configure the DNS servers for the environment
-Each virtual network has a set of automatically-assigned DNS Servers (Portal -> Virtual Networks -> <choose your vnet> -> DNS Servers)
+1. When you create the virtual network, you assign a set of DNS Servers (Portal -> Virtual Networks -> <choose your vnet> -> DNS Servers)
+2. All resources created within this vnet will now use these DNS Servers
+  
+Azure-provided DNS: 
+  - Pros:
+    - You can opt to not create / manage your own DNS servers
+    - Azure DNS automatically scales
+    - VMs within the same vnet automatically can resolve each other's IP addresses
+  - Cons:
+    - Single vnet only
+    - WINS and NetBIOS not supported
+    - Only A records that are automatically registered by the service are supported (no manual registration of records)
+    - No reverse DNS support
+    - No query logging  
