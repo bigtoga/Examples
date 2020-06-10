@@ -12,19 +12,19 @@ DNS can be created/managed in multiple places:
   - From another DNS provider
   - From your own public DNS servers
 - Private DNS
-  - From Azure DNS (Azure DNS private zones)
-  - From Azure Provided Name Resolution (virtual network assigned DNS servers)
+  - From Azure Provided Name Resolution (the default for virtual networks is to use Azure DNS)
   - From your Windows Active Directory DNS
   
 # Where you configure the DNS servers for the environment
 1. Set up your Windows Active Directory (private) DNS first
 1. Add these servers to the virtual network's DNS Servers (Portal -> Virtual Networks -> <choose your vnet> -> DNS Servers)
-2. All VMs and access requests within this vnet will now use two types of DNS:
+2. All VMs and access requests within this vnet will now use your local DNS servers
     1. It will use the DNS servers in the order they are listed in the vnet ('priority' order)
-    1. If the first DNS server (a) does not have the domain requested, and (b) there is no conditional forwarder set up, it will pass the resolution to Azure-provided name servers (using the reserved Azure IP of 168.63.129.16)
+    1. If the first DNS server (a) does not have the domain requested, and (b) there is no conditional forwarder set up, it will look up the domain in public DNS
     1. If you want to have VMs name resolution across virtual networks, you will have to set up conditional forwarders to include the correct DNS suffix
   
-Azure-provided name resolution: 
+## Azure-provided name resolution: 
+Default for virtual networks
   - Pros:
     - You can opt to not create / manage your own DNS servers
     - Azure DNS automatically scales (sort of)
