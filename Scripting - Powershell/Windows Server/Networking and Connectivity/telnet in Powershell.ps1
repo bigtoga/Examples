@@ -1,4 +1,5 @@
 # If you do not have telnet, multiple Powershell alternatives
+# Useful also for verifying connectivity to Azure PaaS services that do not respond to ICMP ping (like Azure SQL Database)
 
 # Option 1: Use "Echo"
 Echo ((new-object Net.Sockets.TcpClient).Client.Connect('my_azure_sql_server_db_url', 1433)) 'success'
