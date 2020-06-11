@@ -1,3 +1,5 @@
+Similar / related to service endpoints
+
 https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview
 
 > A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules.
@@ -14,7 +16,7 @@ az network list-service-tags --location eastus2
 # List those in use
 az network list-usages --location eastus -o table
 ```
-Powershell:
+Powershell [documentation is very robust](https://docs.microsoft.com/en-us/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
 ```powershell
 Get-AzNetworkServiceTag -Location eastus2
 
