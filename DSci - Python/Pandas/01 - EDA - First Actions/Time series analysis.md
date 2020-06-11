@@ -90,3 +90,43 @@ ax.set_ylabel(‘Consumption (GWh)’)
 ax.set_title(‘Trends in Electricity Consumption’)
 ```
 ![?](https://i.imgur.com/FRg2ysv_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+# Time series data and machine learning 
+When a time series has a pronounced trend, it is said to be **non-stationary** (and this time series without a trend are called **stationary**). Many machine learning algorithms have trouble with non-stationary data and thus machine learning engineers often find ways to de-trend time series data prior to passing to the model. 
+- ARIMA, a time series python library for analyzing time series data, has a lot of difficulty with this
+
+## Differencing using diff()
+The concept of de-trending the data is called **differencing**. Differencing is how you de-trend your time series data. Instead of seeing the actual values, `diff()` shows just how *different* one observation is from another. 
+
+**First order differencing** just calculates the difference between “this row” and “the previous row” and is generally suitable to remove trends. The formula is `value at time (t) = original value at time (t) - original value at time (t-1)`
+
+**Second order differencing** calculates the difference between “this row” and “2 times the two rows before this row” and can be useful if first order differencing does not remove the trend. The formula is `value at time (t)= original value at time (t) — 2 *original value at time (t-1) + original value at time (t-2)`
+
+```python   
+# first order differencing 
+data_first_order_diff = data[data_columns].diff()
+
+data_first_order
+
+# Plot and visualize
+
+start, end = ‘2017-01’, ‘2017-06’
+
+fig, ax = plt.subplots(figsize=(11, 4))
+
+ax.plot(data_first_order_diff.loc[start:end, ‘Consumption’],
+marker=‘o’, markersize=4, linestyle=‘-‘, label=‘First Order Differencing’)
+ax.set_ylabel(‘Electricity Consumption (GWh)’)
+ax.legend();
+```
+Here’s the new plot - notice there are no clear trends:
+
+![?](https://i.imgur.com/pWM0mFu_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+
+
+
+
+
+
+
