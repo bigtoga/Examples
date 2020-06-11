@@ -9,7 +9,9 @@
 #    - Pandas performs each univariate test in a serial fashion
 #    - Dask has out-of-core support for datasets larger than memory soze on your machine; pandas does not
 
-# Sample notebook: https://github.com/sfu-db/dataprep/blob/develop/examples/EDA_COVID19_SouthKorea.ipynb
+# Sample noteboos: 
+#   - https://github.com/sfu-db/dataprep/tree/develop/examples
+#   - https://github.com/sfu-db/dataprep/blob/develop/examples/EDA_COVID19_SouthKorea.ipynb
 
 # dataprep also:
 #    - Selects the toght viz for the data type
