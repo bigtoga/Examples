@@ -7,7 +7,7 @@ Echo ((new-object Net.Sockets.TcpClient).Client.Connect('my_azure_sql_server_db_
  # Can use from the command line if you want:
  powershell -Command echo ((new-object Net.Sockets.TcpClient).Client.Connect('my_azure_sql_server_db_url', 1433)) 'success'
 
-# Option 2: Use .NET 
+# Option 2: If you want more details or robust reporting/error handling, use .NET
 $remote_host = 'my_azure_sql_server_db_url'
 $port = 1433
 
