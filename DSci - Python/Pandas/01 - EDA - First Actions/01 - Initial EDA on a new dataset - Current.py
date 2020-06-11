@@ -1,3 +1,76 @@
+# 2020-06: dataprep makes a lot of this easier. No need for seaborn/matplotlib
+# pip install dataprep
+# 100x faster than pandas profile report
+# All plots are built woth Bokeh whoch is interactive
+# Uses Dask behind the scenes for parallelism which is main performance improvement
+#    - Dask supports block-wise computation
+#    - Pandas only supports computationa over the entire dataset
+#   - Dask supports parallellism for univariate distributions
+#    - Pandas performs each univariate test in a serial fashion
+#    - Dask has out-of-core support for datasets larger than memory soze on your machine; pandas does not
+
+# Sample notebook: https://github.com/sfu-db/dataprep/blob/develop/examples/EDA_COVID19_SouthKorea.ipynb
+
+# dataprep also:
+#    - Selects the toght viz for the data type
+#    - Includes tooltips automatically
+#    - Aut-selects the right time unit for datetime
+#    - makes it easy to see most common categorica values
+
+# "Exploratory data analysis’ is an attitude, a state of flexibility, a willingness to look for those things that we believe are not there, as well as those we believe to be there." - John Tukey
+
+# Good examples here: https://link.medium.com/Uwg21cDbe7
+
+# EDA process is ..."question, visualize, understand, repeat"
+
+```python   
+from dataprep.eda import plot
+import pandas as pd
+df = pd.read_csv("https://www.openml.org/data/get_csv/1595261/phpMawTba", na_values = [' ?'])
+
+# Categorical data and numerics auto plot as bar charts
+# Datetime data auto plots as a line chart
+# Tooltips auto populate to show IQR and more
+plot(df)
+
+# Can auto bin during plot creation
+plot(df, "age", bins=26)
+
+# Can bin across features
+plot(df, "age", "sex", bins=26)
+
+plot_correlation(df)
+
+plot_missing(df)
+
+# Categorical features auto plot a bar and pie chart
+plot(df, "category")
+
+# Continuous features auto plot a scatter, KDE, QQ / hexbin plot, and box plot
+plot(df, "age")
+
+# Compare two numeric columns easily - auto plot
+plot(df, "age", "hours-per-week")
+
+# When both x and y are categorical, it plots
+# a nested bar chat, a stacked bar chart, and a heatmap
+plot(df, "education", "marital-status")
+
+# If one is categorical and one is numeric, it auto
+# plots a box plot and a line chart
+plot(df, "age", "education")
+
+
+```
+
+
+
+
+
+
+
+
+
 # https://link.medium.com/OD4EMf8Wf4
 # https://towardsdatascience.com/complete-guide-to-data-visualization-with-python-2dd74df12b5e
 
