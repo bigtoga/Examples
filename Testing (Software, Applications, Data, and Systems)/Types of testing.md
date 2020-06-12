@@ -1,4 +1,6 @@
-So many...
+So many... I always liked this layout (can’t remember where this is from though):
+
+![?](https://i.imgur.com/4K7whrp_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
 # Manual tests (generally, some can be automated)
 **End to end tests**
@@ -29,6 +31,7 @@ The best test suites and testing tools also include:
 - Occurs before build and compile
 - Flags “known bad” vulnerabilities, techniques 
 - Works by running a pre-configured set of rules and capabilities 
+- Tests “the source code”, not the application 
 - Pros:
    - Provides exact source code method, page, lone numbers for easier remediation 
    - Integrates security In beginning of SDLC (a.k.a. shift left)
@@ -43,6 +46,7 @@ The best test suites and testing tools also include:
 **DAST (dynamic) tests**
 - Black box testing
 - Does not require access to source code
+- Tests “the application’s response”, not the source code
 
 **Open source software vulnerability scanners** - a type of test that lists known vulnerabilities in the OSS libraries that an application depends on
 
