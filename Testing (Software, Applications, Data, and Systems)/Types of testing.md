@@ -7,6 +7,21 @@ So many... Maybe 100 different types of tests for internet facing applications a
 - Domain tests (check for valid input formats and values)
 - Verification tests
 
+# Testing mentalities and approaches
+**QA testing**
+
+**Penetration testing**
+
+**Regression testing**
+
+**Requirements testing**
+
+**Security testing**
+
+**Sanity testing** or **Smoke testing**
+
+**Stress testing** (see below for many other names for this)
+
 # Visibility 
 Glass box - test has full access to source code, access to running app, and has been coded/modified to know running app logic
 
@@ -44,12 +59,16 @@ The types of “things to look for” or “techniques that multiple tests use o
 
 **Cross browser compatibility tests**
 
+**Usability tests**
+
 # Testing levels
 **Unit tests** 
 
 **Compliance tests**
 
 **Component tests**
+
+**Modular tests** a.k.a. module tests
 
 **Configuration tests**
 
@@ -63,6 +82,8 @@ The types of “things to look for” or “techniques that multiple tests use o
 
 **Functional tests** 
 - black box
+
+**Non-functional tests** test the NFRs
 
 **Benchmark tests** a.k.a. load or performance or concurrency tests - to get before, during, and after values 
 
@@ -118,5 +139,7 @@ The best test suites and testing tools also include:
 **Accessibility tests** ensure that applications are available to blind, limited vision, or hearing impaired persons
 
 **Backward compatibility tests**
+
+**Upgrade testing**
 
 **Globalization / translation / internationalization localization tests**
