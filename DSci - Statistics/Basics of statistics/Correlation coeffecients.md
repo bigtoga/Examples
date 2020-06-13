@@ -28,7 +28,7 @@ Examples of using visual skew to identify correlation ([image source](https://re
 # Interpreting results
 There is no guaranteed, agreed upon way of interpreting. Akoglu, (2018) provides the following table with the three most commonly used suggestions for how to interpret the correlation cofficients 
 
-| Z-score  | Dancey & Reidy (Psychology)|Quinnipiac University (Politics) | Chan YH (Medicine) |
+| Z-score | Dancey & Reidy (Psychology)|Quinnipiac University (Politics) | Chan YH (Medicine) |
 |:—|:—|:—|:—|
 | +- 1| Perfect | Perfect | Perfect |
 | +-.9| Strong | Very strong | Very strong  |
