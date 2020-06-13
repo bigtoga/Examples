@@ -35,8 +35,13 @@ df.head()
 
 Three main standards in statistics are in play here:
 - **Pearson’s coefficient** which measures linear correlation
-- **Spearman’s coefficient** compares the *ranks* of data and are thus useful with *ordinal* variables
-- **Kendall-Tau coefficients** also compare the ranks of data and are thus useful with *ordinal* variables
+- **Spearman’s coefficient** and **Kendall-Tau coefficients** compare the *ranks* of data and are thus useful with both **continuous and ordinal** variables
+   - Spearman’s is better than Pearson’s at removing outliers and focusing it’s determination of linearity on the “core” data 
+   
+[Ranks in statistics](https://en.wikipedia.org/wiki/Ranking#Ranking_in_statistics) are a way to transform the data when sorting. Used by many statistical functions. Examples:
+- [3.4, 5.1, 2.6, 7.3] would become [2, 3, 1, 4] 
+- [hot, cold, warm] would be replaced by [3, 1, 2]. 
+- In these examples, the ranks are assigned to values in ascending order. (In some other cases, descending ranks are used.) 
 
 ### Pearson’s Correlation Coefficient 
 Goes by many names ([wikipedia](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
@@ -46,6 +51,19 @@ Goes by many names ([wikipedia](https://en.wikipedia.org/wiki/Pearson_correlatio
 - +1 is a perfect positive correlation 
 
 Generally accepted as an accurate way to accept or reject a null hypothesis using statistical means (a.k.a. *statistical inference*)
+
+### Spearman’s ρ
+\rho 
+
+https://en.wikipedia.org/wiki/Rank_correlation
+
+https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient
+
+**Spearman’s rank correlation coefficient** 
+
+> The **Spearman correlation is less sensitive than the Pearson correlation to strong outliers** that are in the tails of both samples. That is because Spearman’s ρ limits the outlier to the value of its rank.
+
+Spearman’s coefficient, Spearman’s rho (Greek letter `rho` is written as curly looking `p`).
 
 </details> 
 
