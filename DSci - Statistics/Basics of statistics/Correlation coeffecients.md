@@ -2,6 +2,7 @@
 - Identity variance in the data
 - Identify covariant between your features
 - **Identify the correlation coefficients in your features** (you are here)
+- Looking for lurking variables (a.k.a. hidden variables and/or Simpson’s Paradox)
 
 # Variance, covariant, and correlation 
 **Variance** is a measure of variability from the mean. 
