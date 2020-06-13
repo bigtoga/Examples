@@ -8,9 +8,7 @@ Example: playing checkers
 - T = the task of playing checkers
 - P = the probability that the program will win the next game
 
-In general, any machine learning problem can be assigned to one of two broad classifications:
-
-Supervised learning and Unsupervised learning.
+In general, any machine learning problem can be assigned to one of two broad classifications: Supervised learning and Unsupervised learning.
 
 # Four types of Machine Learning
 1. Supervised
@@ -40,5 +38,12 @@ Common uses:
 
 > What I've seen after having taught machine learning for almost a decade now, is that, **you learn much faster if you use Octave as your programming environment**, and if you use Octave as your learning tool and as your prototyping tool, it'll let you learn and prototype learning algorithms much more quickly.
 
+<details> <summary>Cost Functions & Intuiton (pt. 1) </summary>  
 
+If we try to think of it in visual terms, our training data set is scattered on the x-y plane. We are trying to make a straight line (defined by *h<sub>&theta;</sub>(x)*) which passes through these scattered data points.
+
+**Our objective is to get the best possible line. The best possible line will be such so that the *average squared vertical distances of the scattered points from the line will be the least***. 
+- Ideally, the line should pass through all the points of our training data set. In such a case, the value of *J(&theta;<sub>0</sub>, &theta;<sub>1</sub>) 
+will be 0. 
+</details> 
 
