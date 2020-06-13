@@ -98,6 +98,8 @@ When a time series has a pronounced trend, it is said to be **non-stationary** (
 ## Differencing using diff()
 The concept of de-trending the data is called **differencing**. Differencing is how you de-trend your time series data. Instead of seeing the actual values, `diff()` shows just how *different* one observation is from another. 
 
+[Long but thorough explanation of differencing, identifying Simpson’s Paradox issues, and de-trending data so that your model can see a relationship between two variables](https://www.datacamp.com/community/tutorials/time-series-analysis-tutorial
+
 **First order differencing** just calculates the difference between “this row” and “the previous row” and is generally suitable to remove trends. The formula is `value at time (t) = original value at time (t) - original value at time (t-1)`
 
 **Second order differencing** calculates the difference between “this row” and “2 times the two rows before this row” and can be useful if first order differencing does not remove the trend. The formula is `value at time (t)= original value at time (t) — 2 *original value at time (t-1) + original value at time (t-2)`
