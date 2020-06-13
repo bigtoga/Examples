@@ -1,3 +1,15 @@
+# EDA processes
+- Identity variance in the data
+- Identify covariant between your features
+- **Identify the correlation coefficients in your features** (you are here)
+
+# Variance, covariant, and correlation 
+**Variance** is a measure of variability from the mean. 
+**Covariance** is a measure of relationship between the variability of 2 variables - covariance is scale dependent because it is not standardized
+**Correlation** is a of relationship between the variability of of 2 variables - correlation is standardized making it not scale dependent
+
+# Correlation 
+
 The correlation coefficient of two variables captures how linearly related they are (aka pairwise correlation, bivariate correlation). 
 
 Multiple ways of going about this:
