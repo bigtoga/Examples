@@ -12,7 +12,8 @@ Examples of using visual skew to identify correlation ([image source](https://re
 
 ![?](https://i.imgur.com/OQm6JEW_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
-# “Two at a time” method examples
+# The iris dataset
+
 Example using the iris dataset:
 - All flowers contain a sepal and a petal.
 - The sepal encloses the petals and is typically green and leaf-like, while the petals are typically colored leaves
@@ -29,6 +30,28 @@ df = pd.DataFrame(
 
 df.head()
 ```
+
+<details><summary>Generally accepted correlation coefficients </summary>
+
+Three main standards in statistics are in play here:
+- **Pearson’s coefficient** which measures linear correlation
+- **Spearman’s coefficient** compares the *ranks* of data and are thus useful with *ordinal* variables
+- **Kendall-Tau coefficients** also compare the ranks of data and are thus useful with *ordinal* variables
+
+### Pearson’s Correlation Coefficient 
+Goes by many names ([wikipedia](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
+- Pearson’s *r*
+- Scale of -1 to +1
+- -1 is a perfect negative correlation 
+- +1 is a perfect positive correlation 
+
+Generally accepted as an accurate way to accept or reject a null hypothesis using statistical means (a.k.a. *statistical inference*)
+
+</details> 
+
+<details><summary>”Two at a time method</summary>
+
+# “Two at a time” method examples
 
 ## Visually compare and look for skew
 Compare two variables for linearity, sepal length and sepal width:
@@ -67,19 +90,6 @@ Aha! Now we can see what appear to be fairly strong linear relationships showing
 - You can reverse any positive to a negative and vice versa by simply switching x and y variables
 
 ## Measure the correlation strength using a standard calculation 
-Three main standards in statistics are in play here:
-- **Pearson’s coefficient** which measures linear correlation
-- **Spearman’s coefficient** compares the *ranks* of data and are thus useful with *ordinal* variables
-- **Kendall-Tau coefficients** also compare the ranks of data and are thus useful with *ordinal* variables
-
-### Pearson’s Correlation Coefficient 
-Goes by many names ([wikipedia](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
-- Pearson’s *r*
-- Scale of -1 to +1
-- -1 is a perfect negative correlation 
-- +1 is a perfect positive correlation 
-
-Generally accepted as an accurate way to accept or reject a null hypothesis using statistical means (a.k.a. *statistical inference*)
 
 We can plot the correlation coefficient *r* in pandas:
 ```python   
@@ -87,3 +97,37 @@ df[‘sepal length (cm)’].corr(df[‘sepal width (cm)’])
 ``` 
 >> 0.86 # Note: this is fake - I just made this up
 The return value of 0.86 would indicate that there is a *statistically relevant* linear relationship between these two variables 
+</details> 
+
+<details> <summary>”All at once” method</summary>  
+
+We can view all features using `corr()` method. With this, we can see two things:
+- How each variable “relates” to every other variable 
+- How each variable “relates” with the target variable
+```python   
+df.corr()
+```
+![?](https://i.imgur.com/bK3VdpI_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+A paradox appears:
+- Sepal width and sepal length across the entire dataset `skew left` slightly showing a slightly negative correlation of -0.109369
+- However, if you look at the relationship “by variety”, those display a positive skew
+
+Let’s group by our target variable (the variety of flower):
+```python   
+df.groupby([‘target’]).corr()
+```
+![?](https://i.imgur.com/1f231jb_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+
+What do we see when we just focus on petal length vs. petal width (that had a negative correlation of -0.109369 for the entire dataset)?
+- Versicolor (0) shows a very positive correlation of +0.75
+- Virginica (1) shows a strong +0.5
+- Setosa (2) shows a decent positive correlation of +0.46
+
+## What’s going on? How can we have an overall negative correlation across the entire dataset but each group has a positive correlation?
+This is known as [Simpson’s Paradox](http://ftp.cs.ucla.edu/pub/stat_ser/r414.pdf). 
+- [Examples with pandas](http://www.degeneratestate.org/posts/2017/Oct/22/generating-examples-of-simpsons-paradox/)
+- [Example Python function to detect Simpson’s Paradox issues](https://github.com/CamDavidsonPilon/simpsons-paradox)
+
+</details> 
