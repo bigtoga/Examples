@@ -126,7 +126,29 @@ What do we see when we just focus on petal length vs. petal width (that had a ne
 - Setosa (2) shows a decent positive correlation of +0.46
 
 ## What’s going on? How can we have an overall negative correlation across the entire dataset but each group has a positive correlation?
-This is known as [Simpson’s Paradox](http://ftp.cs.ucla.edu/pub/stat_ser/r414.pdf). 
+This is known as [Simpson’s Paradox](http://ftp.cs.ucla.edu/pub/stat_ser/r414.pdf)
+
+* **Simpson’s Paradox** : A trend or result that is present when data is put into groups that reverses or disappears when the data is combined.*
+
+Here’s a great visual example from [this Towards Data Science article](https://link.medium.com/umJNIRZsh7):
+
+![?](https://i.imgur.com/N2K2y0p_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+The data on the left plots the correlation over the entire dataset, while the right plot shows the relationship between the two groups represented within the data (‘male’ and ‘female’)
+
+### Beware of **lurking variables**
+Simpson’s Paradox shows up when there are **hidden variables** within your dataset. These hidden or lurking variables hide bias in your dataset and you must identify these early on and work hard to remove these, or to extract new features from them, or, worst case, you may need to discard the dataset as its sampling methods may be unscientific and thus unusable. 
+
+These quotes sum up your responsibilities as a data scientist ([source](https://link.medium.com/ELJIN9Yth7):
+> The correct decision is entirely situational and this is part of the reason why data science exists at the intersection of mathematics/statistics, computer science and business/domain knowledge: **We need to know our data, and more importantly, what we want out of our data, in order to choose which approach to take**
+> In every situation, the key is to interpret the data in relation to the underlying domain, and to take the most appropriate data-viewpoint.
+
+For our iris data problem, we could tackle this multiple ways:
+1. Option 1: split the data into “one dataset for each variety of flower” then re-run our correlation matrices
+
+Looking for hidden variables and trying to identify Simpson’s Paradox is part of the EDA process
+
+- [Good explanation](https://link.medium.com/hc9MS4Jsh7)
 - [Examples with pandas](http://www.degeneratestate.org/posts/2017/Oct/22/generating-examples-of-simpsons-paradox/)
 - [Example Python function to detect Simpson’s Paradox issues](https://github.com/CamDavidsonPilon/simpsons-paradox)
 
