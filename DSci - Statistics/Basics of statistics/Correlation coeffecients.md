@@ -11,7 +11,7 @@
 
 # Correlation 
 
-The correlation coefficient of two variables captures how linearly related they are (aka pairwise correlation, bivariate correlation). 
+The correlation coefficient or `Z-score` of two variables captures how linearly related they are (aka pairwise correlation, bivariate correlation). 
 
 Multiple ways of going about this:
 1. “Two at a time” method is selecting two variables and working with just those two
@@ -24,6 +24,23 @@ Multiple ways of going about this:
 Examples of using visual skew to identify correlation ([image source](https://realpython.com/numpy-scipy-pandas-correlation-python/):
 
 ![?](https://i.imgur.com/OQm6JEW_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+# Interpreting results
+There is no guaranteed, agreed upon way of interpreting. Akoglu, (2018) provides the following table with the three most commonly used suggestions for how to interpret the correlation cofficients 
+
+| Z-score  |   Dancey & Reidy (Psychology)|   Quinnipiac University (Politics) |    Chan YH (Medicine) |
+|—|—|—|—|
+|   +- 1 |   Perfect |   Perfect |   Perfect |
+|   +-.9 |   Strong |   Very strong |   Very strong |
+|   +-.8|   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
+|   |   |   |   |
 
 # The iris dataset
 
@@ -184,3 +201,5 @@ Looking for hidden variables and trying to identify Simpson’s Paradox is part 
 - [Example Python function to detect Simpson’s Paradox issues](https://github.com/CamDavidsonPilon/simpsons-paradox)
 
 </details> 
+
+- Source paper: Akoglu, H. (2018). User’s guide to correlation coefficients. Turk J Emerg Med, 18(3), 91-93. doi: 10.1016/j.tjem.2018.08.001
