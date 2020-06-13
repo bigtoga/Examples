@@ -1,4 +1,4 @@
-The correlation coefficient of two variables captures how linearly related they are (aka pairwise correlation). 
+The correlation coefficient of two variables captures how linearly related they are (aka pairwise correlation, bivariate correlation). 
 
 Multiple ways of going about this:
 1. “Two at a time” method is selecting two variables and working with just those two
@@ -30,6 +30,7 @@ df = pd.DataFrame(
 df.head()
 ```
 
+## Visually compare and look for skew
 Compare two variables for linearity, sepal length and sepal width:
 ```python   
 sns.lmplot(
@@ -64,3 +65,25 @@ Aha! Now we can see what appear to be fairly strong linear relationships showing
 - A **positive skew** “lifts up” from left to right 
 - A **negative skew** “trends down” from left to right
 - You can reverse any positive to a negative and vice versa by simply switching x and y variables
+
+## Measure the correlation strength using a standard calculation 
+Three main standards in statistics are in play here:
+- **Pearson’s coefficient** which measures linear correlation
+- **Spearman’s coefficient** compares the *ranks* of data and are thus useful with *ordinal* variables
+- **Kendall-Tau coefficients** also compare the ranks of data and are thus useful with *ordinal* variables
+
+### Pearson’s Correlation Coefficient 
+Goes by many names ([wikipedia](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
+- Pearson’s *r*
+- Scale of -1 to +1
+- -1 is a perfect negative correlation 
+- +1 is a perfect positive correlation 
+
+Generally accepted as an accurate way to accept or reject a null hypothesis using statistical means (a.k.a. *statistical inference*)
+
+We can plot the correlation coefficient *r* in pandas:
+```python   
+df[‘sepal length (cm)’].corr(df[‘sepal width (cm)’])
+``` 
+>> 0.86 # Note: this is fake - I just made this up
+The return value of 0.86 would indicate that there is a *statistically relevant* linear relationship between these two variables 
