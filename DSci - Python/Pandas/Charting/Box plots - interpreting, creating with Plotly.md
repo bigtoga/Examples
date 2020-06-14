@@ -93,7 +93,7 @@ One thing to note is that Bledsoe has more 40+ point games than Middleton. If yo
 
 Box plots in Plotly are easy and powerful ways to visually compare multiple classes. 
 
-```python   
+```Python   
 fig = px.box(
    comp_df
    , x=‘player’
@@ -123,4 +123,28 @@ Four main components of a box plot:
 Let’s pause to notice a few things this box plot shows that was not clear in previous graphs:
 1. Outlier comparison - Middleton’s outliers are more likely to be “more points per game” while Bledsoe’s outliers are more likely to be “fewer points per game”
 1. Consistency is clearer now - Middleton’s most likely range (his outcomes) are 18-48 points whereas Bledsoe’s most likely outcomes are in the 6-67 point range
-- The middle line for Middleton is right around the 50% point indicating equal probability of higher or lower 
+- The middle line for Middleton is right around the 50% point indicating equal probability of his next games score being higher or lower than his average score
+- The middle line for Bledsoe however is towards the lower part of the box indicating that he has more “high” values than “low values”. This tells us that, in his next game, he has a “greater than 50% chance” of scoring more than his average
+
+# Visualization #5 - Box plot with clustered data points
+Plotly makes it easy to “plot the dots” next to the box to visually show you where each of the subject’s data points fall:
+```Python   
+fig = px.box(
+   comp_df
+   , x=‘player’
+   , y=‘fan_pts’
+   , color=‘player’
+   , labels={
+         ‘fan_pts’: ‘Fantasy Points’
+         , ‘date’: ‘Date’
+     }
+)
+
+fig.update_layout(title=‘Fantasy performance comparison’)
+
+fig.show()
+```
+
+![?](https://i.imgur.com/yM5Jx9m_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+
