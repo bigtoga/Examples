@@ -151,4 +151,39 @@ fig.show()
 
 ![?](https://i.imgur.com/yM5Jx9m_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
+It’s very clear now: Middleton is the safer choice but Bledsoe is a “high risk, high reward” pick 
+
+# Visualization #6: Violin plot
+Just further confirmation 
+
+```python   
+fig = px.violin(
+   comp_df
+   , x=‘player’
+   , y=‘fan_pts’
+   , color=‘player’
+   , labels={‘fan_pts’: ‘Fantasy Points’, ‘date’: ‘Date’}
+   , points=“all”
+)
+
+fig.update_layout(title=‘Fantasy performance comparison’)
+
+fig.show()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
