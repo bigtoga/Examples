@@ -60,7 +60,16 @@ Taking another h(x) and plotting its contour plot, one gets the following graphs
 
 When  *&theta;<sub>0</sub>* = 360 and  *&theta;<sub>1</sub>* = 0, the value of *J(&theta;<sub>0</sub>, &theta;<sub>1</sub>)* in the contour plot gets closer to the center thus reducing the cost function error. Now giving our hypothesis function a slightly positive slope results in a better fit of the data.
 
+![](https://i.imgur.com/dTWVTRp_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
+The graph above minimizes the cost function as much as possible and consequently, the result of  *&theta;<sub>1</sub>* and  *&theta;<sub>0</sub>* tend to be around 0.12 and 250 respectively. Plotting those values on our graph to the right seems to put our point in the center of the inner most ‘circle’.
 
 </details> 
 
+Common copy and paste
+
+*J(&theta;<sub>0</sub>, &theta;<sub>1</sub>)*
+
+*&theta;<sub>0</sub>*
+
+*&theta;<sub>1</sub>*
