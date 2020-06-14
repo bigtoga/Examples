@@ -123,4 +123,4 @@ Four main components of a box plot:
 Let’s pause to notice a few things this box plot shows that was not clear in previous graphs:
 1. Outlier comparison - Middleton’s outliers are more likely to be “more points per game” while Bledsoe’s outliers are more likely to be “fewer points per game”
 1. Consistency is clearer now - Middleton’s most likely range (his outcomes) are 18-48 points whereas Bledsoe’s most likely outcomes are in the 6-67 point range
-
+- The middle line for Middleton is right around the 50% point indicating equal probability of higher or lower 
