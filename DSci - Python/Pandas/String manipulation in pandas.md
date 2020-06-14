@@ -6,6 +6,6 @@ df[‘State’] = df[‘City’].str[-2:]
 
 If you had data that was “City, State Abbreviation, 3 character country abbreviation” (“Dallas, TX, USA”) and wanted to get just “Dallas, TX”), exclude the last four characters 
 ```
-df[‘State’] = df[‘Province’].str[:-4]
+df[‘CityState’] = df[‘CityStateCountry’].str[:-4]
 ```
 
