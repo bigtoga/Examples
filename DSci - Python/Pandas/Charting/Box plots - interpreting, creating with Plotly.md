@@ -112,9 +112,15 @@ fig.show()
 ![?](https://i.imgur.com/IgKn5Rb_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
 ### Side bar: Interpreting box plots 
-- The middle line indicate of a box plot indicates where the ‘median’ value (i.e. the middle value - 50% of the rows are 
-indicating the most likely outcomes
-- The size of the box indicates where half of all outcomes fall into, and the lines where most of the outcomes are expected
-- The dots indicate ‘outliers’ a.k.a. “unusual outcomes”
-
+Four main components of a box plot: 
+- **The size of the box** indicates where half of all outcomes fall into
+- **The top and bottom lines** where most of the outcomes are expected
+- **The dots** indicate ‘outliers’ a.k.a. “unusual outcomes”
+- **The middle line** indicates where the ‘median’ value lies
+   - Median tells us where “the middle value” of the dataset lies in perspective to the entire column’s data lies above this lone and 50% of the data lies below this line
+   - Dan described this as the center balancing point - if the dataset was an actual linear “thing”, you could balance the dataset on your finger if you placed your finger “in the exact middle value” of the dataset 
+   
+Let’s pause to notice a few things this box plot shows that was not clear in previous graphs:
+1. Outlier comparison - Middleton’s outliers are more likely to be “more points per game” while Bledsoe’s outliers are more likely to be “fewer points per game”
+1. Consistency is clearer now - Middleton’s most likely range (his outcomes) are 18-48 points whereas Bledsoe’s most likely outcomes are in the 6-67 point range
 
