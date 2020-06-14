@@ -127,13 +127,17 @@ Let’s pause to notice a few things this box plot shows that was not clear in p
 - The middle line for Bledsoe however is towards the lower part of the box indicating that he has more “high” values than “low values”. This tells us that, in his next game, he has a “greater than 50% chance” of scoring more than his average
 
 # Visualization #5 - Box plot with clustered data points
-Plotly makes it easy to “plot the dots” next to the box to visually show you where each of the subject’s data points fall:
+Plotly makes it easy to “plot the dots” next to the box to visually show you where each of the subject’s data points fall. 
+
+https://plotly.com/python/box-plots/
+
 ```Python   
 fig = px.box(
    comp_df
    , x=‘player’
    , y=‘fan_pts’
    , color=‘player’
+   , points=‘all’ # defaults to ‘outliers’
    , labels={
          ‘fan_pts’: ‘Fantasy Points’
          , ‘date’: ‘Date’
