@@ -113,7 +113,8 @@ fig.show()
 
 ### Side bar: Interpreting box plots 
 Four main components of a box plot: 
-- **The size of the box** indicates where half of all outcomes fall into
+- Box plots group the data into quartiles
+- **The size of the box** indicates where half of all outcomes fall into. This the data “greater than 25% quartile’s max value” and “less than the 75% quartile’s lowest value”
 - **The top and bottom lines** where most of the outcomes are expected
 - **The dots** indicate ‘outliers’ a.k.a. “unusual outcomes”
 - **The middle line** indicates where the ‘median’ value lies
@@ -170,6 +171,24 @@ fig.update_layout(title=‘Fantasy performance comparison’)
 
 fig.show()
 ```
+![?](https://i.imgur.com/aB0pOmW_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+Whereas box plots are all about plotting quartile’s and quartile ranges, violin plots are more like a histogram and show you distribution ranges. 
+
+### Sidebar: Box plots vs violin plots
+Use violin plots:
+- when you have a small number of classes to display. Violins take up *width* thus if you are trying to plot more than 5-10 class values, you will “run out of room” 
+- Almost never haha. Box plots are global and simple enough to understand 
+
+# Finally
+You now have to make a decision: which player will you pick?
+- Middleton is a *low variance* player - you know you’re more likely than not to get his average points per game
+- Bledsoe is a “high risk, high reward” player though... You know now that you have a “greater than 50% chance” he will score more than his average
+
+And this is where “domain knowledge “ comes in - you’re the expert in your fantasy league. Which does your league place the highest value on: consistency or max points?
+
+Good luck!
+
 
 
 
