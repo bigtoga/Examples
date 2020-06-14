@@ -1,15 +1,24 @@
-# Setup
-import pandas as pd\
-mouse_metadata = "data/Mouse_metadata.csv"\
-mouse_metadata = pd.read_csv(mouse_metadata)
+```python   
+import pandas as pd
+mouse_metadata = "data/Mouse_metadata.csv"
+df = pd.read_csv(mouse_metadata)
 
-# View the groups:
-grp = "Drug Regimen"\
-merged.groupby(grp).groups.keys()
+# Group by
+grp = "Drug Regimen"
+gby = df.groupby(grp)
+
+# List our the group values (distinct list of Drug Regimens)
+gby.groups.keys()
+
+# View one group
+gby_Ibuprofen = gby.get_group(“Ibuprofen”)
+print(gby_Ibuprofen.head()
+```
 
 ![Pandas Group By](https://github.com/bigtoga/Examples/blob/master/Python/Assets/Images/PandasGroupBy.jpg "Logo Title Text 1")
 
 [Lots of good examples here](https://link.medium.com/9cOvuqP056)
+
 ```python   
 df.groupby(‘school’).groups
 
