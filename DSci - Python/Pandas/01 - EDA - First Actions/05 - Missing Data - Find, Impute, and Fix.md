@@ -2,6 +2,8 @@ Dealing with missing data is really a multi-phase process:
 1. Detecting missing values
 2. Handling missing values
 
+<details> <summary>1. Detecting missing values </summary> 
+
 # 1. Detecting missing values
 This is harder than it sounds. Check the [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) for more. 
 
@@ -21,8 +23,13 @@ df.dtypes.value_counts()
 >>> datetime64[ns]: 1
 >>> object: 1
 
+### Question 2: How was the data in the column created?
+If it is from a source system or data warehouse, fine. But if you created this value earlier during EDA or Feature Extraction etc, you need to realize that your calculation or aggregation may have been the *cause of the missing data* or *may include assumptions you didn’t realize*.
+- pandas `sum()` skips `NaN` (i.e. treats it as 0)
+- The sum of an all empty series or column is this 0
+- `groupby()` drops all rows in which the grouped column values are `NaN`
 
-### Question 2: What does a column with missing data look like?
+### Question 3: What does a column with missing data look like?
 Python and pandas has several ways to tell you “This cell is missing a value”. Unfortunately you have to get down into the details to uncover. 
 
 100% True Positive missing values include:
@@ -33,7 +40,7 @@ Python and pandas has several ways to tell you “This cell is missing a value�
 - Who knows what’s in string columns. Your users might have enter `?` to denote missing values, or maybe they manually entered `N/A`
 - You have to play detective here
 
-### Question 2: How do we identify missing integer based data?
+### Question 4: How do we identify missing integer based data?
 Again, harder than you would think... Partly this is because of a difference in how pandas, Python, and numpy all treat “missing data” a bit differently 
 
 **How to identify missing integer data**
@@ -50,11 +57,13 @@ Use pandas `isna()` and `notna`:
 - Hence this fails to find any rows: `df[‘col’] == np.nan` (all rows returned with `False` indicating no match)
 - Pandas 1.0 changed from using `np.nan`  internally to using `pandas.NA` to represent missing data
 
-# Question 3: How do we identify missing datetime values?
+# Question 5: How do we identify missing datetime values?
 Again... tricky. Python and pandas both treat `NaT` the same as `NaN`
 
 
-
+ </details> 
+ 
+<details> <summary>2. Handling missing data</summary> 
 
 
 Many, many choices here - [the docs for dropna() are here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html) but here are a few examples. 
@@ -211,3 +220,5 @@ for col in non_numeric_cols:
         top = df[col].describe()['top'] # impute with the most frequent value.
         df[col] = df[col].fillna(top)
 ```
+
+ </details> 
