@@ -7,7 +7,12 @@ If you want to skip this page, the [pandas cookbook](https://pandas.pydata.org/p
 <details> <summary>1. Detecting missing values </summary> 
 
 # 1. Detecting missing values
-This is harder than it sounds. Check the [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) for more. 
+This has two paths: the easy path using `df.isna.sum()`, or the hard path which requires digging into how pandas, Python, and numpy all treat missing data a bit differently. 
+
+## You can stop here if you just want the easy path
+`df.isna().sum()` will show you how many missing values per column. 
+
+Check the [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) for more. 
 
 First, let’s define what missing data is:
 - A column value is missing a value
