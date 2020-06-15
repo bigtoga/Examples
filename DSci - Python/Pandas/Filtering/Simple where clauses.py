@@ -1,3 +1,5 @@
+# https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html
+
 # Single column
 df[df["type"] == "Confirmed"]
 

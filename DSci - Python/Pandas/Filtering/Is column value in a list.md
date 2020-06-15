@@ -1,3 +1,5 @@
+*Note: If you don’t find what you need here, check out [the pandas cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html)*
+
 Use `isin()` just like you would use SQL IN() function
 ```python    
 myList = ["Capomulin", "Ramicane", "Infubinol", "Ceftamin"]

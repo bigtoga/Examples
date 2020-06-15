@@ -1,5 +1,7 @@
 https://stackoverflow.com/questions/15891038/change-data-type-of-columns-in-pandas
 
+*Note: If you don’t find what you need here, check out [the pandas cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html)*
+
 ~~~
 from pandas.api.types import is_string_dtype
 from pandas.api.types import is_numeric_dtype

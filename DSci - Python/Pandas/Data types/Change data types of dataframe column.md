@@ -1,3 +1,5 @@
+*Note: If you don’t find what you need here, check out [the pandas cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html)*
+
 ~~~
 # Just the columns:
 df.dtypes
