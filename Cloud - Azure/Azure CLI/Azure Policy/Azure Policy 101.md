@@ -20,3 +20,18 @@ Subgroups:
 
 For more specific examples, use: az find "az policy"
 ~~~
+
+```shell
+az policy definition -h
+```
+~~~
+Group
+    az policy definition : Manage resource policy definitions.
+
+Commands:
+    create : Create a policy definition.
+    delete : Delete a policy definition.
+    list   : List policy definitions.
+    show   : Show a policy definition.
+    update : Update a policy definition.
+~~~
