@@ -40,7 +40,7 @@ Python and pandas has several ways to tell you “This cell is missing a value�
 - Who knows what’s in string columns. Your users might have enter `?` to denote missing values, or maybe they manually entered `N/A`
 - You have to play detective here
 
-### Question 4: How do we identify missing integer based data?
+### Question 4: How do we identify missing *integer-based data*?
 Again, harder than you would think... Partly this is because of a difference in how pandas, Python, and numpy all treat “missing data” a bit differently 
 
 **How to identify missing integer data**
