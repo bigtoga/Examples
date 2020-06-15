@@ -2,6 +2,8 @@ Dealing with missing data is really a multi-phase process:
 1. Detecting missing values
 2. Handling missing values
 
+If you want to skip this page, the [pandas cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html#cookbook-missing-data) likely has everything you need to know
+
 <details> <summary>1. Detecting missing values </summary> 
 
 # 1. Detecting missing values
@@ -40,13 +42,15 @@ Python and pandas has several ways to tell you “This cell is missing a value�
 - Who knows what’s in string columns. Your users might have enter `?` to denote missing values, or maybe they manually entered `N/A`
 - You have to play detective here
 
-### Question 4: How do we identify missing *integer-based data*?
-Again, harder than you would think... Partly this is because of a difference in how pandas, Python, and numpy all treat “missing data” a bit differently 
-
-**How to identify missing integer data**
+### Question 4: How do we identify missing values? 
+#### The easy button: 
 Use pandas `isna()` and `notna`: 
 - `pd.isna(df[‘col’])` returns True for all missing values
 - `df[‘col’].notna()` returns True for all real values and False for missing
+- These work for all data types 
+
+#### More backstory/details if you want
+This can be made to be harder than you would think... Partly this is because of a difference in how pandas, Python, and numpy all treat “missing data” a bit differently 
 
 **How *not* to identify missing integer data**
 - Python and numpy treat `nan` as an unknown value such that one `nan` does not equal another `nan`
@@ -56,17 +60,13 @@ Use pandas `isna()` and `notna`:
 - Trying to detect missing values using `np.nan` actually casts entire column to a float before comparing 
 - Hence this fails to find any rows: `df[‘col’] == np.nan` (all rows returned with `False` indicating no match)
 - Pandas 1.0 changed from using `np.nan`  internally to using `pandas.NA` to represent missing data
+- Python and pandas both treat `NaT` the same as `NaN` such that assigning a value of `np.nan` to a datetime column results in it being `NaT`
 
-# Question 5: How do we identify missing datetime values?
-Again... tricky. Python and pandas both treat `NaT` the same as `NaN`
-
-
- </details> 
+</details> 
  
 <details> <summary>2. Handling missing data</summary> 
 
-
-Many, many choices here - [the docs for dropna() are here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html) but here are a few examples. 
+Many, many choices here for cleaning, filling missing data
 
 * Note: don’t forget to include `inPlace=True` if you want to keep the DataFrame in the same variable
 
@@ -75,6 +75,8 @@ Many, many choices here - [the docs for dropna() are here](https://pandas.pydata
 * Note: default value for the `how` parameter is `any` 
 
 Related docs:
+- [First place I would go is the Kissing values cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html#cookbook-missing-data) in the pandas documentation
+- [pandas do a on missing values](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) has a lot of good info 
 * [dropna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
 * [fillna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna)
 
