@@ -12,6 +12,8 @@ This has two paths: the easy path using `df.isna.sum()`, or the hard path which 
 ## You can stop here if you just want the easy path
 `df.isna().sum()` will show you how many missing values per column. 
 
+`df.isna().any()` shows you Trey/False if a column has at least one missing value
+
 Check the [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) for more. 
 
 First, let’s define what missing data is:
@@ -33,6 +35,7 @@ df.dtypes.value_counts()
 ### Question 2: How was the data in the column created?
 If it is from a source system or data warehouse, fine. But if you created this value earlier during EDA or Feature Extraction etc, you need to realize that your calculation or aggregation may have been the *cause of the missing data* or *may include assumptions you didn’t realize*.
 - pandas `sum()` skips `NaN` (i.e. treats it as 0)
+- pandas default: if you use arithmetic and one value is `NaN`, the result is `NaN`
 - The sum of an all empty series or column is this 0
 - `groupby()` drops all rows in which the grouped column values are `NaN`
 
