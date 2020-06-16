@@ -1,8 +1,8 @@
 Listed in no particular order
 
-<details> <summary>Natural Language-Based Systems</summary>
+<details> <summary>Natural Language Processing-Based Systems</summary>
 
-<details> <summary>Speech Recognition </summary>
+<details> <summary>Speech Recognition</summary>
 
 # Speech Recognition 
 So many uses...
@@ -22,7 +22,28 @@ So many uses...
 - In-vehicle command systems
 - Security system automation 
 
-</details> 
+</details>
+
+<details> <summary>Natural Language Generation</summary>
+Generating natural sounding words and phrases
+- Generate custom product descriptions based on previous interactions with a customers 
+- Generate recurring content such as timed quarterly reports
+- Predictive text prompts that try to “finish your sentence” (in an email, in a Word doc, etc)
+- Generate explanations of mathematical formulas and expressions on algorithms found in image or text analysis
+
+</details>
+
+<details> <summary>Sentiment Analysis</summary>
+### All businesses:
+- External:
+   - Customer Service: Analyze invoking emails, tweets, transcriptions of calls to see how a change has been perceived by customers
+   - Identify trends by monitoring the same
+   - Identify specific reasons for brand decline by analyzing same (“Long wait times” are mentioned in 84% of negative interactions”)
+   - Identify “brand influencers” and “detractors”
+- Internal:
+   - Gauge employee morale by analyzing internal bulletin board/chat system
+
+</details>
 
 <details> <summary>Chatbots and ChatOps</summary> 
 
@@ -92,4 +113,5 @@ So many uses...
 - Monitor for social distancing 
 
 </details>
+
 
