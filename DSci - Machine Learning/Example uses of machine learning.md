@@ -7,24 +7,33 @@ Listed in no particular order
 # Speech Recognition 
 So many uses...
 
-### Usable by any business:
+### Transcriptions
 - Transcriptions in real time
    - press conferences, technical conferences, speeches, meetings
-   - Assist travelers 
    - Healthcare: dictation by physician 
    - Court system: dictation of proceedings 
    - Air traffic control to record history 
    - Television and media: automate closed-captioning system
+
+### Translation 
+- Assist travelers
+- Television and media: automate closed-captioning system for additional language support
+- Translate scanned OCR-based text into different language 
+   
+### Usable by any business
 - Monitor call center interactions between customer service and customers - provide QAQC automatically, sentiment analysis 
 - Hands drew commands for home and business automation systems 
    - Typical Siri-type of automation systems
    - Custom systems for controlling garage doors, heating and air conditioning systems, pool lighting, stereo, etc
 - In-vehicle command systems
 - Security system automation 
+- Translation of web content into multiple languages 
 
 </details>
 
 <details> <summary>Natural Language Generation</summary>
+
+# Natural Language Generation 
 Generating natural sounding words and phrases
 - Generate custom product descriptions based on previous interactions with a customers 
 - Generate recurring content such as timed quarterly reports
@@ -111,6 +120,15 @@ So many uses...
 - Detect unwanted entry
 - Count crowds at large events
 - Monitor for social distancing 
+
+### Optical Character Recognition (OCR)
+- All businesses 
+   - check for correct signature - credit cards, ATMs, Security access control systems 
+   - Convert hand written notes to email or documentation 
+   - Convert drawings to graphics (png, jpeg, etc)
+   
+- Misc
+   - Convert images of old / ancient manuscripts to modern text
 
 </details>
 
