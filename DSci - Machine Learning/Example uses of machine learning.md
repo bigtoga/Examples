@@ -72,13 +72,6 @@ Examples of chatbots:
 - IBM’s [Watson Assistant](https://www.ibm.com/cloud/watson-assistant/) is a white-label solution companies can buy. “It knows when to search for an answer from a knowledge base, when to ask for clarity and when to direct users to a human.”
 - DuoLingo has chatbot AI as foundation of its service
 
-
-
-
-
-
-
-
 </details> 
 
 <details> <summary>Decision Support Systems</summary> 
@@ -157,6 +150,28 @@ Tied in with NLP systems
 - Advertising based on what customer will respond to - Facebook, Google Ads
 - Search engines - recommend better, next search term
 
+</details>
+
+
+<details> <summary>Customer Churn</summary>
+
+# Predicting Customer Churn
+
+Companies leverage machine learning to identify patterns in huge volumes of historical, demographic and sales data to identify and understand why a company loses customers. The company can then utilize machine learning capabilities to analyze behaviors among existing customers to alert it to which customers are at risk of taking their business elsewhere, identify the reasons why those customers are leaving and then determine what steps the company should take to retain them.
+
+Churn is a KPI in all businesses but in particular service and subscription-based businesses. 
+- Media companies (NYT, USA Today, HBO, Netflix, Pandora, Youtube, Spotify, etc)
+- CRM systems like Salesforce, Siebel, etc
+- Accounting packages
+- HR packages 
+- Telecom
+</details>
+
+<details> <summary>Dynamic Pricing</summary>
+
+# Dynamic Pricing
+- Amazon tracks user behavior and past purchases to maximize both chance of making the sale as well as making max revenue 
+- Uber and Lyft use surge pricing driving by machine learning 
 
 
 </details>
