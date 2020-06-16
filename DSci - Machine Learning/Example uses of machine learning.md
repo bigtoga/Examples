@@ -37,7 +37,7 @@ So many uses...
 Generating natural sounding words and phrases
 - Generate custom product descriptions based on previous interactions with a customers 
 - Generate recurring content such as timed quarterly reports
-- Predictive text prompts that try to “finish your sentence” (in an email, in a Word doc, etc)
+- Predictive text prompts that try to “finish your sentence” (in an email, in a Word doc, in the browser address bar, etc)
 - Generate explanations of mathematical formulas and expressions on algorithms found in image or text analysis
 
 </details>
@@ -122,6 +122,8 @@ So many uses...
 - Monitor for social distancing 
 
 ### Optical Character Recognition (OCR)
+Tied in with NLP systems 
+
 - All businesses 
    - check for correct signature - credit cards, ATMs, Security access control systems 
    - Convert hand written notes to email or documentation 
@@ -132,4 +134,19 @@ So many uses...
 
 </details>
 
+<details> <summary>Recommendation Systems</summary>
+
+# Recommendation Systems
+
+### All businesses 
+- Recommend products and services based on previous interactions 
+- Netflix recommendations for what to watch next
+- Creating a scoring system for what to watch or what music to listen to next (“98% match”)
+- Youtube creates automated playlists based on what it thinks customer will respond to
+- Advertising based on what customer will respond to - Facebook, Google Ads
+- Search engines - recommend better, next search term
+
+
+
+</details>
 
