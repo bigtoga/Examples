@@ -1,4 +1,17 @@
 <details>
+    <summary>How to capture result into a variable</summary>
+
+``` running_vm_ids=$(az vm list -d -g my_rg --query "[?powerState=='VM running'].id" -o tsv)
+</details>
+
+<details>
+    <summary>Tips for searching with Azure CLI</summary>
+    
+[Read this over and over](https://github.com/Azure/azure-cli/blob/dev/doc/use_cli_effectively.md#argument-parsing-issue-in-powershell)
+
+</details>
+
+<details>
     <summary>If you want to just show the value from a query, use `--output tsv`</summary>
     
 ```powershell
