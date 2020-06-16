@@ -1,7 +1,8 @@
 <details>
     <summary>How to capture result into a variable</summary>
 
-``` running_vm_ids=$(az vm list -d -g my_rg --query "[?powerState=='VM running'].id" -o tsv)
+``` running_vm_ids=$(az vm list -d -g my_rg --query "[?powerState=='VM running'].id" -o tsv)```
+
 </details>
 
 <details>
