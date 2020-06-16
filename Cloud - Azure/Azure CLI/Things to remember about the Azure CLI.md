@@ -70,3 +70,15 @@ Vnet           Cidr_Range
 devvnet01  10.25.0.0/16
 </pre>
 </details>
+
+<details>
+    <summary>"--output JSON" honors column names, others do not</summary>
+    
+`--output table` will capitalize your column names    
+
+```powershell
+az network vnet list --subscription $subscription --query `
+    "[*].{resourceGroup:resourceGroup, vnet:name, location:location, cidr_Range:addressSpace.addressPrefixes[0], DDOS_Enabled:enableDdosProtection, DNS1:dhcpOptions.dnsServers[0], DNS2:dhcpOptions.dnsServers[1], DNS3:dhcpOptions.dnsServers[2]}" `
+    -o table
+```    
+</details>
