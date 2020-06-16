@@ -1,4 +1,4 @@
-<detail>
+<details>
     <summary>Powershell has known quoting issues</summary>
     
 Workaround - use `--%` to tell the parser to stop parsing Powershell code and treat everything as a literal
