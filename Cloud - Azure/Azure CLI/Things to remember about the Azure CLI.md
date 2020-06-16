@@ -1,4 +1,20 @@
-# Output JSON shows all, others do not
+<details>
+    <summary>If you want to just show the value from a query, use `--output tsv`</summary>
+    
+```powershell
+az account show --query 'user.name' 
+```
+>>> "scott@scott.com"
+
+```powershell
+az account show --query 'user.name' --output tsv
+```
+>>> scott@scott.com
+
+</details>
+
+<details>
+   <summary>`--output JSON` shows all, others do not</summary>
 
 $subscription = "My subscription"
 
@@ -28,3 +44,4 @@ Vnet           Cidr_Range
 -------------  -------------
 devvnet01  10.25.0.0/16
 </pre>
+</details>
