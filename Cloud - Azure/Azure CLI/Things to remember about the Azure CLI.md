@@ -1,3 +1,14 @@
+<detail>
+    <summary>Powershell has known quoting issues</summary>
+    
+Workaround - use `--%` to tell the parser to stop parsing Powershell code and treat everything as a literal
+
+```az --% vm create --name xxx```
+
+[Read all about it here](https://github.com/Azure/azure-cli/blob/dev/doc/quoting-issues-with-powershell.md)    
+
+</details>
+
 <details>
     <summary>How to capture result into a variable</summary>
 
