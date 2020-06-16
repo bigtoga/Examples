@@ -68,6 +68,17 @@ Early implementations were rule-based or expert systems. Newer systems use machi
    - Track key KPIs 
    - Identify trends
 
+Examples of chatbots:
+- IBM’s [Watson Assistant](https://www.ibm.com/cloud/watson-assistant/) is a white-label solution companies can buy. “It knows when to search for an answer from a knowledge base, when to ask for clarity and when to direct users to a human.”
+- DuoLingo has chatbot AI as foundation of its service
+
+
+
+
+
+
+
+
 </details> 
 
 <details> <summary>Decision Support Systems</summary> 
