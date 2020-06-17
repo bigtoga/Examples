@@ -133,6 +133,8 @@ So many choices here!
 * Replace with a **Hot-deck imputation** which replaces NaN with a randomly selected value for the same column from another row that has similar values 
    * See below for `impute` examples
 
+## Interpolation is also an option
+interpolate fills missing values by interpolation which is especially useful for sequential or time series data. The default method is linear but it can be changed using method parameter. Some available options are polynomial, quadratic, cubic. 
 
 ```python   
 
