@@ -88,29 +88,77 @@ Related docs:
 * [dropna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
 * [fillna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna)
 
+<details> <summary>MCAR, MAR, and MNAR - The 3 Types of Missing Data</summary>  
+
 # What type of “missing data” are you dealing with?
 Rubin (1976. “Inference and Missing Data.” Biometrika 63 (3): 581–90.) gave us three types of missing data that help us both classify the probability that a column has missing data as well as how we want to handle the missing data in that column. 
 1. Missing Completely at Random (MCAR)
 1. Missing at Random (MAR)
 1. Missing Not at Random (MNAR)
 
-## MCAR
-If the reason the data is missing is unrelated to the data, you have an MCAR problem
+### Most likely to occur
+1. MAR
+90. MNAR
+99.999 MCAR
 
-Examples of MCAR:
+### Most impactful to your model’s prediction power
+- Worst / highest impact - MNAR 
+- Best / least impact - MCAR
+- “It depends” - MAR
+
+### Where you will spend your time
+- 98% MAR
+- 2% MNAR
+
+## MCAR
+If the reason the data is missing is unrelated to the data and unrelated to how the data was collected, you have an MCAR problem
+
+**Examples of MCAR:**
 - Observations of temperature - some data are missing because sensor ran out of batteries for a period
 - Log analysis - some samples missing because of a software bug
 - “date_of_birth” missing for some samples because it was not a required field in version 1.0 of survey collection tool
 
-## MAR
-If the reason the data is missing is related to the data, you have a MAR problem 
+**Effects of MCAR** are technically nothing. In theory, if you added the data back in, it would be in same/similar distribution as the rest of the data. In other words, it’s like you randomly removed x% of your data and then tested your model against the remaining. You would expect no change in results if x% was very small
 
-Examples of MAR:
+**Likelihood of MCAR** is “extremely rare”. The scenarios above are incredibly uncommon. 
+
+## MAR
+If the reason the data is missing is related to the data or related to how the data was collected, you have a MAR problem 
+
+**Examples of MAR:**
 - “has_taken_parental_leave” blank for 80% of male respondents because they tend to ignore the question more often than women do (i.e. the reason this value is missing is related to another column, “gender”)
+- A seismic tracker generates more samples when placed on a hard surface vs. a soft surface (i.e. the reason there is missing data is directly related to the same row’s observed value for “surface_type”)
+- When taking a sample of a population, the probability of a subject being included depends on another column (i.e. subjects > 65 who also are male were 80% more likely to be included than any other group)
+
+**Effects of MAR** would most likely be identified during Feature importance or PCA, so maybe not that impactful 
+
+**Likeliness of MAR** is “pretty much most of your missing data can be explained this way”. Most missing data models/systems start with the assumption that MAR is the reason for all missing data in your dataset 
 
 ## MNAR
-If you have no idea why the data is missing, you are screwed 
+a.k.a. NMAR (not missing at random)
 
+a.k.a. “Please No” and “Your WF nightmare”
+
+If it’s not MCAR or MAR, it’s MNAR: the data is missing and:
+- It appears to be unrelated to how the data was collected 
+- It appears that the missing data does not depend on other features
+
+In other words, we don’t have enough information about the data collection methods to identify why it is missing. *MNAR is considered a temporary state* (or perhaps terminal state, more on that later): at some point, with enough time and analysis, the scientists will identify the reasons for the missing data, and will be able to reclassify the missing data as either MAR or MCAR and proceed accordingly. 
+- It may sometimes/often be considered a “terminal state” meaning that the scientists remove the missing data/column completely when MNAR is found
+
+**Examples of MNAR:**
+- Scientists notice random missing data in a temperature probe dataset. It initially appears to be MNAR. After many hours of research, they actually identify a correlation: when the age of the probe is greater than 3.5 years, the probability of having missing data increase by 10% each six months thereafter. However the dataset originally did not contain the id/age of the probe which made it impossible to detect the MCAR relationship in the original data
+
+**Effects of MNAR** would absolutely make your model perform worse. If there are known predictors that determine probability of a sample being in the observation yet those predictors are not in the dataset? Your model would just be flipping a coin each time it encountered a missing MNAR value *at beat*.  At worst, your model would identify an unrelated feature or features as being predictive of this feature, and it’s resulting prediction might be worse than a coin flip. 
+
+**Strategies for handling MNAR** include:
+- spending more time understanding why the values are lost
+- identifying whether there are additional features that should be in your dataset but aren’t
+- Many what-if scenarios of to see how sensitive the model is with or without this or that feature (aka “Can I just drop this feature completely?”)
+
+
+</details>
+—-
 
 # Option: delete rows
 ### If row has any NaN or NaT values 
