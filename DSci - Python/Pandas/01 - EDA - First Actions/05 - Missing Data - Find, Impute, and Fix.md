@@ -1,8 +1,11 @@
 Dealing with missing data is really a multi-phase process:
 1. Detecting missing values
-2. Handling missing values
+2. Classifying missing data 
+3. Handling missing values
 
-If you want to skip this page, the [pandas cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html#cookbook-missing-data) likely has everything you need to know
+If you want to skip this page:
+1. IBM has a great reference on their [SPSS overview on missing data analysis](https://www.ibm.com/support/knowledgecenter/en/SSLVMB_23.0.0/spss/mva/idh_miss.html) site
+- the [pandas cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html#cookbook-missing-data) likely has everything you need to know
 
 <details> <summary>1. Detecting missing values </summary> 
 
@@ -12,7 +15,7 @@ This has two paths: the easy path using `df.isna.sum()`, or the hard path which 
 ## You can stop here if you just want the easy path
 `df.isna().sum()` will show you how many missing values per column. 
 
-`df.isna().any()` shows you Trey/False if a column has at least one missing value
+`df.isna().any()` shows you True/False if a column has at least one missing value
 
 Check the [pandas documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) for more. 
 
@@ -72,23 +75,8 @@ This can be made to be harder than you would think... Partly this is because of 
 
 </details> 
  
-<details> <summary>2. Handling missing data</summary> 
 
-Many, many choices here for cleaning, filling missing data
-
-* Note: don’t forget to include `inPlace=True` if you want to keep the DataFrame in the same variable
-
-* Note: use `axis=` to specifically target rows (0 or ‘index’ a.k.a rows) or columns (1 or ‘columns’). `axis=0` is the default 
-
-* Note: default value for the `how` parameter is `any` 
-
-Related docs:
-- [First place I would go is the Kissing values cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html#cookbook-missing-data) in the pandas documentation
-- [pandas do a on missing values](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) has a lot of good info 
-* [dropna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
-* [fillna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna)
-
-<details> <summary>MCAR, MAR, and MNAR - The 3 Types of Missing Data</summary>  
+<details> <summary>2. Classifying Missing Data</summary>  
 
 # What type of “missing data” are you dealing with?
 Rubin (1976. “Inference and Missing Data.” Biometrika 63 (3): 581–90.) gave us three types of missing data that help us both classify the probability that a column has missing data as well as how we want to handle the missing data in that column. 
@@ -180,7 +168,34 @@ In short, there are reasons that the data is missing but, at this time right now
 
 
 </details>
-—-
+
+<details> <summary>3. Handling missing data</summary> 
+
+Many, many choices here for cleaning, filling missing data. Note that there are both over-arching strategies for handling missing data as well as individual tactics. Need to think strategically to identify the tactics. 
+- Strategies for MCAR data
+   - Do: 
+      - Use Multiple Imputation 
+   - Don’t: 
+      - Use EM (Expectation Minimization)
+- Strategies for MAR data
+   - Do: 
+      - Use EM (Expectation Minimization) 
+   - Don’t: 
+- Strategies for MNAR data include 
+
+Note - I stopped here on June 19. Needs much more Seth based on https://www.researchgate.net/post/How_do_I_manage_missing_data_imputation_method_when_having_a_violation_of_the_MCAR_assumption
+
+* Note: don’t forget to include `inPlace=True` if you want to keep the DataFrame in the same variable
+
+* Note: use `axis=` to specifically target rows (0 or ‘index’ a.k.a rows) or columns (1 or ‘columns’). `axis=0` is the default 
+
+* Note: default value for the `how` parameter is `any` 
+
+Related docs:
+- [First place I would go is the Missing values cookbook](https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html#cookbook-missing-data) in the pandas documentation
+- [pandas do a on missing values](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html) has a lot of good info 
+* [dropna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
+* [fillna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna)
 
 # Option: delete rows
 ### If row has any NaN or NaT values 
