@@ -88,6 +88,30 @@ Related docs:
 * [dropna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.dropna.html)
 * [fillna()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas.DataFrame.fillna)
 
+# What type of “missing data” are you dealing with?
+Rubin (1976. “Inference and Missing Data.” Biometrika 63 (3): 581–90.) gave us three types of missing data that help us both classify the probability that a column has missing data as well as how we want to handle the missing data in that column. 
+1. Missing Completely at Random (MCAR)
+1. Missing at Random (MAR)
+1. Missing Not at Random (MNAR)
+
+## MCAR
+If the reason the data is missing is unrelated to the data, you have an MCAR problem
+
+Examples of MCAR:
+- Observations of temperature - some data are missing because sensor ran out of batteries for a period
+- Log analysis - some samples missing because of a software bug
+- “date_of_birth” missing for some samples because it was not a required field in version 1.0 of survey collection tool
+
+## MAR
+If the reason the data is missing is related to the data, you have a MAR problem 
+
+Examples of MAR:
+- “has_taken_parental_leave” blank for 80% of male respondents because they tend to ignore the question more often than women do (i.e. the reason this value is missing is related to another column, “gender”)
+
+## MNAR
+If you have no idea why the data is missing, you are screwed 
+
+
 # Option: delete rows
 ### If row has any NaN or NaT values 
 * Drop rows with any NaN or NaT values in any column `df.dropna()`
