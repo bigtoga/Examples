@@ -102,9 +102,8 @@ Rubin (1976. “Inference and Missing Data.” Biometrika 63 (3): 581–90.) gav
 99.999 MCAR
 
 ### Most impactful to your model’s prediction power
-- Worst / highest impact - MNAR 
-- Best / least impact - MCAR
-- “It depends” - MAR
+- Worst / highest impact - MNAR (a.k.a. non-ignorable)
+- Best / least impact - MCAR, MAR (a.k.a. ignorable)
 
 ### Where you will spend your time
 - 98% MAR
@@ -114,6 +113,12 @@ Rubin (1976. “Inference and Missing Data.” Biometrika 63 (3): 581–90.) gav
 - Easiest: MCAR
 - Hardest: MNAR
 - “This is what a data scientist spends his or her time doing 80% of the time”: MAR
+
+### Rules of thumb
+1. Drop columns where more than 60% of data is missing
+1. If MCAR, delete the observation (a.k.a. listwise deletion)
+2. Of MAR, ignore or pairwise delete (i.e. find the correlated feature and delete the intersect)
+3. If MNAR, impute
 
 ## MCAR
 If the reason the data is missing is unrelated to the data and unrelated to how the data was collected, you have an MCAR problem
@@ -127,17 +132,27 @@ If the reason the data is missing is unrelated to the data and unrelated to how 
 
 **Likelihood of MCAR** is “extremely rare”. The scenarios above are incredibly uncommon. 
 
+**Strategies for handling MCAR** include
+- When the missing data in a column is both (a) a very small percentage of the data, and (b) the rest of the features fall within a normal distribution for each feature, you can use **listwise deletion** (a.k.a. delete the observation /row) without introducing bias 
+
 ## MAR
 If the reason the data is missing is related to the data or related to how the data was collected, you have a MAR problem 
 
 **Examples of MAR:**
+- “weight” is blank for 75% of males vs only 10% of females (i.e. the probability of “weight” being present in an observation is dependent on “gender”)
 - “has_taken_parental_leave” blank for 80% of male respondents because they tend to ignore the question more often than women do (i.e. the reason this value is missing is related to another column, “gender”)
 - A seismic tracker generates more samples when placed on a hard surface vs. a soft surface (i.e. the reason there is missing data is directly related to the same row’s observed value for “surface_type”)
 - When taking a sample of a population, the probability of a subject being included depends on another column (i.e. subjects > 65 who also are male were 80% more likely to be included than any other group)
 
-**Effects of MAR** would most likely be identified during Feature importance or PCA, so maybe not that impactful 
+**Effects of MAR** would most likely be identified during Feature importance or PCA, so this is usually marked as “ignorable”
 
 **Likeliness of MAR** is “pretty much most of your missing data can be explained this way”. Most missing data models/systems start with the assumption that MAR is the reason for all missing data in your dataset 
+
+**How to identify MAR vs MCAR problems** 
+- A controversial way is to use **Little’s MCAR Test** (a.k.a. LittleMCAR in R, MCARtest):
+   - For each column, calculate a sig value (aka significance value, p-value) using a null hypothesis test for whether missing values are missing completely at random. 
+   - Rows with a sig-value > 0.05 are MCAR
+   - Many think this test becomes useless as the number of features grows beyond 2 or 3; instead the suggested next step is **multiple imputation** and then a chi-squared test
 
 ## MNAR
 a.k.a. NMAR (not missing at random)
@@ -150,6 +165,8 @@ If it’s not MCAR or MAR, it’s MNAR: the data is missing and:
 
 In other words, we don’t have enough information about the data collection methods to identify why it is missing. *MNAR is considered a temporary state* (or perhaps terminal state, more on that later): at some point, with enough time and analysis, the scientists will identify the reasons for the missing data, and will be able to reclassify the missing data as either MAR or MCAR and proceed accordingly. 
 - It may sometimes/often be considered a “terminal state” meaning that the scientists remove the missing data/column completely when MNAR is found
+
+In short, there are reasons that the data is missing but, at this time right now, you don’t know what those reasons are!
 
 **Examples of MNAR:**
 - Scientists notice random missing data in a temperature probe dataset. It initially appears to be MNAR. After many hours of research, they actually identify a correlation: when the age of the probe is greater than 3.5 years, the probability of having missing data increase by 10% each six months thereafter. However the dataset originally did not contain the id/age of the probe which made it impossible to detect the MCAR relationship in the original data
