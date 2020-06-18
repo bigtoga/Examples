@@ -110,6 +110,11 @@ Rubin (1976. “Inference and Missing Data.” Biometrika 63 (3): 581–90.) gav
 - 98% MAR
 - 2% MNAR
 
+### Complexity of “the fix” (i.e. handling the missing data):
+- Easiest: MCAR
+- Hardest: MNAR
+- “This is what a data scientist spends his or her time doing 80% of the time”: MAR
+
 ## MCAR
 If the reason the data is missing is unrelated to the data and unrelated to how the data was collected, you have an MCAR problem
 
