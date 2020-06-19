@@ -3,6 +3,17 @@ A tag is a friendly name for a SHA-1 hash of a specific commit-id. It’s just a
 - A tag represents a snapshot of the repository at a specific point in time
 - Useful to think of it as “a named commit”
 
+# Two types of tags
+
+**Annotated tags** store metadata such as author name, email, date, and a commit message related to the tag itself
+- `git tag -a v1.0.0`
+- `git tag -a v1.4 -m “my version 1.4”`
+
+**Lightweight tags** just add the tag without the metadata 
+- `git tag v1.0.0`
+
+**Best practice** is to use annotated tags** so that you have the metadata
+
 # Use cases for tags and tagging
 
 When to use tags:
