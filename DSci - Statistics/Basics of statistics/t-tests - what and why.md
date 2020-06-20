@@ -2,6 +2,10 @@ What: a test that determines whether two independent samples of a population are
 
 Why: if your test data is statistically different than your training data, your model will be unlikely to produce accurate predictions 
 
+Does it require a normal distribution? No, as long as you understand The Law of Large Numbers and the Central Limit Theorem
+
+Is there a minim sample size? Generally `n=30 or 40` would be minimum but “It depends”
+
 > The t-test is almost sacred in its importance and widespread use - https://link.medium.com/HPIwvzmgt7
 
 # Basic logic of a t-test:
@@ -108,9 +112,7 @@ The sample size of 10 has the largest error of 0.4. The sample of 100 has the ne
 
 # The Central Limit Theorem (CLT)
 
-Many statistical tests assume/require a normalized distribution, yet many (most?) datasets are not normalized. CLT says that, once your population “is of a certain size”, any random sample will be representative 
-
-
+Many statistical tests assume/require a normalized distribution, yet many (most?) datasets are not normalized. CLT says that, once your population “is of a certain size”, any random sample will be representative. CLT works alongside the Law of Large Numbers. 
 
 https://en.wikipedia.org/wiki/Central_limit_theorem
 
