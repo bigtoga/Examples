@@ -1,10 +1,15 @@
-What: a test that determines whether two independent samples of a population are statistically related / different 
+# FAQs about t-tests
+**What is it?** A test that determines whether two independent samples of a population are statistically related or statistically different 
 
-Why: if your test data is statistically different than your training data, your model will be unlikely to produce accurate predictions 
+**Why do I care?** For machine learning, if your holdout/unseen data is statistically different than your training data, your model will be unlikely to produce accurate predictions. So you need to know that your training data (a.k.a. your 70% sample of your population in a 70/30 train test split) is statistically related to the sample
 
-Does it require a normal distribution? No, as long as you understand The Law of Large Numbers and the Central Limit Theorem
+**Does it require a normal distribution?** No, as long as you understand The Law of Large Numbers and the Central Limit Theorem. Great examples are [here](https://link.medium.com/PNjAkYvlt7)
 
-Is there a minim sample size? Generally `n=30 or 40` would be minimum but “It depends”
+**Is there a minimum sample size?** Generally, yes. `n=30 or 40` would be minimum but “It depends”
+
+**Why do you talk about The Law of Large Numbers and the Central Limit Theorem below?** Mostly for background and ensuring a through understanding of:
+- Why 70/30 or 60/20/20 are commonly used for train/test and train/test/holdout splits 
+- Why small sample sizes will ultimately not work
 
 > The t-test is almost sacred in its importance and widespread use - https://link.medium.com/HPIwvzmgt7
 
