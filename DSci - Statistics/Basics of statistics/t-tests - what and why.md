@@ -47,6 +47,7 @@ Mean of population: 4.567
 That’s the law of large numbers and shows a regression to the mean as your sample size increases. 
 
 ## Code example
+[Explanation of PDF here](https://link.medium.com/JAZxyyfkt7)
 
 ```python   
 # idealized population distribution
@@ -57,8 +58,14 @@ from scipy.stats import norm
 # x-axis for the plot
 xaxis = arange(30, 70, 1)
 
+Xmean = np.mean(xaxis) 
+print(Xmean) # 50
+
 # y-axis for the plot
-yaxis = norm.pdf(xaxis, 50, 5)
+# https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html
+# Create a continuous variable using probability density function (pdf)
+# pdf(): “50” is the mean of xaxis variable, and “5” is the standard deviation 
+yaxis = norm.pdf(xaxis, Xmean, 5)
 
 # plot ideal population
 pyplot.plot(xaxis, yaxis)
@@ -85,11 +92,19 @@ sizes = [10, 100, 500, 1000, 10000]
 means = [mean(5 * randn(size) + 50) for size in sizes]
 
 print(means)
+```
+>>> [49.5142955459695, 50.371593294898695, 50.2919653390298, 50.1521157689338, 50.03955033528776]
 
+Just as suspected, the larger the sample size, the closer the sample’s mean is to the population’s mean of 50.
+
+You also see the errors decrease as the sample size increases 
+```python   
 # plot sample mean error vs sample size
 pyplot.scatter(sizes, array(means)-50)
 pyplot.show()
 ``` 
+
+The sample size of 10 has the largest error of 0.4. The sample of 100 has the next highest at 0.3, and so on. 
 
 # The Central Limit Theorem (CLT)
 
