@@ -10,6 +10,9 @@ Why: if your test data is statistically different than your training data, your 
 - Use a t-test to see if any samples are statistically different 
 
 # The Law of Large Numbers
+
+tl;dr - for train/test data sizes, be wary of small samples as you are more and more likely to get inaccurate results with small samples than with large samples 
+
 [Jason explains it well](https://machinelearningmastery.com/a-gentle-introduction-to-the-law-of-large-numbers-in-machine-learning/)
 - Intuitively we think “more is better” when it comes to data
 - Intuitively we think that having more training data = better results in the long run
