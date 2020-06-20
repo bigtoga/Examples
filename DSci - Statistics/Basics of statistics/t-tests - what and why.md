@@ -46,6 +46,51 @@ Mean of population: 4.567
 
 That’s the law of large numbers and shows a regression to the mean as your sample size increases. 
 
+## Code example
+
+```python   
+# idealized population distribution
+from numpy import arange
+from matplotlib import pyplot
+from scipy.stats import norm
+
+# x-axis for the plot
+xaxis = arange(30, 70, 1)
+
+# y-axis for the plot
+yaxis = norm.pdf(xaxis, 50, 5)
+
+# plot ideal population
+pyplot.plot(xaxis, yaxis)
+pyplot.show()
+``` 
+
+![?](https://i.imgur.com/WIayuMo.png)
+
+Now let’s take random IDD samples:
+```python   
+from numpy.random import seed
+from numpy.random import randn
+from numpy import mean
+from numpy import array
+from matplotlib import pyplot
+
+# seed the random number generator
+seed(1)
+
+# sample sizes
+sizes = [10, 100, 500, 1000, 10000]
+
+# generate samples of different sizes and calculate their means
+means = [mean(5 * randn(size) + 50) for size in sizes]
+
+print(means)
+
+# plot sample mean error vs sample size
+pyplot.scatter(sizes, array(means)-50)
+pyplot.show()
+``` 
+
 # The Central Limit Theorem (CLT)
 
 Many statistical tests assume/require a normalized distribution, yet many (most?) datasets are not normalized. CLT says that, once your population “is of a certain size”, any random sample will be representative 
