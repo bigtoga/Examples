@@ -32,7 +32,10 @@ fake.pybool()
 print(fake.pyfloat(left_digits=3, right_digits=3, positive=False, min_value=None, max_value=None))   
 
 # Random string data
-print(fake.pystr(min_chars=None, max_chars=10))  # String data
+print(fake.pystr(min_chars=None, max_chars=10)) 
+
+# Specific decimals
+fake.pydecimal(left_digits=5, right_digits=6, positive=False, min_value=None, max_value=None)
 
 # Random lists
 print(fake.pylist(nb_elements=5, variable_nb_elements=True))  
@@ -47,22 +50,54 @@ myFactory.text()
 myFactory.words()
 # [‘libero’, ‘commodi’, ‘deleniti’]
 
->>> myFactory.name()
+myFactory.name()
 # ‘Joshua Wheeler’
 
->>> myFactory.month()
+myFactory.month()
 # ‘04’
 
->>> myFactory.sentence()
+myFactory.color
+# #d4f725
+
+myFactory.sentence()
 # ‘Iure expedita eaque at odit soluta repudiandae nam.’
 
->>> myFactory.state()
+myFactory.state()
 # ‘Michigan’
 
->>> myFactory.random_number()
+myFactory.random_number()
 # 2950548
+```
+
+# Personal level data
+Easy way:
+```python   
+from faker import Faker
+
+fake = Faker()
+profile = fake.profile()
+print(profile)
+```
+
+Long way:
+```python   
+from faker import Faker
+
+fake = Faker()
+
+name = fake.name()
+job = fake.job()
+address = fake.address()
+city = fake.city
+
+dob = fake.date_of_birth(minimum_age=30)
+
+
+```
+
 
 # You can generate data in other languages too
+```python
 from faker import Factory
 
 myGenerator = Factory.create(‘ru_RU’)
