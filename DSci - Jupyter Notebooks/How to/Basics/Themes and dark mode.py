@@ -11,3 +11,6 @@ jt -t gruvbox3
 jt -r 
 
 jupyter notebook
+
+# You can get very specific if you want:
+jt -t monokai -f fira -fs 12 -nf ptsans -nfs 12 -N -kl -cursw 2 -cursc r -cellw 90% -T
