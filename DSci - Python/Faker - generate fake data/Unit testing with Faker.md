@@ -1,45 +1,7 @@
-Faker is amazing - https://faker.readthedocs.io/en/master/providers/faker.providers.geo.html
-
-Examples below copied from excellent tutorial [here](https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker)
-
-1. Create an instance of Faker()
-```python   
-!pip install faker
-
-from faker import Faker
-
-myFactory = Faker()
-
-# List our all of the ways you can use Faker
-dir(myFactory)
-```
-
-Now you can create fake data of just about anything. Perfect for mocks or generating test data
-
-```python   
-myFactory.text()
-
-myFactory.words()
-# [‘libero’, ‘commodi’, ‘deleniti’]
-
->>> myFactory.name()
-# ‘Joshua Wheeler’
-
->>> myFactory.month()
-# ‘04’
-
->>> myFactory.sentence()
-# ‘Iure expedita eaque at odit soluta repudiandae nam.’
-
->>> myFactory.state()
-# ‘Michigan’
-
->>> myFactory.random_number()
-# 2950548
- 
-```
-
 # How to use Faker with unit testing
+
+This example comes from [this excellent overview of Faker](https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker)
+
 Let’s create two files, example.py (the actual code to test) and test.py
 
 example.pr defines a `User` class which has a constructor which sets attributes `first_name`, `last_name`, `job` and `address` upon object creation.
