@@ -18,6 +18,27 @@ myFactory = Faker()
 dir(myFactory)
 ```
 
+You can be very granular and create data type specific test data:
+```python   
+from faker import Faker
+from faker.providers import internet
+
+fake = Faker()
+
+# Randomly returns True/False
+fake.pybool()   
+
+# Random float data
+print(fake.pyfloat(left_digits=3, right_digits=3, positive=False, min_value=None, max_value=None))   
+
+# Random string data
+print(fake.pystr(min_chars=None, max_chars=10))  # String data
+
+# Random lists
+print(fake.pylist(nb_elements=5, variable_nb_elements=True))  
+
+```
+
 Now you can create fake data of just about anything. Perfect for mocks or generating test data
 
 ```python   
