@@ -1,0 +1,3 @@
+From Andrew Mueller, author of scikit-learn, auto-sklearn, and dabl:
+
+> auto-sklearn is completely automatic and black-box. It searches a vast space of models and constructs complex ensemles of high accuracy, taking a substantial amount of computation and time in the process. The goal of auto-sklearn is to build the best model possible given the data.  - https://amueller.github.io/dabl/dev/user_guide.html
