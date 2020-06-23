@@ -36,6 +36,9 @@ If someone was able to guess/calculate this random number, they would be able to
 
 ECDSAs are most common and Windows supports them. Edwards Curve are newer (as of June 2020) and Windows does not support them out of the box but can.
 
+Great article complete with python examples here: https://andrea.corbellini.name/2015/05/30/elliptic-curve-cryptography-ecdh-and-ecdsa/
+- Explains how the Sony hack occurred - basically hackers bought just two games and, from their signatures, they noticed that `r` was identical for both. They then knew that `k` was the same for both and they worked out `k`
+
 # Difference between nonce creation strategies
 
 Private key + signature + data 
