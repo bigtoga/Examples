@@ -16,6 +16,9 @@ git rm -r --cached .
 
 # Reference them all again
 git add .
+
+# Alternatively could do single line
+git ls-files -z | xargs -0 rm -f
 ```
 
 # Option 3 
