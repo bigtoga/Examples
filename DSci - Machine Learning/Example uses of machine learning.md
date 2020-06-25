@@ -93,7 +93,7 @@ These don’t replace human decision making but rather act as helpers to confirm
  
 <details> <summary>Image Recognition </summary>  
 
-# Image Recognition 
+# Image Recognition / Computer Vision
 So many uses...
 
 ### Classification 
@@ -111,6 +111,7 @@ So many uses...
 
 ### Identification 
 - Identify products on shelves - stocking systems, inventory systems
+- Bar code scanning
 - Insurance: generate damage estimates
 
 ## Facial Recognition 
