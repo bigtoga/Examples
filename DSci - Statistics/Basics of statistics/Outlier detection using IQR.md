@@ -1,6 +1,7 @@
 General guidance:
 - Don’t use IQR on seasonal data - you will need to do more sophisticated timeseries breakdowns first (such as FE-trending or breaking the data into specific trends)
 - Don’t use IQR if “the definition of normal” changes within the data. This occurs generally as malicious adversaries find out how you are identifying them then “flip the script” on you
+- Is hen you can’t use IQR, consider clustering 
 - **Extreme outliers** occur below Q1-(3*IQR) and above Q3+3*IQR)
 - **Mild outliers** occur below Q1-(1.5*IQR) or above Q3+(1.5*IQR)
 
