@@ -1,6 +1,7 @@
 General guidance:
 - Use IQR as your first thought for identifying outliers; Use clustering when you can’t use IQR
 - k-means uses Euclidean distances which means it is sensitive to scale/scaling issues
+- k-means requires you telling it how many buckets; of you don’t know the number of buckets, use **Isolation Forest** instead
 - You May need to do k-means multiple times with different initial centroids to identify the most commonly used labels
 - K-means clustering is simplest, most explainable 
 - Suitable for unsupervised Machine Learning
@@ -9,6 +10,8 @@ General guidance:
 Properties of a cluster:
 1. All of the data points in a cluster should be similar to each other
 2. The data points from different clusters should be as different as possible
+
+Goal is to create `n` discrete non-overlapping groups of the data
 
 Example data set of income to debt ratios [from this article](https://www.analyticsvidhya.com/blog/2019/08/comprehensive-guide-k-means-clustering/):
 
@@ -41,6 +44,10 @@ Dunn:
 
 # Basics of k-means clustering
 k-means uses a concept core to all machine learning algorithms: create a generalized view of the data. K-means is an unsupervised learning technique. K-means essentially takes *n* observations (i.e. your dataset) and groups them data into *k* clusters
+
+## When and when not to use k-means
+- K-means does well with *spherical* shaped clusters but struggles with non-spherical shaped data
+- K-means requires `k`; in other words, you have to tell it how many buckets rather than it just figuring it out on its own
 
 ## The three main steps in k-means
 There are 3 steps:
