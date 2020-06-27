@@ -21,6 +21,8 @@ In this example, Builder works well because:
 
 ```csharp   
 
+# Code from https://www.dofactory.com/net/builder-design-pattern
+
 using System;
 using System.Collections.Generic;
  
