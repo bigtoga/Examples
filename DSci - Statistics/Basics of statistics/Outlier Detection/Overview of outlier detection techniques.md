@@ -25,6 +25,7 @@ Note that all `k` based supervised learners suffer from same problems:
    - Why not use it: 
       - it puts every data point in a cluster. This can result in skewing centroids thus making test data or unseen data not or less accurate
       - You have to know `k` before you start
+- k nearest neighbor (kNN)
 - ORCA
 - LOF (Local Outlier Factor)
    - Performance: High computational complexity
