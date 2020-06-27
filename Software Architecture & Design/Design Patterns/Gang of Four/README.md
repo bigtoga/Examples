@@ -1,4 +1,4 @@
-Gang of Four design patterns were fantastic way to group enterprise software engineering problems that almost every “project of significant complexity” faced in day to day programming 
+Gang of Four design patterns were fantastic way to group enterprise software engineering problems that almost every “project of significant complexity” faced in day to day programming. Goals are to solve recurring design problems and design flexible and reusable object-oriented software—that is, objects which are easier to implement, change, test, and reuse.
 
 Three categories of design patterns:
 1. Creational
@@ -19,7 +19,7 @@ Three categories of design patterns:
 - Adapter	Match interfaces of different classes
 - Bridge	Separates an object’s interface from its implementation
 - Composite	A tree structure of simple and composite objects
-- Decorator	Add responsibilities to objects dynamically
+- **Decorator** - Add responsibilities to objects dynamically
 - Facade	A single class that represents an entire subsystem
 - Flyweight	A fine-grained instance used for efficient sharing
 - Proxy	An object representing another object
