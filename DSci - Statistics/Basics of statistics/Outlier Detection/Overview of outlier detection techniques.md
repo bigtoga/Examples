@@ -3,6 +3,12 @@ http://scikit-learn.org/stable/modules/outlier_detection.html
 
 ![?](https://i.imgur.com/LiWHrgd_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
+Impact of a single outlier on linear regression graphic from [here](https://link.medium.com/FPjMFAlEE7)
+
+![?](https://i.imgur.com/4ItbWVG_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
+
+Now the regression line will have accuracy issues for future unseen data. 
+
 # Distance-based outlier defection techniques 
 Note that all `k` based supervised learners suffer from same problems: 
 - if anomaly is larger or same size as ``k, forget it...
@@ -26,6 +32,10 @@ Note that all `k` based supervised learners suffer from same problems:
    - When to use: unsupervised ML
    - Unique characteristics: since you don’t pass in `k`, it can handle datasets with larger than normal anomalies 
    - sklearn: http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html
+- angle-based outlier detection (ABOD)
+   - Useful in high dimensionality
+- Lowest Correlation Integral (LOCI)
+   - When to use: looking for outliers within your outliers
    
 # How to compare
 1. AUC and processing time
