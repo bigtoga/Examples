@@ -1,11 +1,24 @@
 From a Solutions architect perspective , I think of designing and architecting big data solutions like a radar chart
 - Take each of the metrics below, rank them 1-10, and plot on a radar or spider chart
   
-IBM’s definition of big data:
-* Velocity
+# How to design big data solutions using a 13-point system
+
+First, I plot/rank IBM’s definition of big data:
+* Velocity (1 = lowest, 10 = extreme)
 * Volume
 * Variety
 * Veracity
+
+My 9 other metrics are:
+- Time Expectations
+- Storage Requirements
+- Cost sensitivity
+- Performance Expectations (of final customer-facing solution)
+- Hosting Requirements
+- Privacy Considerations
+- Diversity of Technologies to Integrate
+- Frequency of Model Retraining
+- Security Requirements
 
 I also add **Time Expectations** - what is the company’s wish or aspirations of using the data?
 - “We want real time insights”
@@ -25,7 +38,7 @@ And then there’s the **Hosting Requirements** - are we required to design an o
 
 Another revolves around **Privacy Considerations** - are we able to have Production data in Development and Staging environments or do we have to create a “Golden data set” 
 
-I also add **Diversity of Technologies Required** as another layer of complexity
+I also add **Diversity of Technologies to Integrate** as another layer of complexity
 
 Lastly I think you also have to consider **How frequently does the underlying data for the models you need change / require re-training?**
 - More re-training creates more overhead/delays
