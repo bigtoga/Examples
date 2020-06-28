@@ -18,6 +18,7 @@ My 9 other metrics are:
 - Privacy Considerations
 - Diversity of Technologies to Integrate
 - Frequency of Model Retraining
+- Complexity of Number of Interfaces
 - Security Requirements
 
 I also add **Time Expectations** - what is the company’s wish or aspirations of using the data?
