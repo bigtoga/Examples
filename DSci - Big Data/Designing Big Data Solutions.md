@@ -1,5 +1,6 @@
-From a Solutions architect perspective 
-
+From a Solutions architect perspective , I think of designing and architecting big data solutions like a radar chart
+- Take each of the metrics below, rank them 1-10, and plot on a radar or spider chart
+  
 IBM’s definition of big data:
 * Velocity
 * Volume
@@ -11,6 +12,12 @@ I also add **Time Expectations** - what is the company’s wish or aspirations o
 - Were okay with the analytics data being 30 days old or older”
 
 Another wrinkle is related to storage: **Storage Expectations**
+
+Super important is to understand the customer’s **Cost sensitivity** - are we willing to make trade-offs to save money if there is a significant savings to be made even at the expense of other considerations?
+- Example 
+   - we can store the data in SQL server for $1,000,000 per year and deliver 100% on all other requirements 
+   - We can store the data in Hadoop file system with MySQL for $10,000 a year but meet only 70% of other requirements 
+
 
 And yet another wrinkle is **Performance Expectations**
 
@@ -32,6 +39,9 @@ Volume issues are scale issues, however you cannot define a solution to volume s
       - Where is the data that needs to integrate and work with the models for the NLP system?
       - How frequently does the NLP model(s) need to be retrained and redeployed?
       - How long do you need to store the OLTP data online hot?
+      
+Generally 
+
 
 # Tools for handling velocity problems
 
