@@ -9,7 +9,7 @@ First, I plot/rank IBM’s definition of big data:
 * Variety
 * Veracity
 
-My 9 other metrics are:
+My other metrics are:
 - Time Expectations
 - Storage Requirements
 - Cost sensitivity
@@ -18,7 +18,8 @@ My 9 other metrics are:
 - Privacy Considerations
 - Diversity of Technologies to Integrate
 - Frequency of Model Retraining
-- Complexity of Number of Interfaces
+- Number of Different Interfaces Needed
+- Availability of a Common Data Model
 - Security Requirements
 
 I also add **Time Expectations** - what is the company’s wish or aspirations of using the data?
