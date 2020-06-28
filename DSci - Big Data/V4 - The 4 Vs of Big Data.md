@@ -31,6 +31,17 @@ Note - I like the 4Vs model as it is all true, but I also think there are other 
 
 Big data in a more "relevant to me" way is "anything you need to load that you cannot load within the time you need to load it"
 
+I also add **Time Expectations** - what is the company’s wish or aspirations of using the data?
+- “We want real time insights”
+- Were okay with the analytics data being 30 days old or older”
+
+I also add **Diversity of Technologies Required** as another layer of complexity
+
+Lastly I think you also have to consider **How frequently does the underlying data for the models you need change / require re-training?**
+- More re-training creates more overhead/delays
+
+Those combined with the 4Vs are required for any solutions architect to create an end to end solution 
+
 # Big 4Vs of Big Data
 
 Big four V’s of big data - **can be any one or any combination of the below**
