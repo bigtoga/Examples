@@ -12,3 +12,5 @@ Root Mgmt Group
    - Prod Subscription
 - Non-Prod Mgmt Group
    - Non-Prod Subscription
+
+![v](https://i.imgur.com/o4pu02Z.png)
