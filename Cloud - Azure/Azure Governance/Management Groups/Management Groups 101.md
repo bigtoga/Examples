@@ -12,5 +12,15 @@ Root Mgmt Group
    - Prod Subscription
 - Non-Prod Mgmt Group
    - Non-Prod Subscription
+   
+# Role of Mgmt Groups
+Management groups are needed for unified policy, access management, and subscriptions.
+- Management groups act as containers for subscriptions
+- Policies and access management can be scoped around management groups
+- Policies applied to management groups are inherited by all subscriptions, resource groups, and resources within that management group
+- Azure RBAC roles have no action on the management group, but are inherited by all child resources.
 
 ![v](https://i.imgur.com/o4pu02Z.png)
+
+# Things to Know about Management Groups
+- Root Management Group cannot be deleted; all others can
