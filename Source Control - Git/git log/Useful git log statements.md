@@ -1,3 +1,10 @@
+# Git graphs
+```python   
+git log —graph
+
+```
+
+
 # Time-based filters
 
 ```python   
