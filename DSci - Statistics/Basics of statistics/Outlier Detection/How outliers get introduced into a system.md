@@ -58,6 +58,7 @@ What’s important to understand is that, for the data science team to detect *t
    - Bugs
    - Feature extraction done incorrectly 
    - Feature engineering done incorrectly
+   - Performing univariate analysis instead of multivariate or vice versa and making go-forward decisions on incorrect analysis
    
 ## System of Delivery 
    - Bugs
