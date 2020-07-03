@@ -51,6 +51,8 @@ What’s important to understand is that, for the data science team to detect *t
    
 ## System of Record
    - Bugs (code, logic, race conditions)
+   - ETL / ELT bugs
+   - Wrong data understanding 
 
 ## System of Intelligence
    - Bugs
