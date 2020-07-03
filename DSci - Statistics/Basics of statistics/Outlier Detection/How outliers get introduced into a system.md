@@ -48,7 +48,12 @@ What’s important to understand is that, for the data science team to detect *t
    - Resiliency and/or stability issues (i.e. dependency unavailable yet code allows invalid value such as NULL or error code to be stored in source)
    - Timing issues (loaded a cache table before a critical backend processing job was complete)
    - Dependency issues (loading a cache table that is populated by a backend processing job yet that job completed with error)
-- System of Record
-   - Bug (code, logic, race conditions)
-- System of Intelligence
-- System of Delivery 
+   
+## System of Record
+   - Bugs (code, logic, race conditions)
+
+## System of Intelligence
+   - Bugs
+
+## System of Delivery 
+   - Bugs
