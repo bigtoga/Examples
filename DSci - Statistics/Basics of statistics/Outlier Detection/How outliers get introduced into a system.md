@@ -54,6 +54,8 @@ What’s important to understand is that, for the data science team to detect *t
 
 ## System of Intelligence
    - Bugs
-
+   - Feature extraction done incorrectly 
+   - Feature engineering done incorrectly
+   
 ## System of Delivery 
    - Bugs
