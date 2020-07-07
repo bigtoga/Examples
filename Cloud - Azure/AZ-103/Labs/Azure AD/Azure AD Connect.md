@@ -1,0 +1,1 @@
+**Staging Mode** - when enabled, the server stops synchronizing password changes from on-premises AD to Azure AD. If the server is left in Staging Mode for an extended period, it can take a while to sync all the changes
