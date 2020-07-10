@@ -17,7 +17,7 @@ https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-
 - Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, the traffic decision & (Version 2 only) throughput information
 - Flow Logs have a **retention feature that allows automatically deleting the logs up to a year** after their creation **but only on General Purpose v2 Storage accounts (GPv2)**
 - Flow data is sent to Azure Storage accounts from 
-- Flow logs can be exported to any visualization tool, SIEM, or IDS 
+- Flow logs can be exported to any visualization tool, SIEM, or IDS (TA, Splunk, Grafana, Stealthwatch, etc)
 
 # Use cases
 1. Trying to optimize resources
