@@ -15,3 +15,16 @@ There are two costs associated with ExpressRoute:
 1. Those paid to Microsoft - this varies based on port speed required. 1Gbps is usually recommended
 1. Those paid to your ISP
 
+# Data Flow
+Without ExpressRoute:
+```mermaid
+graph LR
+    A(On-premise network) -- Public internet --> C(Azure Resource (portal, PaaS, SaaS, etc))
+```    
+
+With ExpressRoute
+```mermaid
+graph LR
+    A(On-premise network) -- Public internet --> C(Azure Resource (portal))
+    A -- B(ExpressRoute) --> D(ISP backbone) --> E(Azure Backbone) --> F(Azure Resource (private, PaaS, SaaS))
+```    
