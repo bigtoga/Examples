@@ -24,7 +24,7 @@ graph LR
     C --> D(Azure Resource)
     B --> E(Azure Portal's Cloud Shell)
     E --> D
-    B --> F(Azure CLI (Bash, Powershell, etc))
+    B --> F(Azure CLI via Bash, Powershell, etc)
     F --> D
     B --> G(PowerShell Azure Module)
     G --> D
