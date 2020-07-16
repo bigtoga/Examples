@@ -33,49 +33,29 @@ Speeds as of July 2020: 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps (generally
 Each connection comes with two redundant Border Gateway Protocol (BGP) routes in active-active (load-sharing) configuration to Microsoft Enterprise Edge (MSEE) routers. 
 
 # Data Flow
-Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - 
+Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
+- Azure Portal
+- Azure Portal --> Cloud Shell
+- Azure Portal --> Azure Bastion
+- Azure CLI (bash, Powershell, doesn't matter)
+- Azure SDK
+- Azure REST API
+- Azure Powershell Module
+- Office 365
+- Azure DevOps
 ```mermaid
 graph LR
     A(On-premise network) --> B((Public internet))
-    B --> C(Azure Portal)
-    C --> D(Azure Resource)
-    B --> E(Azure Portal's Cloud Shell)
-    E --> D
-    B --> F(Azure CLI via Bash, Powershell, etc)
-    F --> D
-    B --> G(PowerShell Azure Module)
-    G --> D
-    B --> H(Azure REST API)
-    H --> D
-    C --> I(Azure Bastion)
-    I --> D
-    B --> J(Office 365 resources)
-    J --> D
-    B --> K(Azure DevOps)
-    K --> D
+    B --> C(Azure Resource)
 ```    
 
-With an ExpressRoute "Azure Private Peering", your traffic flow would look like this:
+With an ExpressRoute "Azure Private Peering", your traffic flow would look a good deal different:
+1. Traffic "to your vnets in Azure" go across the ExpressRoute
+2. All other traffic goes across public internet
+
+Again the "source" of the request doesn't matter - Azure CLI follows the same network paths that the Azure Powershell module does (et al).
 ```mermaid
 graph LR
-    A(On-premise network) --> B((Public internet))
-    B --> C(Azure Portal)
-    C --> D(Azure Resource)
-    B --> E(Azure Portal's Cloud Shell)
-    E --> D
-    B --> F(Azure CLI via Bash, Powershell, etc)
-    F -- Accessing Microsoft O365, D365, or Azure PaaS --> D
-    B --> G(PowerShell Azure Module)
-    G -- Accessing Microsoft O365, D365, or Azure PaaS --> D
-    B --> H(Azure REST API)
-    H -- Accessing Microsoft O365, D365, or Azure PaaS --> D
-    C --> I(Azure Bastion)
-    I --> D
-    B --> J(Office 365 resources)
-    J --> D
-    B --> K(Azure DevOps)
-    K --> D
-    A --> M((ISP Backbone))
-    M --> N((Azure Backbone))
-    N --> D
+    A(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> B((Public internet))
+    B --> C(Azure Resource)
 ```    
