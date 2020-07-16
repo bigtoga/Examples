@@ -58,4 +58,7 @@ Again the "source" of the request doesn't matter - Azure CLI follows the same ne
 graph LR
     A(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> B((Public internet))
     B --> C(Azure Resource)
+    A --> Accessing anything in your vNets --> D((ISP Backbone))
+    D -- Encrypted traffic --> E((Azure Backbone))
+    E --> C
 ```    
