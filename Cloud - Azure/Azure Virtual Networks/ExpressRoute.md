@@ -19,7 +19,19 @@ There are two costs associated with ExpressRoute:
 Without ExpressRoute:
 ```mermaid
 graph LR
-    A(On-premise network) --> B((Public internet)) --> C(Azure Portal)
+    A(On-premise network) --> B((Public internet))
+    B --> C(Azure Portal)
+    C --> D(Azure Resource)
+    B --> E(Azure Portal's Cloud Shell)
+    E --> D
+    B --> F(Azure CLI (Bash, Powershell, etc))
+    F --> D
+    B --> G(PowerShell Azure Module)
+    G --> D
+    B --> H(Azure REST API)
+    H --> D
+    C --> I(Azure Bastion)
+    I --> D
 ```    
 
 With ExpressRoute
