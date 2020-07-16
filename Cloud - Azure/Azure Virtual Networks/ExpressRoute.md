@@ -19,6 +19,14 @@ There are two costs associated with ExpressRoute:
 Without ExpressRoute:
 ```mermaid
 graph LR
+    A[Square Rect] -- Link text --> B((Circle))
+    A --> C(Round Rect)
+    B --> D{Rhombus}
+    C --> D
+```
+
+```mermaid
+graph LR
     A(On-premise network) -- Public internet --> C(Azure Resource (portal, PaaS, SaaS, etc))
 ```    
 
@@ -26,5 +34,5 @@ With ExpressRoute
 ```mermaid
 graph LR
     A(On-premise network) -- Public internet --> C(Azure Resource (portal))
-    A -- B(ExpressRoute) --> D(ISP backbone) --> E(Azure Backbone) --> F(Azure Resource (private, PaaS, SaaS))
+    A --> B(ExpressRoute) --> D(ISP backbone) --> E(Azure Backbone) --> F(Azure Resource (private, PaaS, SaaS))
 ```    
