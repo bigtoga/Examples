@@ -23,6 +23,8 @@ There are two BGP peering types [as shown in the documentation](https://docs.mic
 1. **Microsoft Peering** - 
 1. **Azure Public is retired** - Connects you to Microsoft's PaaS offerings (Azure SQL Database, Office 365, Dynamics 365, etc)
 
+Note that you can have both an ExpressRoute for Azure Private Peering and an ExpressRoute for Microsoft Peering
+
 # Cost
 There are two costs associated with ExpressRoute:
 1. Those paid to Microsoft - this varies based on port speed required and which flavor you choose, Standard (10 vNets) or Premium (100 vNets)
@@ -49,7 +51,7 @@ graph LR
     B --> C(Azure Resource)
 ```    
 
-With an ExpressRoute "Azure Private Peering", your traffic flow would look a good deal different:
+With an ExpressRoute **Azure Private Peering**, your traffic flow would look a good deal different:
 1. Traffic "to your vnets in Azure" go across the ExpressRoute
 2. All other traffic goes across public internet
 
@@ -58,7 +60,22 @@ Again the "source" of the request doesn't matter - Azure CLI follows the same ne
 graph LR
     A(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> B((Public internet))
     B --> C(Azure Resource)
-    A --> Accessing anything in your vNets --> D((ISP Backbone))
+    A -- Accessing anything in your vNets --> D((ISP Backbone))
     D -- Encrypted traffic --> E((Azure Backbone))
     E --> C
 ```    
+With an ExpressRoute **Microsoft Peering**, your traffic flow looks different yet again:
+1. Traffic to Microsoft online services (Azure DevOps, Office 365, Azure PaaS) goes across the ExpressRoute
+2. All other traffic goes across public internet
+
+Again the "source" of the request doesn't matter - Azure CLI follows the same network paths that the Azure Powershell module does (et al).
+```mermaid
+graph LR
+    A(On-premise network) -- Azure Portal request --> B((Public internet))
+    B --> C(Azure Resource)
+    A -- O365, D365, Azure DevOps, Azure PaaS --> D((ISP Backbone))
+    D -- Encrypted traffic --> E((Azure Backbone))
+    E --> C
+```    
+
+If you combine both an **Azure Private Peering** ExpressRoute and a **Microsoft Peering** ExpressRoute, all traffic **except traffic to the Azure Portal** goes across the ExpressRoute.
