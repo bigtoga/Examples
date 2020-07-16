@@ -19,7 +19,7 @@ There are two costs associated with ExpressRoute:
 Without ExpressRoute:
 ```mermaid
 graph LR
-    A(On-premise network) --> B((Public internet))
+    A(On-premise network) --> B((Public internet)) --> C(Azure Portal)
 ```    
 
 With ExpressRoute
