@@ -34,6 +34,10 @@ Speeds as of July 2020: 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps (generally
 
 Each connection comes with two redundant Border Gateway Protocol (BGP) routes in active-active (load-sharing) configuration to Microsoft Enterprise Edge (MSEE) routers. 
 
+**Standard** - 10 vNets, only traffic to / fron vNets supported
+
+**Premium** - 100 vNets, allows PaaS as well
+
 # Data Flow
 Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
 - Azure Portal
