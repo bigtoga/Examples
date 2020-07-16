@@ -75,7 +75,18 @@ graph LR
     B --> C(Azure Resource)
     A -- O365, D365, Azure DevOps, Azure PaaS --> D((ISP Backbone))
     D -- Encrypted traffic --> E((Azure Backbone))
-    E --> C
+    E -- Encrypted traffic --> C
 ```    
 
 If you combine both an **Azure Private Peering** ExpressRoute and a **Microsoft Peering** ExpressRoute, all traffic **except traffic to the Azure Portal** goes across the ExpressRoute.
+```mermaid
+graph LR
+    A(On-premise network) -- Azure Portal request --> B((Public internet))
+    B --> C(Azure Resource)
+    A -- O365, D365, Azure DevOps, Azure PaaS --> D((ISP Backbone - Microsoft Peering ExpressRoute))
+    D -- Encrypted traffic --> E((Azure Backbone))
+    E -- Encrypted traffic --> C
+    A -- traffic to your vNets --> F((ISP Backbone - Azure Private Peering ExpressRoute))
+    F -- Encrypted traffic --> G((Azure Backbone))
+    G -- Encrypted traffic --> C
+```    
