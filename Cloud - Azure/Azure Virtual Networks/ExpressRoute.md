@@ -1,3 +1,11 @@
+# FAB 
+- Private connection between your on-premise data center and Microsoft Azure backbone
+- Faster speed
+- Better reliability
+- More secure
+
+[FAQ](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs)
+
 # Requirements
 **ExpressRoute Partner** - You first need to subscribe to an Azure ExpressRoute Partner (i.e.
 AT&T NetBond, Comcast, Equinix, Etc.) to establish the physical connectivity from your on-premises
@@ -16,7 +24,7 @@ There are two costs associated with ExpressRoute:
 1. Those paid to your ISP
 
 # Data Flow
-Without ExpressRoute:
+Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - 
 ```mermaid
 graph LR
     A(On-premise network) --> B((Public internet))
@@ -32,9 +40,13 @@ graph LR
     H --> D
     C --> I(Azure Bastion)
     I --> D
+    B --> J(Office 365 resources)
+    J --> D
+    B --> K(Azure DevOps)
+    K --> D
 ```    
 
-With ExpressRoute
+With ExpressRoute, 
 ```mermaid
 graph LR
     A(On-premise network) -- Public internet --> C(Azure Resource (portal))
