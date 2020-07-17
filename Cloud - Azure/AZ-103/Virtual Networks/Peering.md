@@ -1,5 +1,12 @@
 https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering
 
+# In order for peering to work, you must create peering in both directions
+If only one vnet has a peering, no bueno
+
+1. vnet1 has a peering to vnet2
+1. VM1 is in vnet1 and VM2 is in vnet 2
+1. Can VM1 ping VM2? No. For that to work, you need to set up peering from vnet2 to vnet1 also
+
 # Requirements and Constraints
 ## Basics
 1. The virtual networks can be in the same, or different subscriptions 
