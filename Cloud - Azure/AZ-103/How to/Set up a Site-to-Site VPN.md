@@ -10,7 +10,7 @@ https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-sit
     - Instance details > VPN type: Route-based
     - Virtual Network > Gateway subnet address range: 10.1.255.0/27
     - Public IP address > Public IP address name: VNet1GWpip
-1. AZURE - Create a local VPN gateway
+1. AZURE - Create a local VPN gateway (a.k.a. a local network gateway)
     - Give it a name
     - Give it the remote on-prem public IP address to the VPN device on-premises
     - Tell it the IP range to allow from the on-premise network
