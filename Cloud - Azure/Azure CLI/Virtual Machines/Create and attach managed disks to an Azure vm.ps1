@@ -46,8 +46,8 @@ Clear-Host
     az vm disk attach `
         --resource-group $resource_group `
         --vm-name $vm `
-        --name disk_name `
-        --size-gb disk_size_gb `
+        --name $disk_name `
+        --size-gb $disk_size_gb `
         --sku $all_disks_sku `
         --location $all_disks_location `
         --max-shares $all_disks_max_shares `
