@@ -57,3 +57,5 @@ Clear-Host
     Write-Host "`t$disk_name created and attached to $vm" -ForegroundColor Green    
     Write-Host $sep -ForegroundColor Gray
 #endregion
+
+az vm start --resource-group $resource_group --name $vm 
