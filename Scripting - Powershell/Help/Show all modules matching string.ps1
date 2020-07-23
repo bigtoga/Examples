@@ -1,0 +1,1 @@
+man Get-AzureADDirectory*
