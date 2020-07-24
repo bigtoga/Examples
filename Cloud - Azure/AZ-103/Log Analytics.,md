@@ -1,0 +1,26 @@
+# Queries
+https://docs.microsoft.com/en-gb/azure/azure-monitor/log-query/get-started-queries
+
+**Kusto is case sensitive** 
+
+## Two types of queries
+1. Table queries
+1. Search queries
+
+Search query example - 
+```
+search in (SecurityEvent) "Cryptographic"
+| take 10
+
+SecurityEvent
+| where TimeGenerated > ago(30m) 
+| where toint(Level) >= 10
+
+Perf 
+| where TimeGenerated > ago(7d)
+| where Computer == "ContosoAzADDS2" 
+| where CounterName == "Available MBytes" 
+| summarize avg(CounterValue) by bin(TimeGenerated, 1h)
+```
+
+MSFT: "Search queries are typically slower than table-based queries because they have to process more data."
