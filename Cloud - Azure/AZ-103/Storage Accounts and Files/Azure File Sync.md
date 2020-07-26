@@ -3,10 +3,12 @@ https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-deployme
 # High-level overview of steps
 The recommended steps to onboard on Azure File Sync for the first with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
 
+1. Create the Azure File Share and create the **cloud endpoint** 
 1. Deploy a Storage Sync Service (Azure File Sync in the portal)
 1. Create a sync group
 1. Install Azure File Sync agent on the server with the full data set.
-1. Register that server and create a server endpoint on the share.
+1. Register that server 
+1. Create a **server endpoint** on the share.
 1. Let sync do the full upload to the Azure file share (cloud endpoint).
 1. After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
 1. Create new file shares on each of the remaining servers.
