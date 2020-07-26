@@ -23,6 +23,7 @@ https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-
 1. Trying to optimize resources
 1. Trying to detect intrusion
 1. Want to monitor throughput
+1. Want to have all VM traffic logged
 1. Compliance - verify network isolation and compliance with enterprise access rules
 1. Network forensics & Security analysis: Analyze network flows from compromised IPs and network interfaces. Export flow logs to any SIEM or IDS tool of your choice.
 
