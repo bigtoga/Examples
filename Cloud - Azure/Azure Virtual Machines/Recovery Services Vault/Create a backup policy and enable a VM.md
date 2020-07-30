@@ -1,6 +1,6 @@
 https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-automation
 
-[!](https://docs.microsoft.com/en-us/azure/backup/media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![!](https://docs.microsoft.com/en-us/azure/backup/media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 ```powershell
 <#
