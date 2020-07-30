@@ -1,3 +1,8 @@
+https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-automation
+
+[!](https://docs.microsoft.com/en-us/azure/backup/media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+
+```powershell
 <#
     Get-Command *azrecoveryservices*
 
@@ -71,3 +76,4 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol `
     -ResourceGroupName `
     $rgName `
     -VaultId $rsv.ID 
+```
