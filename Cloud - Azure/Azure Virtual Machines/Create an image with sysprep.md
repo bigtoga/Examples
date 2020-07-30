@@ -9,7 +9,7 @@
     - Select "Shutdown" 
     - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
     - https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation
-5. Stop the VM
+5. Stop / Deallocate the VM
 6. Create the image
     - Portal: Capture
     - Powershell: `New-AzImageConfig` and `New-AzImage`
