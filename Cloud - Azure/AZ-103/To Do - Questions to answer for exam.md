@@ -49,6 +49,11 @@ By default, when you create a virtual machine that's linked to a private zone as
 
 1. **What type of storage is needed to store virtual disk files for Azure VMs?**
    - Gen v1, v2 (not Blob)
+   
+# Availability related
+1. **Which has a higher SLA: Availability Sets or Zones?**
+   - Zones - up to 99.99%
+
 </details>
 
 
