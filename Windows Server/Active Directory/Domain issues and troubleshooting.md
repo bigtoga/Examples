@@ -1,7 +1,7 @@
-Step 1: Go to forest PDC and run `dcdiag | clip` then inspect for errors
-  - Search for "warning", "error"
+# Step 1: Go to forest PDC and run `dcdiag | clip` then inspect for errors
+Search the log for "warning", "error"
   
-<detail>
+<details>
    <summary>Example failure from dcdiag due to name suffix issues</summary>
    <pre>
 Directory Server Diagnosis
@@ -177,4 +177,4 @@ Doing primary tests
 
          ......................... myForest.com passed test Intersite
   </pre>
-</detail>
+</details>
