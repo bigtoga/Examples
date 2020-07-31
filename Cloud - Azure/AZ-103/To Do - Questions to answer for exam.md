@@ -18,6 +18,11 @@ Search this doc for "TBD" to find questions that still need answering
 
 1. **How do you move managed data disk to another VM?**
    - TBD
+   
+# Storage-related
+
+1. **What type of storage is needed to store virtual disk files for Azure VMs?**
+   - TBD but I think Blob storage
 </details>
 
 
