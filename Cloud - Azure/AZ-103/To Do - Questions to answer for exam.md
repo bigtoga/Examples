@@ -59,6 +59,11 @@ By default, when you create a virtual machine that's linked to a private zone as
 # Availability related
 1. **Which has a higher SLA: Availability Sets or Zones?**
    - Zones - up to 99.99%
+   
+# Misc
+
+1. **How do you move a VM to another subscription?**
+   - `Move-AzResource` in Powershell
 
 </details>
 
