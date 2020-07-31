@@ -2,6 +2,12 @@ Search this doc for "TBD" to find questions that still need answering
 
 <details><summary>1. Virtual Networking</summary>
 
+# Azure DNS and vnets
+By default, when you create a virtual machine that's linked to a private zone as a **registration virtual network**, does the VM get added to DNS as an A record?
+   - Yes, automaticlaly
+   - https://docs.microsoft.com/en-us/azure/dns/private-dns-overview
+   - By default, registration virtual networks also act as name resolution networks
+
 # vnet Peering
 1. **When a peering status says "Disconnected", how to resolve?**
    - Delete and recreate
