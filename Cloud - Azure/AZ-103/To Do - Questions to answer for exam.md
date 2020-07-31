@@ -4,14 +4,16 @@ Search this doc for "TBD" to find questions that still need answering
 
 # vnet Peering
 1. **When a peering status says "Disconnected", how to resolve?**
-    - Delete and recreate
+        - Delete and recreate
   
 2. What does **Gateway Transit disabled/enabled do**?
-    - TBD
+        - TBD
 </details>
 
 <details><summary>2. Virtual Machine related</summary>
 
+1. **How do you move managed data disk to another VM?**
+        - TBD
 </details>
 
 
