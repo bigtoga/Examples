@@ -1,3 +1,10 @@
+# Scenario: myForest.com has a one-way transitive trust with corporateForest.com. myForest trusts corporateForest but corporateForest does not trust myForest
+1. Corporate email/user accounts are managed / created in corporateForest.com. A user's corporate email is `user@corporateForest.com`
+2. For app dev, a separate domain was created - `myForest.com`. This allows app security and isolation along with the ability for a technical operations team to manage app dev environments without needing permissions to manage `corporateForest.com`
+3. After the ops team created the Windows Active Directory domain for `myForest.com`, they worked with the corporate IT admins to set up the one way trust that allows `user@corporateForest.com` to authenticate to `myForest.com` resources using delegation
+
+Eventually, something goes awry on `myForest.com` and users from `corporateForest.com` start being unable to authenticate to `corporateForest.com` for accessing `myForest.com` resources. This document walks through the troubleshooting/idenfication of those errors
+
 # Step 1: Go to forest PDC and run `dcdiag | clip` then inspect for errors
 Search the log for "warning", "error"
   
@@ -8,6 +15,8 @@ Search the log for "warning", "error"
 > warning event occurred.  EventID: 0x00001792...
 > ... The new top level name, myForest.com, has been added to the forest corporateForest.com. **Name suffix routing for this new name is disabled because it is not within any currently routed namespace. Objects can not be resolved from this new namespace until name suffix routing is enabled for the namespace.** To enable name suffix routing, open Domains and Trusts and see help under Name Suffix Routing and Forest Trusts.
 
+### Root cause: someone managing corporateForest.com created a UPN suffix for myForest.com that was applied to all corporateForest.com users
+### The solution was to remove that UPN suffix 
    <pre>
 Directory Server Diagnosis
 
@@ -183,3 +192,7 @@ Doing primary tests
          ......................... myForest.com passed test Intersite
   </pre>
 </details>
+
+# Step 2: Validate the trust is working
+1. From the "trusting domain" (myForest.com), go to Active Directory Sites & Services -> Properties of the domain -> Validate
+2. Enter your credentials on the "trusted domain" (corporateForest.com) 
