@@ -19,7 +19,11 @@ Search this doc for "TBD" to find questions that still need answering
 <details><summary>3. Managing Secrets</summary>
 
 1. **ARM deployments - how to make sure password is not stored in plaintext in json file?**
-    - TBD
+    - TBD but I think AKV
+    
+
+2. **ARM deployments - what is needed to access Azure Key Vault secret during ARM template deployment?**
+    - TBD but I think an access key
 </details>
 
 
