@@ -29,11 +29,12 @@ Search this doc for "TBD" to find questions that still need answering
     
 
 2. **ARM deployments - what is needed to access Azure Key Vault secret during ARM template deployment?**
-   - TBD but I think an access key
+   - TBD but I think you need an access key
 </details>
 
 
 <details><summary>4. Storage </summary>
+
 1. **What is URL of an Azure File Share?**
    - TBD but I think https://**name_of_storage_acct**.file.core.windows.net/**name_of_file_share**
 </details>
