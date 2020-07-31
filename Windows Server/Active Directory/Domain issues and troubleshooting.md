@@ -4,9 +4,9 @@ Search the log for "warning", "error"
 <details>
    <summary>Example failure from dcdiag due to name suffix issues</summary>
   The **key error** in the below is the section:
-  > warning event occurred.  EventID: 0x00001792
-  >Time Generated: 07/30/2020   21:50:24
-  > ... The new top level name, myForest.com, has been added to the forest corporateForest.com. **Name suffix routing for this new name is disabled because it is not within any currently routed namespace. Objects can not be resolved from this new namespace until name suffix routing is enabled for the namespace.** To enable name suffix routing, open Domains and Trusts and see help under Name Suffix Routing and Forest Trusts.
+
+> warning event occurred.  EventID: 0x00001792...
+> ... The new top level name, myForest.com, has been added to the forest corporateForest.com. **Name suffix routing for this new name is disabled because it is not within any currently routed namespace. Objects can not be resolved from this new namespace until name suffix routing is enabled for the namespace.** To enable name suffix routing, open Domains and Trusts and see help under Name Suffix Routing and Forest Trusts.
 
    <pre>
 Directory Server Diagnosis
