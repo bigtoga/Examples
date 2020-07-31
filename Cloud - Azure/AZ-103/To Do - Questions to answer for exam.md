@@ -19,7 +19,7 @@ By default, when you create a virtual machine that's linked to a private zone as
    
 # Default routes
 1. By default, can Azure virtual machines connect to the internet?
-   - TBD but I think No
+   - Yes - it is in the default routes
    
 # VPNs - Point to site
 1. **What are the steps?**
