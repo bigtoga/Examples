@@ -21,6 +21,12 @@ By default, when you create a virtual machine that's linked to a private zone as
 1. By default, can Azure virtual machines connect to the internet?
    - Yes - it is in the default routes
    
+# VPNs - Site to Site
+1. **What are the steps to change public IP address of on-premise VPN?**
+   - 1. Remove the VPN from Azure
+   - 2. Modify the local gateway IP Address in Azure vnet gateway config
+   - 3. Recreate the VPN connection in Azure
+   
 # VPNs - Point to site
 1. **What are the steps?**
    - https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
