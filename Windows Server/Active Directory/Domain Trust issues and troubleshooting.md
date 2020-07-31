@@ -207,3 +207,11 @@ From a myForest DC, run `nltest /dclist:corporateForest.com`
 2. Ask them if any changes have recently occurred related to myForest.com - have they changed anything? Added anything? 
 3. Confirm the DNS servers they want you to use
 4. On your myForest PDC, verify that the DNS forwarders for the domain are (a) accurate, and (b) can resolve
+
+# Step 5: Run tests from myForest DC 
+`nltest /server:ADServer1.corporateForest.com` 
+   - Should return (a) success, and (b) tells you which AD server it can authenticate with
+   
+`nltest /sc_query:corporateForest.com`
+  - Should return success - tells you that the secure comm. channel between the two domains is up
+  - If it fails, consider `nltest /sc_verify:corporateForest.com` - if the secure channel is broken, it will attempt to rebuild it
