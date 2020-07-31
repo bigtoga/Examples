@@ -62,5 +62,5 @@ Search this doc for "TBD" to find questions that still need answering
 <details><summary>4. Storage </summary>
 
 1. **What is URL of an Azure File Share?**
-   - TBD but I think https://**name_of_storage_acct**.file.core.windows.net/**name_of_file_share**
+   - https://**name_of_storage_acct**.file.core.windows.net/**name_of_file_share**
 </details>
