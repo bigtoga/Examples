@@ -81,3 +81,10 @@ By default, when you create a virtual machine that's linked to a private zone as
 1. **What is URL of an Azure File Share?**
    - https://**name_of_storage_acct**.file.core.windows.net/**name_of_file_share**
 </details>
+
+
+<details><summary>5. Application Gateways </summary>
+
+1. **Can App Gateways also load balance?**
+   - Yes
+</details>
