@@ -5,6 +5,10 @@
 
 Eventually, something goes awry on `myForest.com` and users from `corporateForest.com` start being unable to authenticate to `corporateForest.com` for accessing `myForest.com` resources. This document walks through the troubleshooting/idenfication of those errors
 
+Resources:
+- [nltest.exe documentation](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731935(v=ws.11)#:~:text=Nltest%20is%20a%20command%2Dline,Server%20Administration%20Tools%20(RSAT).)
+- [dcdiag.exe documentation](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731968(v=ws.11)) - has common errors seen and what they might mean
+
 # Step 1: Go to forest PDC and run `dcdiag | clip` then inspect for errors
 Search the log for "warning", "error"
   
