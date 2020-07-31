@@ -220,3 +220,5 @@ Errors seen:
 `nltest /sc_query:corporateForest.com`
   - Should return success - tells you that the secure comm. channel between the two domains is up
   - If it fails, consider `nltest /sc_verify:corporateForest.com` - if the secure channel is broken, it will attempt to rebuild it
+
+Verify that kerberos can be used: `nslookup -type=SRV _kerberos._tcp.dc._msdcs.corporateForest.com`
