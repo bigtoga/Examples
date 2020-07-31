@@ -5,8 +5,11 @@
 
 Eventually, something goes awry on `myForest.com` and users from `corporateForest.com` start being unable to authenticate to `corporateForest.com` for accessing `myForest.com` resources. This document walks through the troubleshooting/idenfication of those errors
 
-Resources:
+## Resources:
 - [nltest.exe documentation](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731935(v=ws.11)#:~:text=Nltest%20is%20a%20command%2Dline,Server%20Administration%20Tools%20(RSAT).)
+  - [Good breakdown of common commands](https://social.technet.microsoft.com/wiki/contents/articles/16067.nltest-to-test-the-trust-relationship-between-a-workstation-and-domain.aspx)
+  - [Good list of commands](https://gallery.technet.microsoft.com/Use-NLTEST-to-test-domain-1a752686)
+  
 - [dcdiag.exe documentation](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731968(v=ws.11)) - has common errors seen and what they might mean
 
 # Step 1: Go to forest PDC and run `dcdiag | clip` then inspect for errors
@@ -230,3 +233,24 @@ Errors seen:
   - If it fails, consider `nltest /sc_verify:corporateForest.com` - if the secure channel is broken, it will attempt to rebuild it
 
 Verify that kerberos can be used: `nslookup -type=SRV _kerberos._tcp.dc._msdcs.corporateForest.com`
+
+# Other areas to consider
+REPADMIN /REPLSUM, REPADMIN /SHOWREPL, REPADMIN /SHOWREPS, REPADMIN /SYNCALL
+
+Error 1722 - RPC Server is unavailable
+<pre>
+repadmin /syncall (Same as Active Directory Sites and Services "Sync Now" button)
+CALLBACK MESSAGE: Error contacting server <object guid of NTDS Settings object>._msdcs.<forest root domain>.<top level domain> (network error): 1722 (0x6ba):
+The RPC server is unavailable.
+</pre>
+
+`RPC error 1722 / 0x6ba / RPC_S_SERVER_UNAVAILABLE` is logged when a lower layer protocol reports a connectivity failure. The common case is that the abstract TCP CONNECT operation failed. In the context of AD replication, the RPC client on the destination DC was not able to successfully connect to the RPC server on the source DC. Common causes for this are:
+- Link local failure
+- DHCP failure
+- DNS failure
+- WINS failure
+- Routing failure (including blocked ports on firewalls)
+- IPSec / Network authentication failures
+- Resource limitations
+- Higher layer protocol not running
+- Higher layer protocol is returning this error
