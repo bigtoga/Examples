@@ -48,7 +48,7 @@ By default, when you create a virtual machine that's linked to a private zone as
 # Storage-related
 
 1. **What type of storage is needed to store virtual disk files for Azure VMs?**
-   - TBD but I think Blob storage
+   - Gen v1, v2 (not Blob)
 </details>
 
 
