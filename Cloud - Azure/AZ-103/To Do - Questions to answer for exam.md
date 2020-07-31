@@ -63,8 +63,9 @@ By default, when you create a virtual machine that's linked to a private zone as
 # Misc
 
 1. **How do you move a VM to another subscription?**
-   - `Move-AzResource` in Powershell
-
+   - 1. `Get-AzResource` for the VM to identify all dependent objects
+   - 2. `Move-AzResource` in Powershell
+   - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/move-vm
 </details>
 
 
