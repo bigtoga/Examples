@@ -12,6 +12,20 @@ Search this doc for "TBD" to find questions that still need answering
 # Default routes
 1. By default, can Azure virtual machines connect to the internet?
    - TBD but I think No
+   
+# VPNs - Point to site
+1. **What are the steps?**
+   - https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal
+   - 1. Create an Azure vnet
+   - 2. Create an Azure vnet gateway (which includes an Azure gateway subnet)
+   - 3. Get a root private/public key certificates
+   - 4. Generate a client certificate (a.k.a. "export a certificate") - this is the private cert
+   - 5. Configure the vnet gateway/VPN in Azure - Add the client's IP address to the vnet gateway's client address pool, set authentication to Azure certificate, upload public cert.
+   - 6. On the user's laptop, install the exported client certificate
+   - 7. Generate the download files in Azure -> Download VPN client (https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert)
+   - 8. Install on user's laptop
+   
+   
 </details>
 
 <details><summary>2. Virtual Machine related</summary>
