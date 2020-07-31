@@ -33,7 +33,11 @@ Search this doc for "TBD" to find questions that still need answering
 <details><summary>2. Virtual Machine related</summary>
 
 1. **How do you move managed data disk to another VM?**
-   - TBD
+   - Four steps - detach is offline activity but attach is online
+   - 1. Stop source vm
+   - 2. Detach disk
+   - 3. Attach disk to new vm
+   - 4. Start source vm
    
 # Storage-related
 
