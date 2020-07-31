@@ -7,7 +7,9 @@ Search this doc for "TBD" to find questions that still need answering
    - Delete and recreate
   
 2. What does **Gateway Transit disabled/enabled do**?
-   - TBD
+   - For a VPN configured with ExpressRoute
+   - https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview
+   - "Gateway Transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges on the spoke VNet (or non-gateway VNet)"
    
 # Default routes
 1. By default, can Azure virtual machines connect to the internet?
