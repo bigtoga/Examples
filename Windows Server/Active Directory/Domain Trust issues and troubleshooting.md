@@ -10,7 +10,7 @@ Search the log for "warning", "error"
   
 <details>
    <summary>Example failure from dcdiag due to name suffix issues</summary>
-  The **key error** in the below is the section:
+Log is full of benign errors related to AD sync delays - ignore those. The **key error** in the below is the section:
 
 > warning event occurred.  EventID: 0x00001792...
 > ... The new top level name, myForest.com, has been added to the forest corporateForest.com. **Name suffix routing for this new name is disabled because it is not within any currently routed namespace. Objects can not be resolved from this new namespace until name suffix routing is enabled for the namespace.** To enable name suffix routing, open Domains and Trusts and see help under Name Suffix Routing and Forest Trusts.
@@ -196,3 +196,14 @@ Doing primary tests
 # Step 2: Validate the trust is working
 1. From the "trusting domain" (myForest.com), go to Active Directory Sites & Services -> Properties of the domain -> Validate
 2. Enter your credentials on the "trusted domain" (corporateForest.com) 
+
+# Step 3: Validate that myForest.com can enumerate domain controllers on corporateForest.com
+From a myForest DC, run `nltest /dclist:corporateForest.com`
+1. You should be able to do this
+2. If errors occur, you may need to check DNS forwarders are correct
+
+# Step 4: Verify DNS servers are working on corporateForest.com
+1. Pick up the phone and call that team - are you having DNS issues now? I'm seeing that "XYZ" AD server is down - at least from my side. Are you sure it is up?
+2. Ask them if any changes have recently occurred related to myForest.com - have they changed anything? Added anything? 
+3. Confirm the DNS servers they want you to use
+4. On your myForest PDC, verify that the DNS forwarders for the domain are (a) accurate, and (b) can resolve
