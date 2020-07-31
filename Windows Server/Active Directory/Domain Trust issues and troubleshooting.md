@@ -201,6 +201,10 @@ Doing primary tests
 1. From the "trusting domain" (myForest.com), go to Active Directory Sites & Services -> Properties of the domain -> Validate
 2. Enter your credentials on the "trusted domain" (corporateForest.com) 
 
+Can use `netdom.exe` also: `netdom trust <TrustingDomain> /Domain:<TrustedDomain> /Verify /verbose `
+
+`netdom trust myForest.com /Domain:corporateForest.com /Verify /verbose `
+
 # Step 3: Validate that myForest.com can enumerate domain controllers on corporateForest.com
 From a myForest DC, run `nltest /dclist:corporateForest.com`
 1. You should be able to do this
