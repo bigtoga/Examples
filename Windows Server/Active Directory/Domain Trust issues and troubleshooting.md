@@ -212,6 +212,11 @@ From a myForest DC, run `nltest /dclist:corporateForest.com`
 `nltest /server:ADServer1.corporateForest.com` 
    - Should return (a) success, and (b) tells you which AD server it can authenticate with
    
+Try the other(s) server as well: `nltest /server:ADServer2.corporateForest.com`    
+
+Errors seen:
+1. you don't have access to dsbind...
+   
 `nltest /sc_query:corporateForest.com`
   - Should return success - tells you that the secure comm. channel between the two domains is up
   - If it fails, consider `nltest /sc_verify:corporateForest.com` - if the secure channel is broken, it will attempt to rebuild it
