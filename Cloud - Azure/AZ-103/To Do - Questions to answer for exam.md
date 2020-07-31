@@ -8,6 +8,10 @@ Search this doc for "TBD" to find questions that still need answering
   
 2. What does **Gateway Transit disabled/enabled do**?
    - TBD
+   
+# Default routes
+1. By default, can Azure virtual machines connect to the internet?
+   - TBD but I think No
 </details>
 
 <details><summary>2. Virtual Machine related</summary>
