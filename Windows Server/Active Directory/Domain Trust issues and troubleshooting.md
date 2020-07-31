@@ -6,6 +6,9 @@
 Eventually, something goes awry on `myForest.com` and users from `corporateForest.com` start being unable to authenticate to `corporateForest.com` for accessing `myForest.com` resources. This document walks through the troubleshooting/idenfication of those errors
 
 ## Resources:
+- Powershell 
+  - [Get-ADTrust](https://docs.microsoft.com/en-us/powershell/module/addsadministration/get-adtrust?view=win10-ps)
+  - [Script for testing AD trusts](https://gallery.technet.microsoft.com/scriptcenter/Get-Active-Directory-2a9e15d2)
 - [nltest.exe documentation](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc731935(v=ws.11)#:~:text=Nltest%20is%20a%20command%2Dline,Server%20Administration%20Tools%20(RSAT).)
   - [Good breakdown of common commands](https://social.technet.microsoft.com/wiki/contents/articles/16067.nltest-to-test-the-trust-relationship-between-a-workstation-and-domain.aspx)
   - [Good list of commands](https://gallery.technet.microsoft.com/Use-NLTEST-to-test-domain-1a752686)
