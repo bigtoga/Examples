@@ -1,3 +1,5 @@
+The below creates an Azure File Share that is only available on private VPN/vnet - 
+
 1. Create storage account
     1. Disable public blobs
     1. Turn off public internet access
