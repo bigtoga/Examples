@@ -8,9 +8,10 @@
 1. Create private link for the file share
     1. Behind-the-scenes URL will be `storage_acct.privatelink.file.core.windows.net` but it will still resolve to public IP
     1. Tell it to create private DNS - it will create a new private DNS zone in Azure
-    1. Go to **Configuration** and locate the private DNS IP
+    1. Go to **Configuration** and locate the private DNS IP. If your chosen subnet is on the 10.24.8.0/24 range, it would assign something like 10.24.8.9 (first available)
 1. Go to Windows AD DNS and add A record for this to point to private DNS IP
-  - Don't use a CNAME to the privatelink URL or the regular URL; has to be A record
+    - Don't use a CNAME to the privatelink URL or the regular URL; has to be A record
+    - Example: add A record for `mystorage` to the `mydomain.com` forward lookup zone and point it to `10.24.8.9`
 1. Go back to the Azure File Share, click **Connect**, and copy the code - should look like this:
 
 ```powershell
