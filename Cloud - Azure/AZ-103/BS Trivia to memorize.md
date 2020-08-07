@@ -7,3 +7,4 @@
 - Scale Sets w Managed Disks allow 99.95% SLA
 - Availability Zones can achieve 99.99%
 - Availability Sets can achieve 99.95%
+- VHD / disk images require Gen1, Gen2 - no Blob
