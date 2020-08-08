@@ -1,6 +1,6 @@
 Azure Load Balancer belongs to **Microsoft.Network/loadbalancers**, not Microsoft.Resources
 
-If you want to deploy a VM as an IDS, you will need two things:
+If you want to deploy a VM as an IDS, you will need 3 things:
 1. Forwarded traffic enabled
 1. Route tables on all the subnets
 1. Enable IP forwarding
