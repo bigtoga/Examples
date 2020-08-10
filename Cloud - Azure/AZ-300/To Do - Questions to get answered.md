@@ -56,7 +56,7 @@
 
 <details> <summary>Load balancers, App Gateways</summary>
 
-# Load balances
+# Load balancers
 **Skus for load balancer - differences**
 
 # Public IPs
@@ -79,7 +79,14 @@
 **Move web job to new resource group in new location - does location of web job change? Location of app service plan change?**
 
 
-
-
 </details> 
   
+<details> <summary>Identity and AAD</summary>
+
+**How to require MFA for Azure Portal?**
+1. Conditional Access
+1. Select users
+1. Select Cloud Apps
+1. Select Grant
+
+</details> 
