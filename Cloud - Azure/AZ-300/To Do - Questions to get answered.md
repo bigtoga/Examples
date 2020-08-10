@@ -25,6 +25,7 @@
 
 **Can parts of a vm exist in different regions?**
 
+**How to move a VM to another subscription?**
   
 </details>
 
@@ -34,9 +35,24 @@
 
 **When to use MPLS?**
 
+</details>
+
+<details> <summary>Load balances, App Gateways</summary>
+
+# Load balances
+**Skus for load balancer - differences**
+
+# Public IPs
+**Skus for public IP addresses - differences**
+
+# App Gateways
+**Skus for application gateways - differences**
+
+**Auto scale limits - Standard**
 
 
 
 </details>
+
 
   
