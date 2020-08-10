@@ -31,6 +31,9 @@
 **How to move VM to new resource group in different location**
 
 **How to move VM to new vnet**
+1. Delete the vm
+2. Create a new vm
+- you cannot attach a NIC from one resource group to a vm in a different rg 
 
 **Can parts of a vm exist in different regions?**
 
@@ -39,6 +42,9 @@
 </details>
 
 <details> <summary>Virtual Networks</summary>
+
+**How to set up peering between two vnets in two different subscriptions?
+- Set up two virtual network gateways
 
 **If you love an unassigned public IP from one region to another with a different location, does the IP change?**
 
