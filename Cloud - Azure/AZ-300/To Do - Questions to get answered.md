@@ -37,7 +37,7 @@
 
 </details>
 
-<details> <summary>Load balances, App Gateways</summary>
+<details> <summary>Load balancers, App Gateways</summary>
 
 # Load balances
 **Skus for load balancer - differences**
@@ -50,9 +50,19 @@
 
 **Auto scale limits - Standard**
 
-
-
 </details>
 
 
+<details> <summary>App Service Plans</summary>
+
+**Skus and differences**
+
+**Auto scale requirements and limits**
+
+**Move web job to new resource group in new location - does location of web job change? Location of app service plan change?**
+
+
+
+
+</details> 
   
