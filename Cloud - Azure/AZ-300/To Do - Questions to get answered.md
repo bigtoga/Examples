@@ -1,3 +1,12 @@
+# Resources 
+- [Links to various scenario solutions](https://reddit.com/r/AZURE/comments/c1qpif/az300_prep_guide/)
+- [github repo of resources](https://github.com/Piotr1215/az-300-prep-kit)
+- [Study guide w links for scenarios](https://vaibhavgujral.com/2020/01/19/az-300-study-guide-microsoft-azure-architect-technologies/)
+- [Detailed breakdown of the tasks you need to know](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3VzwB)
+- [Learning Paths for the exam](https://docs.microsoft.com/en-us/learn/certifications/exams/az-300)
+- [AZ-300 labs](https://github.com/MicrosoftLearning/AZ-300-MicrosoftAzureArchitectTechnologies)
+
+
 <details> <summary>CosmosDB</summary>
 
 
@@ -34,6 +43,8 @@
 **If you love an unassigned public IP from one region to another with a different location, does the IP change?**
 
 **When to use MPLS?**
+
+**Steps to set up ExpressRoute**
 
 </details>
 
