@@ -10,3 +10,5 @@ Step 4 - build yaml deployment file
 
 Step 5 - Apply yaml config 
 ```kubectl apply -f myDeployFile.yaml   ```
+
+More details - https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
