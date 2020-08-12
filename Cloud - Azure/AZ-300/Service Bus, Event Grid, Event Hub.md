@@ -1,3 +1,10 @@
+# Service Bus
+How to guarantee FIFO?
+- enable Sessions 
+- https://docs.microsoft.com/en-us/azure/service-bus-messaging/message-sessions 
+
+
+
 # Event Grid
 
 - WebHook Event Delivery = ValidationCode and ValidationUrl 
