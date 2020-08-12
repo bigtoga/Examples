@@ -1,0 +1,1 @@
+Always On on VMs - use floating IP/direct return
