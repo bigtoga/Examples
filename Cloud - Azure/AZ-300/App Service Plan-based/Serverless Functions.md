@@ -24,6 +24,22 @@ The hosting plan you choose dictates the following behaviors:
 - The resources available to each function app instance.
 - Support for advanced features, such as Azure Virtual Network connectivity
 
+## Comparison
+|   	|  Consumption Plan	| Premium Plan	|  App Service Plan - Basic |   App Service Plan - ASE (iso.) 	|
+|---	|---	|---	|---	|---	|
+|   Supports session affinity (ARR)? 	|   	|   	|   x	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+
+
 - **Consumption plans**: Azure provides all of the necessary computational resources. You don't have to worry about resource management, and only pay for the time that your code runs.
 - Auto-scales
 - Auto-scale back
