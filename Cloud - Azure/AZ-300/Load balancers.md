@@ -1,0 +1,2 @@
+- Basic - none
+- Standard - 99.99% for Standard + 2 VMs
