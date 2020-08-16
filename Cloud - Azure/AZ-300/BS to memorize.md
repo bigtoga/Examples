@@ -1,3 +1,4 @@
+- Azure AD - SSPR = Azure AD P1
 - Azure SQL - change DTUs on the **Configure** blade
 - Premium SSD - max IOPS of 7000-10000
 - GatewaySubnet - use `/27` to maximize IPs available to Azure IaaS resources
