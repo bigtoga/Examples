@@ -1,3 +1,8 @@
+**Where to add/update connection strings?**
+  - Configuration blade of the app service plan
+  
+---  
+
 https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview
 
 Functions:
