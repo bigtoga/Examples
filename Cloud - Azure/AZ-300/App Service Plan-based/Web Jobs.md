@@ -2,6 +2,7 @@ https://docs.microsoft.com/en-us/azure/app-service/webjobs-create
 
 # Misc Notes
 - Not available for Linux
+- Have ability to **Process a queue data item**
 
 # Types of Web Jobs
 
