@@ -1,3 +1,15 @@
+# How to apply coditional access policies for different requirements?
+
+1. Want everyone registered for MFA but only require for Risky sign-in
+    - Configure **End user protection** (baseline policy)
+    
+2. Block access for users on Outlook 2010
+    - Configure **Block legacy authentication**
+    
+3. MFA required for Portal, Powershell, or CLI
+    - Configure **Require MFA for service management**
+    
+
 # You enable MFA for a user. What methods can they use to do the MFA?
 - SMS/text
 - Phone call
