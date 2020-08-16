@@ -1,7 +1,8 @@
 https://docs.microsoft.com/en-us/azure/migrate/tutorial-prepare-vmware
 
-# Perform an assessment 
+**Note that this is agentless**
 
+# Perform an assessment 
 
 1. Azure: 
   1.1 Create an Azure Migrate project
