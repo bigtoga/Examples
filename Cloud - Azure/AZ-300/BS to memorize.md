@@ -3,3 +3,4 @@
 - Alerting - Rate Limiting
     - Emails - no more than 100 per hour
     - SMS/voice - no more than 1 every 5 minutes (max of 12 per hour)
+- `az group deployment create`
