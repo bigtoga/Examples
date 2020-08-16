@@ -1,3 +1,25 @@
+# Plan types
+- Free
+- Shared
+- Basic
+- Standard
+- Premium
+- Isolated
+- App Service Linux
+- Consumption Plan
+
+https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
+
+### Supports auto scale?
+Standard+
+
+### vnet connectivity?
+Standard+
+
+### Compute type
+Shared - free, shared
+
+Dedicated - Basic+
 
 ```bash
 
