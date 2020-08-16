@@ -5,3 +5,5 @@
     - SMS/voice - no more than 1 every 5 minutes (max of 12 per hour)
 - `az group deployment create` [documentation](https://docs.microsoft.com/en-us/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
     - `--template-uri` or `--template-file`
+- How to use a VM as a template for other VMs?
+    - Go to VM blade, Export Template
