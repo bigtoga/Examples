@@ -89,4 +89,8 @@
 1. Select Cloud Apps
 1. Select Grant
 
+**How to have a web app use Azure AD for MFA authentication?**
+1. Upgrade to Azure AD Premium
+1. Set up new conditional access policy
+
 </details> 
