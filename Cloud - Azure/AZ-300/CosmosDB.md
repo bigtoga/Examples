@@ -1,3 +1,7 @@
+# Misc
+- How to configure Azure VM to have secure access to CosmosDB?
+        - HMAC
+
 # Consistency Levels
 - Want users to never see out-of-order writes - **Consistent prefix**
 
