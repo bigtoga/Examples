@@ -9,7 +9,9 @@
 - Consumption Plan
 
 # Plan instances
-Free - B1, B2, B3
+Free - F1 (shared - 60 mins / day), D1 (shared - 240 mins / day)
+
+Basic - B1, B2, B3
 
 Standard - S1, S2, S3
 
