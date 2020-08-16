@@ -3,7 +3,7 @@ Use GlobalDocumentDB
 
 https://docs.microsoft.com/en-us/cli/azure/cosmosdb?view=azure-cli-latest
 
-`az cosmosdb create` default `--kind` is `GlobalDocumentDB` (SQL API)
+`az cosmosdb create` default `--kind` is `GlobalDocumentDB` (SQL API). Can change to either `MongoDB` or `Parse`
 
 ```bash
 
