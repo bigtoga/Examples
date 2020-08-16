@@ -1,1 +1,2 @@
 - Premium SSD - max IOPS of 7000
+- GatewaySubnet - use `/27` to maximize IPs available to Azure IaaS resources
