@@ -1,3 +1,2 @@
-If you want Logic Apps to talk to VMs, configure **Integration Service Environments (ISE)**
-
-https://docs.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview
+- If you want Logic Apps to talk to VMs, configure **Integration Service Environments (ISE)** ([documentation](https://docs.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview)
+- Resource provider type for Logic apps: `Microsoft.Resources.ResourceGroups`
