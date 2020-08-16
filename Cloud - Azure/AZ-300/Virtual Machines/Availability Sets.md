@@ -1,3 +1,7 @@
+# Creating AS
+- New VMs must be in same resource group, location 
+
+# Fault & Update domains
 10 VMs in Availability Set
 - 2 FDs
 - 5 UDs
