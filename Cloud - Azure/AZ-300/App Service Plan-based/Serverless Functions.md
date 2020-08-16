@@ -36,38 +36,31 @@ The hosting plan you choose dictates the following behaviors:
 |   Supports triggers?	|   	|   x	|   x	|   x	|
 |   Can block outbound IP addresses?	|   	|  x 	| x  	|  x 	|
 |   vnet traffic?	|   	|   x	|   x	|  x 	|
-|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|
 
 
 - **Consumption plans**: Azure provides all of the necessary computational resources. You don't have to worry about resource management, and only pay for the time that your code runs.
-- Auto-scales
-- Auto-scale back
-- host are dynamically added and removed based on the number of incoming events. This serverless plan scales automatically, and you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
-- Billing is based on number of executions, execution time, and memory used
-- Default hosting plan
-- Function apps in the same region can be assigned to the same Consumption plan.
-- Executions time out after 10 minutes
-- Each instance is Limited to 1.5 GB of memory and one CPU
+  - Auto-scales
+  - Auto-scale back
+  - host are dynamically added and removed based on the number of incoming events. This serverless plan scales automatically, and you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
+  - Billing is based on number of executions, execution time, and memory used
+  - Default hosting plan
+  - Function apps in the same region can be assigned to the same Consumption plan.
+  - Executions time out after 10 minutes
+  - Each instance is Limited to 1.5 GB of memory and one CPU
 
 **Premium plans**: You specify a number of pre-warmed instances that are always online and ready to immediately respond. When your function runs, Azure provides any additional computational resources that are needed. You pay for the pre-warmed instances running continuously and any additional instances you use as Azure scales your app in and out.
-- Same as consumption but more
-- Perpetually warm instances to avoid any cold start
-- VNet connectivity
-- Unlimited execution duration 
-- Premium instance sizes (one core, two core, and four core instances)
-- More predictable pricing
-- High-density app allocation for plans with multiple function apps
-- billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances.
-- At least one instance must be warm at all times per plan. This means that there's a minimum monthly cost per active plan, regardless of the number of executions.
+  - Same as consumption but more
+  - Perpetually warm instances to avoid any cold start
+  - VNet connectivity
+  - Unlimited execution duration 
+  - Premium instance sizes (one core, two core, and four core instances)
+  - More predictable pricing
+  - High-density app allocation for plans with multiple function apps
+  - billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances.
+  - At least one instance must be warm at all times per plan. This means that there's a minimum monthly cost per active plan, regardless of the number of executions.
 
 **(Dedicated) App Service plans**: Run your functions just like your web apps. If you use App Service for your other applications, your functions can run on the same plan at no additional cost.
-- Runs on an App Service plan so you get to choose how many/how much
-- Always On available - by default, funtions runtime goes idel after a few minutes of inactivity
-- Consider an App Service plan in the following situations: You have existing, underutilized VMs that are already running other App Service instances, or You want to provide a custom image on which to run your functions.
-- 
+  - Runs on an App Service plan so you get to choose how many/how much
+  - Always On available - by default, funtions runtime goes idel after a few minutes of inactivity
+  - Consider an App Service plan in the following situations: You have existing, underutilized VMs that are already running other App Service instances, or You want to provide a custom image on which to run your functions.
+
