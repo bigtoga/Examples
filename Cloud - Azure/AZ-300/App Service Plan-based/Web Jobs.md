@@ -15,3 +15,12 @@ https://docs.microsoft.com/en-us/azure/app-service/webjobs-create
 - Starts only when triggered 
 - Runs on a single instance that Azure selects for load balancing 
 - Does not support remote debugging
+
+# File types for scripts and programs
+- .cmd, .bat, .exe (using Windows cmd)
+- .ps1 (using PowerShell)
+- .sh (using Bash)
+- .php (using PHP)
+- .py (using Python)
+- .js (using Node.js)
+- .jar (using Java)
