@@ -30,7 +30,7 @@ The hosting plan you choose dictates the following behaviors:
 |   Supports session affinity (ARR)? 	|   	|   	|   x	|   	|
 |   Supports triggers?	|   	|   x	|   x	|   x	|
 |   Can block outbound IP addresses?	|   	|  x 	| x  	|  x 	|
-|   	|   	|   	|   	|   	|
+|   vnet traffic?	|   	|   x	|   x	|  x 	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
