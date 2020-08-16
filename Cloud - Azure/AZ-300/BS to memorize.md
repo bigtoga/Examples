@@ -2,4 +2,4 @@
 - GatewaySubnet - use `/27` to maximize IPs available to Azure IaaS resources
 - Alerting - Rate Limiting
     - Emails - no more than 100 per hour
-    - SMS/voice - no more than 1 every 5 minutes
+    - SMS/voice - no more than 1 every 5 minutes (max of 12 per hour)
