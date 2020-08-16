@@ -1,5 +1,8 @@
-- Premium SSD - max IOPS of 7000
+- Azure SQL - change DTUs on the **Configure** blade
+- Premium SSD - max IOPS of 7000-10000
 - GatewaySubnet - use `/27` to maximize IPs available to Azure IaaS resources
+- vnets across VPNs = enable Gateway Transit
+- on-prem to vnet = enable Gateway Transit
 - Alerting - Rate Limiting
     - Emails - no more than 100 per hour
     - SMS/voice - no more than 1 every 5 minutes (max of 12 per hour)
