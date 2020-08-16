@@ -3,4 +3,6 @@
 - Alerting - Rate Limiting
     - Emails - no more than 100 per hour
     - SMS/voice - no more than 1 every 5 minutes (max of 12 per hour)
-- `az group deployment create`
+- `az group deployment create` [documentation](https://docs.microsoft.com/en-us/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+        - `--template-uri`
+        - `--template-file`
