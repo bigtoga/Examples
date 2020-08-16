@@ -1,4 +1,15 @@
-# Want to set up SQL version
+# Consistency Levels
+- Want users to never see out-of-order writes - **Consistent prefix**
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels
+
+![x](https://docs.microsoft.com/en-us/azure/cosmos-db/media/consistency-levels/five-consistency-levels.png)
+
+1. **Eventual** - There's no ordering guarantee for reads, but all will have same data eventually7
+2. **Consistent Prefix** - reads never see out-of-order writes
+---
+
+# How to set up SQL version
 Use GlobalDocumentDB
 
 https://docs.microsoft.com/en-us/cli/azure/cosmosdb?view=azure-cli-latest
