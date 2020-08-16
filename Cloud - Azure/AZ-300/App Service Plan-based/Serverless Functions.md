@@ -25,11 +25,11 @@ The hosting plan you choose dictates the following behaviors:
 - Support for advanced features, such as Azure Virtual Network connectivity
 
 ## Comparison
-|   	|  Consumption Plan	| Premium Plan	|  App Service Plan - Basic |   App Service Plan - ASE (iso.) 	|
+|   	|  Consumption Plan	| Premium Plan	|  App Service Plan - Dedicated |   App Service Plan - ASE (iso.) 	|
 |---	|---	|---	|---	|---	|
 |   Supports session affinity (ARR)? 	|   	|   	|   x	|   	|
-|   	|   	|   	|   	|   	|
-|   	|   	|   	|   	|   	|
+|   Supports triggers?	|   	|   x	|   x	|   x	|
+|   Can block outbound IP addresses?	|   	|  x 	| x  	|  x 	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
