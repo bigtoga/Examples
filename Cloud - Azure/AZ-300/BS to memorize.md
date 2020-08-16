@@ -7,3 +7,5 @@
     - `--template-uri` or `--template-file`
 - How to use a VM as a template for other VMs?
     - Go to VM blade, Export Template
+- Hyper-V - how to exclude disk?
+    - When enabling replication, use the "DISK TO REPLICATE" column
