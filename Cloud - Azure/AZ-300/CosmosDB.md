@@ -1,6 +1,10 @@
 # Want to set up SQL version
 Use GlobalDocumentDB
 
+https://docs.microsoft.com/en-us/cli/azure/cosmosdb?view=azure-cli-latest
+
+`az cosmosdb create` default `--kind` is `GlobalDocumentDB` (SQL API)
+
 ```bash
 
 uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
