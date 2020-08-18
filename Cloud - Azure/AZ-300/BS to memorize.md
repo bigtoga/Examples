@@ -21,7 +21,11 @@
 # App Service Plans, Serverless Functions
 - Custom domains? 
     - Shared plan D1
+- SSL
+    - Basic+
 - Triggered
     - Anything *except* Consumption Plan
 - LaaS accesses vnet resource?
     - Premium, App Service Plan
+- Connection strings changed   
+    - Configuration tab
