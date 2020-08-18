@@ -1,4 +1,6 @@
 Below are some of my key lessons learned from previous Azure engagements that will be critical to the success of any Azure migration
+
+# Phases
 1. Define the Business Case
 1. Perform a Cost Analysis/Comparison
 1. Assess Cloud / Azure Readiness
@@ -26,7 +28,7 @@ Below are some of my key lessons learned from previous Azure engagements that wi
 - Perform regular inter-regional service moves as a matter of operational practice. Don’t wait for the outage to occur. Chaos testing is described in deeper detail in the appendix to this proposal
 - Improved business outcomes are realized when the business and IT operations teams can agree on shared KPIs and OKRs
 
-# Step 1: Define the Business Case
+# 1. Define the Business Case
 ## Pre-Migration: Strategy
 - Follow MSFT's Cloud Adoption Framework to (a) convince execs to provide proper resources + time, (b) the set aside time w teams to document needful (why we are doing this, what expected outcomes are)
 
