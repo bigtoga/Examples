@@ -13,3 +13,15 @@
     - Go to VM blade, Export Template
 - Hyper-V - how to exclude disk?
     - When enabling replication, use the "DISK TO REPLICATE" column
+    
+# Storage
+- Archive tier?
+    - Blog, Storage v2
+    
+# App Service Plans, Serverless Functions
+- Custom domains? 
+    - Shared plan D1
+- Triggered
+    - Anything *except* Consumption Plan
+- LaaS accesses vnet resource?
+    - Premium, App Service Plan
