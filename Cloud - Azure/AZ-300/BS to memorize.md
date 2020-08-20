@@ -14,6 +14,10 @@
 - Hyper-V - how to exclude disk?
     - When enabling replication, use the "DISK TO REPLICATE" column
     
+# Insights
+**How to optimize time series data?**
+- Use a reference data set
+    
 # Service Fabric
 **How to package app?**
 - Name it *.sfpkg
