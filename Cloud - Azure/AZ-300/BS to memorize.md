@@ -17,6 +17,12 @@
 # Insights
 **How to optimize time series data?**
 - Use a reference data set
+
+**Default retention period for time series data?**
+- 30 days
+
+**How to retain longer?**
+- Set a value for the Data Retention property
     
 # Service Fabric
 **How to package app?**
