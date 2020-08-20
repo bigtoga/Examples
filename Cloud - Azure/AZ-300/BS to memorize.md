@@ -14,6 +14,10 @@
 - Hyper-V - how to exclude disk?
     - When enabling replication, use the "DISK TO REPLICATE" column
     
+# Service Fabric
+**How to package app?**
+- Name it *.sfpkg
+    
 # Storage
 - Archive tier?
     - Blog, Storage v2
