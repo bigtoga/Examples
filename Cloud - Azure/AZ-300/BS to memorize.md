@@ -12,6 +12,9 @@
     - Go to VM blade, Export Template
 - Hyper-V - how to exclude disk?
     - When enabling replication, use the "DISK TO REPLICATE" column
+- Kubernetes - don't fall for trick Azure CLI questions
+    - If they ask "What steps in what order", installing Azure CLI is not same as installing AKS cli
+    - `az aks install-cli` installs `kubectl`, the AKS CLI
     
 # Insights
 **How to optimize time series data?**
