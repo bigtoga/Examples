@@ -50,3 +50,11 @@
 ## Backups
 **Receive warning during preflight checks. Why?**
 - WaAppAgent.exe our of date
+
+
+# Permissions
+** Owner vs. Security Admin**
+    - Sec. Admin - In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations.
+    
+** Owner vs. Network Contributor**
+    - Net. Contr -  lets you manage networks, but not access to them
