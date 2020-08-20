@@ -2,6 +2,7 @@
 - Azure SQL - change DTUs on the **Configure** blade
 - Premium SSD - max IOPS of 7000-10000
 - GatewaySubnet - use `/27` to maximize IPs available to Azure IaaS resources
+- **Load balancer - Basic or Standard?** - Always Standard
 
 - Alerting - Rate Limiting
     - Emails - no more than 100 per hour
