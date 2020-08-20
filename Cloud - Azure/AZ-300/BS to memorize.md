@@ -43,3 +43,10 @@
     - Premium, App Service Plan
 - Connection strings changed   
     - Configuration tab
+    
+    
+    
+# Virtual Machines
+## Backups
+**Receive warning during preflight checks. Why?**
+- WaAppAgent.exe our of date
