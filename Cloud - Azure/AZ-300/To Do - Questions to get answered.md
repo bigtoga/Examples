@@ -43,10 +43,15 @@
 
 <details> <summary>Virtual Networks</summary>
 
-**How to set up peering between two vnets in two different subscriptions?
+**How to set up peering between two vnets in two different subscriptions?**
 - Set up two virtual network gateways
 
-**If you love an unassigned public IP from one region to another with a different location, does the IP change?**
+**If you move an unassigned public IP from one region to another with a different location, does the IP change?**
+- https://docs.microsoft.com/en-us/azure/virtual-network/move-across-regions-publicip-powershell
+- Step 1: Make sure that the Azure Public IP is in the Azure region from which you want to move.
+    - Azure Public IPs are region specific and can't be moved from one region to another
+- Step 2: Create new resource group in new supported location (within the same region)
+- Step 3: Move - yes, the location changes
 
 **When to use MPLS?**
 
