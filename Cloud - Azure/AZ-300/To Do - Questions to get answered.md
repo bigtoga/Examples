@@ -5,6 +5,7 @@
 - [Detailed breakdown of the tasks you need to know](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3VzwB)
 - [Learning Paths for the exam](https://docs.microsoft.com/en-us/learn/certifications/exams/az-300)
 - [AZ-300 labs](https://github.com/MicrosoftLearning/AZ-300-MicrosoftAzureArchitectTechnologies)
+- [Move questions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription)
 
 
 <details> <summary>CosmosDB</summary>
