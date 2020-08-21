@@ -28,6 +28,7 @@
 ---
 
 # Misc
+- ReadOnly lock at Resource Group level does not let you start VMs, upload blobs, or even generate automation scripts
 - Azure SQL - change DTUs on the **Configure** blade
 - Premium SSD - max IOPS of 7000-10000
 - GatewaySubnet - use `/27` to maximize IPs available to Azure IaaS resources
