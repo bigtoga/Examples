@@ -4,7 +4,7 @@ https://docs.microsoft.com/en-us/azure/active-directory/governance/access-review
 - Require P2
 - Permissions to create a new package: Global Admin or User Admin
 
-# How to apply coditional access policies for different requirements?
+# How to apply conditional access policies for different requirements?
 
 1. Want everyone registered for MFA but only require for Risky sign-in
     - Configure **End user protection** (baseline policy)
