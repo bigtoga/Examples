@@ -46,6 +46,7 @@
 
 **How to set up peering between two vnets in two different subscriptions?**
 - Set up two virtual network gateways
+- https://docs.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions
 
 **If you move an unassigned public IP from one region to another with a different location, does the IP change?**
 - https://docs.microsoft.com/en-us/azure/virtual-network/move-across-regions-publicip-powershell
@@ -55,8 +56,11 @@
 - Step 3: Move - yes, the location changes
 
 **When to use MPLS?**
+- ExpressRoute but not required; can direct use like a site to site VPN over MPLS if needed
 
 **Steps to set up ExpressRoute**
+- https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-circuit-portal-resource-manager
+- 
 
 </details>
 
