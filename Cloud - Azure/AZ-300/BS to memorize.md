@@ -83,6 +83,10 @@
 **Receive warning during preflight checks. Why?**
 - WaAppAgent.exe our of date
 
+**Linux - want to monitor metrics and logs?** 
+- Azure PerformanceDiagnostics extension
+- You can use extensions to configure diagnostics on your VMs to collect additional metric data. The basic host metrics are available, but to see more granular and VM-specific metrics, you need to install the Azure diagnostics extension on the VM.
+
 # Networking
 - vnets across VPNs = enable Gateway Transit
 - on-prem to vnet = enable Gateway Transit
