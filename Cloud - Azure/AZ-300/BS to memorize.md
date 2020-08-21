@@ -83,6 +83,9 @@
 **Receive warning during preflight checks. Why?**
 - WaAppAgent.exe our of date
 
+**Move from one recovery services vault to another?**
+- Go to the VM's Backups blade and select the new RSV
+
 **Linux - want to monitor metrics and logs?** 
 - Azure PerformanceDiagnostics extension
 - You can use extensions to configure diagnostics on your VMs to collect additional metric data. The basic host metrics are available, but to see more granular and VM-specific metrics, you need to install the Azure diagnostics extension on the VM.
