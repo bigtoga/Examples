@@ -25,6 +25,8 @@
 2. Sign in risk policy - suspicious sign in attempts
 3. MFA registration policy - Makes sure users are registered for Azure Multi-Factor Authentication. **If a sign-in risk policy prompts for MFA, the user must already be registered for Azure Multi-Factor Authentication.**
 
+## Misc
+- License re-assignment - License cannot be assigned to a user without a usage location specified.
 ---
 
 # Misc
