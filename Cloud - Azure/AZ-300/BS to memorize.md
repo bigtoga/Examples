@@ -1,4 +1,7 @@
 # Azure AD
+## PIM
+- Access Reviews question = PIM = Azure AD p2
+
 ## SSPR
 - SSPR = Azure AD P1+
 - Requires password writeback to be turned on 
