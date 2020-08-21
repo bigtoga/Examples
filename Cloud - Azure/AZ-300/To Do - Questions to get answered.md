@@ -13,6 +13,8 @@
 
 **How to add / remove items to the Cosmos DB**
 - Know how this works in relation to the partition key
+- pass the partitionKey along with the itemid as shown below and the delete should work.
+- `await client.database(databaseId).container(containerId).item(itemBody.id, partitionKey).delete(itemBody);`
 
 **How to query (read)**
 
