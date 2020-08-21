@@ -77,6 +77,11 @@
 **Auto scale requirements and limits**
 
 **Move web job to new resource group in new location - does location of web job change? Location of app service plan change?**
+- https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations
+- Requirements:
+    - The destination resource group must not have any existing App Service resources
+    - All App Service resources in the resource group must be moved together.
+- Answer: Yes, location of both change
 
 
 </details> 
