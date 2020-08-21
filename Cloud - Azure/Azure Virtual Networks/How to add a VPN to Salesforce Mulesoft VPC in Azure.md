@@ -10,8 +10,8 @@
 2. Log into Azure and create a new local network gateway 
 	- Name: ngw-mulesoft 
 	- Connection type: Site to Site (IPSEC)
-	- IP address
-	- Local IP space: 192.168.170.0/24 
+	- IP address: <Mulesoft external IP>
+	- Local IP space: <Mulesoft local IP space>
 	- No BGP (not supported by Mulesoft)
 
 3. Add new connection to the existing vnet gateway 
