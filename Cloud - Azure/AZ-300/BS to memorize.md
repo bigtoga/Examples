@@ -89,6 +89,12 @@
 **Move from one recovery services vault to another?**
 - Go to the VM's Backups blade and select the new RSV
 
+## Monitoring
+**Slow Windows VM - think it is networking**
+- From the VM1 blade, install performance diagnostics and run *Advanced performance analysis*
+- https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/performance-diagnostics
+        - 
+
 **Linux - want to monitor metrics and logs?** 
 - Azure PerformanceDiagnostics extension
 - You can use extensions to configure diagnostics on your VMs to collect additional metric data. The basic host metrics are available, but to see more granular and VM-specific metrics, you need to install the Azure diagnostics extension on the VM.
