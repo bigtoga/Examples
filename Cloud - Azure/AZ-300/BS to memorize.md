@@ -1,4 +1,33 @@
-- Azure AD - SSPR = Azure AD P1
+# Azure AD
+## SSPR
+- SSPR = Azure AD P1+
+- Requires password writeback to be turned on 
+- On prem AD Windows 2012+
+
+## Custom password ban lists
+- AD P1+
+- Global password list maintenance by MSFT - you can't edit
+- Can create your own
+- Limit of 1,000
+
+## Risky signons
+- AD P2+
+- Risky
+    - Users with leaked credentials.
+    - Sign-ins from anonymous IP addresses.
+    - Impossible travel to atypical locations.
+    - Sign-ins from infected devices.
+    - Sign-ins from IP addresses with suspicious activity.
+    - Sign-ins from unfamiliar locations.
+    
+### 3 policies available
+1. User risk policy - compromised credentials
+2. Sign in risk policy - suspicious sign in attempts
+3. MFA registration policy - Makes sure users are registered for Azure Multi-Factor Authentication. **If a sign-in risk policy prompts for MFA, the user must already be registered for Azure Multi-Factor Authentication.**
+
+---
+
+# Misc
 - Azure SQL - change DTUs on the **Configure** blade
 - Premium SSD - max IOPS of 7000-10000
 - GatewaySubnet - use `/27` to maximize IPs available to Azure IaaS resources
