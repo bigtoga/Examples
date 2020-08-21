@@ -17,11 +17,52 @@
 - `await client.database(databaseId).container(containerId).item(itemBody.id, partitionKey).delete(itemBody);`
 
 **How to query (read)**
+- https://docs.microsoft.com/en-us/azure/cosmos-db/sql-query-getting-started
+- SQL API works on JSON values
+- Azure Cosmos DB supports strict JSON items only
+- A Cosmos container is a schema-free collection of JSON items
+- Step 1: create the json
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+```sql
+SELECT {"Name":f.id, "City":f.address.city} AS Family
+    FROM Families f
+    WHERE f.address.city = f.address.state
+```    
+
+
 
 **How does the partition key work when adding & reading data? Try different scenarios**
 
 **How does it work with unique keys**
-
+- https://docs.microsoft.com/en-us/azure/cosmos-db/unique-keys
+    - **You create a unique key *policy* when you create an Azure Cosmos container**
+    - You can define unique keys only when you create an Azure Cosmos container
+    - Unique key names are case-sensitive
+- https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview
+    - items in a container are divided into distinct subsets called logical partitions. 
+    - Logical partitions are formed based on value of the partition key
+    - All items in a logical partition **have the same partition key value**
   </details> 
   
   
