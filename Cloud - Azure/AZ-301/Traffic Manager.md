@@ -55,3 +55,17 @@ Use **Priority Traffic-Routing Method**
   
   
 </details>  
+
+<details>
+  <summary>Traffic View</summary>
+# Traffic View
+https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traffic-view
+
+**What?** - It uses the queries received by Traffic Manager and the network latency intelligence tables that the service maintains to provide you with the following:
+- The **regions from** where your users are connecting to your endpoints in Azure.
+- The **volume** of users connecting from these regions.
+- The Azure **regions to** which they are getting routed to.
+- Their **latency** experience to these Azure regions.
+This information is available for you to consume through **geographical map** overlay and **tabular views** in the portal in addition to being available as **raw data** for you to download.
+
+</details>  
