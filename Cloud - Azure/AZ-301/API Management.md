@@ -14,9 +14,35 @@
 </details>  
 
 <details>
-  <summary></summary>
+  <summary>Networking-related</summary>
+  
+**How to expose to both vnet private and public internet?**
+- https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet
+- Set virtual network to **External**
+- Requires Premium and Developer SKUs
+
+**vnet connectivity options**
+- Off - default; not deployed to a vnet
+- External - public internet
+- Internal - internal only
+
+**External and Internal both require dedicated subnet w no other resources except Azure API Mgmt Instances**
+- Yes, those subnets can have multiple API Mgmt deployments
+
+**Static or dynamic IPs?**
+- Dynamic - [The VIP address of the API Management instance will change each time VNET is enabled or disabled](https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet)
+- 
   
 </details>  
+
+
+<details>
+  <summary>DNS</summary>
+# Custom DNS
+**Supported?** - Yes  
+  
+</details>  
+
 
 <details>
   <summary>Misc</summary>
