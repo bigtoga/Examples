@@ -11,7 +11,7 @@ There are **six routing methods available**
 1. Multivalue - IPv4/IPv6 endpoints
 1. Subnet - route specific users to specific endpoints
 
-</details?
+</details>
 
 <details>
   <summary>Business Continuity / Auto Failover</summary>
