@@ -24,8 +24,11 @@
 </details>   
 
 <details>
-   <summary> </summary>
-   
+   <summary>Identity, Azure AD </summary>
+
+**P2 customer - Want to get alerts whenever roles are activated + provide JIT access** - PIM
+
+**P2 customer - ability to conduct access reviews** - PIM
 </details>   
 
 <details>
