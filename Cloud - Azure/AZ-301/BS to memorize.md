@@ -46,7 +46,12 @@
 </details>   
 
 <details>
-   <summary> </summary>
+   <summary>ADFS </summary>
+# ADFS
+   
+**How to monitor - ADFS?** - Active Direction Federation Services Health Check in Log Analytics
+
+**How to monitor - WAP?** - Azure AD Connect Health
    
 </details>   
 
