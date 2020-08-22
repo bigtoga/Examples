@@ -23,7 +23,18 @@
    
 **Company has SQL licenses already - should they migrate to a fixed-size DTU or vCore Azure SQL database?** - vCore   
    
-** MSFT recommended way to migrate database to Azure?** - old way was BACPAC uploaded to Azure BLOB storage   
+**MSFT recommended way to migrate database to Azure?** - old way was BACPAC uploaded to Azure BLOB storage   
+
+**Want long term retention of Azure SQL Database backups?** 
+- https://docs.microsoft.com/en-us/azure/azure-sql/database/long-term-retention-overview
+- Full backups taken automatically
+- Long Term Retention copies these to different blobs for long term storage
+- LTR policy has 4 settings:
+      - Weekly backup retention (W) - one backup every week will be copied to the long-term storage
+      - Monthly backup retention (M) - first backup of each month will be copied to the long-term storage
+      - Yearly backup retention (Y) - one backup during the week specified by WeekOfYear will be copied to the long-term storage
+      - Week of year (WeekOfYear) - only used w Y
+
 </details>   
 
 <details>
