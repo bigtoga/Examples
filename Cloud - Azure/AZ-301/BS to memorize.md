@@ -19,7 +19,9 @@
 </details>   
 
 <details>
-   <summary> </summary>
+   <summary>SQL </summary>
+   
+**Company has SQL licenses already - should they migrate to a fixed-size DTU or vCore Azure SQL database?** - vCore   
    
 </details>   
 
