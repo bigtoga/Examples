@@ -53,5 +53,7 @@
 
 <details>
   <summary>Misc</summary>
-  
+
+**How to protect from DOS attack?** - enable rate throttling
+
 </details>  
