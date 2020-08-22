@@ -6,8 +6,16 @@
 </details>   
 
 <details>
-   <summary> </summary>
-   
+   <summary>Backups, Azure Site Recovery </summary>
+
+**Want long term retention of backups - how?** - Set `Long term retention` in Azure Backup
+
+**Diff. b/w Azure Backup and Azure Site Recovery?** 
+- ASR use cases:
+   - Business continuity and disaster recovery
+   - Want to replicate VM configuration and data to Azure or to another datacenter
+- Azure Backup - more granular
+
 </details>   
 
 <details>
