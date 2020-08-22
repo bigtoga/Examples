@@ -61,7 +61,7 @@ Use **Priority Traffic-Routing Method**
 
 ![x](https://docs.microsoft.com/en-us/azure/traffic-manager/media/traffic-manager-routing-methods/priority.png)
   
-  
+**Want to deploy 2 VMs - can TM auto-failover if one fails?** - Yes with a *failover routing policy*  
 </details>  
 
 <details>
