@@ -7,10 +7,20 @@ There are **six routing methods available**
 1. Priority - use when you have 1 primary, 1 secondary location to route to
 1. Weighted - load balance based on user-defined weights
 1. Performance - geographic least latency / closest
-1. Geographic - use for compliance w local laws
-1. Multivalue - IPv4/IPv6 endpoints
+1. Geographic - use for compliance w local laws. **Generally not recommended - use nested profiles instead**
+1. Multivalue - returns multiple DNS entries to end user. Use if you want a customer to be able to choose IPv4/IPv6 endpoint for same resource (i.e. it gives option for both to end user)
 1. Subnet - route specific users to specific endpoints
 
+**What can TM route?** - anything on public internet; not usable within a vnet/private network
+
+**Sticky sessions?** - this is DNS so no. Besides, th source IP received by TM is the Recursive DNS service, not the customer/end user
+
+**What is a nested profile and why?**
+  - MSFT recommends against Geographic routing and prefers nested routes [in this FAQ document](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs)
+  - Why? 
+      - A region can be assigned to only one endpoint within a profile if it is using the geographic routing method.
+      - If that endpoint is unavailable, Traffic Manager does not failover to another endpoint 
+      - Nested profiles mitigate this by allowing both geographic routing but multiple endpoints + auto failover
 </details>
 
 <details>
