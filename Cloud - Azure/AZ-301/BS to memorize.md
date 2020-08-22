@@ -1,5 +1,7 @@
 <details>
-   <summary> </summary>
+   <summary>Load Balancer, Traffic Manager, App Gateway </summary>
+
+**Region failure - protect web app cheapest way?** - Traffic Manager
    
 </details>   
 
