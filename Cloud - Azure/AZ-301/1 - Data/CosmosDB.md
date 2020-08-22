@@ -33,5 +33,9 @@
 
 <details>
   <summary>Misc</summary>
-  
+
+**How to migrate data from SQL Server into CosmosDB?** 
+- https://docs.microsoft.com/en-us/azure/cosmos-db/import-data#SQL
+- Run the DocumentDB Data Migration Tool
+
 </details>  
