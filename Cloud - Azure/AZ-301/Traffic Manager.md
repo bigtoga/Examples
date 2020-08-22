@@ -1,3 +1,18 @@
+<details> 
+  <summary>Routing</summary>
+# Traffic Manager Routing
+https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods
+  
+There are **six routing methods available**
+1. Priority - use when you have 1 primary, 1 secondary location to route to
+1. Weighted - load balance based on user-defined weights
+1. Performance - geographic least latency / closest
+1. Geographic - use for compliance w local laws
+1. Multivalue - IPv4/IPv6 endpoints
+1. Subnet - route specific users to specific endpoints
+
+</details?
+
 <details>
   <summary>Business Continuity / Auto Failover</summary>
 # High Availability / DR / BC w Traffic Manager
