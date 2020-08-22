@@ -23,6 +23,7 @@
    
 **Company has SQL licenses already - should they migrate to a fixed-size DTU or vCore Azure SQL database?** - vCore   
    
+** MSFT recommended way to migrate database to Azure?** - old way was BACPAC uploaded to Azure BLOB storage   
 </details>   
 
 <details>
