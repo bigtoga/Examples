@@ -23,6 +23,12 @@ There are **six routing methods available**
       - Nested profiles mitigate this by allowing both geographic routing but multiple endpoints + auto failover
 </details>
 
+
+<details>
+  <summary>Pricing & SKUs</summary>
+
+</details>  
+
 <details>
   <summary>Analytics and Real User Measurements</summary>
 # Analytics and RUM
@@ -57,6 +63,19 @@ Use **Priority Traffic-Routing Method**
 </details>  
 
 <details>
+  <summary>Endpoints</summary>
+# Endpoints
+https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoints
+  
+**Can I use Traffic Manager with endpoints from multiple subscriptions?** - No
+
+**Can I use TM w deployment slots?** - Yes
+
+**Does Traffic Manager support IPv6 endpoints?** - Yes, w a caveat. Traffic Manager does not currently provide IPv6-addressable *name servers* but, as long as the name server has IPv4 endpoint, the name server can return IPv6 to end user
+</details>  
+
+
+<details>
   <summary>Traffic View</summary>
 # Traffic View
 https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traffic-view
@@ -68,4 +87,9 @@ https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traf
 - Their **latency** experience to these Azure regions.
 This information is available for you to consume through **geographical map** overlay and **tabular views** in the portal in addition to being available as **raw data** for you to download.
 
+</details>  
+
+<details>
+  <summary>Misc</summary>
+**Move - have existing TM and want to move {public IP, web app, app svc plan, etc}?** - Delete endpoints, move resource, add endpoint
 </details>  
