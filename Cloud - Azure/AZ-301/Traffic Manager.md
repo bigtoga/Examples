@@ -46,6 +46,8 @@ https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#real
 
 <details>
   <summary>Business Continuity / Auto Failover</summary>
+**Can TM survive region failure?** - Yes. Your responsibility though to deploy the resources for the endpoints in multiple regions
+  
 # High Availability / DR / BC w Traffic Manager
 
 https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#priority
@@ -67,11 +69,27 @@ Use **Priority Traffic-Routing Method**
 # Endpoints
 https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoints
   
+**What can I use - IP? DNS name?** - 3 thngs:
+- CNAME that points to a DNS name w IPv4 (A record) or IPv6 (AAAA)
+- IPv4 - must mark endpoint as **External**
+- IPv6 - must mark endpoint as **External**
+  
 **Can I use Traffic Manager with endpoints from multiple subscriptions?** - No
 
 **Can I use TM w deployment slots?** - Yes
 
 **Does Traffic Manager support IPv6 endpoints?** - Yes, w a caveat. Traffic Manager does not currently provide IPv6-addressable *name servers* but, as long as the name server has IPv4 endpoint, the name server can return IPv6 to end user
+
+**Healthcheck?** - https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring
+- Portal, REST API, PowerShell, and Azure CLI
+- Azure Monitor has graphical show
+
+**Healthcheck use https?** - Yes but no cert. validation
+
+**Healthcheck in header?** - Yes, https host headers defined at the profile level in TM
+
+**Alert on healthcheck fail?** - Azure Monitor
+
 </details>  
 
 
@@ -92,4 +110,6 @@ This information is available for you to consume through **geographical map** ov
 <details>
   <summary>Misc</summary>
 **Move - have existing TM and want to move {public IP, web app, app svc plan, etc}?** - Delete endpoints, move resource, add endpoint
+  
+**Resource groups and TM** - TM is global, not location-specific but it requires a resource group which is location-specific.
 </details>  
