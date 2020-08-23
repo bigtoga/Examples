@@ -56,6 +56,10 @@
 **MFA for risky sign ins?** - P2 (PIM)
 
 **Time bound access?** - P2 (PIM)
+
+**Which SKUs support JIT?** - P1 and P2
+
+**
 </details>   
 
 <details>
