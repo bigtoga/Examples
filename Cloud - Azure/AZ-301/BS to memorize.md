@@ -1,7 +1,7 @@
 <details>
    <summary>Virtual Machines</summary>
 
-**How to collect Windows Security logs and store for x years?** - Azure Log Analytics Agent
+**How to collect Windows Security logs and store for x years?** - Azure Log Analytics Agent but also Diagnostics Agent
    
 **How to collect Windows Performance counters?** - Azure Log Analytics Agent
 
