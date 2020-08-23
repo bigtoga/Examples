@@ -1,4 +1,13 @@
 <details>
+   <summary>Virtual Machines</summary>
+
+**How to collect Windows Security logs and store for x years?** - Azure Log Analytics Agent
+   
+**How to collect Windows Performance counters?** - Azure Log Analytics Agent
+</details>   
+
+
+<details>
    <summary>Load Balancer, Traffic Manager, App Gateway </summary>
 
 **Region failure - protect web app cheapest way?** - Traffic Manager
@@ -48,6 +57,8 @@
 <details>
    <summary>ADFS </summary>
 # ADFS
+   
+**Can you authenticate on-prem users to AAD using ADFS?** - Yes
    
 **How to monitor - ADFS?** - Active Direction Federation Services Health Check in Log Analytics
 
