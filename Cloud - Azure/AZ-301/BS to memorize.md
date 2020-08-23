@@ -69,8 +69,10 @@
 </details>   
 
 <details>
-   <summary> </summary>
-   
+   <summary> Logging, Monitoring, Analytics </summary>
+
+**Max retention you can set for raw data points?** - 730 days
+
 </details>   
 
 <details>
