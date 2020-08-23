@@ -90,6 +90,8 @@
 
 **How to monitor traffic to VM from outside?** - Traffic Analytics
 
+**Want report showing all "write" activity - how?** - Activity Log
+
 </details>   
 
 <details>
