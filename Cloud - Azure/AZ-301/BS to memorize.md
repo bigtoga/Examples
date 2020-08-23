@@ -11,6 +11,8 @@
 **Low priority nodes**
 - Become unavailable if Azure does not have enough capacity
 
+**Azure Batch Jobs support all VMs except A series**
+
 </details>   
 
 
