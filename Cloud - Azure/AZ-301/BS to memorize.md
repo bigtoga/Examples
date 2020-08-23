@@ -92,6 +92,8 @@
 
 **Want report showing all "write" activity - how?** - Activity Log
 
+**Give ability to view resource usage and performance data only?** - Log Analytics
+
 </details>   
 
 <details>
