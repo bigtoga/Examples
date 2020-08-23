@@ -7,3 +7,4 @@
 - Require public endpoints
 - Number of nodes and VM size set using user-defined constants
 - Supports dedicated nodes and **low priority nodes**
+- Support all VMs **except A series**
