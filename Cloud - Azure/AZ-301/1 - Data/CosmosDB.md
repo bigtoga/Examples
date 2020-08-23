@@ -55,4 +55,8 @@ Missing step is that, b/c the mid tier app knows the master key, it creates a us
 - https://docs.microsoft.com/en-us/azure/cosmos-db/import-data#SQL
 - Run the DocumentDB Data Migration Tool
 
+**Want to get a notification everytime data is received?**
+- Deploy a Logic App that has the Azure CosmosDB connector
+- Ensure the Logic App uses a SendGrid action
+
 </details>  
