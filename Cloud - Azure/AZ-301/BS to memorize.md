@@ -53,7 +53,9 @@
 
 **P2 customer - ability to conduct access reviews** - PIM
 
-**MFA for risky sign ins?** - P2
+**MFA for risky sign ins?** - P2 (PIM)
+
+**Time bound access?** - P2 (PIM)
 </details>   
 
 <details>
