@@ -82,6 +82,8 @@
 
 **Max retention you can set for raw data points?** - 730 days
 
+**How to monitor traffic to VM from outside?** - Traffic Analytics
+
 </details>   
 
 <details>
