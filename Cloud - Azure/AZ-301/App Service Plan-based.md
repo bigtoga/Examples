@@ -11,4 +11,4 @@
 - During the job execution:
     - All VMs can talk to each other
  - HPC (high performance computing)
- - Large scale parallel
+ - Large scale parallel **if you enable Parallel task execution**
