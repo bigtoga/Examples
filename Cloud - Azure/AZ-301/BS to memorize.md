@@ -94,6 +94,8 @@
 
 **Give ability to view resource usage and performance data only?** - Log Analytics
 
+**Give ability to visualize relationships between application components** - App Insights
+
 </details>   
 
 <details>
