@@ -52,6 +52,8 @@
 **P2 customer - Want to get alerts whenever roles are activated + provide JIT access** - PIM
 
 **P2 customer - ability to conduct access reviews** - PIM
+
+**MFA for risky sign ins?** - P2
 </details>   
 
 <details>
