@@ -34,6 +34,15 @@ Products are how APIs are surfaced to developers
 </details>  
 
 <details>
+  <summary>Policies</summary>
+  
+**Want to convert XML into JSON, while also stripping headers on output - how many policies do I need?** - 2
+- One to convert XML to JSON - the `xml-to-json` built in policy
+- One to strip headers - the `set-header` built in policy
+  
+</details>  
+
+<details>
   <summary>Networking-related</summary>
   
 **How to expose to both vnet private and public internet?**
