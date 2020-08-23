@@ -147,6 +147,6 @@
 <details>
    <summary>Misc </summary>
    
-**Large-scale parallel... high performance computing... HPC....** - Azure Batch Jobs   
+**Large-scale parallel... high performance computing... HPC... intrinsically parallel... ** - Azure Batch Jobs   
    
 </details>   
