@@ -4,6 +4,9 @@
 **How to collect Windows Security logs and store for x years?** - Azure Log Analytics Agent
    
 **How to collect Windows Performance counters?** - Azure Log Analytics Agent
+
+**Have a registered .NET app installed on VM and want it to authenticate to Azure resources using VM Managed Service identity - how?**
+- Have it use the *Azure Instance Metadata Service Identity* to generate the request token
 </details>   
 
 
