@@ -1,6 +1,26 @@
 <details>
   <summary>Basics</summary>
-  
+
+Each API consists of one or more **operations**. Each API can be added to one or more **products**. Developers subscribe to products - then they can call the API's operation. 
+
+## API gateway is the endpoint that:
+
+- Accepts API calls and routes them to your backends.
+- Verifies API keys, JWT tokens, certificates, and other credentials.
+- Enforces usage quotas and rate limits.
+- Transforms your API on the fly without code modifications.
+- Caches backend responses where set up.
+- Logs call metadata for analytics purposes.
+
+## Products 
+
+Products are how APIs are surfaced to developers
+- **Groups** are used to manage visibility to developers
+- Products grant visibility7 to groups; developers can view and subscribe to Products
+- Products can be **Open or Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription
+- When a product is ready for use by developers, it can be published. Once it is published, it can be viewed (and in the case of protected products subscribed to) by developers.
+- Subscription approval is configured at the product level and can either require administrator approval, or be auto-approved.
+
 </details>  
 
 <details>
