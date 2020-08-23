@@ -7,6 +7,10 @@
 
 **Have a registered .NET app installed on VM and want it to authenticate to Azure resources using VM Managed Service identity - how?**
 - Have it use the *Azure Instance Metadata Service Identity* to generate the request token
+
+**Low priority nodes**
+- Become unavailable if Azure does not have enough capacity
+
 </details>   
 
 
