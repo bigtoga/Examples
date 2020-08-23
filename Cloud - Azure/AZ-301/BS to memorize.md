@@ -87,8 +87,12 @@
 </details>   
 
 <details>
-   <summary> </summary>
-   
+   <summary>Storage</summary>
+
+**How to rehydrate archive tier BLOB data?**
+- Change tier to hot or cool
+- May take 15 hours for large blobs; lots of small blobs may take longer
+
 </details>   
 
 <details>
