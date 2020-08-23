@@ -84,7 +84,18 @@
 </details>   
 
 <details>
+   <summary>App Services Plan-based</summary>
+
+**Want to run image processing app 1x per hour but not get charged when compute is not running - how?**
+- Azure Functions
+- Azure Web Jobs
+- Azure Logic App **with recurring trigger** - if that's not in reqs, the answer is "No" for these
+
+</details>   
+
+<details>
    <summary> Logging, Monitoring, Analytics </summary>
+
 
 **Max retention you can set for raw data points?** - 730 days
 
