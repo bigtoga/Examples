@@ -65,4 +65,5 @@ https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-prote
 4. Configure **Developer Console** to use OAuth 2.0
 5. Add the **validate-jwt policy** to validate the OAuth token on each request
 
+**How to protect against CSRF?** - enable state
 </details>  
