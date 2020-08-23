@@ -56,4 +56,13 @@
 
 **How to protect from DOS attack?** - enable rate throttling
 
+**Enable OAuth2 for a web app using API Mgmt?**
+https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad
+
+1. Register the backend app in Azure AD (the API)
+2. Register the front end / client in AAD (frontend that needs to consume the API)
+3. In AAD, grant permissions to allow frontend to call backend
+4. Configure **Developer Console** to use OAuth 2.0
+5. Add the **validate-jwt policy** to validate the OAuth token on each request
+
 </details>  
