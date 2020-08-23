@@ -8,3 +8,7 @@
 - Number of nodes and VM size set using user-defined constants
 - Supports dedicated nodes and **low priority nodes**
 - Support all VMs **except A series**
+- During the job execution:
+    - All VMs can talk to each other
+ - HPC (high performance computing)
+ - Large scale parallel
