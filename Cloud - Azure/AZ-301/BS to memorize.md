@@ -102,8 +102,23 @@
 </details>   
 
 <details>
-   <summary> </summary>
-   
+   <summary>Networking</summary>
+
+# Scenario: Company has deployed apps to Azure VMs. Certificates for point-to-site VPN have been created by on-premise CA. How to set up P2S on each laptop?
+
+- https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-certificates-point-to-site
+- https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert
+- https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#installclientcert
+
+**What goes in the Personal certificate store on each laptop?** - User certificate that has the private key
+- \Current Users\Personal\Certificates
+
+**What goes in the Computer Personal store on each laptop?** - User certificate that has the private key
+- https://stackoverflow.com/questions/5671772/why-is-there-a-computer-personal-certificates-store-and-also-current-user-per
+- \Computer\Personal\Certificates
+
+**What goes in the Azure VPN Gateway?** - the root CA certificate that has the public key
+
 </details>   
 
 <details>
