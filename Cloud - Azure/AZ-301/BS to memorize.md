@@ -116,6 +116,8 @@
 - Change tier to hot or cool
 - May take 15 hours for large blobs; lots of small blobs may take longer
 
+**Want to use SMB file share on Windows 2016 - what performance tier?** - Standard only; Premium only allows BLOBs
+
 </details>   
 
 <details>
