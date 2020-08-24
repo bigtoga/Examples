@@ -25,6 +25,8 @@
 
 <details>
    <summary>Backups, Azure Site Recovery </summary>
+   
+**Fastest RTO?** - ARS
 
 **Want long term retention of backups - how?** - Set `Long term retention` in Azure Backup
 
