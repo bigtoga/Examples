@@ -1,5 +1,7 @@
 <details>
    <summary>Virtual Machines</summary>
+   
+**Accelerated networking - what is it?** - reduces latency, jitter, and CPU utilization
 
 **How to collect Windows Security logs and store for x years?** - Azure Log Analytics Agent but also Diagnostics Agent
    
