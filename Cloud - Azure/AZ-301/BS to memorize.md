@@ -131,6 +131,10 @@
 <details>
    <summary>Networking</summary>
 
+**Can you create a vnet peering between Classic and Resource Manager vnets?** - Yes
+
+**Can you create a vnet peering between Classic and Classic?** - No
+
 # Scenario: Company has deployed apps to Azure VMs. Certificates for point-to-site VPN have been created by on-premise CA. How to set up P2S on each laptop?
 
 - https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-certificates-point-to-site
