@@ -10,7 +10,13 @@
 
 <details>
   <summary>High Availability/DR/BC</summary>
-  
+
+**SLA: 99.99%**
+
+**Latency** 
+- Reads and writes - single-digit latency
+- Worldwide replication - <10ms read, <15ms write
+
 </details>  
 
 <details>
