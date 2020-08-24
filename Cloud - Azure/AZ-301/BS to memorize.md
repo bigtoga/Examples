@@ -36,6 +36,8 @@
 
 **Want long term retention of backups - how?** - Set `Long term retention` in Azure Backup
 
+**After a restore, want a custom script to run - how?** - Azure Automation Runbooks (https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-runbook-automation)
+
 **Diff. b/w Azure Backup and Azure Site Recovery?** 
 - ASR use cases:
    - Business continuity and disaster recovery
