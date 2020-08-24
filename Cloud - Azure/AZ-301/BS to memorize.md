@@ -26,7 +26,11 @@
 <details>
    <summary>Backups, Azure Site Recovery </summary>
    
-**Fastest RTO?** - ARS
+**Fastest RTO for a VM?** - ARS
+
+**RPO for ASR?** 
+- VMs - 1 day
+- Database backups: 15 minutes
 
 **Want long term retention of backups - how?** - Set `Long term retention` in Azure Backup
 
