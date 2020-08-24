@@ -30,4 +30,7 @@
 <details>
   <summary>Misc</summary>
   
+**Want to monitor on-premise VMs in Azure - how?** - Microsoft Monitoring Agent
+
+  
 </details>  
