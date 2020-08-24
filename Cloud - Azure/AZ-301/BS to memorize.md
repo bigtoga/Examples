@@ -76,6 +76,17 @@
 
 <details>
    <summary>Identity, Azure AD </summary>
+   
+# Which SKUs support...   
+
+**JIT?** - P1 and P2
+
+**Time bound access?** - P2 (PIM)
+
+**Custom groups?** - P1
+
+
+# How to...
 
 **P2 customer - Want to get alerts whenever roles are activated + provide JIT access** - PIM
 
@@ -83,9 +94,9 @@
 
 **MFA for risky sign ins?** - P2 (PIM)
 
-**Time bound access?** - P2 (PIM)
 
-**Which SKUs support JIT?** - P1 and P2
+
+
 
 **
 </details>   
