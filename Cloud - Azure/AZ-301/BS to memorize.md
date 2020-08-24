@@ -45,8 +45,13 @@
 </details>   
 
 <details>
-   <summary>SQL </summary>
-   
+   <summary>Data </summary>
+
+# Cosmos DB
+- 99.99% SLA
+- Crazy fast read/write even worldwide (<10ms read, <15ms write for worldwide)
+
+## Azure SQL
 **Company has SQL licenses already - should they migrate to a fixed-size DTU or vCore Azure SQL database?** - vCore   
    
 **MSFT recommended way to migrate database to Azure?** - old way was BACPAC uploaded to Azure BLOB storage   
@@ -119,6 +124,10 @@
 
 <details>
    <summary>Storage</summary>
+   
+**Table storage - SLA?** - 99.99%
+
+**Table storage - speed?** - Fast.
 
 **How to rehydrate archive tier BLOB data?**
 - Change tier to hot or cool
