@@ -46,6 +46,8 @@
 
 <details>
    <summary>Data </summary>
+   
+**Synapse - "petabytes of data and complex queries"**
 
 # Cosmos DB
 - 99.99% SLA
