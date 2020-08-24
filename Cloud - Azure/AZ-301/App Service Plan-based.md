@@ -12,3 +12,6 @@
     - All VMs can talk to each other
  - HPC (high performance computing)
  - Large scale parallel **if you enable Parallel task execution**
+ - Two ways to authenticate:
+    - Integrated Authentication - authenticates the user running the job
+    - Managed Service Principal - an unattended app
