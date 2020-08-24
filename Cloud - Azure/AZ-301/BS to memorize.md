@@ -156,6 +156,8 @@
 
 <details>
    <summary>Networking</summary>
+   
+**VPN Gateways - only VpnGw1+ support active-active gateways**
 
 **Can you create a vnet peering between Classic and Resource Manager vnets?** - Yes
 
