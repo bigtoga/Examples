@@ -13,7 +13,9 @@
 **Low priority nodes**
 - Become unavailable if Azure does not have enough capacity
 
-**Azure Batch Jobs support all VMs except A series**
+**What VM types are not supported/allowed by Azure Batch Jobs?**
+- A series
+- Burstable
 
 </details>   
 
