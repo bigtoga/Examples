@@ -128,6 +128,7 @@
 <details>
    <summary> Logging, Monitoring, Analytics </summary>
 
+**Want to monitor on-prem VMs in Azure - how?** - Install Microsoft Monitoring Agent
 
 **Max retention you can set for raw data points?** - 730 days
 
