@@ -54,6 +54,31 @@ A mid-tier service is set up to serve a mobile application to share user photos.
 Missing step is that, b/c the mid tier app knows the master key, it creates a user on cosmosdb dynamically. Creating a user automatically creates a hash resource token.
 </details>  
 
+
+<details>
+  <summary>Misc</summary>
+
+**How to migrate data from SQL Server into CosmosDB?** 
+- https://docs.microsoft.com/en-us/azure/cosmos-db/import-data#SQL
+- Run the DocumentDB Data Migration Tool
+
+**Want to get a notification everytime data is received?**
+- Deploy a Logic App that has the Azure CosmosDB connector
+- Ensure the Logic App uses a SendGrid action
+
+</details>  
+
+<details>
+  <summary>Permissions</summary>
+
+**What roles exist and what do they do??** 
+- DocumentDB Accounts Contributor - manage CosmosDB accounts
+- Cosmos DB Account Reader - read account data
+- Cosmos Backup 
+- 
+
+</details>  
+
 <details>
   <summary>Misc</summary>
 
