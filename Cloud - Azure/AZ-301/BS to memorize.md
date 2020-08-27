@@ -163,6 +163,7 @@
 **VPN Gateways**
 -  - only VpnGw1+ support active-active gateways
 - Cannot have address in same address space as on prem
+- Use /27 CIDR
 
 **Can you create a vnet peering between Classic and Resource Manager vnets?** - Yes
 
