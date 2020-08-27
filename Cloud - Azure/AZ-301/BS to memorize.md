@@ -212,5 +212,6 @@
 - Key Vault
 - Load Balancer
 - Application Gateway
+- VM Scale Sets
 
 </details>   
