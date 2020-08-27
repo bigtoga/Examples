@@ -60,6 +60,9 @@
 - Crazy fast read/write even worldwide (<10ms read, <15ms write for worldwide)
 
 ## Azure SQL
+
+**Where to send Azure SQL Database audit data?** - Log Analytics, Event Hub, or a Storage Account
+
 **Company has SQL licenses already - should they migrate to a fixed-size DTU or vCore Azure SQL database?** - vCore   
    
 **MSFT recommended way to migrate database to Azure?** - old way was BACPAC uploaded to Azure BLOB storage   
