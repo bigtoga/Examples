@@ -154,6 +154,8 @@
 <details>
    <summary>Storage</summary>
    
+**StorSimple - uses Azure Storage Blob account to copy snapshots of the data**
+   
 **Table storage - SLA?** - 99.99%
 
 **Table storage - speed?** - Fast.
