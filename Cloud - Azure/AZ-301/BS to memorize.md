@@ -36,6 +36,9 @@
 - VMs - 1 day
 - Database backups: 15 minutes
 
+**RPO for Azure Backup?**
+- 1 day
+
 **Want long term retention of backups - how?** - Set `Long term retention` in Azure Backup
 
 **After a restore, want a custom script to run - how?** - Azure Automation Runbooks (https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-runbook-automation)
@@ -52,6 +55,9 @@
 
 <details>
    <summary>Data </summary>
+   
+**Azure Data Factory - need to copy files from on-prem into Azure Blob storage. How?**
+- Install the *Integration Runtime*
    
 **Synapse - "petabytes of data and complex queries"**
 
