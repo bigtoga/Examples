@@ -207,5 +207,7 @@
    <summary>Misc </summary>
    
 **Large-scale parallel... high performance computing... HPC... intrinsically parallel... ** - Azure Batch Jobs   
-   
+
+**Azure Key Vault is region-specific - must create in each region**
+
 </details>   
