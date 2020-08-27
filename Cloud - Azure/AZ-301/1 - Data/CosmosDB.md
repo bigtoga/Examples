@@ -72,10 +72,10 @@ Missing step is that, b/c the mid tier app knows the master key, it creates a us
   <summary>Permissions</summary>
 
 **What roles exist and what do they do??** 
-- DocumentDB Accounts Contributor - manage CosmosDB accounts
+- DocumentDB Account Contributor - manage CosmosDB accounts
 - Cosmos DB Account Reader - read account data
-- Cosmos Backup 
-- 
+- Cosmos Backup Operator - can submit restore request for db or container for account
+- Cosmos DB Operator - manage accounts but not access them. Prevents access to account keys and connection strings
 
 </details>  
 
