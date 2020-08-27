@@ -160,7 +160,9 @@
 <details>
    <summary>Networking</summary>
    
-**VPN Gateways - only VpnGw1+ support active-active gateways**
+**VPN Gateways**
+-  - only VpnGw1+ support active-active gateways
+- Cannot have address in same address space as on prem
 
 **Can you create a vnet peering between Classic and Resource Manager vnets?** - Yes
 
