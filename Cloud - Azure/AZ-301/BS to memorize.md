@@ -3,6 +3,8 @@
    
 **How to visualize the different processes running on VMs?** - Azure Services Map
    
+**Need network optimized compute - what?** - D, F, E, L, M support Accelerated Networking   
+   
 **Accelerated networking - what is it?** - reduces latency, jitter, and CPU utilization
 
 **How to collect Windows Security logs and store for x years?** - Azure Log Analytics Agent but also Diagnostics Agent
