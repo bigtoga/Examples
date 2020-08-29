@@ -90,6 +90,8 @@
 <details>
    <summary>Identity, Azure AD </summary>
    
+**Azure AD Id. Protection vs. PIM?** - almost always going to be PIM
+   
 # Which SKUs support...   
 
 **JIT?** - P1 and P2
