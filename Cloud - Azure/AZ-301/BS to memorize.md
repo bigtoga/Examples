@@ -30,6 +30,8 @@
 
 <details>
    <summary>Load Balancer, Traffic Manager, App Gateway </summary>
+   
+**Need SSL offloading** - App Gateway; Load Balancer does not support   
 
 **Region failure - protect web app cheapest way?** - Traffic Manager
    
@@ -75,9 +77,10 @@
    
 **Synapse - "petabytes of data and complex queries"**
 
-# Cosmos DB
+## Cosmos DB
 - 99.99% SLA
 - Crazy fast read/write even worldwide (<10ms read, <15ms write for worldwide)
+- Can authenticate apps using Managed Service Identity
 
 ## Azure SQL
 
@@ -165,10 +168,12 @@
    <summary> Logging, Monitoring, Analytics </summary>
    
 ### Log Analytics vs. Azure Monitor - which one?
+
 - Metrics on Azure infrastructure? AzMon
 - Status on functionality within Azure infrastructure? AzMon (which is which Service Health lives)
 - Notice of security advisories? AzMon, within Service Health
-- 
+
+**Microsoft Monitoring Agent = Log Analytics Agent**
 
 **Want to monitor on-prem VMs in Azure - how?** - Install Microsoft Monitoring Agent
 
