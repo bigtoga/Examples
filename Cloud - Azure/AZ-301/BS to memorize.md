@@ -181,6 +181,10 @@
 <details>
    <summary>Networking</summary>
    
+**On-prem - all traffic to Azure subnet must flow through virtual appliance. How?**
+1. ExpressRoute
+2. Route table w forced tunneling
+   
 **What offers redundant pair of cross connections?** ExpressRoute (acc. to Udemy)   
    
 **VPN Gateways**
