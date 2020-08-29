@@ -179,6 +179,8 @@
 <details>
    <summary>Networking</summary>
    
+**What offers redundant pair of cross connections?** ExpressRoute (acc. to Udemy)   
+   
 **VPN Gateways**
 -  - only VpnGw1+ support active-active gateways
 - Cannot have address in same address space as on prem
