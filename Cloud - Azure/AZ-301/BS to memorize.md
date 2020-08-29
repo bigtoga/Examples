@@ -138,6 +138,12 @@
 
 <details>
    <summary> Logging, Monitoring, Analytics </summary>
+   
+### Log Analytics vs. Azure Monitor - which one?
+- Metrics on Azure infrastructure? AzMon
+- Status on functionality within Azure infrastructure? AzMon (which is which Service Health lives)
+- Notice of security advisories? AzMon, within Service Health
+- 
 
 **Want to monitor on-prem VMs in Azure - how?** - Install Microsoft Monitoring Agent
 
