@@ -63,7 +63,13 @@
 
 <details>
    <summary>Data </summary>
-   
+
+## Azure Data Factory
+
+**Need to copy 500GB of files to Azure - how?**
+- Import/Export
+- ADF
+
 **Azure Data Factory - need to copy files from on-prem into Azure Blob storage. How?**
 - Install the *Integration Runtime*
    
@@ -81,6 +87,11 @@
    
 **MSFT recommended way to migrate database to Azure?** - old way was BACPAC uploaded to Azure BLOB storage   
 
+#### Backups and retention
+
+**Which editions allow long term retention?**
+- All except SQL DW
+
 **Want long term retention of Azure SQL Database backups?** 
 - https://docs.microsoft.com/en-us/azure/azure-sql/database/long-term-retention-overview
 - Full backups taken automatically
@@ -90,6 +101,12 @@
       - Monthly backup retention (M) - first backup of each month will be copied to the long-term storage
       - Yearly backup retention (Y) - one backup during the week specified by WeekOfYear will be copied to the long-term storage
       - Week of year (WeekOfYear) - only used w Y
+
+**What are the default retentions?**
+- Basic - 7 days
+- Standard - 35 days
+- Premium - 35 days
+- SQL DW - snapshots every 7 days
 
 </details>   
 
