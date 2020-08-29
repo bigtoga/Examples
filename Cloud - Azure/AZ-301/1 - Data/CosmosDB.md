@@ -57,6 +57,8 @@ Missing step is that, b/c the mid tier app knows the master key, it creates a us
 
 <details>
   <summary>Misc</summary>
+  
+**MongoDB migration - what has most compatibility?** - "Database", not API or Collection
 
 **How to migrate data from SQL Server into CosmosDB?** 
 - https://docs.microsoft.com/en-us/azure/cosmos-db/import-data#SQL
