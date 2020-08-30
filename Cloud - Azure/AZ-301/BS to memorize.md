@@ -1,3 +1,7 @@
+### Policy, Policies
+
+**Want to apply alerts automatically when a new subscription is added to the EA - how?** - Az Policy
+
 <details>
    <summary>Virtual Machines</summary>
    
