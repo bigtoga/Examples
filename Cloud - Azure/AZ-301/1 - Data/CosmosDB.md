@@ -56,9 +56,20 @@ Missing step is that, b/c the mid tier app knows the master key, it creates a us
 
 
 <details>
-  <summary>Misc</summary>
+  <summary>Migrations</summary>
+
+## From MongoDB 
+
+https://docs.microsoft.com/en-us/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
+
+- Option 1: use Azure Database Migration Service to perform an offline (one-time) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB
+
+- Option 2: Use mongorestore
   
 **MongoDB migration - what has most compatibility?** - "Database", not API or Collection
+
+
+## SQL Server 
 
 **How to migrate data from SQL Server into CosmosDB?** 
 - https://docs.microsoft.com/en-us/azure/cosmos-db/import-data#SQL
