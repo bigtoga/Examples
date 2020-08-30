@@ -53,6 +53,12 @@
 <details>
    <summary>Backups, Azure Site Recovery </summary>
    
+## Permissions for Recovery Services Vaults
+
+- Create new vaults? Contributor
+- Create and manage replication jobs? Site Recovery Contributor
+- Perform failovers? Site Recovery Operator
+   
 - **Does not protect against region failure**
 - **2 hour RTO, 1 day RPO**
 
@@ -72,8 +78,7 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 
 - **Latest multi-VM app-consistent**
 
-
-**Fastest RTO for a VM?** - ARS
+**Fastest RTO for a VM?** - ASR
 
 **RPO for ASR?** 
 - VMs - 1 day
