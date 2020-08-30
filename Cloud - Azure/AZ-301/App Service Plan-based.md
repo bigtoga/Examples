@@ -2,6 +2,9 @@
 # App Service Plans
 **Do I need a storage for my website code?** - no; they come with storage [docs](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans)
 
+### Scenario: App Svc plan accessing local on-prem SQL Server
+
+**How?** - Enable vnet integration. Don't get tricked by "Hybrid Connection Mgr"
 
 # Azure Batch Jobs
 - Require public endpoints
