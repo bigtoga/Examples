@@ -52,6 +52,9 @@
 
 <details>
    <summary>Backups, Azure Site Recovery </summary>
+   
+- **Does not protect against region failure**
+- **2 hour RTO, 1 day RPO**
 
 ## RPO options
 
