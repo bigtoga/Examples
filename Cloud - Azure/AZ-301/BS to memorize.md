@@ -125,6 +125,8 @@
 <details>
    <summary>Identity, Azure AD </summary>
    
+**AD DS - what can it do?** - domain join, group policy, LDAP, Kerberos, NTLM, fully compatible w Windows AD
+   
 **Azure AD Id. Protection vs. PIM?** - almost always going to be PIM
    
 # Which SKUs support...   
