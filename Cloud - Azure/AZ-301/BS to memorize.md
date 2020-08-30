@@ -52,7 +52,24 @@
 
 <details>
    <summary>Backups, Azure Site Recovery </summary>
-   
+
+## RPO options
+
+https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
+
+#### Recovery Point options
+
+- **Latest** - use the latest point. Lowest RPO
+
+- **Latest processed** - Use this option to fail over VMs to the latest recovery point already processed by Site Recovery. You can see the latest processed recovery point in the VM Latest Recovery Points. This option provides a low RTO as no time is spent to processing the unprocessed data
+
+- **Latest app-consistent** - ail VMs over to the latest application consistent recovery point that's been processed by Site Recovery.
+
+- **Latest multi-VM processed** - VMs that are part of a replication group failover to the latest common multi-VM consistent recovery point. Other virtual machines fail over to their latest processed recovery point. This option is only for recovery plans that have at least one VM with multi-VM consistency enabled.
+
+- **Latest multi-VM app-consistent**
+
+
 **Fastest RTO for a VM?** - ARS
 
 **RPO for ASR?** 
