@@ -1,14 +1,4 @@
 <details>
-  <summary>Basics</summary>
-  
-</details>  
-
-<details>
-  <summary>Pricing & SKUs</summary>
-  
-</details>  
-
-<details>
   <summary>High Availability/DR/BC</summary>
 
 **SLA: 99.99%**
