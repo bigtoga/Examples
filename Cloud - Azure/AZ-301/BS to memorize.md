@@ -243,7 +243,13 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 
 <details>
    <summary>Networking</summary>
-   
+
+## ExpressRoute 
+
+**NYC, LA offices. 2 vnets - East US, West US. Offices have ER to 1 vnet.**
+- If vnet in West US goes down, how to route LA users to the East US vnet? BGP
+- HSRP, VRRP - always wrong as they are not supported in ER/high avail. Answer is always BGP
+
 **ExpressRoute and poor VM network perf - how to monitor?** - Network Watcher w IP Flow Verify
 - ExpressRoute = Network Watcher
 - Log Analytics can monitor NSG flow logs but not ER
@@ -254,7 +260,7 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
    
 **What offers redundant pair of cross connections?** ExpressRoute (acc. to Udemy)   
    
-**VPN Gateways**
+## VPN Gateways
 -  - only VpnGw1+ support active-active gateways
 - Cannot have address in same address space as on prem
 - Use /27 CIDR
