@@ -2,14 +2,6 @@
    <summary>Virtual Machines</summary>
    
 **How to visualize the different processes running on VMs?** - Azure Services Map
-   
-## Accelerated Networking   
-
-**Need network optimized compute - what?** - D, F, E, L, M support Accelerated Networking   
-   
-**Accelerated networking - what is it?** - reduces latency, jitter, and CPU utilization
-
-**What settings do you need to enable?** - Single Root I/O Virtualization (SR-IOV)
 
 **How to collect Windows Security logs and store for x years?** - Azure Log Analytics Agent but also Diagnostics Agent
    
@@ -24,6 +16,23 @@
 **What VM types are not supported/allowed by Azure Batch Jobs?**
 - A series
 - Burstable
+
+## HPC
+
+**Which SKUs?** - H and N
+
+**What is RDMA?** - remote direct memory access
+- Requires InfiniBand networking
+- low latency, high bandwidth 
+- Also requires SR-IOV
+   
+## Accelerated Networking   
+
+**Need network optimized compute - what?** - D, F, E, L, M support Accelerated Networking   
+   
+**Accelerated networking - what is it?** - reduces latency, jitter, and CPU utilization
+
+**What settings do you need to enable?** - Single Root I/O Virtualization (SR-IOV)
 
 </details>   
 
@@ -257,5 +266,15 @@
 - Load Balancer
 - Application Gateway
 - VM Scale Sets
+
+**ITSM?** - yes. Using the ITSM Connector with:
+- ServiceNow
+- System Center Service Manager
+- Provance
+- Cherwell
+
+With ITSMC, you can:
+- Create work items in ITSM tool, based on your Azure alerts (metric alerts, Activity Log alerts and Log Analytics alerts)
+- Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
 </details>   
