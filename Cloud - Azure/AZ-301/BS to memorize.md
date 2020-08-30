@@ -283,4 +283,5 @@ With ITSMC, you can:
 - Create work items in ITSM tool, based on your Azure alerts (metric alerts, Activity Log alerts and Log Analytics alerts)
 - Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
+**Wire Data has been replaced by Service Map**
 </details>   
