@@ -199,6 +199,8 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 - Azure Web Jobs
 - Azure Logic App **with recurring trigger** - if that's not in reqs, the answer is "No" for these
 
+**Get email whenever auto-scale event occurs?** - Create an Activity Log alert
+
 </details>   
 
 <details>
