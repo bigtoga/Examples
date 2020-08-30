@@ -220,6 +220,10 @@
 <details>
    <summary>Networking</summary>
    
+**ExpressRoute and poor VM network perf - how to monitor?** - Network Watcher w IP Flow Verify
+- ExpressRoute = Network Watcher
+- Log Analytics can monitor NSG flow logs but not ER
+   
 **On-prem - all traffic to Azure subnet must flow through virtual appliance. How?**
 1. ExpressRoute
 2. Route table w forced tunneling
