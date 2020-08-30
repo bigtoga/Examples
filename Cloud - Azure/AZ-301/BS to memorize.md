@@ -149,6 +149,8 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 <details>
    <summary>Identity, Azure AD </summary>
    
+**Want to enforece WAD security policies?** - Use Pass-through auth.   
+   
 **AD DS - what can it do?** - domain join, group policy, LDAP, Kerberos, NTLM, fully compatible w Windows AD
    
 **Azure AD Id. Protection vs. PIM?** - almost always going to be PIM
@@ -221,6 +223,14 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 **Give ability to view resource usage and performance data only?** - Log Analytics
 
 **Give ability to visualize relationships between application components** - App Insights
+
+**Diagnostic Agent vs. Log Analytics Agent?**
+- Use Log Analytics to capture metrics
+- Use Diagnostics to capture app specific logs
+
+**Collect IIS logs and report on 400 errors - how?**
+1. Install Diagnostics Agent and configure
+2. Set up alerts
 
 </details>   
 
