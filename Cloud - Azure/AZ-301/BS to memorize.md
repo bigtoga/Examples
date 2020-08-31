@@ -198,6 +198,8 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 
 <details>
    <summary>App Services Plan-based</summary>
+   
+# App Service Plans
 
 **Want to run image processing app 1x per hour but not get charged when compute is not running - how?**
 - Azure Functions
@@ -244,6 +246,8 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 <details>
    <summary>Storage</summary>
    
+# Storage
+   
 **StorSimple - uses Azure Storage Blob account to copy snapshots of the data**
    
 **Table storage - SLA?** - 99.99%
@@ -260,6 +264,15 @@ https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-failover
 
 <details>
    <summary>Networking</summary>
+   
+# Networking
+
+- “Service endpoint routes override any BGP or UDR routes for the address prefix match of an Azure service.” https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview
+- The order of prioritization is:
+   1. Service Endpoints
+   2. BGP
+   3. UDRs
+- “If the destination address is for one of Azure’s services, Azure routes the traffic directly to the service over Azure’s backbone network, rather than routing the traffic to the Internet.”
 
 ## ExpressRoute 
 
