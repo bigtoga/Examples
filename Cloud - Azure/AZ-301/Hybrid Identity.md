@@ -1,4 +1,5 @@
 # Seamless SSO
+
 PTA is basically asking Azure AD to offload password verification from the cloud to your local active directory, you get to use extra features not available on Azure by doing that such as **password expiry**: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta#what-is-azure-active-directory-pass-through-authentication
 
 **Seamless SSO** is basically a allowing your users to perform auto login to compatible application while they are inside the corp network, **authentication is using Kerberos**, that’s why your users need a line of sight to your domain controllers: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso#troubleshooting-checklist
