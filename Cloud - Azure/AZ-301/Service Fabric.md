@@ -1,5 +1,4 @@
-<details>
-  <summary>Capacity and Scaling</summary>
+# Capacity and Scaling
 
 SF is built on top of Azure VMs. The `node type` and associated properties determine VM availability, resiliency.
 
@@ -36,4 +35,3 @@ https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-cap
 ## Misc
 **Deallocating the VMSS destroys the cluster**
 
-</details>  
