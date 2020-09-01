@@ -109,6 +109,7 @@ This information is available for you to consume through **geographical map** ov
 
 <details>
   <summary>Misc</summary>
+  
 **Move - have existing TM and want to move {public IP, web app, app svc plan, etc}?** - Delete endpoints, move resource, add endpoint
   
 **Resource groups and TM** - TM is global, not location-specific but it requires a resource group which is location-specific.
