@@ -24,16 +24,6 @@ Products are how APIs are surfaced to developers
 </details>  
 
 <details>
-  <summary>Pricing & SKUs</summary>
-  
-</details>  
-
-<details>
-  <summary>High Availability/DR/BC</summary>
-  
-</details>  
-
-<details>
   <summary>Policies</summary>
   
 **Want to convert XML into JSON, while also stripping headers on output - how many policies do I need?** - 2
