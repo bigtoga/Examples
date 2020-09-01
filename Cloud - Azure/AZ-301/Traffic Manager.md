@@ -1,5 +1,6 @@
 <details> 
   <summary>Routing</summary>
+  
 # Traffic Manager Routing
 https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods
   
@@ -31,6 +32,7 @@ There are **six routing methods available**
 
 <details>
   <summary>Analytics and Real User Measurements</summary>
+  
 # Analytics and RUM
 https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#real-user-measurements
  
@@ -46,6 +48,7 @@ https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#real
 
 <details>
   <summary>Business Continuity / Auto Failover</summary>
+  
 **Can TM survive region failure?** - Yes. Your responsibility though to deploy the resources for the endpoints in multiple regions
   
 # High Availability / DR / BC w Traffic Manager
@@ -66,6 +69,7 @@ Use **Priority Traffic-Routing Method**
 
 <details>
   <summary>Endpoints</summary>
+  
 # Endpoints
 https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoints
   
@@ -95,6 +99,7 @@ https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traf
 
 <details>
   <summary>Traffic View</summary>
+  
 # Traffic View
 https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs#traffic-view
 
