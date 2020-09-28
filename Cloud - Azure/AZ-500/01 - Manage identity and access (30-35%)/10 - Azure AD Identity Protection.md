@@ -8,7 +8,10 @@ Identity Protection can help organizations roll out Azure Multi-Factor Authentic
 
 ## Risk Policies
 
-**User risk policy**
+**User risk policy** - User risk is a calculation of *probability that an identity has been compromised*. Administrators can decide based on this **risk score signal** to enforce organizational requirements. Administrators can choose to:
+1. block access
+2. allow access
+3. allow access but require a password change using Azure AD self-service password reset
 
 **Sign-in risk policy**
 Identity Protection analyzes signals from each sign-in, both real-time and offline, and calculates a risk score based on the probability that the sign-in wasn't performed by the user. Administrators can decide based on this risk score signal to enforce organizational requirements. Administrators can choose to:
