@@ -14,8 +14,9 @@ Azure Active Directory detects **six types of risk detections**:
 - Impossible travel to atypical locations - This risk detection type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior.
 - Sign-ins from infected devices - This risk detection type identifies sign-ins from devices infected with malware, that are known to actively communicate with a bot server.
 - Sign-in from unfamiliar locations - This risk detection type considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations.
+- Sign-ins from IP addresses with suspicious activity - This risk detection type identifies IP addresses from which a high number of failed sign-in attempts were seen, across multiple user accounts, over a short period of time.
 
-Sign-ins from IP addresses with suspicious activity - This risk detection type identifies IP addresses from which a high number of failed sign-in attempts were seen, across multiple user accounts, over a short period of time.
+**Azure AD Premium P1 edition** - advanced detections (such as unfamiliar sign-in properties) are not covered by your license, and will appear under the name *Sign-in with additional risk detected*. Additionally, the risk level and risk detail fields are hidden.
 
 **User risk policy** - User risk is a calculation of *probability that an identity has been compromised*. Administrators can decide based on this **risk score signal** to enforce organizational requirements. Administrators can choose to:
 1. block access
