@@ -11,5 +11,6 @@ Conditional access policy is really a next generation policy that’s built for 
   - Data plane vs. control plane
   - In a switch or router, the control plane is the part that controls where the traffic is to go, but it’s not responsible for the movement of the traffic.
   - The control plane learns the routes, either static or dynamic. The part responsible for moving the traffic is the forwarding plane. 
+  - https://ipwithease.com/difference-between-control-plane-and-data-plane/ 
   
 ![x](https://i.imgur.com/cC4JIhI.png)  
