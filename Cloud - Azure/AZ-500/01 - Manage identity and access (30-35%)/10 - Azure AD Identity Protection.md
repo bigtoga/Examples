@@ -31,6 +31,9 @@ Fraudulent sign-in for one-specific sign-in event. Think "Logging in from China"
 
 If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 
+*Location* - allow you to use **named locations**. You can configure IPv4 or location data.
+- Only IP ranges can be marked as a trusted location
+
 **Difference between User risk and Sign-in policy?** - Frequency. One-time = sign-in risk; repeated = user risk
 
 **Custom Conditional Access policy**
