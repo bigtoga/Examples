@@ -14,3 +14,6 @@ Conditional access policy is really a next generation policy that’s built for 
   - https://ipwithease.com/difference-between-control-plane-and-data-plane/ 
   
 ![x](https://i.imgur.com/cC4JIhI.png)  
+
+
+![x](https://i.imgur.com/VBPo1rW.jpg)
