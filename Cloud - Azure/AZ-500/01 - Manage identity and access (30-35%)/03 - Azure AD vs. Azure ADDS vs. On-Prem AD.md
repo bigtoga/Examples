@@ -2,9 +2,9 @@
 
 | Item  | AAD  | On-Prem AD  | Azure ADDS  | 
 |---|---|---|---|
-| Authentication  | SAML, OAuth, WS-Federation  | Kerberos, NTLM  |   | 
+| Authentication  | SAML, OAuth, WS-Federation  | Kerberos, NTLM  |  Kerberos, NTLM   | 
 | Structure  | Tenant  | Forests, domains, OUs  |   | 
-| Use case  | Global apps  | Local apps, on-prem   |   | 
+| Use case  | Global apps  | Local apps, on-prem   | We don't want to have on-premise DC; lift and shift corporate credentials  | 
 |   |   |   |   | 
 |   |   |   |   | 
 |   |   |   |   | 
@@ -14,3 +14,6 @@
 |   |   |   |   | 
 |   |   |   |   | 
 |   |   |   |   | 
+
+
+![x](https://i.imgur.com/empyTyV.png)
