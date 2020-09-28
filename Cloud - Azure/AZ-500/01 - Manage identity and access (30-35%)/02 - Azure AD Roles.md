@@ -1,12 +1,13 @@
 # Available roles
 
-- Directory Readers - Users in this role can read basic directory information.
 
+## Tenant / Subscription Level
 - Global Administrator / Company Administrator - Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. - Global Administrator - As a best practice, we recommend that you assign this role to **fewer than five people** in your organization
+- Directory Readers - Users in this role can read basic directory information.
+- Billing Administrator - Makes purchases, manages subscriptions, manages support tickets, and monitors service health
+- Security Administrator - Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Information Protection, and Office 365 Security & Compliance Center.
 
-- Billing Administrator - Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
-
-
+## Service Level
 - Application Administrator - Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings.
 
 - Application Developer - Users in this role can create application registrations when the “Users can register applications” setting is set to No.
@@ -38,8 +39,6 @@
 - Exchange Administrator - Users with this role have global permissions within Microsoft Exchange Online, when the service is present.
 
 - Groups Administrator - Users in this role can create/manage groups and its settings like naming and expiration policies.
-
-- Security Administrator - Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Information Protection, and Office 365 Security & Compliance Center.
 
 For most organizations, the security of business assets depends on the integrity of the privileged accounts that administer and manage IT systems. Cyber-attackers focus on privileged access to infrastructure systems (such as Active Directory and Azure Active Directory) to gain access to an organization’s sensitive data.
 
