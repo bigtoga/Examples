@@ -8,18 +8,29 @@ Identity Protection can help organizations roll out Azure Multi-Factor Authentic
 
 ## Risk Policies
 
+Azure Active Directory detects **six types of risk detections**:
+- Users with leaked credentials - When cybercriminals compromise valid passwords of legitimate users, they often share those credentials.
+- Sign-ins from anonymous IP addresses - This risk detection type identifies users who have successfully signed in from an IP address that has been identified as an anonymous proxy IP address.
+- Impossible travel to atypical locations - This risk detection type identifies two sign-ins originating from geographically distant locations, where at least one of the locations may also be atypical for the user, given past behavior.
+- Sign-ins from infected devices - This risk detection type identifies sign-ins from devices infected with malware, that are known to actively communicate with a bot server.
+- Sign-in from unfamiliar locations - This risk detection type considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations.
+
+Sign-ins from IP addresses with suspicious activity - This risk detection type identifies IP addresses from which a high number of failed sign-in attempts were seen, across multiple user accounts, over a short period of time.
+
 **User risk policy** - User risk is a calculation of *probability that an identity has been compromised*. Administrators can decide based on this **risk score signal** to enforce organizational requirements. Administrators can choose to:
 1. block access
 2. allow access
 3. allow access but require a password change using Azure AD self-service password reset
 
 **Sign-in risk policy**
-Identity Protection analyzes signals from each sign-in, both real-time and offline, and calculates a risk score based on the probability that the sign-in wasn't performed by the user. Administrators can decide based on this risk score signal to enforce organizational requirements. Administrators can choose to:
+Fraudulent sign-in for one-specific sign-in event. Think "Logging in from China". Identity Protection analyzes signals from each sign-in, both real-time and offline, and calculates a risk score based on the probability that the sign-in wasn't performed by the user. Administrators can decide based on this risk score signal to enforce organizational requirements. Administrators can choose to:
 1. block access
 2. allow access
 3. allow access but require multi-factor authentication.
 
 If risk is detected, users can perform multi-factor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
+
+**Difference between User risk and Sign-in policy?** - Frequency. One-time = sign-in risk; repeated = user risk
 
 **Custom Conditional Access policy**
 Administrators can also choose to create a custom Conditional Access policy including sign-in risk as an assignment condition.
