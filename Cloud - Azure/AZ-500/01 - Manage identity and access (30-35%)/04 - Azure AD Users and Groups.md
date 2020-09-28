@@ -17,5 +17,5 @@
 
 ## Group Assignment Types
 1. Assigned
-1. Dynamic
-1. Dynamic Device (for Security groups only)
+1. Dynamic - If a member's attributes change, the system reviews your dynamic group rules for the directory to determine if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed)
+1. Dynamic Device (for Security groups only) - If a device's attributes change, the system reviews your dynamic group rules for the directory to determine if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed)
