@@ -26,3 +26,5 @@ Add-AzADGroupMember -MemberUserPrincipalName $user.userPrincipalName -TargetGrou
 
 Get-AzADGroupMember -GroupDisplayName "Junior Admins"
 
+# Clean up everything
+Remove-AzResourceGroup -Name "AZ500LAB01" -Force -AsJob
