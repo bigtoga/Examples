@@ -13,3 +13,5 @@ Misc Notes:
 -  Dynamics CRM uses Azure AD tenant
 
 ![x](https://i.imgur.com/tji1v8f.png)
+
+[Azure AD Admin portal](https://aad.portal.azure.com/)
