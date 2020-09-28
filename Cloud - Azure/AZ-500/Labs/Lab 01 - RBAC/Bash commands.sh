@@ -11,7 +11,8 @@ az ad group create --display-name "Service Desk" --mail-nickname "ServiceDesk"
 
 USER=$(az ad user list --filter "displayname eq 'Dylan Williams'")
 
-# 
+# jq = json query
+# '.[].objectId' = "Find the objectId member off root
 OBJECTID=$(echo $USER | jq '.[].objectId' | tr -d '"')
 
 az ad group member add --group "Service Desk" --member-id $OBJECTID
