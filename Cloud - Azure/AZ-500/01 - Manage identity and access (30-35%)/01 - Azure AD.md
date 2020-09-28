@@ -9,4 +9,7 @@
 - Includes branding, MFA, group access management, and self-service password reset for cloud users
 - Can also buy Azure Active Directory Premium P1 and P2 online
 
+Misc Notes:
+-  Dynamics CRM uses Azure AD tenant
+
 ![x](https://i.imgur.com/tji1v8f.png)
