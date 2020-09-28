@@ -41,5 +41,7 @@ You can deploy templates to management groups, subscriptions, or resource groups
 
 Vendor notes about Mgmt Groups:
 >> "Management groups currently do not support blocking inheritance which may limit its usefullness across subscriptions that require a different support structure such as a production subscription versus a lab subscription.  In those cases RBAC roles should be assigned at the Subscription level."
+
 >> "We recommend using Active Directory groups mapped to the individual Azure RBAC roles. This allows for a significantly simpler management of Azure RBAC using tools and processes that are already familiar."
+
 >> Suggested best practice: align Mgmt Groups to the Subscription and use RBAC mapped to Security Groups
