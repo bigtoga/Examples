@@ -38,3 +38,8 @@ You can deploy templates to management groups, subscriptions, or resource groups
 - Use Azure Resource Manager (ARM) integrations that allow integrations with other Azure services: Azure Cost Management, Privleged Identity Management, and Azure Security Center.
 
 - ✔️ By using management groups, you can reduce your workload and reduce the risk of error by avoiding duplicate assignments. Instead of applying multiple assignments across numerous resources and subscriptions, you can apply the one assignment on the one management group that contains the target resources. This will save time in the application of assignments, creates one point for maintenance, and allows for better controls on who can control the assignment.
+
+Vendor notes about Mgmt Groups:
+>> "Management groups currently do not support blocking inheritance which may limit its usefullness across subscriptions that require a different support structure such as a production subscription versus a lab subscription.  In those cases RBAC roles should be assigned at the Subscription level."
+>> "We recommend using Active Directory groups mapped to the individual Azure RBAC roles. This allows for a significantly simpler management of Azure RBAC using tools and processes that are already familiar."
+>> Suggested best practice: align Mgmt Groups to the Subscription and use RBAC mapped to Security Groups
