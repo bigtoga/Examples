@@ -1,4 +1,21 @@
-Basic and Standard service tiers
+# Tiers
+
+Basic
+- Automatically enabled as part of the Azure platform
+- Always-on traffic monitoring
+- real-time mitigation of common network-level attacks
+- provide the same defenses utilized by Microsoft's online services
+- The entire scale of Azure's global network can be used to distribute and mitigate attack traffic across regions
+- IPv4 and IPv6 Azure public IP addresses
+
+Standard
+- Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms
+- Policies are applied to public IP addresses associated to resources deployed in virtual networks, such as Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances
+- Does not apply to App Service Environments.
+- Real-time telemetry is available through Azure Monitor views during an attack, and for history
+- Rich attack mitigation analytics are available via diagnostic settings
+- Application layer protection can be added through the Azure Application Gateway Web Application Firewall or by installing a 3rd party firewall from Azure Marketplace. 
+- Protection is provided for IPv4 and IPv6 Azure public IP addresses
 
 Mitigates:
 - Volumetric attacks
