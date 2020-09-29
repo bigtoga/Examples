@@ -49,3 +49,9 @@ Option 2:
 2. Manage -> AD Roles -> Roles and assign
 3. Click on the role you want
 4. Click on **Settings** and make changes to "Allow permanent eligible assignment"
+
+**Change maximum length of assignment (i.e. time)?**
+1. Portal -search for Privileged...
+2. Manage -> AD Roles -> Roles and assign
+3. Click on the role you want
+4. Click on **Settings** and make changes to "Allow permanent eligible assignment" and "Allow permanent active assignment"
