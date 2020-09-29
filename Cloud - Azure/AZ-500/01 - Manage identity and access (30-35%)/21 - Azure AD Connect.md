@@ -8,7 +8,7 @@ Jeff: I think of Password hash sync and Pass-through Auth. as alternatives, use 
 | MFA supported?  	|   	|  x 	|   	|   	|
 | Self-service password reset supported?  	|   	|  x 	|   	|   	|
 | Supported in **Free** edition  	|   	|  x 	|   	|   	|
-|   	|   	|   	|   	|   	|
+| Supports password expiration  	|   	|   x	|   	|   	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
