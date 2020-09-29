@@ -1,3 +1,5 @@
+![x](https://i.imgur.com/D573l9E.png)
+
 # Why use Azure Firewall?
 
 - Stateful "Firewall as a service" - fully managed, cloud-based network security
