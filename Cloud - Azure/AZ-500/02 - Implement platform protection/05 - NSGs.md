@@ -4,3 +4,6 @@ Defaults:
 
 Outside In, Inside Out
 
+# Planning Network Security Groups
+
+You create NSGs as resources in a resource group, but you can share them with other resource groups in your subscription.
