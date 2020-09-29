@@ -19,6 +19,8 @@ Jeff: I think of Password hash sync and Pass-through Auth. as alternatives, use 
 
 # Password Hash Synchronization
 
+ It is important to understand that this is same sign-in, not single sign-on. The user still authenticates against two separate directory services, albeit with the same user name and password. This solution provides a simple alternative to an AD FS implementation.
+
 ## Password Writeback
 
 - By default, disabled - one-way sync "from on-prem to the cloud". 
