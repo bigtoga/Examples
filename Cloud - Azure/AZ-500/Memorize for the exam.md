@@ -36,3 +36,10 @@ Option 1:
 Option 2: 
 1. In portal, go to Tenant -> Users -> Click on **Multi-factor Authentication** at the top
 5. Click on **service settings**
+
+
+# Priviliged Identity Management
+
+**Grant someone privileged role use for a period**
+1. Portal -search for Privileged...
+2. Manage -> AD Roles -> Roles and assign
