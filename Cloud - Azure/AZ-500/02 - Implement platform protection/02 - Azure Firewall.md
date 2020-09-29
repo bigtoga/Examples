@@ -17,6 +17,7 @@
 - Layer 3 - 7 (create connectivbity policies for these)
 - Application level FQDN filtering rules
 - FQDN tags
+    - For example, to manually allow Windows Update network traffic through your firewall, you need to create multiple application rules per the Microsoft documentation. Using FQDN tags, you can create an application rule, include the Windows Updates tag, and now network traffic to Microsoft Windows Update endpoints can flow through your firewall.
 - Network traffic filtering rules
 - Outbound SNAT
 - Inbound DNAT
