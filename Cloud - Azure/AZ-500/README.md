@@ -3,6 +3,8 @@ https://docs.microsoft.com/en-us/learn/certifications/exams/az-500
 
 Labs - https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/tree/master/Instructions/Labs
 
+Links to exam topics: https://gist.github.com/pmfsousa/def9da7fd358aaf47e05854972f8fb43
+
 # Audience Profile
 Candidates for this exam should have subject matter expertise implementing security controls
 and threat protection, managing identity and access, and protecting data, applications, and
