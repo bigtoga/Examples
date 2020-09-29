@@ -9,6 +9,7 @@
 - Jeff: "I would expect you get better performance from Azure Firewall than your on-premise device"
 - $900/mth
 - Look for throughput, latency
+- No IPS capabilities
 
 # What do you monitor with Az Firewall?
 - Layer 3 - 7 (create connectivbity policies for these)
