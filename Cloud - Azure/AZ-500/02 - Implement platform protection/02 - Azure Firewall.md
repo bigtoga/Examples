@@ -5,7 +5,10 @@
 - Built in high availability
 - Supports hybrid connectivity
 
-# Implementing Azure Firewall
+# Performance and Cost?
+- Jeff: "I would expect you get better performance from Azure Firewall than your on-premise device"
+- $900/mth
+- Look for throughput, latency
 
 # What do you monitor with Az Firewall?
 - Layer 3 - 7 (create connectivbity policies for these)
