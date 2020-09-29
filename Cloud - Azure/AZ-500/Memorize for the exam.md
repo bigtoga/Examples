@@ -43,3 +43,9 @@ Option 2:
 **Grant someone privileged role use for a period**
 1. Portal -search for Privileged...
 2. Manage -> AD Roles -> Roles and assign
+
+**Prevent permanent eligible assignment**
+1. Portal -search for Privileged...
+2. Manage -> AD Roles -> Roles and assign
+3. Click on the role you want
+4. Click on **Settings** and make changes to "Allow permanent eligible assignment"
