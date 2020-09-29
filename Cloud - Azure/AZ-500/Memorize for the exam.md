@@ -1,5 +1,9 @@
 # Identity Management
 
+## Conditional Access Policies
+
+**Require MFA for Azure portal?** - Tenant -> Security -> Conditional Access -> New Policy -> Cloud Apps -> Select users -> Grant -> Require MFA
+
 ## MFA
 
 **How to enable / change MFA?** - In portal, search for Multi-Factor Authentication
