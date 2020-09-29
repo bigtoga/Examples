@@ -32,3 +32,4 @@ Jeff: I think of Password hash sync and Pass-through Auth. as alternatives, use 
     - You invite external users into your own tenant as “guest” users that you can then assign permissions to (for authorization) while still allowing them to keep using their existing credentials (for authentication) inside their own organization
 - **Azure AD B2C** (Business to Consumer, Customer or even Citizen) - This is a separate directory service (but still built on top of the global Azure AD infrastructure) which enables you to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
 
+![x](https://i.imgur.com/KORUGIM.png)
