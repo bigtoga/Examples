@@ -1,3 +1,7 @@
+# Best practices
+
+Ensure there are always at least 2 Privileged Role Administrators
+
 # Workflow
 
 |  Step | Who?  |  Notes |
