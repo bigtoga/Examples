@@ -27,6 +27,20 @@ Jeff: I think of Password hash sync and Pass-through Auth. as alternatives, use 
 - Requires P1 or P2
 - Removes need to set up on-prem SSPR solution
 
+Password writeback provides:
+
+Enforcement of on-premises Active Directory password policies. When a user resets their password, it is checked to ensure it meets your on-premises Active Directory policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
+
+Zero-delay feedback. Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.
+
+Supports password changes from the access panel and Office 365. When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to your local Active Directory environment.
+
+Supports password writeback when an admin resets them from the Azure portal. Whenever an admin resets a user’s password in the Azure portal, if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
+
+Doesn’t require any inbound firewall rules. Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
+
+✔️ To use SSPR you must have already configured Azure AD Connect in your environment.
+
 # Pass-through Authentication
 
 Supports user sign-in into all web browser-based applications and into Microsoft Office client applications that use modern authentication.
@@ -50,21 +64,6 @@ Installing multiple agents provides high availability of sign-in requests.
 PTA protects your on-premises accounts against brute force password attacks in the cloud.
 
 ✔️ This feature can be configured without using a federation service so that any organization, regardless of size, can implement a hybrid identity solution. Pass-through authentication is not only for user sign-in but allows an organization to use other Azure AD features, such as password management, role-based access control, published applications, and conditional access policies.
-
-# Federation
-Password writeback provides:
-
-Enforcement of on-premises Active Directory password policies. When a user resets their password, it is checked to ensure it meets your on-premises Active Directory policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
-
-Zero-delay feedback. Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.
-
-Supports password changes from the access panel and Office 365. When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to your local Active Directory environment.
-
-Supports password writeback when an admin resets them from the Azure portal. Whenever an admin resets a user’s password in the Azure portal, if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
-
-Doesn’t require any inbound firewall rules. Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
-
-✔️ To use SSPR you must have already configured Azure AD Connect in your environment.
 
 # Azure Active Directory External Identities Decision Tree
 
