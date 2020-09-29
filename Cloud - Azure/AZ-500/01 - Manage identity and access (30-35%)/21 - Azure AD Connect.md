@@ -12,7 +12,7 @@ Jeff: I think of Password hash sync and Pass-through Auth. as alternatives, use 
 | Requires on-prem DC to auth  	|   	|  x 	|   x	|   	|
 | Requires P1 or P2  	|   	|   	|   x	|   	|
 | Azure AI/ML can notify you of breached credentials/leaks  	|   	|  x 	|   	|   	|
-| Tenant level - applies to all domains in tenant  	|   	|   	|   	|   	|
+| Tenant level - applies to all domains in tenant  	|   	|   x	|   	|   	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|
