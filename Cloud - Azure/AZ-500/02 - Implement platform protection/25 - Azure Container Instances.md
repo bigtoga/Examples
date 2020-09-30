@@ -12,6 +12,9 @@
 
 # ACI
 
+Azure Container Instances (ACI), is a PaaS service for scenarios that can operate in isolated containers, including simple applications, task automation, and build jobs
+  - For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend Azure Kubernetes Service.
+
 - PaaS 
 - Custom sizes - fast startup times
 - Public IP and DNS 
@@ -21,3 +24,6 @@
 - Persistent storage 
 - -Linux and Windows 
 - Virtual network deployments
+
+### ACI vs. AKS
+Use AKS for massive apps that need to do dynamic discovery of other services in the environment
