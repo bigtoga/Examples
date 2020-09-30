@@ -16,14 +16,18 @@ Azure Container Instances (ACI), is a PaaS service for scenarios that can operat
   - For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend Azure Kubernetes Service.
 
 - PaaS 
-- Custom sizes - fast startup times
-- Public IP and DNS 
-- Hypervisor-level security
+- Custom sizes - faster startup times than VMs (seconds)
+- Container access
+    - You expose your container groups directly to the internet with a **public IP address and a fully qualified domain name (FQDN)**. When you create a container instance, you can specify a custom DNS name label so your application is reachable at customlabel.azureregion.azurecontainer.io.
+    - Also supports executing a command in a running container by providing an interactive shell to help with application development and troubleshooting. Access takes places over **HTTPS**, using TLS to secure client connections
+- Container deployment - Deploy containers from DockerHub or Azure Container Registry
+- Hypervisor-level security - Historically, containers have offered application dependency isolation and resource governance but have not been considered sufficiently hardened for hostile multi-tenant usage. Azure Container Instances guarantees your application is as isolated in a container as it would be in a VM.
 - Isolation
 - Co-scheduled groups
 - Persistent storage 
 - -Linux and Windows 
-- Virtual network deployments
+- Virtual network deployments - can deploy into a subnet within your virtual network
+- Billing - Supports per-GB, per-CPU, and per-second billing
 
 ### ACI vs. AKS
 Use AKS for massive apps that need to do dynamic discovery of other services in the environment
