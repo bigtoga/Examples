@@ -2,6 +2,12 @@ Jeff on implementing K8s: 'I think it came about because someone at Google was l
 
 # Kubernetes cluster architecture
 
+Two types of nodes:
+1. Azure managed nodes that manage the cluster - cluster master
+2. Customer-managed nodes that run workloads
+
+![x](https://i.imgur.com/KTkF8ex.png)
+
 ## Cluster master
 When you create an AKS cluster, a cluster master is automatically created and configured. 
 - managed Azure resource abstracted from the user
