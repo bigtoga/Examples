@@ -49,3 +49,5 @@ Maintain an accurate audit trail of administrative access to your container ecos
 - Integration of Azure Kubernetes Service with Azure Security Center to monitor the security configuration of the cluster environment and generate security recommendations
 - Azure Container Monitoring solution
 - Resource logs for Azure Container Instances and Azure Container Registry
+
+![x](https://i.imgur.com/qNzkrcS.png)
