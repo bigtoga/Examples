@@ -32,3 +32,12 @@ echo $ACRNAME
 
 # Edit the yaml file - this is the external yaml file.
 code ./nginxexternal.yaml
+
+# Edit the file then apply the changes
+kubectl apply -f nginxexternal.yaml
+
+############################
+
+# Verify the public IP
+kubectl get service nginxexternal
+
