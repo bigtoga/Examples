@@ -38,6 +38,33 @@ kubectl apply -f nginxexternal.yaml
 
 ############################
 
+# Create a public facing endpoint:
+
 # Verify the public IP
 kubectl get service nginxexternal
+
+###########################
+
+# Create an internal only endpoint
+
+code ./nginxinternal.yaml
+
+kubectl apply -f nginxinternal.yaml
+
+kubectl get service nginxinternal
+
+###########################
+kubectl get pods
+
+# connect interactively to the first pod
+kubectl exec -it nginxexternal-597889cf74-hwvzg -- /bin/bash
+
+# Connect to the internal IP
+curl http://10.0.85.18 
+
+
+
+
+
+
 
