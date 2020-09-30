@@ -26,3 +26,9 @@ ACRNAME=$(az acr list --resource-group AZ500LAB09 --query '[].{Name:name}' --out
 # Grant "pull" role assignment to the ACR
 az aks update -n MyKubernetesCluster -g AZ500LAB09 --attach-acr $ACRNAME
 
+###########################
+
+echo $ACRNAME
+
+# Edit the yaml file - this is the external yaml file.
+code ./nginxexternal.yaml
