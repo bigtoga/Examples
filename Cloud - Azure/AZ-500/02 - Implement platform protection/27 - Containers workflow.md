@@ -9,7 +9,7 @@
 <pre>
 
 graph TD
-  A[Dev/Admin Laptop] -->|Install Docker| B(Build container)
+  A(Dev/Admin Laptop) -->|Install Docker| B(Build container)
   B --> C(Create image)
   C -->|Powershell, Azure CLI| D(Login to Registry)
   D -->| E(Publish to Registry)
@@ -18,7 +18,7 @@ graph TD
 
 
 graph TD
-  A[Dev/Admin Laptop] -->|Install Docker| B(Build container)
+  A(Dev/Admin Laptop) -->|Install Docker| B(Build container)
   B --> C(Create image)
   C -->|Powershell, Azure CLI| D(Login to Registry)
   D -->| E(Publish to Registry)
