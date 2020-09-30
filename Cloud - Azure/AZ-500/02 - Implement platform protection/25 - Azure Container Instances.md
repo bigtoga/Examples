@@ -31,3 +31,17 @@ Azure Container Instances (ACI), is a PaaS service for scenarios that can operat
 
 ### ACI vs. AKS
 Use AKS for massive apps that need to do dynamic discovery of other services in the environment
+
+## Authentication to ACI
+
+**Recommended ways** include
+1. Authenticate to a registry directly via individual login
+2. Headless - your applications and container orchestrators can perform unattended authentication by using an Azure Active Directory (Azure AD) service principal
+
+|  Identity 	| Use case  	| Details   	|
+|---	|---	|---	|
+| Azure AD identities including user and service principals  	|  Unattended push from DevOps, unattended pull to Azure or external services using `az acr login`	|   RBAC: Reader, Contributor, Owner	|
+|  Individual AD Identity	| Interactive push/pull by developers and testers  	|   	|
+| Admin users  	| Interactive push/pull by individual developers and testers  	|  Disabled by default 	|
+
+
