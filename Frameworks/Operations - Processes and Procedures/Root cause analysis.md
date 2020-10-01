@@ -1,9 +1,9 @@
 Overview 
 	Quick 
-		Is it over? 
-		Is everything repaired and working 100%? 
-		Is it likely to happen again soon?
-		Do we need to involve any other teams right away? 
+	- Is it over? 
+	- Is everything repaired and working 100%? 
+	- Is it likely to happen again soon?
+	- Do we need to involve any other teams right away? 
 	
 	Orientation 
 	- What was affected?
