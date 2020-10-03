@@ -1,3 +1,9 @@
+# Policies
+
+**Anti-malware reference?** 
+- Microsoft.Compute/virtualMachines/extensions/type/**IaaSAntiMalware**
+- Microsoft.Compute/virtualMachines/extensions/publisher/**Microsoft.Azure.Security**
+
 # Identity Management
 
 ## Conditional Access Policies
