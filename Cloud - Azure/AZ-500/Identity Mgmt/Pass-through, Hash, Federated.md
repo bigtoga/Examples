@@ -4,6 +4,8 @@
 
 **We want to minimize servers needed - how?** - Pass-through w seamless SSO (ADFS would require more servers)
 
+**Want leaked credentials report?** - Has to use Password Hash in some way but can also use Seamless SSO or Federated. One variant has both Pass-thru and Hash w Seamless SSO
+
 # Flowchart 
 
 From https://docs.microsoft.com/en-us/azure/active-directory/hybrid/choose-ad-authn
