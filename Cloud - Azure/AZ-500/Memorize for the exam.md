@@ -1,5 +1,6 @@
 - Tagging is not an "administrative action" thus it will not trigger alerts
 - Disks for VMs are under `Microsoft.Compute/disks`
+- Just in time requires "Standard" version of Security Center, not default of Basic
 
 # Policies
 
