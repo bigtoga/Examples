@@ -8,6 +8,8 @@
 
 # Identity Management
 
+**Have 1 dynamic group for all users and devices. What is best practice?** - 2 new groups, 1 for users and 1 for devices
+
 ## Conditional Access Policies
 
 **Require MFA for Azure portal?** - Tenant -> Security -> Conditional Access -> New Policy -> Cloud Apps -> Select users -> Grant -> Require MFA
