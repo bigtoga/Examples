@@ -1,4 +1,5 @@
 - Tagging is not an "administrative action" thus it will not trigger alerts
+- Disks for VMs are under `Microsoft.Compute/disks`
 
 # Policies
 
