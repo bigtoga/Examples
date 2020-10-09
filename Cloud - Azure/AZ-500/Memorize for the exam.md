@@ -1,3 +1,5 @@
+- Tagging is not an "administrative action" thus it will not trigger alerts
+
 # Policies
 
 **Anti-malware reference?** 
