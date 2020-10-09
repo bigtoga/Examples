@@ -1,4 +1,44 @@
-# How to ensure the auto-generated service principal is able to auth. to ACR?
+
+<details> 
+  <summary>Deploy AKS and allow AAD users to authenticate?</summary>
+
+# Deploy AKS and allow AAD users to authenticate?
+
+1. Create a server application
+2. Create a client application
+3. Deploy the AKS cluster
+4. Create an RBAC binding
+
+https://docs.microsoft.com/en-us/azure/aks/azure-ad-integration-cli
+
+```shell
+aksname="myakscluster"
+
+# Step 1: Server app. This is the endpoint for the identity requests
+serverApplicationId=$(az ad app create \
+    --display-name "${aksname}Server" \
+    --identifier-uris "https://${aksname}Server" \
+    --query appId -o tsv)
+
+# Update the application group membership claims
+az ad app update --id $serverApplicationId --set groupMembershipClaims=All
+
+# Create a service principal for the Azure AD application
+az ad sp create --id $serverApplicationId
+
+# Get the service principal secret
+serverApplicationSecret=$(az ad sp credential reset \
+    --name $serverApplicationId \
+    --credential-description "AKSPassword" \
+    --query password -o tsv)
+```
+
+</details>
+
+<details> 
+  <summary>How to ensure the auto-generated service principal is able to auth. to ACR?</summary>
+  
+  # How to ensure the auto-generated service principal is able to auth. to ACR?
 
 - https://thorsten-hans.com/3-ways-to-integrate-acr-with-aks
 
@@ -83,3 +123,4 @@ az aks update -n $AKS_NAME -g $RG_NAME \
    --attach-acr $(az acr show -n $ACR_NAME --query "id" -o tsv)
 
 ```
+</details>
