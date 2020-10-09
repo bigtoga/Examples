@@ -16,6 +16,9 @@ A SAS is a URL, so anyone who obtains the SAS can use it. It doesn't matter who 
     - If you intend to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.
 4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all applications that use the previous key to fail authentication. Update all components to the new key.
 
+>> A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
+
+
 
 
 
