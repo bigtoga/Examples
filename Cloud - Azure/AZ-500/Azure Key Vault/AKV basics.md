@@ -1,4 +1,4 @@
-# Soft-delete
+# Soft-delete and Purge
 
 https://docs.microsoft.com/en-us/azure/key-vault/general/soft-delete-overview#scenarios
 
@@ -19,3 +19,8 @@ Key Vault's soft-delete feature:
 
 Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
+
+**Want to make sure any deleted secrets are retained for 90 days - how?**
+- Enable purge protection
+
+`New-AzKeyVault ... -EnablePurgeProtection`
