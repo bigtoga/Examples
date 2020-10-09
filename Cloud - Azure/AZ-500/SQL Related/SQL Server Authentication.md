@@ -1,4 +1,10 @@
-**Azure SQL Database supports AAD - how to minimize authentication prompts?** - Active Directory - Integrated
+**When to use each?**
+- Active Directory - Integrated
+    - When you have already logged into your on-prem domain
+    - When you want to minimize auth. prompts
+- Application token authentication
+    - Not for humans; for apps
+
 
 **Connect Web App to Azure SQL?** 
 1. AAD - create a system assigned managed identity
