@@ -6,9 +6,9 @@ https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-o
 
 # Scope of ASGs
 
-ASGs are scoped to a resource group
-- Cannot include "things" that are not in the same resource group
-- Can be applied to all subnets and vnets in the rg
+ASGs are scoped to a single virtual network
+- Cannot include "things" that are not in the same vnet
+- Can be applied to all subnets of the vnet
 
 Powershell resources
 - [Add a NIC to an ASG](https://docs.microsoft.com/en-us/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-4.7.0)
