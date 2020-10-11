@@ -1,3 +1,12 @@
+# Authentication 
+
+**Want to ensure Azure AD accounts can authenticate to Azure SQL database - how?**
+- Create a second SQL admin based on an Azure AD account
+  - It's actually created as a container user in `master`
+  
+**How to create contained user for Azure AD user?**
+- `CREATE USER "name@tenant.onmicrosoft.com" FROM EXTERNAL PROVIDER`
+
 # Advanced Threat Protection
 
 Part of **Azure Defender**
