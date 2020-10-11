@@ -43,7 +43,7 @@
 </details>
 
 <details>
-  <summary> # Identity Management  </summary>
+  <summary> Identity Management  </summary>
   
 # Identity Management
 
@@ -88,6 +88,10 @@ Option 2:
 
 ## Priviliged Identity Management
 
+**Requirements?**
+- P2
+- Global administrator
+
 **Grant someone privileged role use for a period**
 1. Portal -search for Privileged...
 2. Manage -> AD Roles -> Roles and assign
@@ -103,6 +107,11 @@ Option 2:
 2. Manage -> AD Roles -> Roles and assign
 3. Click on the role you want
 4. Click on **Settings** and make changes to "Allow permanent eligible assignment" and "Allow permanent active assignment"
+
+## Dynamic Groups
+
+- Queries are not case sensitive
+- Can use * as wildcard: "\*on" matches on anything that ends in "on" 
 
 </details>
 
