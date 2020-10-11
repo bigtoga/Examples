@@ -1,7 +1,16 @@
 - Tagging is not an "administrative action" thus it will not trigger alerts
 - Just in time requires "Standard" version of Security Center, not default of Basic
+
+
+<details>
+  <summary> Transfering subscriptions, tenants </summary>
+  
 - Transfer subscription to new tenant = Owner
 
+**How to transfer billing ownership?** - Azure portal
+
+<details>
+  
 <details>
   <summary> VMs </summary>
   
