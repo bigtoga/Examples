@@ -1,6 +1,4 @@
 - Tagging is not an "administrative action" thus it will not trigger alerts
-- Just in time requires "Standard" version of Security Center, not default of Basic
-
 
 <details>
   <summary> Transfering subscriptions, tenants </summary>
@@ -128,6 +126,18 @@ Option 2:
 </details>
 
 <details>
+  <summary> Just in Time </summary>
+
+- Just in time requires "Standard" version of Security Center, not default of Basic  
+
+**ARM templates for RBAC?**
+- Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action
+- Microsoft.Compute/virtualMachines/read
+
+</details>
+
+<details>
   <summary>  </summary>
   
 </details>
+
