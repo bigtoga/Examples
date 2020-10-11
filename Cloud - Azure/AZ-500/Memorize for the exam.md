@@ -11,6 +11,13 @@
 
 **Disk encryption requirements?** - Cannot use A-series VMs
 
+**How to enable disk encryption?**
+1. Create an Azure Key Vault
+2. Configure an Azure Key Vault access policy
+3. Run `Set-AzVMDiskEncryptionExtension`
+- https://docs.microsoft.com/en-us/azure/security/fundamentals/azure-disk-encryption-vms-vmss
+- https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-overview
+
 **ARM Template settings for Log Analytics deployment w VM?**
 - settings: workspaceId
 - protectedSettings: workspaceKey
