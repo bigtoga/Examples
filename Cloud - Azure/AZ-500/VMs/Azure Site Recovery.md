@@ -12,6 +12,9 @@
 - Recovery Services vault
 - Log Analytics workspace to store Site Recovery logs
 
+**How to store `AzureBackupReport` logs?**
+- 3 options: Storage account, Event Hub, Log Analytics
+
 ## Queries for ASR
 
 Pie chart of replication health
