@@ -5,6 +5,8 @@
 
 **Terminate TLS traffic in AKS?** - AKS Ingress Controller
 
+**Permissions for AKS cluster to access ACR?** - service principal
+
 <details> 
   <summary>Deploy AKS and allow AAD users to authenticate?</summary>
 
