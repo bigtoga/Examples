@@ -1,4 +1,10 @@
 
+**How to do reverse proxy in AKS?** - AKS Ingress Controller - https://docs.microsoft.com/en-us/azure/aks/ingress-basic
+
+**Load balance natively in AKS?** - AKS Ingress Controller (runs NGINX behind the scenes)
+
+**Terminate TLS traffic in AKS?** - AKS Ingress Controller
+
 <details> 
   <summary>Deploy AKS and allow AAD users to authenticate?</summary>
 
