@@ -16,6 +16,8 @@
 
 - Disks for VMs are under `Microsoft.Compute/disks`
 
+**How to capture all network packets sent to a VM?** - Network Watcher and **variable packet capture**
+
 ### Azure Security Application Controls
 
 Part of Security Center. Also known as **adaptive application controls**
