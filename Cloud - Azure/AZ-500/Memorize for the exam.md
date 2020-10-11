@@ -16,7 +16,14 @@
 
 - Disks for VMs are under `Microsoft.Compute/disks`
 
+### Log Analytics integration 
+
 **How to ensure that System event logs from VMs are logged in LAW?** - LAW -> Advanced Settings -> Data -> Windows Event Logs -> Enter "System"
+
+**How to deploy LAW to all VMs?** 
+- enable Automatic provisioning (once enabled, it is enabled on all existing and new VMs)
+- Off by default
+- Automatic provisioning is "strongly recommended" (source: https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection)
 
 ### Disk encryption 
 
