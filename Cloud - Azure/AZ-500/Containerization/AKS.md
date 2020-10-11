@@ -7,6 +7,12 @@
 
 **Permissions for AKS cluster to access ACR?** - service principal
 
+**Enable pod security policies on a cluster?**
+- `az aks update --resource-group myRG --name myAKSCluster --enable-pod-security-policy`
+- https://docs.microsoft.com/en-us/azure/aks/use-pod-security-policies
+- Deprecated; use Azure Policy for AKS instead!
+
+
 <details> 
   <summary>Deploy AKS and allow AAD users to authenticate?</summary>
 
