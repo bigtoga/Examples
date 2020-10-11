@@ -1,18 +1,20 @@
 - Tagging is not an "administrative action" thus it will not trigger alerts
-- Disks for VMs are under `Microsoft.Compute/disks`
+
 - Just in time requires "Standard" version of Security Center, not default of Basic
 
 <details>
-  <summary> # VMs </summary>
+  <summary> VMs </summary>
   
 # VMs 
+
+- Disks for VMs are under `Microsoft.Compute/disks`
 
 **Disk encryption requirements?** - Cannot use A-series VMs
 
 </details>
 
 <details>
-  <summary> # Policies </summary>
+  <summary> Policies </summary>
   
 # Policies
 
@@ -87,6 +89,6 @@ Option 2:
 </details>
 
 <details>
-  <summary> #  </summary>
+  <summary>  </summary>
   
 </details>
