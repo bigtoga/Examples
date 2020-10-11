@@ -2,12 +2,29 @@
 - Disks for VMs are under `Microsoft.Compute/disks`
 - Just in time requires "Standard" version of Security Center, not default of Basic
 
+<details>
+  <summary> # VMs </summary>
+  
+# VMs 
+
+**Disk encryption requirements?** - Cannot use A-series VMs
+
+</details>
+
+<details>
+  <summary> # Policies </summary>
+  
 # Policies
 
 **Anti-malware reference?** 
 - Microsoft.Compute/virtualMachines/extensions/type/**IaaSAntiMalware**
 - Microsoft.Compute/virtualMachines/extensions/publisher/**Microsoft.Azure.Security**
 
+</details>
+
+<details>
+  <summary> # Identity Management  </summary>
+  
 # Identity Management
 
 **Have 1 dynamic group for all users and devices. What is best practice?** - 2 new groups, 1 for users and 1 for devices
@@ -49,8 +66,7 @@ Option 2:
 1. In portal, go to Tenant -> Users -> Click on **Multi-factor Authentication** at the top
 5. Click on **service settings**
 
-
-# Priviliged Identity Management
+## Priviliged Identity Management
 
 **Grant someone privileged role use for a period**
 1. Portal -search for Privileged...
@@ -67,3 +83,10 @@ Option 2:
 2. Manage -> AD Roles -> Roles and assign
 3. Click on the role you want
 4. Click on **Settings** and make changes to "Allow permanent eligible assignment" and "Allow permanent active assignment"
+
+</details>
+
+<details>
+  <summary> #  </summary>
+  
+</details>
