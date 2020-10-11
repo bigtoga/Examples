@@ -16,6 +16,8 @@
 
 - Disks for VMs are under `Microsoft.Compute/disks`
 
+**How to ensure that System event logs from VMs are logged in LAW?** - LAW -> Advanced Settings -> Data -> Windows Event Logs -> Enter "System"
+
 ### Disk encryption 
 
 - Azure Key Vault is regional 
