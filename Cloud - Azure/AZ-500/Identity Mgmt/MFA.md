@@ -1,3 +1,14 @@
+# Enabled, Enforced, and Disabled 
+
+Users can have 3 states:
+- Disabled
+- Enabled - user has not gone through MFA onboarding. When they log in, they will be required to onboard and MFA
+- Enforced - user has gone through MFA onboarding; MFA required for everything now
+- https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates
+
+Remember that Conditional Access takes precendence over any individual user settings!
+
+
 # Options and their meaning
 
 https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks
