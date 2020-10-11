@@ -17,4 +17,7 @@ https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/over
 - Impossible travels to atypical locations
 - Sign-in from unfamiliar locations
 
+**Low**
+- Sign-in from infected devices
+
 
