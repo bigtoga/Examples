@@ -1,4 +1,5 @@
 - Tagging is not an "administrative action" thus it will not trigger alerts
+- Azure Firewall requires that you create a new subnet first named `AzureFirewallSubnet`
 
 <details>
   <summary> Transfering subscriptions, tenants </summary>
