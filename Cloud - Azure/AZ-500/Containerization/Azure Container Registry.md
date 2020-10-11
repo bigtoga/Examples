@@ -10,6 +10,9 @@
 - AcrPush
 - Contributor
 
+**Who can download images to ACR?**
+- All except AcrImageSigner
+
 **Who can delete images in ACR?**
 - AcrDelete
 - Contributor
