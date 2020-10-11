@@ -11,6 +11,11 @@
 
 **Disk encryption requirements?** - Cannot use A-series VMs
 
+**ARM Template settings for Log Analytics deployment w VM?**
+- settings: workspaceId
+- protectedSettings: workspaceKey
+- https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-windows
+
 </details>
 
 <details>
