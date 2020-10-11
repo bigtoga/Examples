@@ -16,6 +16,23 @@
 
 - Disks for VMs are under `Microsoft.Compute/disks`
 
+### Azure Security Application Controls
+
+Part of Security Center. Also known as **adaptive application controls**
+
+https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application
+
+- Requires Azure Defender for servers
+- Supported on Azure VMs, on-prem, Azure Arc enabled VMs
+- Permissions: 
+    - Contributor and Security Admin can edit, list
+    - Security Reader, Reader can view groups and lists of known-safe apps
+
+**How to prevent unwanted software running on VMs?** = Azure Security Application Controls
+
+**How to block attempts to run malicious apps?** = Azure Security Application Controls
+
+-------------------------------------------
 ### Log Analytics integration 
 
 **How to ensure that System event logs from VMs are logged in LAW?** - LAW -> Advanced Settings -> Data -> Windows Event Logs -> Enter "System"
@@ -25,6 +42,12 @@
 - Off by default
 - Automatic provisioning is "strongly recommended" (source: https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection)
 
+**ARM Template settings for Log Analytics deployment w VM?**
+- settings: workspaceId
+- protectedSettings: workspaceKey
+- https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-windows
+
+-------------------------------------------
 ### Disk encryption 
 
 - Azure Key Vault is regional 
@@ -39,11 +62,6 @@
 - https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-overview
 
 
-
-**ARM Template settings for Log Analytics deployment w VM?**
-- settings: workspaceId
-- protectedSettings: workspaceKey
-- https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-windows
 
 </details>
 
