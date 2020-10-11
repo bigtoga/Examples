@@ -1,6 +1,6 @@
 - Tagging is not an "administrative action" thus it will not trigger alerts
-
 - Just in time requires "Standard" version of Security Center, not default of Basic
+- Transfer subscription to new tenant = Owner
 
 <details>
   <summary> VMs </summary>
