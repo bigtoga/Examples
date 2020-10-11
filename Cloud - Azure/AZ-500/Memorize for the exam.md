@@ -9,7 +9,7 @@
 
 **How to transfer billing ownership?** - Azure portal
 
-<details>
+</details>
   
 <details>
   <summary> VMs </summary>
@@ -48,6 +48,9 @@
 **Anti-malware reference?** 
 - Microsoft.Compute/virtualMachines/extensions/type/**IaaSAntiMalware**
 - Microsoft.Compute/virtualMachines/extensions/publisher/**Microsoft.Azure.Security**
+
+**Resource groups?**
+- Microsoft.Resources/subscriptions/resourceGroups
 
 </details>
 
