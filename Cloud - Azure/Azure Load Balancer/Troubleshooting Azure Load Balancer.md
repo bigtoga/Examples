@@ -1,21 +1,23 @@
 # Resources
 - [Troubleshoot load balancer VM connectivity](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
 
-# Basic Steps
-
-Assumptions:
-- Port 80 website
+**Assumptions**:
+- Port 80 website (simplest test)
 - IP range of 10.10.10.4,5 for 2 backend VMs
 - Load balancer and VMs are in the same subnet
 - Standard load balancer with public IP
 - Load balancer has outbound rules configured so that VMs can access the internet
 
+# Basic Steps
+
 ### Start with Azure Portal
 
-**Load Balancer - Metrics**
-Go to the load balancer and load the Metrics blade:
+**Are the load balancer health probes up or down?**
+- Go to the load balancer and load the **Metrics** blade:
   - Data Path Availability - tells you end-to-end availability
   - Health Probe Status - "Can the load balancer see the VMs on the backside?"
+
+
 
 **Network Watcher -> Effective Security Rules**
 - Choose the VM, NIC
