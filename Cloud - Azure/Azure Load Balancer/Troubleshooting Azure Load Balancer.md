@@ -12,14 +12,46 @@
   - Standard load balancer with public IP
   - Load balancer and VMs are in the same subnet
   - Inbound and outbound rules configured
-
+- When you launch a browser to the public IP of the front side of the load balancer, it is failing to load
 
 <details>
   <summary>First Steps</summary>
 
-## From your laptop
+## Azure Portal
+
+<details>
+  <summary>Can the VMs load each other's web site?</summary>
 1. Open up an Azure Bastion session to your 2 VMs
-2. 
+1. Load up http://localhost on each - make sure local web server is working
+1. Make sure each VM can load the website of the other VM
+  
+Fix the above if broken before continuing
+</details>
+
+<details>
+<summary>Are the health checks working?</summary>
+- Go to the load balancer and load the **Metrics** or **Insights** blade:
+  - Data Path Availability - tells you end-to-end availability (frontend => backend => NIC => Port on the VM and back again)
+  - Health Probe Status - "Can the load balancer see the VMs on the backside?"
+  - Both should be close to 100% in a healthy config
+
+</details>
+
+<details>
+<summary>Are there any configuration problems with the load balancer?</summary>
+- Go to the load balancer and load the **Metrics** or **Insights** blade:
+  - Data Path Availability - tells you end-to-end availability (frontend => backend => NIC => Port on the VM and back again)
+  - Health Probe Status - "Can the load balancer see the VMs on the backside?"
+  - Both should be close to 100% in a healthy config
+
+</details>
+
+
+lbal-squid | Diagnose and solve problems
+
+
+
+4. Check that the local Windows Firewall isn't blocking anything for port 80 from 168.63.129.16
 
 </details>
 
@@ -37,10 +69,7 @@
 ## Start in the Azure Portal
 
 **Are the load balancer health probes up or down?**
-- Go to the load balancer and load the **Metrics** blade:
-  - Data Path Availability - tells you end-to-end availability
-  - Health Probe Status - "Can the load balancer see the VMs on the backside?"
-  - Both should be close to 100% in a healthy config
+
   
 **
   
