@@ -12,6 +12,19 @@ Assumptions:
 
 ### Start with Azure Portal
 
+**Load Balancer - Metrics**
+Go to the load balancer and load the Metrics blade:
+  - Data Path Availability - tells you end-to-end availability
+  - Health Probe Status - "Can the load balancer see the VMs on the backside?"
+
+**Network Watcher -> Effective Security Rules**
+- Choose the VM, NIC
+- Should be empty as long as NICs have nothing specific
+
+**Network Watcher -> Connection Troubleshoot**
+- Choose VM1 as source and VM2 as destination with port 80
+- Verifies the two servers can talk to each other on the given port
+
 **Network Watcher -> IP Flow Verify**
 - Choose the VM, then the NIC, then TCP
     - Local IP address is the NIC's address, use your laptop IP for Remote IP Address
@@ -21,10 +34,10 @@ Assumptions:
     - Outbound test verifies whether "from the VM" you can connect
       - Example: "Access allowed. Security rule: AllowInternetOutbound. Network security group: nsg1"
 
-1. Go to the Load Balancer
-2. Go to **Metrics** and monitor:
-  - Data Path Availability - tells you end-to-end availability
-  - Health Probe Status - "Can the load balancer see the VMs on the backside?"
+**Network Watcher -> NSG Flow Logs**
+- Click on the NSG
+- Enable flow logs (may require new storage account)
+- 
   
 ### Azure Monitor
 1. Service Health
