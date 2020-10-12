@@ -9,7 +9,7 @@
 
 # Microsoft Learn 
 - [Azure for the Data Engineer](https://docs.microsoft.com/en-us/learn/paths/azure-for-the-data-engineer/?WT.mc_id=DP-MVP-5001430)
-- [Store Data in Azure](https://docs.microsoft.com/en-us/learn/paths/store-data-in-azure/?WT.mc_id=DP-MVP-5001430
+- [Store Data in Azure](https://docs.microsoft.com/en-us/learn/paths/store-data-in-azure/?WT.mc_id=DP-MVP-5001430)
 - [Large Scale Data Processing with Azure Data Lake Storage Gen2](https://docs.microsoft.com/en-us/learn/paths/data-processing-with-azure-adls/?WT.mc_id=DP-MVP-5001430)
 - [Work with Relational Data in Azure](https://docs.microsoft.com/en-us/learn/paths/work-with-relational-data-in-azure/?WT.mc_id=DP-MVP-5001430)
 - [Work with NoSQL data in Azure Cosmos DB](https://docs.microsoft.com/en-us/learn/paths/work-with-nosql-data-in-azure-cosmos-db/?WT.mc_id=DP-MVP-5001430)
