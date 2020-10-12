@@ -34,6 +34,8 @@ What you should see:
 - Query for `ip.addr == 168.63.129.16`
 - Query for `http` or `tcp.port == 80`
 
+You need to make certain that the Azure Services IP addresses for load balancers (168.63.129.16) are not being blocked by an NSG
+
 # SQL Server Troubleshooting 
 
 https://docs.microsoft.com/en-us/archive/blogs/sql_pfe_blog/trouble-shooting-availability-group-listener-in-azure-sql-vm
