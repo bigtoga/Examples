@@ -8,6 +8,7 @@
 - Standard load balancer with public IP
 - Load balancer has outbound rules configured so that VMs can access the internet
 - Flow is Azure LB -> NIC1 -> VM1 and Azure LB -> NIC2 -> VM2
+- Azure Load Balancer is using the [default public IP of 168.63.129.16](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview#probesource)
 
 # Basic Steps
 
