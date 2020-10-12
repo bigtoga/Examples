@@ -3,21 +3,47 @@
 
 **Assumptions**:
 - Port 80 website (simplest test)
-- IP range of 10.10.10.4,5 for 2 backend VMs
-- Load balancer and VMs are in the same subnet
-- Standard load balancer with public IP
+- IP range of 10.10.10.4, 5 for 2 backend VMs
+
 - Load balancer has outbound rules configured so that VMs can access the internet
 - Flow is Azure LB -> NIC1 -> VM1 and Azure LB -> NIC2 -> VM2
-- Azure Load Balancer is using the [default public IP of 168.63.129.16](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview#probesource)
+- Load balancer config:
+  - Using the [default public IP of 168.63.129.16](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview#probesource)
+  - Standard load balancer with public IP
+  - Load balancer and VMs are in the same subnet
+  - Inbound and outbound rules configured
 
-# Basic Steps
 
-### Start with Azure Portal
+<details>
+  <summary>First Steps</summary>
+
+## From your laptop
+1. Open up an Azure Bastion session to your 2 VMs
+2. 
+
+</details>
+
+<details>
+  <summary>First Steps</summary>
+
+</details>
+
+
+<details>
+  <summary>Start from your laptop</summary>
+
+</details>
+
+## Start in the Azure Portal
 
 **Are the load balancer health probes up or down?**
 - Go to the load balancer and load the **Metrics** blade:
   - Data Path Availability - tells you end-to-end availability
   - Health Probe Status - "Can the load balancer see the VMs on the backside?"
+  - Both should be close to 100% in a healthy config
+  
+**
+  
 
 
 
