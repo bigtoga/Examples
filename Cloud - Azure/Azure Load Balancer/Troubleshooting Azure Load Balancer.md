@@ -1,10 +1,26 @@
+# Resources
+- [Troubleshoot load balancer VM connectivity](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
+
 # Basic Steps
 
 Assumptions:
 - Port 80 website
 - IP range of 10.10.10.4,5 for 2 backend VMs
+- Load balancer and VMs are in the same subnet
+- Standard load balancer with public IP
+- Load balancer has outbound rules configured so that VMs can access the internet
 
 ### Start with Azure Portal
+
+**Network Watcher -> IP Flow Verify**
+- Choose the VM, then the NIC, then TCP
+    - Local IP address is the NIC's address, use your laptop IP for Remote IP Address
+    - Inbound test tells you "Can the Remote IP address make a call to the NIC on the given port?"
+      - You should see "Access Allowed" and the name of the rule that allows this      
+      - Example: "Access allowed. Security rule: Internet. Network security group: nsg1"
+    - Outbound test verifies whether "from the VM" you can connect
+      - Example: "Access allowed. Security rule: AllowInternetOutbound. Network security group: nsg1"
+
 1. Go to the Load Balancer
 2. Go to **Metrics** and monitor:
   - Data Path Availability - tells you end-to-end availability
@@ -30,7 +46,14 @@ What you should see:
 | TCP  | 10.10.10.4:80  | 168.63.129.16:<random integer> | ESTABLISHED
 | TCP  | 10.10.10.4:<random integer>  | 168.63.129.16:80  | ESTABLISHED
   
-3. Install Wireshark, reboot, do a packet capture
+3. Use `Test-NetConnection` instead of PsPing to tcpPing ([documentation](https://docs.microsoft.com/en-us/powershell/module/nettcpip/test-netconnection?view=win10-ps#examples))
+- Test-NetConnection -Port 80 -InformationLevel "Detailed"
+- Test-NetConnection -ComputerName "www.microsoft.com" -InformationLevel "Detailed" -DiagnoseRouting
+    - You can also add ` -ConstrainInterface 5` if you want to only test eth5
+- 
+- 
+  
+4. Install Wireshark, reboot, do a packet capture
 - Query for `ip.addr == 168.63.129.16`
 - Query for `http` or `tcp.port == 80`
 
