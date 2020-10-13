@@ -1,12 +1,11 @@
 # Resources
 - [Troubleshoot load balancer VM connectivity](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
 
-**Assumptions**:
-- Port 80 website (simplest test)
+# Assumptions for this guide
+- You have a "Port 80 website" to test (simplest test)
 - IP range of 10.10.10.4, 5 for 2 backend VMs
-
 - Load balancer has outbound rules configured so that VMs can access the internet
-- Flow is Azure LB -> NIC1 -> VM1 and Azure LB -> NIC2 -> VM2
+- Flow is Azure LB -> NSG1 -> NIC1 -> VM1 and Azure LB -> NSG1 -> NIC2 -> VM2
 - Load balancer config:
   - Using the [default public IP of 168.63.129.16](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview#probesource)
   - Standard load balancer with public IP
@@ -47,7 +46,7 @@ Fix the above if broken before continuing
 </details>
 
 
-lbal-squid | Diagnose and solve problems
+lbal-name | Diagnose and solve problems
 
 
 
