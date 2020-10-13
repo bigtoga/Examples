@@ -17,3 +17,12 @@ Five columns:
 - Gateway - where should the computer send the request?
 - Interface - which NIC from `ipconfig /all` is using this route
 - Metric - complex way that Windows/networks use to calculate shortest/best route
+
+Use `netsh interface ipv4 show interfaces` to find the Idx for the "IF" 
+
+Use `netsh interface ipv4 show address' to make sure you have the right one
+`route add 0.0.0.0 MASK 0.0.0.0 10.10.11.1 METRIC 11 IF 7`
+
+`route delete 0.0.0.0 MASK 255.255.255.255`
+
+`route delete 0.0.0.0 MASK 0.0.0.0 IF 6`
