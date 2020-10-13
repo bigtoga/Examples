@@ -1,3 +1,5 @@
+More examples - https://michlstechblog.info/blog/windows-show-and-configure-network-settings-using-netsh/
+
 # Interfaces
 
 ```shell
