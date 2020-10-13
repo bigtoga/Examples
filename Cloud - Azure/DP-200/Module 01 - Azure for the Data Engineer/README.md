@@ -1,3 +1,14 @@
+Coverage:
+- Azure Storage
+- Azure Data Lake Storage
+- Azure Databricks
+- Azure Cosmos DB
+- Azure SQL Database
+- Azure Synapse Analytics
+- Azure Stream Analytics
+
+<details>
+  <summary>Data Abundance and Explosion</summary>
 # Data Abundance
 
 ## Processes
@@ -14,3 +25,4 @@ Data engineers are responsible for maintaining data systems that are accurate, h
 
 ## Technologies
 Microsoft Azure provides a comprehensive and rich set of data tools and technologies to provide businesses the ability to store, transform, process, analyze, and visualize a wide variety of data formats in a secure way. As data formats continue to evolve, Microsoft continually releases new technologies to the Microsoft Azure platform. Microsoft Azure customers can explore these new technologies while in preview mode. Leveraging Microsoft Azure's on-demand subscription model, customers can keep their costs to a minimum, paying only for what they consume when they need it.
+</details>
