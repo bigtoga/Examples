@@ -1,5 +1,21 @@
 More examples - https://michlstechblog.info/blog/windows-show-and-configure-network-settings-using-netsh/
 
+# Traces
+
+- Tracing - https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj129382(v=ws.11) 
+- https://community.progress.com/s/article/How-to-run-a-NETSH-Trace
+```shell
+
+netsh trace start capture=yes
+
+netsh trace
+
+show scenarios
+
+trace start capture=yes Ethernet.Type = IPv4 IPv4.Address = x.x.x.x protocol=17 tracefile = c:\temp\mynetshtrace.etl
+
+```
+
 # Interfaces
 
 ```shell
