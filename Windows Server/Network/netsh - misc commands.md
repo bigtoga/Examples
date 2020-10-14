@@ -97,6 +97,10 @@ netsh http show sslcert hostnameport=my.url.com:443
 # Windows Firewall management
 
 ```shell
+netsh advfirewall set allprofiles state off
+
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+
 netsh advfirewall consec /?
 netsh advfirewall firewal set rule /?
 netsh advfirewall firewall show rule name -all
