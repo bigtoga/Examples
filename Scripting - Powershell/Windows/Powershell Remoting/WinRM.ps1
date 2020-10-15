@@ -7,6 +7,9 @@
 Set-ClusterQuorum : ERROR CODE : 0x80131500; 
 NATIVE ERROR CODE : 1.
  WinRM cannot process the request. The following error with errorcode 0x8009030e occurred while using Kerberos authentication: A specified logon session does not exist. It may already have been terminated.  
+ 
+First - make sure you are logged on w a domain account!
+
 #>
 Invoke-Command –ComputerName sql1 -ScriptBlock {Hostname}
 
