@@ -23,6 +23,8 @@ Set-Service WinRM -StartMode Automatic
 
 Enable-PSRemoting
 
+# Shows Windows Firewall changes needed
+winrm quickconfig 
 winrm help config
 
 <#
