@@ -50,3 +50,18 @@ Set-Item WSMan:\localhost\Client\TrustedHosts -Value $ip -Force
 
 # Trust all hosts (don't do this - unsafe)
 Set-Item WSMan:localhost\client\trustedhosts -value *
+
+
+$username = “mydomain\Student”
+$Credentials = Get-Credential -UserName $username -Message "What is your password?"
+
+
+# Use an interactive session
+Enter-PsSession –ComputerName sql1.mydomain.com -Credential mydomain\Student
+
+Exit-PSSession
+
+# Use a background session
+New-PsSession –ComputerName sql1.mydomain.com -Credential mydomain\Student
+
+Exit-PSSession
