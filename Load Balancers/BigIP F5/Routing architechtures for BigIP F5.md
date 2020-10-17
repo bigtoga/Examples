@@ -2,11 +2,17 @@ Options explained visually
 - Top is DSR / Asymmetric Routing
 - Bottom is Inljne / Symmetric Routing
 
+Note that this page exclusively talks about two-arm deployments. 
+
 ![x](https://i.imgur.com/G5i9s9Z_d.webp?maxwidth=640&shape=thumb&fidelity=medium)
+
+![x](https://i.imgur.com/l7X8AtP_d.webp?maxwidth=640&shape=thumb&fidelity=medium)
+
+![x](https://i.imgur.com/ovoHDM2_d.webp?maxwidth=640&shape=thumb&fidelity=medium)
 
 # Routing option #1: nPath Routing with Direct Server Return (DSR)
 
-a.k.a. Asymmetric Routing
+a.k.a. Asymmetric Routing using SNAT
 
 - [Overview from F5](https://www.f5.com/services/resources/deployment-guides/npath-routing-direct-server-return-big-ip-v114-ltm)
 - [Deployment guide PDF](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-npath-dg.pdf)
@@ -33,6 +39,12 @@ Great for performance of the F5 but “breaks” certain types of client communi
 
 Also have to remember to preserve the port and have the web server return the request on the correct port. 
 
+From the web server’s POV, the “source address” a the F5’s backside IP. Use `x-forwarded-for` to capture actual source IP from headers 
+
+### More resources 
+
+- [F5 manual for SNAT deployments](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/ltm-concepts-11-5-1/17.html#unique_2019501948)
+
 # Routing option #2: Symmetric Routing
 
 Easiest architecture to explain and understand - as far as the client knows, it sent a packet to {*load balancer VIP*} and it received a response from {*load balancer VIP*}
@@ -52,3 +64,5 @@ Client receives the response from the IP that it sent the request to.
 ## Full proxy mode
 
 In Symmetric Routing, the F5 maintains two independent connections - one to the client, and a separate one to the web server. 
+
+In a two-arm setup, the F5 uses SNAT on the backside when it sends the packet to the web server. This effectively “changes the source IP address” (to be the backside IP). 
