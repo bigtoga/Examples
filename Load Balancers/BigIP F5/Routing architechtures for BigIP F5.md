@@ -16,6 +16,7 @@ a.k.a. Asymmetric Routing using SNAT
 
 - [Overview from F5](https://www.f5.com/services/resources/deployment-guides/npath-routing-direct-server-return-big-ip-v114-ltm)
 - [Deployment guide PDF](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-npath-dg.pdf)
+- https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/ltm-implementations-12-1-0/4.html
 
 a.k.a. “Web server responds directly to caller”
 
@@ -24,7 +25,7 @@ From the client’s POV, it’s a bit weird - it sent a packet to {*load balance
 Client 
    -> router 
       -> F5 frontside VIP 
-         -> web server 
+         -> web server
             -> router 
                -> Client
 
@@ -34,12 +35,15 @@ In this example, the source IP never changes (conceptually). The F5 is just acti
 1. F5 LTM forwards the packet to the chosen web server
 1. The web server responds directly to the source IP from the packet
 
-Great for performance of the F5 but “breaks” certain types of client communications. After all, most clients expect the “response” to come from the IP address that they sent the packet to. 
+### How to configure nPath Routing
+- In the VIP setup under **Configuration -> Advanced**, uncheck **Enable** for both **Address Translation** and **Port Translation**
+
+### Notes about nPath Routing:
+- Layer 2 only
+- Great for performance of the F5 but “breaks” certain types of client communications. After all, most clients expect the “response” to come from the IP address that they sent the packet to. 
 - Some clients will reject return traffic that they did not initiate
-
-Also have to remember to preserve the port and have the web server return the request on the correct port. 
-
-From the web server’s POV, the “source address” a the F5’s backside IP. Use `x-forwarded-for` to capture actual source IP from headers 
+- Also have to remember to preserve the port and have the web server return the request on the correct port. 
+- From the web server’s POV, the “source address” a the F5’s backside IP. Use `x-forwarded-for` to capture actual source IP from headers 
 
 ### More resources 
 
@@ -49,7 +53,7 @@ From the web server’s POV, the “source address” a the F5’s backside IP. 
 
 Easiest architecture to explain and understand - as far as the client knows, it sent a packet to {*load balancer VIP*} and it received a response from {*load balancer VIP*}
 
-Also called inline routing. Load balancer uses SNAT to return directly back to client
+Also called inline routing or virtual server bounce back. Load balancer uses SNAT to return directly back to client
 
 Client 
    -> router 
