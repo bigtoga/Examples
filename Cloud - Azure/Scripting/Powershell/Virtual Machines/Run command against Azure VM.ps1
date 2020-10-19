@@ -1,4 +1,9 @@
 # Sample.ps1 script file located where your PS C:\Users\Scott is located
+param(
+    [parameter(Mandatory=$true)]
+    [string]$newName
+)
+
 Rename-NetAdapter -Name "Ethernet" -NewName $newName
 
 
