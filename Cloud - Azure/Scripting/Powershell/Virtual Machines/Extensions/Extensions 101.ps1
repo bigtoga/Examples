@@ -1,5 +1,7 @@
-
 clear-host
+
+# What extensions are available for a given VM?
+Get-AzureVMAvailableExtension | Select ExtensionName, Publisher, CompanyName, Description | Out-gridView
 
 # What publishers are available to you? 
 Get-AzVMImagePublisher -Location "SouthCentralUS" | Where {$_.PublisherName -like "Microsoft*" -and $_.PublisherName -notlike "Test*" -and $_.Id -notlike "Test*"} 
