@@ -138,6 +138,9 @@ Option 2:
 - P2
 - Global administrator
 
+**Can a user in a group that is marked as the Approvers for a privilege approve their own request?**
+- No
+
 **Grant someone privileged role use for a period**
 1. Portal -search for Privileged...
 2. Manage -> AD Roles -> Roles and assign
