@@ -2,7 +2,8 @@ From [the documentation](https://docs.microsoft.com/en-us/azure/container-instan
 - To set environment variables in a container, specify them when you create a container instance
 - Visible to portal and from "inside" the container by default
 - If you need to pass secure values, two options:
-        1. 
+        - Option 1: Use `secureValue` instead of `value` in the YAML declaration
+        - Option 2: [Mount a secret volume in the container](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-volume-secret) and access from there
 - 
 - 
 - 
