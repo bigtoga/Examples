@@ -93,7 +93,14 @@ https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-
 - Microsoft Authenticator app
 - FIDO2 security keys
 
-## Conditional Access Policies
+## AD Joining config
+
+**By default, 3 entities get added to an AD joined device's Local Administrators group** - 
+- Azure AD global Administrator
+- Azure AD Device Administrator
+- User performing the AD join process
+
+You can specify additional in setup
 
 ## MFA
 
