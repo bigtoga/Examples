@@ -1,12 +1,8 @@
-Little tricky...
-
-https://docs.microsoft.com/en-us/azure/container-instances/container-instances-environment-variables
-
-From the documentation:
+From [the documentation](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-environment-variables):
 - To set environment variables in a container, specify them when you create a container instance
-- 
-- 
-- 
+- Visible to portal and from "inside" the container by default
+- If you need to pass secure values, two options:
+        1. 
 - 
 - 
 - 
@@ -35,7 +31,32 @@ New-AzContainerGroup `
     -RestartPolicy OnFailure `
     -EnvironmentVariable $envVars
     
-Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
-    
+Get-AzContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2   
+```
 
+# YAML example of secure secrets
+
+```yaml
+apiVersion: 2019-12-01
+location: eastus
+name: securetest
+properties:
+  containers:
+  - name: mycontainer
+    properties:
+      environmentVariables:
+        - name: 'NOTSECRET'
+          value: 'my-exposed-value'
+        - name: 'SECRET'
+          secureValue: 'my-secret-value'
+      image: nginx
+      ports: []
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
 ```
