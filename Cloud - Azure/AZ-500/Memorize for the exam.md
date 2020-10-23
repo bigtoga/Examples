@@ -18,6 +18,8 @@
 
 **How to capture all network packets sent to a VM?** - Network Watcher and **variable packet capture**
 
+**Can VM1 use Azure Disk Encryption?** - Yes, as long as "Allow trusted Microsoft services to bypass this firewall" is enabled for your Key Vault
+
 ### Azure Security Application Controls
 
 Part of Security Center. Also known as **adaptive application controls**
