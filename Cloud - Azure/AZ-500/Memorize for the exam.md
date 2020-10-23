@@ -157,7 +157,10 @@ Option 2:
 <details>
   <summary> Just in Time </summary>
 
+# Just in Time
+
 - Just in time requires "Standard" version of Security Center, not default of Basic  
+- Requires an NSG "somewhere" - can be attached to subnet or NIC 
 
 **ARM templates for RBAC?**
 - Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action
