@@ -65,8 +65,6 @@ https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-
 - https://docs.microsoft.com/en-us/azure/security/fundamentals/azure-disk-encryption-vms-vmss
 - https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disk-encryption-overview
 
-
-
 </details>
 
 <details>
@@ -90,11 +88,16 @@ https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-
 
 **Have 1 dynamic group for all users and devices. What is best practice?** - 2 new groups, 1 for users and 1 for devices
 
+**How to enable passwordless access?** - Use *one* of these:
+- Windows Hello for Business
+- Microsoft Authenticator app
+- FIDO2 security keys
+
 ## Conditional Access Policies
 
-**Require MFA for Azure portal?** - Tenant -> Security -> Conditional Access -> New Policy -> Cloud Apps -> Select users -> Grant -> Require MFA
-
 ## MFA
+
+**Require MFA for Azure portal?** - Tenant -> Security -> Conditional Access -> New Policy -> Cloud Apps -> Select users -> Grant -> Require MFA
 
 **User belongs to Grp1 which is marked `Include` for MFA and user belongs to Grp2 which is marked `Exclude` for MFA. Who wins?** Exclude wins - user will not be prompted for MFA
 
