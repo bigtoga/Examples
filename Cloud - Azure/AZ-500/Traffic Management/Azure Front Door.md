@@ -1,0 +1,2 @@
+- Has a WAF built in
+- Global 
