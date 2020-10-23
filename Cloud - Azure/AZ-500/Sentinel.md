@@ -7,3 +7,8 @@
 
 **What permissions to use at the resource group level?**
 - Contributor or Reader to the resource group
+
+**Custom permissions specific to Sentinel?**
+- View incidents and workbooks - *Azure Sentinel Reader*
+- Create and edit workbooks - *Azure Sentinel Contributor*
+- Manage incidents - *Azure Sentinel Responder*
