@@ -96,6 +96,8 @@ https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-
 
 ## MFA
 
+**User belongs to Grp1 which is marked `Include` for MFA and user belongs to Grp2 which is marked `Exclude` for MFA. Who wins?** Exclude wins - user will not be prompted for MFA
+
 **How to enable / change MFA?** - In portal, search for Multi-Factor Authentication
 
 **How to block/unblock users?** - In portal, search for Multi-Factor Authentication -> Block/Unblock users
