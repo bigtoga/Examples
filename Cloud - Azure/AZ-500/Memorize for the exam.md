@@ -36,6 +36,10 @@ https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-
 
 **How to block attempts to run malicious apps?** = Azure Security Application Controls
 
+**Template deployment settings for deploying Anti-malware?**
+- Microsoft.Compute/virtualMachines/extensions/type == **IaaSAntiMalware**
+- Microsoft.Compute/virtualMachines/extensions/publisher == **Microsoft.Azure/IaaSAntiMalware**
+
 -------------------------------------------
 ### Log Analytics integration 
 
