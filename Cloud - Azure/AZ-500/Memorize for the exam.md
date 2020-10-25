@@ -44,11 +44,8 @@
   
 # VMs 
 
-- Disks for VMs are under `Microsoft.Compute/disks`
-
-**How to capture all network packets sent to a VM?** - Network Watcher and **variable packet capture**
-
-**Can VM1 use Azure Disk Encryption?** - Yes, as long as "Allow trusted Microsoft services to bypass this firewall" is enabled for your Key Vault
+- **Disks for VMs are under `Microsoft.Compute/disks`**
+- **How to capture all network packets sent to a VM?** - Network Watcher and **variable packet capture**
 
 ### Azure Security Application Controls
 
@@ -73,23 +70,24 @@ https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-
 -------------------------------------------
 ### Log Analytics integration 
 
-**How to ensure that System event logs from VMs are logged in LAW?** - LAW -> Advanced Settings -> Data -> Windows Event Logs -> Enter "System"
-
-**How to deploy LAW to all VMs?** 
-- enable Automatic provisioning (once enabled, it is enabled on all existing and new VMs)
-- Off by default
-- Automatic provisioning is "strongly recommended" (source: https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection)
-
-**ARM Template settings for Log Analytics deployment w VM?**
-- settings: workspaceId
-- protectedSettings: workspaceKey
-- https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-windows
+- **How to ensure that System event logs from VMs are logged in LAW?** - LAW -> Advanced Settings -> Data -> Windows Event Logs -> Enter "System"
+- **How to deploy LAW to all VMs?** 
+    - enable Automatic provisioning (once enabled, it is enabled on all existing and new VMs)
+    - Off by default
+    - Automatic provisioning is "strongly recommended" (source: https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection)
+- **ARM Template settings for Log Analytics deployment w VM?**
+    - settings: workspaceId
+    - protectedSettings: workspaceKey
+    - https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-windows
+- **Ensure LAW only has certain VMs in it**
+    - Create a new computer group
+    - Create a new scope configuration and include the computer group (can include other groups as well if needed)
+    - Apply the scope to your LAW solution (one solution can only have one scope)
 
 -------------------------------------------
 ### Disk encryption 
-
-- Azure Key Vault is regional 
-
+- **Azure Key Vault is regional **
+**Can VM1 use Azure Disk Encryption?** - Yes, as long as "Allow trusted Microsoft services to bypass this firewall" is enabled for your Key Vault
 **Disk encryption requirements?** - Cannot use A-series VMs
 
 **How to enable disk encryption?**
