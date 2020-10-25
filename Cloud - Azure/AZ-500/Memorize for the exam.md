@@ -16,6 +16,10 @@
 - **Mutual authentication - how?**
     - TLS 1.2
     - Turn on incoming client certificates protocol setting for the Web App
+- **Have a web app use a cert - how?**
+    - 1. Security team uploads a certificate to the Web App
+    - 2. Developer team updates the app settings for the Web App using `WEBSITE_LOAD_CERTIFICATES`
+    - `az webapp config appsettings set --name myApp --resource-group rgApp --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>`
 
 </details>
   
