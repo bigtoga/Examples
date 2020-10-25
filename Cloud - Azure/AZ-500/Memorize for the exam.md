@@ -249,3 +249,16 @@ Option 2:
 
 </details>
 
+  
+<details>
+  <summary> Containerization </summary>
+
+# Kubernetes
+
+- **Want to deploy K8s cluster and allow AAD users to auth - how?**
+1. Create server application
+2. Create client application
+3. Deploy the cluster
+4. Create an RBAC binding
+
+</details>
