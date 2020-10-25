@@ -10,6 +10,25 @@
 </details>
   
 <details>
+  <summary> Key Vault </summary>
+
+# Key Vault
+
+**Soft-delete length?** - 90 days
+
+**Default settings** - can delete, can purge (i.e. soft-delete is not enabled)
+
+**After an object is soft-deleted, can it still be accessed?** - No, has to be restored to be accessible
+
+**After an object is soft-deleted, can you still see that it exists as soft-deleted?** - Yes, it shows up in lists of the resources
+
+**When soft-delete is enabled, can you actually hard delete?** - Yes
+
+**When soft-delete is enabled, how do you prevent hard delete?** - Enable purge protection
+
+</details>
+  
+<details>
   <summary> Data </summary>
   
 # Cosmos DB
