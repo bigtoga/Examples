@@ -10,6 +10,17 @@
 </details>
   
 <details>
+  <summary> Web Apps </summary>
+
+# Web Apps
+
+- **Mutual authentication - how?**
+- TLS 1.2
+- Turn on incoming client certificates protocol setting for the Web App
+
+</details>
+  
+<details>
   <summary> Key Vault </summary>
 
 # Key Vault
@@ -37,6 +48,11 @@
     - AAD System Managed Identity
     - AAD User Assigned Managed Identity
     - Create contained users in Azure SQL database
+    
+- **Different ways to authenticate in SSMS?**
+- AAD Integrated - use when you are already logged in to your Windows or AAD domain
+- AAD Password - use when you want to use your Windows credentials but your local machine is not joined with the domain
+- AAD MFA (interactive)
   
 # Cosmos DB
 
