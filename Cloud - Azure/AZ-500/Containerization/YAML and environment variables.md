@@ -4,13 +4,8 @@ From [the documentation](https://docs.microsoft.com/en-us/azure/container-instan
 - If you need to pass secure values, two options:
         - Option 1: Use `secureValue` instead of `value` in the YAML declaration
         - Option 2: [Mount a secret volume in the container](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-volume-secret) and access from there
-- 
-- 
-- 
-- 
-- 
 
-Examples:
+# Examples:
 
 ```shell
 az container create \
