@@ -10,6 +10,17 @@
 </details>
   
 <details>
+  <summary> Data </summary>
+  
+# Cosmos DB
+
+**What permissions needed to grant web app work w CosmosDB?**
+- CosmosDB: Create dtaabase users and generate resource tokens
+- Web App: Authenticate AD Users and relay resource tokens
+
+</details>
+  
+<details>
   <summary> VMs </summary>
   
 # VMs 
