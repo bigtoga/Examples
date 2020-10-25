@@ -31,6 +31,13 @@
 <details>
   <summary> Data </summary>
   
+# Azure SQL and Web Apps
+
+- **Want to have secure access from web app to Azure SQL but also authenticate Azure AD users - how?**
+    - AAD System Managed Identity
+    - AAD User Assigned Managed Identity
+    - Create contained users in Azure SQL database
+  
 # Cosmos DB
 
 **What permissions needed to grant web app work w CosmosDB?**
