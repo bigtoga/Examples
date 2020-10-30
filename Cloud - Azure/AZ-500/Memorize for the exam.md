@@ -241,7 +241,7 @@ You can specify additional in setup
   
 - Azure Firewall requires that you create a new subnet first named `AzureFirewallSubnet`
 - **How to record all Azure Firewall logs?** - Diagnostics settings - https://docs.microsoft.com/en-us/azure/firewall/firewall-diagnostics
-
+- **How to allow RDP from the internet?** - Create a NAT collection and configure the NSG
 </details>
 
   
