@@ -39,6 +39,9 @@
     - Import the AzureRM Powershell modules into the account 
     - Create a connection resource in the Automation Account
     - Run the `Set-AzureRmKeyVaultAccessPolicy` cmdlet
+- **How to assign VM access using Azure CLI?**
+    - `az vm identity assign...`
+    - `az keyvault set-policy ... --secret-permissions get list`
 
 </details>
   
@@ -59,6 +62,8 @@
     - AAD Integrated - use when you are already logged in to your Windows or AAD domain
     - AAD Password - use when you want to use your Windows credentials but your local machine is not joined with the domain
     - AAD MFA (interactive)
+- **Get alerts for threats in SQL?**
+    - Advanced Data Security Server settings
   
 # Cosmos DB
 
