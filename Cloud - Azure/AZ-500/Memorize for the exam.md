@@ -56,7 +56,10 @@
 - **How to assign VM access using Azure CLI?**
     - `az vm identity assign...`
     - `az keyvault set-policy ... --secret-permissions get list`
-
+- **Where can you restore a key, secret, or certificate?**    
+    - Same subscription, and either the same geography or the paired region
+    - https://docs.microsoft.com/en-us/azure/key-vault/general/backup#design-considerations
+  
 </details>
   
 <details>
