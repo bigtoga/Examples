@@ -38,8 +38,31 @@
 </details>
   
 <details>
-  <summary> Key Vault </summary>
+  <summary> HDInsight & Apache </summary>
+  
+# HDInsight & Apache
 
+- https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-overview
+    - [Why use HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-overview#why-should-i-use-azure-hdinsight) - optimized clusters for Apache-based things like Hadoop, Spark, more; end to end SLA; integrates w Azure Monitor; globally available; support Python, .NET; Azure AD integrated
+- [Domain join](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)
+    - **Enterprise Security Package (ESP) clusters provide multiuser access on Azure HDInsight cluster connected to an Azure AD domain**
+    - **Requires Global administrator to enable**
+    - **Can required trusted IPs and MFA**
+  
+- **How to allow HDInsight to be available to users authenticating through on-premise?**
+    - Create a VPN between on-prem and Azure
+    - Create a custom DNS server in the Azure Virtual Network
+    - Configure the virtual network to use the custom DNS server instead of the default Azure Recursive Resolver
+    - Configure forwarding between the custom DNS server and your on-premises DNS server
+    - https://docs.microsoft.com/en-us/azure/hdinsight/connect-on-premises-network
+
+
+
+
+</details>
+  
+<details>
+  <summary> Key Vault </summary>
 # Key Vault
 
 - **Soft-delete length?** - 90 days
