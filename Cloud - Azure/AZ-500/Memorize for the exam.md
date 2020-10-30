@@ -88,7 +88,8 @@
 - **Resource groups?** - Microsoft.Resources/subscriptions/resourceGroups
 - **Just in time requirements?**
     - Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action
-    - Microsoft.Compute/virtualMachines/read
+    - Microsoft.Compute/virtualMachines/**read**
+- **Event Hub, not Grid**    
 
 ### Security Application Controls
 
@@ -105,7 +106,7 @@
 -------------------------------------------
 ### Log Analytics integration 
 
-- **How to ensure that System event logs from VMs are logged in LAW?** - LAW -> Advanced Settings -> Data -> Windows Event Logs -> Enter "System"
+- **How to ensure that System event logs from VMs are logged in LAW?** - LAW -> **Advanced Settings** -> Data -> Windows Event Logs -> Enter "System"
 - **How to deploy LAW to all VMs?** 
     - enable Automatic provisioning (once enabled, it is enabled on all existing and new VMs)
     - Off by default
