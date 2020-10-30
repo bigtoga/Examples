@@ -5,6 +5,11 @@
   
 - **What perm to transfer subscription to new tenant?** = Owner
 - **How to transfer billing ownership?** - Azure portal
+- **What happens on subscription transfer to new tenant?**
+    - All users, groups, service principals who had RBAC **to manage subscriptions and resources** lose access
+    - Only the user in the new account who accepts the transfer will have access
+- **What can you transfer a subscription to?**
+    - To another user or another tenant
 
 </details>
   
