@@ -24,6 +24,20 @@
 </details>
   
 <details>
+  <summary> Networking </summary>
+
+# Networking
+
+## Application Security Groups
+
+- Scope is the virtual network - can reference all subnets in all virtual networks within the resource group
+- Limited to "the virtual network of the first device added to the ASG"
+- Cannot reference multiple ASGs in a single rule 
+- https://docs.microsoft.com/en-us/azure/virtual-network/application-security-groups
+
+</details>
+  
+<details>
   <summary> Key Vault </summary>
 
 # Key Vault
