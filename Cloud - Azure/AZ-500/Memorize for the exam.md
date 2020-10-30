@@ -50,12 +50,13 @@
     - **Can required trusted IPs and MFA**
   
 - **How to allow HDInsight to be available to users authenticating through on-premise?**
-    - **Password Hash sync** with AD Connect is required
-    - Create a VPN between on-prem and Azure
+    - **Password Hash sync** with AD Connect is required for on-prem hybrid    
+    - Configuring Azure AD DS is also required - - it is the only supported way for HDInsight to perform authentication. AD Connect from on-prem to Azure AD syncs the user identity, then Azure AD DS authenticates to HDInsights
+    - Create a VPN between on-prem and Azure    
     - Create a custom DNS server in the Azure Virtual Network
     - Configure the virtual network to use the custom DNS server instead of the default Azure Recursive Resolver
     - Configure forwarding between the custom DNS server and your on-premises DNS server
-    - https://docs.microsoft.com/en-us/azure/hdinsight/connect-on-premises-network
+    - https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster
 
 </details>
   
