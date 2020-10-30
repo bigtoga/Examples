@@ -47,6 +47,10 @@
   
 # Azure SQL and Web Apps
 
+- **Setup Azure SQL Database to allow Azure AD accounts - how?** 
+    - Step 1: When you created Azure SQL database, you created it with a SQL login
+    - Step 2: Now create another administrator based on an existing Azure AD account
+    - Step 3: Proceed to add the other Azure AD accounts using `CREATE USER myuser@mydomain.onmicrosoft.com FROM EXTERNAL PROVIDER`
 - **Want to have secure access from web app to Azure SQL but also authenticate Azure AD users - how?**
     - AAD System Managed Identity
     - AAD User Assigned Managed Identity
