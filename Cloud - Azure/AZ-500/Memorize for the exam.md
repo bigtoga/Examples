@@ -111,7 +111,7 @@
   
 # Cosmos DB
 
-**What permissions needed to grant web app work w CosmosDB?**
+- **What permissions needed to grant web app work w CosmosDB?**
       - CosmosDB: Create database users and generate resource tokens
       - Web App: Authenticate AD Users and relay resource tokens
 
