@@ -8,6 +8,9 @@ Sentinel is the SIEM for multiple "things"
 
 ![x](https://i.imgur.com/el29rIl.png)
 
+Azure Security Center is your CSPM and CWPP for Azure cloud infrastructure
+
+![x](https://i.imgur.com/Zw4wHHE.png)
 
 
 |   | Azure Security Center  | Azure Sentinel  |
