@@ -171,7 +171,13 @@
 
 - **Azure Key Vault is regional **
 - **Can VM1 use Azure Disk Encryption?** - Yes, as long as "Allow trusted Microsoft services to bypass this firewall" is enabled for your Key Vault
-- **Disk encryption requirements?** - Cannot use A-series VMs
+- **Disk encryption requirements?** 
+    - Cannot use A-series VMs
+    - Cannot use Basic tier VMs
+    - Cannot use Gen2 VMs
+    - Cannot use on custom images for Linux (Like a Daily build)
+    - Requires 2GB+ RAM
+    
 - **How to enable disk encryption?**
     1. Create an Azure Key Vault
     2. Configure an Azure Key Vault access policy
