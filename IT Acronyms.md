@@ -26,7 +26,7 @@
 
 | Acronym  | Meaning  | Scope  | More Info  |
 |---|---|---|---|
-| CSPM  | Cloud Security Posture Mgmt  | Company/Organization Security Posture  | [Layers of a CSPM](https://msexperttalk.com/azure-sentinel-and-azure-security-center/)  |
+| CSPM  | Cloud Security Posture Mgmt  | Company/Organization Security Posture  | [Layers of a CSPM](https://i.imgur.com/FiAnE5B.jpg)  |
 | CWPP  | Cloud Workload Protection Platform  |   |   |
 | EDR  | Endpoint Detection & Response  |   |   |
 | SIEM  | Multiple variants - Security Information & Event Monitoring, Mix of SIM + SEM (older)  |   |   |
