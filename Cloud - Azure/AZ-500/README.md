@@ -5,6 +5,8 @@ Labs - https://github.com/MicrosoftLearning/AZ500-AzureSecurityTechnologies/tree
 
 Links to exam topics: https://gist.github.com/pmfsousa/def9da7fd358aaf47e05854972f8fb43
 
+[List of Security Alerts for Azure Services](https://docs.microsoft.com/en-us/azure/security-center/alerts-reference)
+
 # Audience Profile
 Candidates for this exam should have subject matter expertise implementing security controls
 and threat protection, managing identity and access, and protecting data, applications, and
