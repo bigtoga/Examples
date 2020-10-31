@@ -123,6 +123,8 @@
 # VMs 
 
 - **How to capture all network packets sent to a VM?** - Network Watcher and **variable packet capture**
+- **Update Mgmt and automation scope?** - Just OS and subscription; not regional and not resource group specific
+    - VM1 from RG1 in East US and VM2 from RG29 in Central US - as long as they are either "both Windows" or "both Linux" and in same sub, they can go together
 
 ### Template and Policies namespaces
 - **Deploying Anti-malware?**
