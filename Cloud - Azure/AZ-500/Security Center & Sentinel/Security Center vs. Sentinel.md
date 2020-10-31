@@ -4,6 +4,10 @@ Azure Sentinel is the SIEM; Security Center is where you manage org. security an
 
 ![x](https://i.imgur.com/Nuy1IID.png)
 
+Sentinel is the SIEM for multiple "things"
+
+![x](https://i.imgur.com/el29rIl.png)
+
 
 
 |   | Azure Security Center  | Azure Sentinel  |
