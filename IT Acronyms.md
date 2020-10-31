@@ -26,12 +26,12 @@
 
 | Acronym  | Meaning  | Scope  | More Info  |
 |---|---|---|---|
+| CSPM  | Cloud Security Posture Mgmt  |   |   |
+| CWPP  | Cloud Workload Protection Platform  |   |   |
+| EDR  | Endpoint Detection & Response  |   |   |
 | SIEM  | Multiple variants - Security Information & Event Monitoring, Mix of SIM + SEM (older)  |   |   |
 | SOAR  | Security Orchestration, Automation, and Response  |   |   |
 | SOC | Security Operations Center  |   |   |
-| EDR  | Endpoint Detection & Response  |   |   |
-|   |   |   |   |
-|   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
