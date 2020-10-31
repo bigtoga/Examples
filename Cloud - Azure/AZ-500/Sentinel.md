@@ -21,6 +21,12 @@ Exam topics:
 **What permissions to use at the resource group level?**
 - Contributor or Reader to the resource group
 
+# Terminology
+
+**Workbooks** - Azure Monitor Workbooks are avialable for you to query/view metrics/details about "stuff". Not Sentinel-specific
+
+**Playbooks** - automated response to an alert; built on Azure Logic Apps Designer. Sentinel specific. a.k.a. Security Playbooks
+
 # Create and customize alerts
 
 **What is required to create a custom alert rule in Sentinel?**
