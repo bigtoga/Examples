@@ -146,7 +146,7 @@
 - **Permissions:  req'd for Security Application Controls?**
     - Contributor and Security Admin - edit, list
     - Security Reader, Reader - view groups and lists of known-safe apps
-- **How to prevent unwanted software running on VMs?** = Azure Security Application Controls
+- **How to prevent unwanted software / malware running on VMs?** = Azure Security Application Controls
 - **How to block attempts to run malicious apps?** = Azure Security Application Controls
 
 -------------------------------------------
