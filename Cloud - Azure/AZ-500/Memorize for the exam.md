@@ -289,6 +289,10 @@ You can specify additional in setup
   
 <details>
   <summary> Containerization </summary>
+  
+# Containers (general)
+
+- **Two containers, c1 and c2, must be deployed together. How?** - *Container groups* allow multiple containers to be deployed on to a single host. Use when one container performs NFRs for another related container (i.e. testing it, logging against it, monitoring it, etc)
 
 # Kubernetes
 
