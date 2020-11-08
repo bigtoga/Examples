@@ -5,7 +5,29 @@
 - NLP
 - Conversational AI
 
-## Microsoft's six guiding principles for responsible AI
+# Cognitive Services
+
+**What do you have to share with developers?**
+- Project ID
+- Model name
+- Prediction key
+- Prediction endpoint
+
+# Compute Vision
+
+**What do you get back?**
+- Bounding box
+- Class name
+- Confidence score
+
+**Want to read and report on text in a PDF - how?**
+- Read API 
+
+# Natural Language Processing / NLP
+
+**What is low sentiment score?** - 0.1
+
+# Responsible AI
 
 https://docs.microsoft.com/en-us/learn/modules/responsible-ai-principles/4-guiding-principles
 
