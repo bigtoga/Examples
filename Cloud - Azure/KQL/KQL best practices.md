@@ -4,6 +4,9 @@ Stay on top of info on [this documentation page](https://docs.microsoft.com/en-u
 
 1. Write your time filters first 
    - Kusto is highly optimized around time-based queries so leverage that by putting your time filters first
+   - “Why does this work?” Internally, Kusto stores physical data in extents. The data in those extents is is ordered by ingestion date/time
+   - If you use a time filter, Kusto can only query a subset of extents
+   - If you use another type of filter, Kusto has to scam all extents
 2. For joins, put the table with the fewest rows first (left-most query)
 2. Know when to use `has` instead of `contains`
    - `has` is a full token match and therefore will perform better 
