@@ -25,7 +25,35 @@
 
 # Natural Language Processing / NLP
 
-**What is low sentiment score?** - 0.1
+**What is low sentiment score?** - 0.1 on a 0.0 to 1.0 scale
+
+### Language Understanding (LUIS) Applications
+
+- https://luis.ai
+- https://docs.microsoft.com/en-us/learn/modules/create-language-model-with-language-understanding/2-get-started
+
+**Steps to create a LUIS app?**
+- Create intents
+- Create entities
+- Train a model
+
+**What are the 4 types of entites you can create when building a LUIS app?**
+- Machine-Learned
+- List
+- RegEx
+- Pattern.any
+
+# Bot Services 
+
+**What do you need to create a simple web chat bot?**
+- Knowledge base
+- Bot service
+
+**Want a personal assistant - how?**
+- Azure Bot Service
+
+**You built a bot using Bot Framework - how to extend?**
+- Add Bot Framework Skills
 
 # Responsible AI
 
