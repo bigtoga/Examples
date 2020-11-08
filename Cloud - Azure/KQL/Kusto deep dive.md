@@ -44,3 +44,16 @@ Cluster
 |   |___policy objects:authorization;data retention...
 |___database2
 ``` 
+
+You can see a table’s extents with `.show table TableName detail`
+
+## Indexing
+
+Kusto uses columnstore and automatically creates and maintains indexes. If you are used to SQL Server, you have to manually and carefully create indexes for the needed columns for the best performance. In Kusto, by default, every field is indexed during the data ingestion stage, one index for one column. In the table level index, the index keys point to extent address
+
+
+
+
+
+
+
