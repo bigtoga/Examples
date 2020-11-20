@@ -203,12 +203,14 @@ Columnstore table profiles
 - Encrypt a copy of the master key using the service master key
 - Update the cleanup user
 
-Open the master key if you know the password:
+Open the master key if you know the password, then encrypt it using the service master key:
 ```sql
 OPEN MASTER KEY DECRYPTION BY PASSWORD = 'Original password used to encrypt the master key'
+
+ALTER MASTER KEY ADD ENCRYPTION BY SERVICE MASTER KEY
 ```
 
-Restore the master key from backup:
+Restore the master key from backup, then encrypt it using the service master key:
 ```sql
 RESTORE MASTER KEY FROM FILE = 'C:\Backups\SQL_masterkey' 
 	DECRYPTION BY PASSWORD = 'Original password used to encrypt the master key during SSISDB backup'
