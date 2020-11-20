@@ -1,3 +1,23 @@
+<details><summary></summary>
+
+# 
+
+## 
+</details>
+
+<details><summary>Auditing</summary>
+
+# Auditing
+
+**How to audit whenever a user selects rows/columns that have sensitive data?**
+- Use Azure SQL Database or Synapse
+- Create a Storage account
+- Enable SQL Auditing and configure it to write to the storage account
+- Turn on Advanced Data Security
+- Apply sensitivity labels named "Highly Confidential" to the columns
+</details>
+
+
 <details><summary>Cost Optimization</summary>
 
 # Cost Optimization
