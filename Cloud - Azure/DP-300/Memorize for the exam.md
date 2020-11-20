@@ -9,6 +9,8 @@
 
 # Auditing
 
+### Scope: Azure SQL Database or Synapse
+
 **How to audit whenever a user selects rows/columns that have sensitive data?**
 - Use Azure SQL Database or Synapse
 - Create a Storage account
@@ -17,6 +19,14 @@
 - Apply sensitivity labels named "Highly Confidential" to the columns
 </details>
 
+
+### Scope: Azure VM running SQL Server
+
+**How to audit whenever a user selects rows/columns that have sensitive data?**
+- SQL Server Audit
+- Create an Action Group
+- Create a Server Audit specification
+- Create a database audit specification
 
 <details><summary>Cost Optimization</summary>
 
