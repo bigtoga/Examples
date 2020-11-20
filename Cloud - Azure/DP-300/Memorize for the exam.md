@@ -34,7 +34,49 @@
 
 For vCore-based purchasing model: MAX(<Total number of DBs X average vCore utilization per DB>, <Number of concurrently peaking DBs X Peak vCore utilization per DB)
 </details>
+	
+<details><summary>Dynamic Data Masking</summary>
 
+# Dynamic Data Masking
+
+**Scenario: `Customer_Phone` column and you want to mask (a) first 6 numbers, and (b) hypens should be preserved and displayed. How?**
+- Exposed Prefix: 0
+- Padding String: "XXX-XXX"
+- Exposed Suffix: 5 
+
+```sql
+
+CREATE TABLE Customers(
+	ID INT PRIMARY KEY IDENTITY(1,1) NOT NULL
+	, Phone NVARCHAR(100)
+)
+GO
+INSERT Customers
+VALUES
+	('555-555-0173')
+	, ('555-505-3124')
+	, ('555-689-4321')
+	
+CREATE USER TestUser WITHOUT LOGIN;
+
+GRANT SELECT ON Customers TO TestUser;
+
+-- Test ""
+EXECUTE AS USER = 'TestUser';
+SELECT * FROM Customers;
+REVERT;
+
+---Now add masking
+ALTER TABLE Customers
+ALTER COLUMN Phone nvarchar(100) MASKED WITH (FUNCTION= 'PARTIAL(0,"xxx-xxx",5)');
+
+-- Test "after masking"
+EXECUTE AS USER = 'TestUser';
+SELECT * FROM Customers;
+REVERT;
+```
+
+</details>
 
 <details><summary>Migrations</summary>
 
