@@ -1,4 +1,16 @@
 
+<details><summary>Migrations</summary>
+
+# Migrations
+
+## DMS - Azure Database Migration Service
+
+**Scenario: On-prem SQL DB wants to migrate to Azure SQL DB - how?**
+- DMS
+- Take full and log backups
+- Use `WITH CHECKSUM`
+
+</details>
 
 <details><summary>Indexing</summary>
 
