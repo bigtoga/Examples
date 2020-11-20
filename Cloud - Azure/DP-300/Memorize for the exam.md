@@ -28,6 +28,32 @@
 - Create a Server Audit specification
 - Create a database audit specification
 
+Example from [Microsoft documentation](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/create-a-server-audit-and-database-audit-specification?view=sql-server-ver15
+)
+```sql
+
+USE master ;
+GO
+-- Create the server audit.
+CREATE SERVER AUDIT Payrole_Security_Audit
+TO FILE ( FILEPATH =
+'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA' ) ;
+GO
+-- Enable the server audit.
+ALTER SERVER AUDIT Payrole_Security_Audit
+WITH (STATE = ON) ;
+
+USE AdventureWorks2012 ;
+GO
+-- Create the database audit specification.
+CREATE DATABASE AUDIT SPECIFICATION Audit_Pay_Tables
+FOR SERVER AUDIT Payrole_Security_Audit
+ADD (SELECT , INSERT
+ON HumanResources.EmployeePayHistory BY dbo )
+WITH (STATE = ON) ;
+GO
+```
+
 <details><summary>Cost Optimization</summary>
 
 # Cost Optimization
