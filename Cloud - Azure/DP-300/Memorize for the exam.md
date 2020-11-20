@@ -91,6 +91,25 @@ REVERT;
 
 </details>
 
+<details><summary>Encryption</summary>
+
+# Encryption
+
+**Randomized or deterministic encryption - which to use?**
+- Randomized encryption is more secure, but prevents searching, grouping, indexing, and joining on encrypted columns
+- Randomized generates a random value/ciphertext each time even if the input is the same
+- Deterministic allows point lookups, equality joins, grouping and indexing on encrypted columns
+- Deterministic generates the same encrypted value for all rows if the input is the same
+
+**Scenario: Want DBAs to not be able to view `Salary` column - how?**
+1. Create a column master key
+2. Create a column encryption key
+3. Encrypt the `Salary` column using "randomized"
+
+</details>
+
+
+
 <details><summary>Indexing</summary>
 
 # Indexing
@@ -189,28 +208,6 @@ Columnstore table profiles
 
 **Compression is always enabled for columnstore tables and can't be turned off** 
 
-## 
-</details>
-
-<details><summary></summary>
-
-# 
-
-## 
-</details>
-
-<details><summary></summary>
-
-# 
-
-## 
-</details>
-
-<details><summary></summary>
-
-# 
-
-## 
 </details>
 
 <details><summary>Performance Monitoring & DMVs</summary>
@@ -293,36 +290,3 @@ EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##M
 
 
 </details>
-
-
-<details><summary></summary>
-
-# 
-
-## 
-</details>
-
-
-<details><summary></summary>
-
-# 
-
-## 
-</details>
-
-
-<details><summary></summary>
-
-# 
-
-## 
-</details>
-
-
-<details><summary></summary>
-
-# 
-
-## 
-</details>
-
