@@ -17,31 +17,28 @@
 - Enable SQL Auditing and configure it to write to the storage account
 - Turn on Advanced Data Security
 - Apply sensitivity labels named "Highly Confidential" to the columns
-</details>
-
 
 ### Scope: Azure VM running SQL Server
 
 **How to audit whenever a user selects rows/columns that have sensitive data?**
-- SQL Server Audit
-- Create an Action Group
-- Create a Server Audit specification
+- Create a SQL Server Audit
 - Create a database audit specification
 
 Example from [Microsoft documentation](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/create-a-server-audit-and-database-audit-specification?view=sql-server-ver15
 )
 ```sql
 
-USE master ;
+USE master 
 GO
+
 -- Create the server audit.
 CREATE SERVER AUDIT Payrole_Security_Audit
 TO FILE ( FILEPATH =
-'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA' ) ;
+'C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\MSSQL\DATA' ) 
 GO
+
 -- Enable the server audit.
-ALTER SERVER AUDIT Payrole_Security_Audit
-WITH (STATE = ON) ;
+ALTER SERVER AUDIT Payrole_Security_Audit WITH (STATE = ON) 
 
 USE AdventureWorks2012 ;
 GO
@@ -50,9 +47,10 @@ CREATE DATABASE AUDIT SPECIFICATION Audit_Pay_Tables
 FOR SERVER AUDIT Payrole_Security_Audit
 ADD (SELECT , INSERT
 ON HumanResources.EmployeePayHistory BY dbo )
-WITH (STATE = ON) ;
+WITH (STATE = ON) 
 GO
 ```
+</details>
 
 <details><summary>Cost Optimization</summary>
 
