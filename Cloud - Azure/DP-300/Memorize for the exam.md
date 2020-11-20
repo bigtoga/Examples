@@ -320,7 +320,11 @@ GO
 
 EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##MS_SSISServerCleanupJobLogin##'
 ```
+</details>
 
+<details><summary>VMs and SQL Server</summary>
 
+# VMs and SQL Server
 
+## 
 </details>
