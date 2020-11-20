@@ -1,15 +1,85 @@
 
 
-<details><summary></summary>
+<details><summary>Indexing</summary>
 
-# 
+# Indexing
 
-## 
+From [the documentation], Microsoft classes tables in 2 ways:
+    - rowstore tables and indexes
+    - columnstore tables and indexes
+    - "*SQL Server 2019 (15.x) and Azure SQL Database support row and page compression for rowstore tables and indexes, and supports columnstore and columnstore archival compression for columnstore tables and indexes.*"
+
+## Microsoft Guidance
+
+### Columnstore Guidance
+
+Columnstore - [MSFT Guidance for Indexes](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance)
+
+**Step 1: Clustered columnstore index on all OLAP/data warehouse tables**
+- Star schema tables
+- Snowflake tables
+- Fact tables
+- Dimension tables
+
+**Step 2: Non-clustered columnstore indexes for all keys (PK, FK for lookups)**
+- Enforce PKs with NCI
+- Enable fast lookups w NCI on FKs
+
+| Use case  | Recommendation  | Compression ratio  | Notes  	|
+|---	|---	|---	|---	|
+| Star and Snowflake tables (fact, dimension) 	| Clustered columnstore index  	| 10x  	|   	|
+| Star and Snowflake tables (fact, dimension) 	| Non-clustered columnstore index on PKs 	| 10x  	|   	|
+| Star and Snowflake tables (fact, dimension) 	| Non-clustered columnstore index on FKs 	| 10x  	|   	|
+| HTAP and OLTP-like tables	| Drop rowstore indexes and replace with columnstore 	| -10%  	| Swapping NCI rowstore to NCI columnstore is actually going to [take up ~10% more space](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance)  	|
+| IoT insert tables  	| Clustered columnstore index  	| 10x  	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+|   	|   	|   	|   	|
+
+- Fact tables = columnstore table
+
 </details>
 
-<details><summary></summary>
+<details><summary>Compression</summary>
 
-# 
+# Compression
+
+Three options:
+- Rowstore tables and indexes = row and page compression are options
+- Columnstore tables and indexes = columnstore compression and columnstore archival compression
+- TSQL `COMPRESS` function = GZIP compression
+    - Inputs: strings, varbinary
+    - Compression: GZIP
+    - Compatibility: Rowstore and columnstore
+    - Use case: archival data
+    - https://docs.microsoft.com/en-us/sql/t-sql/functions/compress-transact-sql?view=sql-server-ver15
+
+Rowstore table profiles:
+- A whole table that is stored as a heap
+- A whole table that is stored as a clustered index
+- A whole nonclustered index
+- A whole indexed view (materialized index)
+- For partitioned tables and indexes, you can configure the compression option for each partition, and the various partitions of an object do not have to have the same compression setting
+
+Columnstore table profiles 
+- A whole table that is stored with columnstore compression 
+- A whole table that is stored as a clustered columnstore index with columnstore compression 
+- A whole nonclustered columnstore index
+- A whole table that is stored with columnstore archival compression 
+- A whole table that is stored as a clustered columnstore index with columnstore archival compression 
+- A whole nonclustered columnstore archival index
+- For partitioned columnstore tables and columnstore indexes, you can configure the archival compression option for each partition, and the various partitions do not have to have the same archival compression setting
+
+**Compression is always enabled for columnstore tables and can't be turned off** 
 
 ## 
 </details>
