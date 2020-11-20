@@ -15,6 +15,23 @@ From [the documentation], Microsoft classes tables in 2 ways:
 
 Columnstore - [MSFT Guidance for Indexes](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance)
 
+**Should I use rowstore or columnstore for XYZ table?**
+- [Answers from Microsoft](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance)
+- Does the table contain `varchar(max)`, `nvarchar(max)`, or `varbinary(max)`? - Use rowstore or design a 1:1 lookup rowstore table for strings w a columnstore table for numerics
+- Does this data have > 10% of writes are `UPDATE` and `DELETE` statements? - Use rowstore
+- Is this a long-term/permanent table? 
+    - Yes 
+        - Use columnstore
+    - No 
+        - Use rowstore
+- Does the table need partitioning? 
+    - Yes
+        - Will there be > 1,000,000 rows per partition? 
+            - Yes - use columnstore
+            - No - use rowstore
+    - No
+        - Use rowstore
+
 **Step 1: Clustered columnstore index on all OLAP/data warehouse tables**
 - Star schema tables
 - Snowflake tables
@@ -30,7 +47,7 @@ Columnstore - [MSFT Guidance for Indexes](https://docs.microsoft.com/en-us/sql/r
 | Star and Snowflake tables (fact, dimension) 	| Clustered columnstore index  	| 10x  	|   	|
 | Star and Snowflake tables (fact, dimension) 	| Non-clustered columnstore index on PKs 	| 10x  	|   	|
 | Star and Snowflake tables (fact, dimension) 	| Non-clustered columnstore index on FKs 	| 10x  	|   	|
-| HTAP and OLTP-like tables	| Drop rowstore indexes and replace with columnstore 	| -10%  	| Swapping NCI rowstore to NCI columnstore is actually going to [take up ~10% more space](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance)  	|
+| HTAP and OLTP-like tables	| Drop rowstore NCI indexes and replace with columnstore NCI	| -10%  	| Swapping NCI rowstore to NCI columnstore is actually going to [take up ~10% more space](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance)  	|
 | IoT insert tables  	| Clustered columnstore index  	| 10x  	|   	|
 |   	|   	|   	|   	|
 |   	|   	|   	|   	|
