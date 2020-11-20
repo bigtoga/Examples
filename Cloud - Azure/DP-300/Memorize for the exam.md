@@ -191,9 +191,74 @@ Columnstore table profiles
 ## 
 </details>
 
+<details><summary>SSIS</summary>
+
+# SSIS
+
+**Scenario: You lose `master` on an Azure SQL VM - how to restore SSISDB?**
+- Restore master
+- Attach SSISDB
+- Turn on TRUSTWORTHY and CLR
+- Open or restore the master key for the SSISDB database
+- Encrypt a copy of the master key using the service master key
+- Update the cleanup user
+
+Open the master key if you know the password:
+```sql
+OPEN MASTER KEY DECRYPTION BY PASSWORD = 'Original password used to encrypt the master key'
+```
+
+Restore the master key from backup:
+```sql
+RESTORE MASTER KEY FROM FILE = 'C:\Backups\SQL_masterkey' 
+	DECRYPTION BY PASSWORD = 'Original password used to encrypt the master key during SSISDB backup'
+	ENCRYPTION BY PASSWORD = 'Change to a new password' 
+	FORCE
+```
+
+If you get the warning "The current master key cannot be decrypted. The error was ignored because the FORCE option was specified", you can **ignore it**
+
+Update the cleanup user if needed:
+```sql
+USE SSISDB
+GO
+
+EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##MS_SSISServerCleanupJobLogin##'
+```
+
+
+
+</details>
+
+
 <details><summary></summary>
 
 # 
 
 ## 
 </details>
+
+
+<details><summary></summary>
+
+# 
+
+## 
+</details>
+
+
+<details><summary></summary>
+
+# 
+
+## 
+</details>
+
+
+<details><summary></summary>
+
+# 
+
+## 
+</details>
+
