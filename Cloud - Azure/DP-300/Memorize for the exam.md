@@ -1,3 +1,20 @@
+<details><summary>Cost Optimization</summary>
+
+# Cost Optimization
+
+## vCores
+
+**Scenario: Have 20 Azure SQL Databases using vCore pricing and want to know if converting to Elastic Pool will save money. What should you monitor to determine whether pricing is better/worse?**
+1. MAX(<Total number of DBs X average vCore utilization per DB>, <Number of concurrently peaking DBs X Peak vCore utilization per DB>)
+2. Estimate the storage space needed for the pool by adding the **number of bytes needed for all the databases in the pool**. Then determine the eDTU pool size that provides this amount of storage
+- Total size of all databases
+- Number of concurrently peaking databases * peak CPU utilization per database
+- Total # of DBs * Avg(CPU utilization per DB)
+- https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size
+
+For vCore-based purchasing model: MAX(<Total number of DBs X average vCore utilization per DB>, <Number of concurrently peaking DBs X Peak vCore utilization per DB)
+</details>
+
 
 <details><summary>Migrations</summary>
 
