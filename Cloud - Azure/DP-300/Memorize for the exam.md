@@ -326,5 +326,10 @@ EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##M
 
 # VMs and SQL Server
 
-## 
+**Scenario: Have a 1.2TB database that needs 10,000 IOPs. How?**
+- Provision 2 1TB P30 5,000 IOPs disks
+- Create a storage pool
+- Create a virtual disk using striping
+- Create a volume
+- https://hanu.com/hanu-how-to-striping-of-disks-for-azure-sql-server/
 </details>
