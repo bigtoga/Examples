@@ -18,6 +18,16 @@
 - Turn on Advanced Data Security
 - Apply sensitivity labels named "Highly Confidential" to the columns
 
+**How to enable automatic tuning in Azure SQL Database?**
+- `ALTER DATABASE DB1 SET AUTOMATIC_TUNING = AUTO`
+- `ALTER DATABASE DB1 SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON)`
+
+According to https://docs.microsoft.com/en-us/azure/azure-sql/database/automatic-tuning-enable
+> "As of March, 2020 new Azure defaults for automatic tuning are as follows:
+>> FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled.
+>> Existing servers with no automatic tuning preferences configured are automatically configured to INHERIT the Azure defaults. This applies to all customers currently having server settings for automatic tuning in an undefined state.
+>> New servers created will automatically be configured to INHERIT the Azure defaults (unlike earlier when automatic tuning configuration was in an undefined state upon new server creation).
+
 ### Scope: Azure VM running SQL Server
 
 **How to audit whenever a user selects rows/columns that have sensitive data?**
@@ -339,8 +349,8 @@ EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##M
 - Create a volume
 - https://hanu.com/hanu-how-to-striping-of-disks-for-azure-sql-server/
 
-**How to enable automatic tuning?**
-- `ALTER DATABASE DB1 SET QUERY STORE = ON (OPERATION_MODE = READ_WRITE)`
-- `ALTER DATABASE DB1 SET AUTOMATIC_TUNING=AUTO`
+**How to enable automatic tuning in on-prem SQL Server?**
+- `ALTER DATABASE DB1 SET SET QUERY_STORE = ON (OPERATION_MODE = READ_WRITE)`
+- `ALTER DATABASE DB1 SET AUTOMATIC_TUNING ( FORCE_LAST_GOOD_PLAN = ON );`
 
 </details>
