@@ -266,23 +266,14 @@ Columnstore table profiles
     - Storage size is checked when Query Store writes data to disk. This interval is set by the Data Flush Interval (Minutes) option. If Query Store has breached the maximum size limit between storage size checks, it transitions to read-only mode
     - Default is 900 seconds, which is 15 minutes
 
+**Want to see parameters of the last query execution - how?**
+- SQL 2019 - on by default
+- Enable `LAST_QUERY_PLAN_STATS` and enable `LIGHTWEIGHT_QUERY_PROFILING` for the database
+- `ALTER DATABASE SCOPED CONFIGURATION SET LIGHTWEIGHT_QUERY_PROFILING = ON`
+- Query `sys.dm_exec_query_plan_stats`
 
 </details>
 
-<details><summary>Tempdb</summary>
-
-# Tempdb
-
-**You change from 4 CPUs to 16 - how many tempdb files should you have?**
-- I think answer is 8 but they said 64 
-   - *As a general rule, if the number of logical processors is less than or equal to eight, use the same number of data files as logical processors*
-   - *If the number of logical processors is greater than eight, use eight data files and then if contention continues, increase the number of data files by multiples of 4 until the contention is reduced to acceptable levels or make changes to the workload/code.*
-   - https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database
-
-
-
-## 
-</details>
 
 <details><summary>SSIS</summary>
 
@@ -322,6 +313,21 @@ EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##M
 ```
 </details>
 
+<details><summary>Tempdb</summary>
+
+# Tempdb
+
+**You change from 4 CPUs to 16 - how many tempdb files should you have?**
+- I think answer is 8 but they said 64 
+   - *As a general rule, if the number of logical processors is less than or equal to eight, use the same number of data files as logical processors*
+   - *If the number of logical processors is greater than eight, use eight data files and then if contention continues, increase the number of data files by multiples of 4 until the contention is reduced to acceptable levels or make changes to the workload/code.*
+   - https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database
+
+
+
+## 
+</details>
+
 <details><summary>VMs and SQL Server</summary>
 
 # VMs and SQL Server
@@ -332,4 +338,9 @@ EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##M
 - Create a virtual disk using striping
 - Create a volume
 - https://hanu.com/hanu-how-to-striping-of-disks-for-azure-sql-server/
+
+**How to enable automatic tuning?**
+- `ALTER DATABASE DB1 SET QUERY STORE = ON (OPERATION_MODE = READ_WRITE)`
+- `ALTER DATABASE DB1 SET AUTOMATIC_TUNING=AUTO`
+
 </details>
