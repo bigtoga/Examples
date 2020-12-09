@@ -1,3 +1,8 @@
+# What are the most popular Azure VMs?
+
+1. Go to Azure Portal -> Virtual Machines -> Create a new VM
+2. Look for the URL under the size - at the top of that page is "Most popular Azure VMs"
+
 # What do the letters mean?
 
 - [How MSFT names the Azure series/sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/vm-naming-conventions)
