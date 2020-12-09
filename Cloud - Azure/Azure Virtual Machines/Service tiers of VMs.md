@@ -3,6 +3,13 @@
 1. Go to Azure Portal -> Virtual Machines -> Create a new VM
 2. Look for the URL under the size - at the top of that page is "Most popular Azure VMs"
 
+# How do I compare two VM sizes to see "which is faster"?
+
+Use the Azure compute units (ACU) - these give you a relative score for how fast a VM is
+- A1 is the baseline at 100 ACU
+- Dsv3 coming in at 190
+- Standard_H16mr at 300
+
 # What do the letters mean?
 
 - [How MSFT names the Azure series/sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/vm-naming-conventions)
