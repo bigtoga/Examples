@@ -24,6 +24,15 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/sizes#benchmark-scores
 
 ![?](https://i.imgur.com/TrhYTwj_d.jpg?maxwidth=640&shape=thumb&fidelity=medium)
 
+# Types of VM sizes
+
+- General purpose
+- Storage optimized
+- Compute optimized
+- Memory optimized
+- GPU
+- High performance compute
+
 # Dev/test and cheap servers
 - **A-Series**: low CPU power, low memory, cheap
    - Example use cases include development and test servers, low traffic web servers, small to medium databases, servers for proof-of-concepts, and code repositories
