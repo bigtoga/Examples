@@ -1,3 +1,20 @@
+# What do the letters mean?
+
+https://serverfault.com/questions/1030897/what-do-the-lowercase-letters-in-azure-vm-sizes-mean
+
+- "s" = Premium Storage capable, including possible use of Ultra SSD (Note: some newer sizes without the attribute of s can still support Premium Storage e.g. M128, M64, etc.)
+
+# Difference between OS disks
+
+- HDD
+- Standard SSD 
+- Premium SSD 
+
+# Benchmark scores for VM series
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/sizes#benchmark-scores 
+
+
 Basic overview - good enough to pass exams with:
 
 - If any of the below name “ends with an s”, that means it supports premium SSDs / Azure Premium Files
