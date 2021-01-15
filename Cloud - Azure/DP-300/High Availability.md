@@ -1,7 +1,28 @@
 <details>
-  <summary>Azure SQL Database</summary>
+  <summary>Azure SQL Database and Managed Instance</summary>
 
-# Azure SQL Database
+# Azure SQL Database and Managed Instance
+
+## Terms
+
+### Auto-Failover Groups
+
+- Azure SQL Database and Managed Instance
+- Group databases into a failover group
+- Built leveraging same Always On tech (i.e. streams the transaction log from primary to secondaries)
+- Secondaries are readable
+- Only support one secondary server/instance 
+- Secondary must be in a different region
+
+[Microsoft docs](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell)
+
+</details>
+
+
+<details>
+  <summary>Azure SQL Database only</summary>
+
+# Azure SQL Database only
 
 ## Terms
 
@@ -49,9 +70,9 @@ Built on top of Always On and works in a similar way by streaming the transactio
 </details>
 
 <details>
-  <summary>Managed Instance</summary>
+  <summary>Managed Instance only</summary>
 
-# Managed Instance
+# Managed Instance only
 
 ## Terms
 
