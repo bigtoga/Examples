@@ -1,3 +1,6 @@
+<details>
+  <summary>Azure SQL Database</summary>
+
 # Azure SQL Database
 
 ## Terms
@@ -42,3 +45,14 @@ Built on top of Always On and works in a similar way by streaming the transactio
 3. Enable `active geo replication` (https://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview)
 
 ![x](https://i.imgur.com/usZCZ4h.png)
+
+</details>
+
+<details>
+  <summary>Managed Instance</summary>
+
+# Managed Instance
+
+## Terms
+
+</details>
