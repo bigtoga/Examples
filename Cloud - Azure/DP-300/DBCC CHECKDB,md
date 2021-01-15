@@ -1,0 +1,4 @@
+**Scenario: `CHECKSUM` error reported. What to do?**
+1. Set DB to single user
+2. `DBCC CHECKDB('MyDB'), **REPAIR_FAST**)`
+3. Set DB to multi user
