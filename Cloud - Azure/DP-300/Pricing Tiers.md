@@ -21,6 +21,7 @@ There are only four "global options" that apply to "all types of deployments, al
 - That database needs specific DTU or vCore resources allocated to it
 
 ### Elastic Pool
+
 - You have a set of databases
 - You want to reserve DTUs or vCores for distribution across those databases
 - Ideally this is an *economic choice* to save money over using "a lot of different Single Database deployments"
@@ -44,14 +45,39 @@ Other resources:
       - "The more databases you can add to a pool the greater your savings become"
 - Good older article: https://peter.intheazuresky.com/2016/08/29/elastic-database-pools-purpose-when-and-why/ 
 
-**vCore** - perfect if you own the licenses already and are using Azure Hybrid Use Benefits. Also perfect for "known workloads"
+## Step 3: Choose Your Pricing Model (a.k.a. Purchase Model)
 
-**DTU** - "We don't know what the workload will be" or "It is unpredictable"
-- Microsoft's documentation on [What is a DTU?](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu) (a blend of CPU, memory, and I/O)
+Both Single Database and Elastic Pool have the same way to license: either by vCore or DTU
+- **vCore** - perfect if you own the licenses already and are using Azure Hybrid Use Benefits. Also perfect for "known workloads"
+- **DTU** - "We don't know what the workload will be" or "It is unpredictable" or "It's so small!"
+      - Microsoft's documentation on [What is a DTU?](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu) (a blend of CPU, memory, and I/O)
+
+## Step 4a: "I chose vCore"
+
+This means you want Microsoft to reserve hardware for you. They will do so by provisioning space on a set of Azure VMs running SQL Server, and on Azure Storage. Your next set of choices are:
+
+| Dropdown  	| Options  	| Notes  	|
+|---	|---	|---	|
+| Service Tier  	|  `General Purpose`, `Business Critical`, or `Hyperscale`  	| Service Tier defines the SLAs in play (if any)  	|
+| Compute Tier  	|  `Provisioned` or `Serverless`   	|   	|
+| Hardware Type  	| `Gen5`, `Gen4`, or `Fsv2-series`  	|   	|
+| Instance  	| # of cores the node must have 	|   	|
+
+[Microsoft's guidance on how to choose the right # of vCores](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size)
+- vCores = MAX(<Total number of DBs X average vCore utilization per DB>, <Number of concurrently peaking DBs X Peak vCore utilization per DB>)
+
+## Step 4b: "I chose DTU"
+
+This means you want Microsoft to reserve a predefined amount of compute for you over a time period of one month. They will not provision dedicated infrastructure for you but rather your workloads will run on existing compute alongside other customers' workloads. You are billed on consumption only.
 
 
+| Dropdown  	| Options  	| Notes  	|
+|---	|---	|---	|
+| Service Tier  	| `Basic`, `Standard`, or `Premium`   	| Service Tier defines the SLAs in play (if any)   	||
+| Performance Level  	| `eDTUs` are for elastic  	|   	|
 
-| Purchase Model	| `vCore` or `DTU`  	|   	|
+[Microsoft's guidance on how to choose the right # of DTUs and eDTUs](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size)
+- eDTUs = MAX(<Total number of DBs X average DTU utilization per DB>, <Number of concurrently peaking DBs X Peak DTU utilization per DB>)
 
 ## Step 2" 
 For **elastic pool** deployments:
