@@ -55,7 +55,7 @@ Both Single Database and Elastic Pool have the same way to license: either by vC
 - **DTU** - "We don't know what the workload will be" or "It is unpredictable" or "It's so small!"
       - Microsoft's documentation on [What is a DTU?](https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu) (a blend of CPU, memory, and I/O)
 
-## Step 4a: "I chose vCore"
+## Step 4a: "I chose Single Database with vCore"
 
 This means you want Microsoft to reserve hardware for you. They will do so by provisioning space on a set of Azure VMs running SQL Server, and on Azure Storage. Your next set of choices are:
 
@@ -69,10 +69,9 @@ This means you want Microsoft to reserve hardware for you. They will do so by pr
 [Microsoft's guidance on how to choose the right # of vCores](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size)
 - vCores = MAX(&lt;Total number of DBs X average vCore utilization per DB&gt;, &lt;Number of concurrently peaking DBs X Peak vCore utilization per DB&gt;)
 
-## Step 4b: "I chose DTU"
+## Step 4b: "I chose Single Database with DTU"
 
 This means you want Microsoft to reserve a predefined amount of compute for you over a time period of one month. They will not provision dedicated infrastructure for you but rather your workloads will run on existing compute alongside other customers' workloads. You are billed on consumption only.
-
 
 | Dropdown  	| Options  	| Notes  	|
 |---	|---	|---	|
@@ -81,6 +80,12 @@ This means you want Microsoft to reserve a predefined amount of compute for you 
 
 [Microsoft's guidance on how to choose the right # of DTUs and eDTUs](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size)
 - eDTUs = MAX(&lt;Total number of DBs X average DTU utilization per DB&gt;, &lt;Number of concurrently peaking DBs X Peak DTU utilization per DB&gt;)
+
+## Step 4c: "I chose Elastic Pool with vCore"
+
+
+## Step 4d: "I chose Elastic Pool with DTU"
+
 </details>
 
 
