@@ -23,11 +23,10 @@ From [the docs](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-a
 - **Failures should be so small that your app / you will not likely notice** - "When the underlying database in Azure SQL Database is patched or fails over, the downtime is not noticeable if you employ retry logic in your app. SQL Database and SQL Managed Instance can quickly recover even in the most critical circumstances ensuring that your data is always available."
 - **Committed data will never be lost** - "The high availability solution is designed to ensure that committed data is never lost due to failures, that maintenance operations do not affect your workload, and that the database will not be a single point of failure in your software architecture. There are no maintenance windows or downtimes that should require you to stop the workload while the database is upgraded or maintained."
 
-## HA Options
+## The two Azure SQL Architecture Models
 
-### Step 1: Choose one of Azure SQL's two Architecture Models
+### "Standard availability" model
 
-#### Standard availability model
 - Architecture Principal: separation of compute and storage increases reliability and availability
 - Best for: budget-oriented business applications that can tolerate some performance degradation during maintenance activities
 - Used by: Basic, Standard, and General Purpose pricing tiers
@@ -36,20 +35,39 @@ The standard availability model includes two layers:
 - A stateless compute layer that runs the `sqlservr.exe` process and contains only transient and cached data, such as TempDB, model databases on the attached SSD, and plan cache, buffer pool, and columnstore pool in memory. This stateless node is operated by Azure Service Fabric that initializes `sqlservr.exe`, controls health of the node, and performs failover to another node if necessary
 - A stateful data layer with the database files (.mdf/.ldf) that are stored in Azure Blob storage. Azure blob storage has built-in data availability and redundancy feature. It guarantees that every record in the log file or page in the data file will be preserved even if `sqlservr.exe` process crashes
 
-How upgrades and failover are handled: "Whenever the database engine or the operating system is upgraded, or a failure is detected, Azure Service Fabric will move the stateless `sqlservr.exe` process to another stateless compute node with sufficient free capacity. Data in Azure Blob storage is not affected by the move, and the data/log files are attached to the newly initialized sqlservr.exe process. This process guarantees 99.99% availability, but a heavy workload **may experience some performance degradation during the transition** since the new `sqlservr.exe` process starts with cold cache."
+How upgrades and failover are handled : "Whenever the database engine or the operating system is upgraded, or a failure is detected, Azure Service Fabric will move the stateless `sqlservr.exe` process to another stateless compute node with sufficient free capacity. Data in Azure Blob storage is not affected by the move, and the data/log files are attached to the newly initialized sqlservr.exe process. This process guarantees 99.99% availability, but a heavy workload **may experience some performance degradation during the transition** since the new `sqlservr.exe` process starts with cold cache."
 
-**Premium availability model**
+### "Premium availability" model
+
 - Architecture Principal: a cluster of database engine processes with voting by quorum offers the highest possible protection
 - Best for: mission critical applications with high IO performance, high transaction rate and guarantees minimal performance impact to your workload during maintenance activities.
 - Used by: Business Critical pricing tier
 
 Azure SQL Database and SQL Managed Instance both run on the latest stable version of the SQL Server database engine and Windows operating system, and most users would not notice that upgrades are performed continuously
 
-### Step 2: Choose your pricing tier (Basic, Standard, General Purpose, Business Critical)
+## Pricing tiers (Basic, Standard, General Purpose, Business Critical)
 
-**Basic, Standard, and General Purpose use same basic architecture model - the Standard architecture model**. They all use a similar architecture that has 3-4 nodes behind the scenes and separate compute + storage layers:
+- Basic, Standard, and General Purpose use the Standard Availability model
+- Business Critical uses the Premium Availability model
+
+### Basic and Standard
+
+Basic and Standard pricing tiers deploy their "behind the scenes VMs" to the same Azure Region
+- Data and files are stored in **LRS** (locally redundant storage)
+- Backups are stored in RA-GRS storage
 
 ![x](https://i.imgur.com/h2OnPem.png)
+
+When a failure or upgrade occurs, Azure Service Fabric moves the stateless "head of the application" (a.k.a. `sqlservr.exe`) to another stateless compute node that has free capacity. The data stored in Azure Blob Storage is not affected. This architecture achieves a 99.99% SLA. There will likely be performance loss during startup of the new SQL node due to a cold cache however.
+
+### General Purpose
+
+General Purpose still uses the Standard Availability model but introduces zone redundant nodes for the backend cluster. This offers additional protections against catastrophic failures such as datacenter loss.
+- Data and files are stored in **ZRS PFS** (zone redundant storage using an Azure Premium File Share)
+- With ZRS, data and log files are copied synchronously and in real-time across 3 physically separated Azure availability zones
+- Backups are stored in RA-GRS storage
+
+![x](https://i.imgur.com/svF0RKV.png)
 
 ### Auto-Failover Groups
 
