@@ -5,18 +5,35 @@
 
 - [High availability documentation](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)
 
-## SLAs 
-- [SLAs for Azure SQL Database and Managed Instance](https://azure.microsoft.com/en-us/support/legal/sla/sql-database/v1_5/)
-- Business Critical and Premium tier configured also to be zone redundant: 99.995% uptime
-- Business Critical and Premium tier but not zone redundant: 99.99% uptime
-- Hyperscale with one replica: 99.95%
-- Hyperscale with zero replicas: 99.90%
+## Known issues to design around
 
-## RPO and RTO
-- **RPO** -  Business crticial with geo-replication: 5 seconds for 100% of deployed hours
-- **RTO** - Business critical with geo-replication: 30 seconds
-- **General Purpose has no RPO or RTO guarantees**
+January 2021: 
+- General Purpose with zone redundant enabled
+      - > 80 vCores is a problem
+      - Databases > 1TB are a problem
 
+## SLAs, RTOs, and RPOs
+
+In November, 2020, Microsoft moved the Managed Instance SLAs into a separate SLA
+- [SLAs for Azure SQL Database](https://azure.microsoft.com/en-us/support/legal/sla/sql-database/v1_5/)
+- [SLAs for Azure SQL Database Managed Instance](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-sql-managed-instance/v1_0/)
+
+### Azure SQL Database SLA, RTO, RPO
+- As of January, 2021, the SLAs and RPO/RTO times are:
+      - Uptime: SLA of 99.995% - Business Critical configured also to be zone redundant
+      - Uptime: SLA of 99.99% - Business Critical but not zone redundant
+      - Uptime: SLA of 99.95% - Hyperscale with one replica
+      - Uptime: SLA of 99.90% - Hyperscale with zero replicas
+      - RPO: 5 seconds - Business Critical with geo-replication
+      - RPO: 30 seconds - Business Critical without geo-replication
+      - RTO: 30 seconds - Business Critical with Geo-replication
+
+### Azure SQL Database Managed Instance SLA, RTO, RPO
+- As of January, 2021, the SLAs and RPO/RTO times are:
+      - Uptime: SLA of 99.99% - Business Critical and General Purpose
+      - RPO: None
+      - RTO: None
+   
 ## How failover and unplanned downtime is handled 
 
 From [the docs](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla#basic-standard-and-general-purpose-service-tier-locally-redundant-availability): 
