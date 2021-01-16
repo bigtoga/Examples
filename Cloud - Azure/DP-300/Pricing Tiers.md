@@ -23,6 +23,7 @@ There are only four "global options" that apply to "all types of deployments, al
 ### Elastic Pool
 - You have a set of databases
 - You want to reserve DTUs or vCores for distribution across those databases
+- Ideally this is an *economic choice* to save money over using "a lot of different Single Database deployments"
 
 ### Deciding / Moving Between Each
 
@@ -36,7 +37,12 @@ There are only four "global options" that apply to "all types of deployments, al
 |   	|   	|   	|
 |   	|   	|   	|
 
-https://peter.intheazuresky.com/2016/08/29/elastic-database-pools-purpose-when-and-why/ 
+Other resources:
+- https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview
+      - "Pools are well suited for a large number of databases with specific utilization patterns"
+      - "... multiple databases with persistent medium-high utilization should not be placed in the same elastic pool"
+      - "The more databases you can add to a pool the greater your savings become"
+- Good older article: https://peter.intheazuresky.com/2016/08/29/elastic-database-pools-purpose-when-and-why/ 
 
 **vCore** - perfect if you own the licenses already and are using Azure Hybrid Use Benefits. Also perfect for "known workloads"
 
