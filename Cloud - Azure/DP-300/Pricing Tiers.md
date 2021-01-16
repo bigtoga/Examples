@@ -1,6 +1,9 @@
 Easiest to [use the Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to see all of the options.
 
-# Azure SQL Database only
+<details>
+      <summary>Azure SQL Database</summary>
+      
+# Azure SQL Database 
 
 ## Step 1: Decide your type of deployment, your backup storage, and long term retention
 
@@ -78,3 +81,35 @@ This means you want Microsoft to reserve a predefined amount of compute for you 
 
 [Microsoft's guidance on how to choose the right # of DTUs and eDTUs](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size)
 - eDTUs = MAX(&lt;Total number of DBs X average DTU utilization per DB&gt;, &lt;Number of concurrently peaking DBs X Peak DTU utilization per DB&gt;)
+</details>
+
+
+<details>
+      <summary>Managed Instance</summary>
+      
+# Managed Instance
+
+## Step 1: Make your major decisions
+Managed Instance only has global options - these do not change based on service tier:
+
+| Dropdown  	| Options  	| Notes  	|
+|---	|---	|---	|
+| Region  	| Choose wisely   	|   	|
+| Tier  	| `Managed Instance` is the only option   	|   	|
+| Backup Storage Tier  	| `LRS`, `ZRS`, or `RA-GRS`  	|   	|
+| Service Tier  	| `General Purpose` or `Business Critical`  	| Define your SLAs 	|
+| Instance Type  	| `Single Instance` or `Instance Pools`  	| [Managed Instance pools](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/instance-pools-overview) are in preview; only for small SQL Servers that are related	|
+| Generation 	| `Gen5`, `Gen4`	|   	|
+| Instance  	| # of cores the node must have 	|   	|
+| Long Term Retention	| You must choose the options for "How big will your backups be?", "How long do you want to retain (in weeks, months, and years)?"	|   	|
+
+## Step 2: Make your storage decisions
+
+From the pricing calculator, "Storage size must be specified between 32 GB and 8 TB, in 32 GB increments. Storage is charged based on actual usage. Actual storage limits apply and are based upon type, service tier and hardware generation"
+
+## Step 3: Define your backup "Point in time restore" storage (PITR)
+
+How many GB do you want to reserve for point in time restores? ([PITR documentation](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal))
+
+
+</details>
