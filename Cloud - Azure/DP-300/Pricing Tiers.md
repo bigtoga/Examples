@@ -64,7 +64,7 @@ This means you want Microsoft to reserve hardware for you. They will do so by pr
 | Instance  	| # of cores the node must have 	|   	|
 
 [Microsoft's guidance on how to choose the right # of vCores](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size)
-- vCores = MAX(<Total number of DBs X average vCore utilization per DB>, <Number of concurrently peaking DBs X Peak vCore utilization per DB>)
+- vCores = MAX(&lt;Total number of DBs X average vCore utilization per DB&gt;, &lt;Number of concurrently peaking DBs X Peak vCore utilization per DB&gt;)
 
 ## Step 4b: "I chose DTU"
 
@@ -77,32 +77,4 @@ This means you want Microsoft to reserve a predefined amount of compute for you 
 | Performance Level  	| `eDTUs` are for elastic  	|   	|
 
 [Microsoft's guidance on how to choose the right # of DTUs and eDTUs](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview#how-do-i-choose-the-correct-pool-size)
-- eDTUs = MAX(<Total number of DBs X average DTU utilization per DB>, <Number of concurrently peaking DBs X Peak DTU utilization per DB>)
-
-## Step 2" 
-For **elastic pool** deployments:
-
-| Dropdown  	| Options  	| Notes  	|
-|---	|---	|---	|
-| Performance Level  	|   	|   	|
-|   	|   	|   	|
-|   	|   	|   	|
-|   	|   	|   	|
-|   	|   	|   	|
-|   	|   	|   	|
-|   	|   	|   	|
-
-For **vCore** deployments:
-
-| Dropdown  	| Options  	| Notes  	|
-|---	|---	|---	|
-| Service Tier  	|  `General Purpose`, `Business Critical`, or `Hyperscale`  	|   	|
-| Compute Tier  	|  `Provisioned` or `Serverless`   	|   	|
-| Hardware Type  	| `Gen5`, `Gen4`, or `Fsv2-series`  	|   	|
-| Instance  	| # of cores the node must have 	|   	|
-
-For **DTU** deployments:
-
-| Dropdown  	| Options  	| Notes  	|
-|---	|---	|---	|
-| Service Tier  	| `Basic`, `Standard`, or `Premium`   	|   	|
+- eDTUs = MAX(&lt;Total number of DBs X average DTU utilization per DB&gt;, &lt;Number of concurrently peaking DBs X Peak DTU utilization per DB&gt;)
