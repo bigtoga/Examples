@@ -25,7 +25,9 @@ Use the Azure compute units (ACU) - these give you a relative score for how fast
 
 # Benchmark scores for VM series
 
-https://docs.microsoft.com/en-us/azure/virtual-machines/sizes#benchmark-scores 
+[Benchmarks for Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes#benchmark-scores)
+- [Windows VM benchmarks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/compute-benchmark-scores)
+- [Linux VM benchmarks](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/compute-benchmark-scores)
 
 # Basic overview of the VM Sizes
 
