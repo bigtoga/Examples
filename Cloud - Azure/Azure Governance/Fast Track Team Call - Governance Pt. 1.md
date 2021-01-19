@@ -55,6 +55,13 @@ How to apply same tag to multiple resources at once in the portal?
 
 # 3. Managed Access
 
+Recommended by the CAF: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/considerations/roles
+
+How can I see what someone's access is to a given resource?
+- Go to the resource's blade
+- Access control (IAM)
+- 
+
 # 4. Manage Costs & Billing
 
 # 5. Plan governance, security, and compliance
