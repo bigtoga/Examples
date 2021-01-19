@@ -48,6 +48,11 @@ Scott: "Do you recommend that the Azure resource name matches the NetBIOS name o
 Scott: "What about explicitly creating OS disk and NIC instead of letting Azure auto-create those?"
 - "... it is common to start creating VMs through the Azure portal to get familiar with the platform. We will generally see a switch to automated deployments through scripts, ci/cd pipelines, ARM templates, etc. where there are more configuration options to control naming of additional resources. Then we'll see disk and NIC resources to be customized to your naming standards versus letting Azure pick the names instead."
 
+## Tagging
+
+How to apply same tag to multiple resources at once in the portal?
+- Home -> All Resources -> Select the items you want -> Assign Tags
+
 # 3. Managed Access
 
 # 4. Manage Costs & Billing
