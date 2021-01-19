@@ -64,6 +64,9 @@ How can I see what someone's access is to a given resource?
 
 # 4. Manage Costs & Billing
 
+Can we set up a hard limit? 
+- No: "There is currently not a capability to set a hard limit on the spend in a subscription. Resources will have different pricing models, so some resources will incur costs when it is created but other resources are based on usage. We commonly see budgets leveraged for notifications and ensuring the sandbox teams have access to Cost Management to better view and monitor their costs within a subscription or within a specific resource group."
+
 # 5. Plan governance, security, and compliance
 
 # 6. Establish monitoring and reporting
