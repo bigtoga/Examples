@@ -10,6 +10,10 @@ Use the Azure compute units (ACU) - these give you a relative score for how fast
 - Dsv3 coming in at 190
 - Standard_H16mr at 300
 
+[Benchmarks for Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes#benchmark-scores)
+- [Windows VM benchmarks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/compute-benchmark-scores)
+- [Linux VM benchmarks](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/compute-benchmark-scores)
+
 # What do the letters mean?
 
 - [How MSFT names the Azure series/sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/vm-naming-conventions)
@@ -22,12 +26,6 @@ Use the Azure compute units (ACU) - these give you a relative score for how fast
 - HDD
 - Standard SSD 
 - Premium SSD 
-
-# Benchmark scores for VM series
-
-[Benchmarks for Azure VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes#benchmark-scores)
-- [Windows VM benchmarks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/compute-benchmark-scores)
-- [Linux VM benchmarks](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/compute-benchmark-scores)
 
 # Basic overview of the VM Sizes
 
