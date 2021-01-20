@@ -19,6 +19,7 @@ Use the Azure compute units (ACU) - these give you a relative score for how fast
 - [How MSFT names the Azure series/sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/vm-naming-conventions)
 - [Another breakdown](https://serverfault.com/questions/1030897/what-do-the-lowercase-letters-in-azure-vm-sizes-mean)
 
+- **"a"** - AMD processor
 - **"s"** = Premium Storage capable, including possible use of Ultra SSD (Note: some newer sizes without the attribute of s can still support Premium Storage e.g. M128, M64, etc.)
 
 # Difference between OS disks
