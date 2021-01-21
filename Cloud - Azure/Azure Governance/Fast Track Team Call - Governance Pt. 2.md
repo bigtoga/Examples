@@ -4,21 +4,22 @@ Agenda is here: https://aka.ms/ftalive-gov
 
 Azure Setup Guide is here: https://portal.azure.com/#blade/Microsoft_Azure_Resources/QuickstartPlaybookBlade/guideId/intro-azure-setup
 
-# 3. Managed Access
-
-Recommended by the CAF: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/considerations/roles
-
-How can I see what someone's access is to a given resource?
-- Go to the resource's blade
-- Access control (IAM)
-- 
-
-# 4. Manage Costs & Billing
-
-Can we set up a hard limit? 
-- No: "There is currently not a capability to set a hard limit on the spend in a subscription. Resources will have different pricing models, so some resources will incur costs when it is created but other resources are based on usage. We commonly see budgets leveraged for notifications and ensuring the sandbox teams have access to Cost Management to better view and monitor their costs within a subscription or within a specific resource group."
-
 # 5. Plan governance, security, and compliance
+
+## Azure Security Center
+
+https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/govern-org-compliance?tabs=AzureSecurityCenter
+
+- By default, it is enabled only for Free tier
+- Azure Defender off/on: Portal -> Security Center -> Settings -> Azure Defender plans
+- Auto-provisioning
+    - Log Analytics on/off - auto-enroll VMs in LAWS
+    - Microsoft Dependency Agent on/off
+- Secure score: "We like to see everyone have at least a 72%"
+
+## Questions: 
+- Scott: "Azure Just in Time VM pimping - can we use that if we don't have public IP addresses?"
+    - 
 
 # 6. Establish monitoring and reporting
 
