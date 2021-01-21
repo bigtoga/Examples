@@ -19,8 +19,9 @@ https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setu
 - Azure Security Recommendations - "You have to implement all of the recommendations in a group to get the expected score increase the group says. You can't remediate 1 or 2 in a group and expect partial credit"
 
 ## Questions: 
-- Scott: "We want to use Azure Bastion, not Just in Time. 
-    - 
+- Scott: "We want to use Azure Bastion, not Just in Time. Can we disable that banner?"
+    - No. JIT access does not require public IP addresses for access to the VMs. Unfortunately, the banner will persist if JIT is not enabled. More broadly, there are plans for more seamless integration between Bastion and JIT as these are rather separate services today
+ 
 - Scott: "Where can we see performance impact of enabling disk encryption as Azure Defender recommends?"
     - Azure disk encryption specifically will leverage BitLocker for Windows and dm-crypt for Linux, and we would reference the performance impact on those encryption deployments.
 
