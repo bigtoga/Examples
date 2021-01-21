@@ -16,6 +16,7 @@ https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setu
     - Log Analytics on/off - auto-enroll VMs in LAWS
     - Microsoft Dependency Agent on/off
 - Secure score: "We like to see everyone have at least a 72%"
+- Azure Security Recommendations - "You have to implement all of the recommendations in a group to get the expected score increase the group says. You can't remediate 1 or 2 in a group and expect partial credit"
 
 ## Questions: 
 - Scott: "Azure Just in Time VM pimping - can we use that if we don't have public IP addresses?"
