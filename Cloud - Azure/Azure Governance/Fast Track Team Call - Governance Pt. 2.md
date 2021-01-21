@@ -19,8 +19,15 @@ https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setu
 - Azure Security Recommendations - "You have to implement all of the recommendations in a group to get the expected score increase the group says. You can't remediate 1 or 2 in a group and expect partial credit"
 
 ## Questions: 
-- Scott: "Azure Just in Time VM pimping - can we use that if we don't have public IP addresses?"
+- Scott: "We want to use Azure Bastion, not Just in Time. 
     - 
+- Scott: "Where can we see performance impact of enabling disk encryption as Azure Defender recommends?"
+    - Azure disk encryption specifically will leverage BitLocker for Windows and dm-crypt for Linux, and we would reference the performance impact on those encryption deployments.
+
+- Scott: For Azure Defender plans, can we enable Defender for "some but not all Storage accounts"?
+     - No, per subscription / resource type. We know customers have problems w this and feedback is acknowledged
+     
+- Is there a document/spreadsheet/checklist that a company should use to ensure that they discuss/decide "on all the right things"? Appreciate the overview of the tool but I think where we are is "If there was a set of steps/questions that our internal teams should go through to align/answer/decide, we sure could use that right about now."      
 
 # 6. Establish monitoring and reporting
 
