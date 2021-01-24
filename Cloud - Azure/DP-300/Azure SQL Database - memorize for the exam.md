@@ -1,4 +1,15 @@
 <details>
+  <summary>Backup & Restore</summary>
+  
+# Backup & Restore
+
+**Can you backup with Azure Backup?** - yes
+
+  </summary>
+</details>
+
+
+<details>
   <summary>Disaster Recovery and High Availability</summary>
   
 # Disaster Recovery and High Availability
