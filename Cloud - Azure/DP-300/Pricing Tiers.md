@@ -1,5 +1,7 @@
 Easiest to [use the Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) to see all of the options.
 
+50,000 IOPs = Business Critical or Hyperscale tier
+
 <details>
       <summary>Azure SQL Database</summary>
       
