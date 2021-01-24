@@ -14,6 +14,8 @@
     3. Choose the SQL Server
 - Manual backups to Azure Storage
 
+**Where to configure backups?** - VM blade -> Backup policies
+
 </details>
 
 <details>
