@@ -63,6 +63,40 @@ GO
 ```
 </details>
 
+<details><summary>Compression</summary>
+
+# Compression
+
+Three options:
+- Rowstore tables and indexes = row and page compression are options
+- Columnstore tables and indexes = columnstore compression and columnstore archival compression
+- TSQL `COMPRESS` function = GZIP compression
+    - Inputs: strings, varbinary
+    - Compression: GZIP
+    - Compatibility: Rowstore and columnstore
+    - Use case: archival data
+    - https://docs.microsoft.com/en-us/sql/t-sql/functions/compress-transact-sql?view=sql-server-ver15
+
+Rowstore table profiles:
+- A whole table that is stored as a heap
+- A whole table that is stored as a clustered index
+- A whole nonclustered index
+- A whole indexed view (materialized index)
+- For partitioned tables and indexes, you can configure the compression option for each partition, and the various partitions of an object do not have to have the same compression setting
+
+Columnstore table profiles 
+- A whole table that is stored with columnstore compression 
+- A whole table that is stored as a clustered columnstore index with columnstore compression 
+- A whole nonclustered columnstore index
+- A whole table that is stored with columnstore archival compression 
+- A whole table that is stored as a clustered columnstore index with columnstore archival compression 
+- A whole nonclustered columnstore archival index
+- For partitioned columnstore tables and columnstore indexes, you can configure the archival compression option for each partition, and the various partitions do not have to have the same archival compression setting
+
+**Compression is always enabled for columnstore tables and can't be turned off** 
+
+</details>
+
 <details><summary>Cost Optimization</summary>
 
 # Cost Optimization
@@ -80,6 +114,23 @@ GO
 For vCore-based purchasing model: MAX(<Total number of DBs X average vCore utilization per DB>, <Number of concurrently peaking DBs X Peak vCore utilization per DB)
 </details>
 	
+<details><summary>Encryption</summary>
+
+# Encryption
+
+**Randomized or deterministic encryption - which to use?**
+- Randomized encryption is more secure, but prevents searching, grouping, indexing, and joining on encrypted columns
+- Randomized generates a random value/ciphertext each time even if the input is the same
+- Deterministic allows point lookups, equality joins, grouping and indexing on encrypted columns
+- Deterministic generates the same encrypted value for all rows if the input is the same
+
+**Scenario: Want DBAs to not be able to view `Salary` column - how?**
+1. Create a column master key
+2. Create a column encryption key
+3. Encrypt the `Salary` column using "randomized"
+
+</details>
+
 <details><summary>Dynamic Data Masking</summary>
 
 # Dynamic Data Masking
@@ -135,24 +186,6 @@ REVERT;
 - Use `WITH CHECKSUM`
 
 </details>
-
-<details><summary>Encryption</summary>
-
-# Encryption
-
-**Randomized or deterministic encryption - which to use?**
-- Randomized encryption is more secure, but prevents searching, grouping, indexing, and joining on encrypted columns
-- Randomized generates a random value/ciphertext each time even if the input is the same
-- Deterministic allows point lookups, equality joins, grouping and indexing on encrypted columns
-- Deterministic generates the same encrypted value for all rows if the input is the same
-
-**Scenario: Want DBAs to not be able to view `Salary` column - how?**
-1. Create a column master key
-2. Create a column encryption key
-3. Encrypt the `Salary` column using "randomized"
-
-</details>
-
 
 
 <details><summary>Indexing</summary>
@@ -221,52 +254,9 @@ Columnstore - [MSFT Guidance for Indexes](https://docs.microsoft.com/en-us/sql/r
 
 </details>
 
-<details><summary>Compression</summary>
-
-# Compression
-
-Three options:
-- Rowstore tables and indexes = row and page compression are options
-- Columnstore tables and indexes = columnstore compression and columnstore archival compression
-- TSQL `COMPRESS` function = GZIP compression
-    - Inputs: strings, varbinary
-    - Compression: GZIP
-    - Compatibility: Rowstore and columnstore
-    - Use case: archival data
-    - https://docs.microsoft.com/en-us/sql/t-sql/functions/compress-transact-sql?view=sql-server-ver15
-
-Rowstore table profiles:
-- A whole table that is stored as a heap
-- A whole table that is stored as a clustered index
-- A whole nonclustered index
-- A whole indexed view (materialized index)
-- For partitioned tables and indexes, you can configure the compression option for each partition, and the various partitions of an object do not have to have the same compression setting
-
-Columnstore table profiles 
-- A whole table that is stored with columnstore compression 
-- A whole table that is stored as a clustered columnstore index with columnstore compression 
-- A whole nonclustered columnstore index
-- A whole table that is stored with columnstore archival compression 
-- A whole table that is stored as a clustered columnstore index with columnstore archival compression 
-- A whole nonclustered columnstore archival index
-- For partitioned columnstore tables and columnstore indexes, you can configure the archival compression option for each partition, and the various partitions do not have to have the same archival compression setting
-
-**Compression is always enabled for columnstore tables and can't be turned off** 
-
-</details>
-
 <details><summary>Performance Monitoring & DMVs</summary>
 
 # Performance Monitoring & DMVs
-
-## Azure SQL Database
-
-**What DMV to see resource utilization?**
-- `sys.resource_stats` returns CPU usage and storage data for an Azure SQL Database. It has database_name and start_time columns.
-- https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database
-
-
-</details>
 
 <details><summary>Query Store</summary>
 
@@ -279,12 +269,14 @@ Columnstore table profiles
 
 **Want to see parameters of the last query execution - how?**
 - SQL 2019 - on by default
-- Enable `LAST_QUERY_PLAN_STATS` and enable `LIGHTWEIGHT_QUERY_PROFILING` for the database
+- **Step 1: Enable `LAST_QUERY_PLAN_STATS` for `master`**
+- **Step 2: Enable `LIGHTWEIGHT_QUERY_PROFILING` for the database**
 - `ALTER DATABASE SCOPED CONFIGURATION SET LIGHTWEIGHT_QUERY_PROFILING = ON`
 - Query `sys.dm_exec_query_plan_stats`
+- https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql?view=sql-server-ver15 
+- https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver15
 
 </details>
-
 
 <details><summary>SSIS</summary>
 
