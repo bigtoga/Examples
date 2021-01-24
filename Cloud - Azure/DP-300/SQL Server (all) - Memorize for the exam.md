@@ -347,3 +347,14 @@ EXEC sp_change_users_login 'update_one', '##MS_SSISServerCleanupJobUser##', '##M
 - `ALTER DATABASE DB1 SET AUTOMATIC_TUNING ( FORCE_LAST_GOOD_PLAN = ON );`
 
 </details>
+
+
+<details>
+	<summary>Misc</summary>
+	
+# Misc
+
+**Scenario: `CHECKSUM` error reported. What to do?**
+1. Set DB to single user
+2. `DBCC CHECKDB('MyDB'), **REPAIR_FAST**)`
+3. Set DB to multi user
