@@ -1,11 +1,21 @@
 <details>
+  <summary>Alerting</summary>
+  
+# Alerting
+
+**Azure SQL Server with 5 Azure SQL databases - can you get alert for overall CPU consumption?** - Yes, monitor the resource group
+- https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview
+
+
+</details>
+
+<details>
   <summary>Backup & Restore</summary>
   
 # Backup & Restore
 
 **Can you backup with Azure Backup?** - yes
 
-  </summary>
 </details>
 
 
