@@ -65,5 +65,10 @@
 
 **Long running query - how to view execution plan?** - Live Query Statistics
 
+**What DMV to see resource utilization?**
+- `sys.resource_stats` returns CPU usage and storage data for an Azure SQL Database. It has database_name and start_time columns.
+- https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database
+
+
   </summary>
 </details> 
