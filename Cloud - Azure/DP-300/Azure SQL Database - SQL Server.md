@@ -76,13 +76,17 @@
 
 
 <details>
-  <summary>Pricing</summary>
+  <summary>Pricing & Cost Management</summary>
   
-# Pricing
+# Pricing & Cost Management
 
 **Need 50,000 IOPs - what tier?**
 - Business Critical or Hyperscale
 
+**Can you pause databases due to inactivity?**
+- Yes, Azure has an inactivity "Pause" option **for serverless**
+- When the next user hits the database, it will be availabile within one minute if it is in a paused state
+- https://docs.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview
 
   </summary>
 </details> 
