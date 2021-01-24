@@ -23,9 +23,15 @@
   
 # Logging 
 
-**Log retention - default for SQL Insights?**
+### Log retention - Storage Accounts
 
-**Log retention - what if you put a specific value in for SQL Insights retention?** - this will override the defaul
+**Default for SQL Insights for storage account?**
+
+**What if you put a specific value in for SQL Insights retention?** - this will override the default
+
+### Log retention - Log Analytics Workspace retention
+
+**Configured as part of the workspace or as SQL server config?** - LAW
 
   </summary>
 </details>
