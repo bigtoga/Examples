@@ -55,4 +55,4 @@
 **Long running query - how to view execution plan?** - Live Query Statistics
 
   </summary>
-</details>
+</details> 
