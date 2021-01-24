@@ -72,3 +72,17 @@
 
   </summary>
 </details> 
+
+
+
+<details>
+  <summary>Pricing</summary>
+  
+# Pricing
+
+**Need 50,000 IOPs - what tier?**
+- Business Critical or Hyperscale
+
+
+  </summary>
+</details> 
