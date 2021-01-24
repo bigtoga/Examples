@@ -17,6 +17,7 @@
 - Enable SQL Auditing and configure it to write to the storage account
 - Turn on Advanced Data Security
 - Apply sensitivity labels named "Highly Confidential" to the columns
+- Can do either **Server level** (a SQL Server audit) or **Database level**
 
 **How to enable automatic tuning in Azure SQL Database?**
 - `ALTER DATABASE DB1 SET AUTOMATIC_TUNING = AUTO`
