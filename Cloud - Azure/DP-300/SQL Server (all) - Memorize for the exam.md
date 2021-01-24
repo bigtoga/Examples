@@ -276,6 +276,8 @@ Columnstore - [MSFT Guidance for Indexes](https://docs.microsoft.com/en-us/sql/r
 - https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql?view=sql-server-ver15 
 - https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver15
 
+**How to enable automatic tuning?** - `ALTER DATABASE MyDB SET AUTOMATIC_TUNING (FORCE_LAST_KNOWN_GOOD = ON)`
+
 </details>
 
 <details><summary>SSIS</summary>
