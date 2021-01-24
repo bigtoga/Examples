@@ -1,4 +1,18 @@
 <details>
+  <summary>Defaults</summary>
+  
+# Defaults
+
+**FORCE_PLAN?** - ON
+
+**CREATE_INDEX** - OFF
+
+**DROP_INDEX** - OFF
+
+  </summary>
+</details>
+
+<details>
   <summary>Alerting</summary>
   
 # Alerting
@@ -16,6 +30,8 @@
 
 **Can you backup with Azure Backup?** - yes
 
+**Can Azure Backup restore a database backup to another server?** - yes
+
 </details>
 
 
@@ -24,7 +40,7 @@
   
 # Disaster Recovery and High Availability
 
-### Scenario: Goal 1: During normal operations, want at least 2 readable copies of `Sales` database. Goal 2: Ensure that `Sales` remains available if a datacenter fails. How?
+### Scenario: Goal 1: Want at least 2 readable copies of `Sales` database. Goal 2: Ensure that `Sales` remains available if a datacenter fails. How?
 
 **Use Business Critical tier with Availability Zone**
 - Premium or Business Critical tiers both leverage the **Premium availability model**
@@ -34,6 +50,9 @@
 - Azure SQL Database can place different replicas of the Business Critical database to different availability zones in the same region
 - To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW)
 - Reference: https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla
+
+**Want auto failover without data loss if data center fails - how?**
+- Azure SQL Database Premium with Zone Redundancy
 
   </summary>
 </details>
