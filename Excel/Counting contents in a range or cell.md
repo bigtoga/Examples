@@ -9,3 +9,9 @@ If you see `5`, that means that 5 cells in that range have "Yes" and only "Yes"
 `=COUNTA(A2:A9)`
 
 If you see `5`, that means 5 of the cells in that range had "some text" in them
+
+**Count occurences of blank cells**
+
+`=COUNTBLANK(A2:A9)`
+
+If you see `5`, that means 5 of the cells in that range are completely empty
