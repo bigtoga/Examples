@@ -94,6 +94,9 @@ General Purpose still uses the Standard Availability model but introduces zone r
 - Secondaries are readable
 - Only support one secondary server/instance 
 - Secondary must be in a different region
+- Uses a **Read/Write Failover Policy** - if "Automatic", then failover is auto-handled
+- Each database can have a **Read/Write grace period in hours**
+- You can set the failover grace period per database failover group
 
 [Microsoft docs](https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell)
 
