@@ -1,16 +1,4 @@
-<details>
-  <summary>Defaults</summary>
-  
-# Defaults
-
-**FORCE_PLAN?** - ON
-
-**CREATE_INDEX** - OFF
-
-**DROP_INDEX** - OFF
-
-  </summary>
-</details>
+# Azure SQL Database for SQL Server
 
 <details>
   <summary>Alerting</summary>
@@ -34,6 +22,19 @@
 
 </details>
 
+<details>
+  <summary>Defaults</summary>
+  
+# Defaults
+
+**FORCE_PLAN?** - ON
+
+**CREATE_INDEX** - OFF
+
+**DROP_INDEX** - OFF
+
+  </summary>
+</details>
 
 <details>
   <summary>Disaster Recovery and High Availability</summary>
@@ -57,6 +58,18 @@
   </summary>
 </details>
 
+<details>
+  <summary>Encryption</summary>
+  
+# Encryption
+
+**How to set correct Azure Key Vault policy for column encryption and Always Encrypted?**
+- `Set-AzKeyVaultAccessPolicy ... -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list`
+- https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell
+- https://www.testpreptraining.com/tutorial/configuring-always-encrypted-by-using-azure-key-vault/
+
+  </summary>
+</details>
 
 <details>
   <summary>Logging</summary>
