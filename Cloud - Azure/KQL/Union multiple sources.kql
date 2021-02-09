@@ -1,0 +1,9 @@
+// Event table stores Windows events
+// Syslog stores Linux events
+
+union Event, Syslog 
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+
+// If you later want to summarize so you can define an alert:
+| summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
