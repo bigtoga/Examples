@@ -1,2 +1,7 @@
+# Time period / Aggregation granularity: 15 minutes
+# Alert frequency: 15 minutes
+# Threshold value: Greater than 0
+# Now you will receive an alert for every 500 HTTP error found
+
 requests
 | where resultCode == "500"
