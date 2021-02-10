@@ -8,3 +8,4 @@ https://github.com/CliveW-MSFT/KQLpublic/tree/master/KQL/Workbooks
 - [Find computers with missing logs](https://github.com/CliveW-MSFT/KQLpublic/tree/master/KQL/Workbooks)
 - [Azure VMs with disk space](https://github.com/CliveW-MSFT/KQLpublic/tree/master/KQL/Workbooks)
 - [Workspace Health Report](https://github.com/CliveW-MSFT/KQLpublic/tree/master/KQL/Workbooks)
+- [Azure Security Center workbooks (ASC)](https://github.com/CliveW-MSFT/KQLpublic/tree/master/KQL/Workbooks)
