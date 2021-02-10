@@ -25,7 +25,8 @@ Brexit - people used to be able to look at data from any EU country but now ther
 
 ## Cost Mgmt for Sentinel
 
-**Logic apps for cost metrics** - https://techcommunity.microsoft.com/t5/azure-sentinel/ingestion-cost-alert-playbook/ba-p/2006003
+- [Logic apps for cost metrics](https://techcommunity.microsoft.com/t5/azure-sentinel/ingestion-cost-alert-playbook/ba-p/2006003)
+- [Using Azure Data Explorer for long term retention of logs](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-data-explorer-for-long-term-retention-of-azure/ba-p/1883947)
 
 # Questions
 
