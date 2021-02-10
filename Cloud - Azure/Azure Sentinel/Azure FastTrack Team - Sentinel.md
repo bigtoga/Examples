@@ -7,7 +7,7 @@ Andrew N (Infra, Sec), Peter P (DevSecOps), Mark G (Infra, Sec)
 
 ## The "Use Case Triangle"
 
-Gartner Research talk about use cases requiring three things, that they call the "Use Case Triangle". A simple methodology aimed at the following:
+[Gartner Research](https://www.gartner.com/en/documents/3950486/how-to-build-security-use-cases-for-your-siem) talk about use cases requiring three things, that they call the "Use Case Triangle". A simple methodology aimed at the following:
 - Insight - examples are the things you're looking to find, like User or Asset behavior
 - Data - examples are Events and Logs, things you see in your environment
 - Analytics - this seems simple, "build rules" BUT it's not just aimed there. Think about pattern matching or machine learning. Big picture things
