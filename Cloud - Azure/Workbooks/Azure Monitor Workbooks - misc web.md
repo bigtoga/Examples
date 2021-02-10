@@ -1,0 +1,1 @@
+- [Microsoft's github examples](https://github.com/microsoft/Application-Insights-Workbooks)
