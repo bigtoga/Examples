@@ -1,3 +1,6 @@
+Last minute:
+- vCores for Elastic Pool = average CPU; DTU = peak CPU
+
 # Azure SQL Database for SQL Server
 
 <details>
