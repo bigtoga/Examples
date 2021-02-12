@@ -1,3 +1,10 @@
+Last minute - 
+
+**Scenario - want database that supports auto failover without data loss if datacenter fails. How?** - Azure SQL Database with Premium DTUs give you option for zone redundancy
+- [Source link](https://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability-preview)
+
+**Scenario - SQL VMs want to write backups to storage that offers multi-region protection. How?** - Ge-redundant storage
+
 <details>
   <summary>Azure SQL Database and Managed Instance</summary>
 
