@@ -18,23 +18,22 @@ In November, 2020, Microsoft moved the Managed Instance SLAs into a separate SLA
 - [SLAs for Azure SQL Database](https://azure.microsoft.com/en-us/support/legal/sla/sql-database/v1_5/)
 - [SLAs for Azure SQL Database Managed Instance](https://azure.microsoft.com/en-us/support/legal/sla/azure-sql-sql-managed-instance/v1_0/)
 
-### Azure SQL Database SLA, RTO, RPO
+#### Azure SQL Database 
 
 As of January, 2021, the SLAs and RPO/RTO times are:
-- Uptime: SLA of 99.995% - Business Critical configured also to be zone redundant
+- **Uptime**: SLA of 99.995% - Business Critical configured also to be zone redundant
 - Uptime: SLA of 99.99% - Business Critical but not zone redundant
 - Uptime: SLA of 99.95% - Hyperscale with one replica
 - Uptime: SLA of 99.90% - Hyperscale with zero replicas
-
-- RPO: 5 seconds - Business Critical with geo-replication
+- **RPO**: 5 seconds - Business Critical with geo-replication
 - RPO: 30 seconds - Business Critical without geo-replication
-- RTO: 30 seconds - Business Critical with Geo-replication
+- **RTO**: 30 seconds - Business Critical with Geo-replication
 
-### Azure SQL Database Managed Instance SLA, RTO, RPO
-- As of January, 2021, the SLAs and RPO/RTO times are:
-      - Uptime: SLA of 99.99% - Business Critical and General Purpose
-      - RPO: None
-      - RTO: None
+#### Managed Instance 
+As of January, 2021, the SLAs and RPO/RTO times are:
+- Uptime: SLA of 99.99% - Business Critical and General Purpose
+- RPO: None
+- RTO: None
    
 ## How failover and unplanned downtime is handled 
 
