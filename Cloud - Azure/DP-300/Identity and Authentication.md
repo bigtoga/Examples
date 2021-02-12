@@ -1,3 +1,8 @@
+**Scenario - SQL user based on Azure AD identity wants to login via SSMS. How?** - Active Directory - Password
+- Active Directory - Integrated = Azure AD identity or Windows hybrid
+- Windows Authentication = Windows AD only
+- Active Directory - Password is what to use for SQL users based on Azure AD principal
+
 https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell
 
 https://docs.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage
