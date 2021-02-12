@@ -20,6 +20,8 @@
 
 **Can Azure Backup restore a database backup to another server?** - yes
 
+**Can you overwrite an existing database using a backup from another server/database during an Azure SQL Database `RESTORE`?** - no, restore as a different database or delete
+
 </details>
 
 <details>
