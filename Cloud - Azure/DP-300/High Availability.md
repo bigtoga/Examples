@@ -6,7 +6,6 @@ Last minute -
 **Scenario - SQL VMs want to write backups to storage that offers multi-region protection. How?** - Ge-redundant storage
 
 **Scenario - on-prem SQL 2019 want migration to Managed Instance w minimized downtime and data loss. How?** - Distributed availability groups
-- 
 
 <details>
   <summary>Azure SQL Database and Managed Instance</summary>
