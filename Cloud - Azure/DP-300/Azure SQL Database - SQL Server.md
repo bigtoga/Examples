@@ -22,6 +22,25 @@
 
 **Can you overwrite an existing database using a backup from another server/database during an Azure SQL Database `RESTORE`?** - no, restore as a different database or delete
 
+**Can you issue `BACKUP DATABASE` in Azure SQL Database?** - no
+
+**Can you issues `RESTORE DATABASE`?** - no, use [Powershell](https://docs.microsoft.com/en-us/azure/azure-sql/database/scripts/restore-database-powershell) or REST or portal
+
+```powershell
+Restore-AzSqlDatabase `
+      -FromPointInTimeBackup `
+      -PointInTime (Get-Date).AddMinutes(-7) `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -TargetDatabaseName $pointInTimeRestoreDatabaseName `
+      -ResourceId $database.ResourceID `
+      -Edition "Standard" `
+      -ServiceObjectiveName "S0"
+
+# Note: For performing geo-restore for a managed instance database, use -FromGeoBackup parameter with restore. 
+# Sample script: Restore-AzSqlDatabase -FromGeoBackup -ResourceGroupName "TargetResourceGroup" -ServerName "TargetServer" -TargetDatabaseName "RestoredDatabase" -ResourceId $GeoBackup.ResourceID -Edition "Standard" -RequestedServiceObjectiveName "S2"
+```
+
 </details>
 
 <details>
