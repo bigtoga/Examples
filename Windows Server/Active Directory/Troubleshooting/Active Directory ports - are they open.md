@@ -22,6 +22,11 @@ object-group service AD-PORTS
 
 access-list FW-INSIDE extended permit object-group AD-PORTS any object-group AD-SERVERS 
  ```
+ 
+**TCP Ports** - 88, 135, 137, 3268, 3269, 5722, 9389, range of 49152:65535
+
+**UDP Ports** - 88, 137, 389, 445, 464, range of 49152:65535
+
 
 # Port Query v2 is your friend
 
