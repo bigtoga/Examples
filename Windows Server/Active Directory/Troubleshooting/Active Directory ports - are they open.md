@@ -73,3 +73,28 @@ $ports = (53, 88, 123, 135, 137, 139, 445, 636, 3268, 3269, 5722, 9389)
 $ports | % { Test-NetConnection 192.168.5.242 -port $_ }
 ```
 
+Little more detailed: 
+```powershell
+Clear-Host
+
+# Don't check these - they aren't used in Windows 2012 R2+: ports 123, 137, 5722
+$ports = (53, 88, 135, 139, 636, 3268, 3269, 9389)
+
+$destination = "192.168.1.1"
+
+Write-Host "From $($env:COMPUTERNAME) to $($destination) - " -ForegroundColor Cyan
+
+$ports | % { 
+   $msg = "   - TCP Port $($_): "
+   $result = Test-NetConnection $destination -port $_ -InformationLevel Quiet
+
+   if($result){
+        $msg += " - success"
+        Write-Host $msg -ForegroundColor Green
+   }
+   else{
+        $msg += " - fail"
+        Write-Host $msg -ForegroundColor Red
+    }
+}
+```
