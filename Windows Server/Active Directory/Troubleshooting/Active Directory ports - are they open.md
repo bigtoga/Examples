@@ -23,9 +23,16 @@ object-group service AD-PORTS
 access-list FW-INSIDE extended permit object-group AD-PORTS any object-group AD-SERVERS 
  ```
  
-**TCP Ports** - 88, 135, 137, 3268, 3269, 5722, 9389, range of 49152:65535
+**Common ports**
+- "domain" - 53 (DNS)
+- "ntp" - 123
+- "netbios-dgm" - 138
+- "netbios-ssn" - 139
+- "ldaps" - udp 389 for `ldap` but tcp 636 for `ldaps`
+ 
+**TCP Ports** - 53, 88, 123, 135, 137, 139, 636, 3268, 3269, 5722, 9389, range of 49152:65535
 
-**UDP Ports** - 88, 137, 389, 445, 464, range of 49152:65535
+**UDP Ports** - 53, 88, 123, 137, 138, 389, 445, 464, range of 49152:65535
 
 
 # Port Query v2 is your friend
