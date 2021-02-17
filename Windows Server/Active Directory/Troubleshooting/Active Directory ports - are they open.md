@@ -1,3 +1,28 @@
+# AD Ports and Protocols
+```asa
+object-group service AD-PORTS
+   service-object tcp-udp destination eq domain 
+   service-object tcp-udp destination eq 88 
+   service-object udp destination eq ntp 
+   service-object tcp destination eq 135 
+   service-object tcp-udp destination eq 137 
+   service-object udp destination eq netbios-dgm 
+   service-object tcp destination eq netbios-ssn 
+   service-object tcp-udp destination eq 389 
+   service-object tcp-udp destination eq 445 
+   service-object tcp-udp destination eq 464 
+   service-object tcp destination eq ldaps 
+   service-object tcp destination eq 3268 
+   service-object tcp destination eq 3269 
+   service-object tcp destination eq 5722 
+   service-object tcp destination eq 9389 
+   service-object tcp-udp destination range 49152 65535 
+   
+...
+
+access-list FW-INSIDE extended permit object-group AD-PORTS any object-group AD-SERVERS 
+ ```
+
 # Port Query v2 is your friend
 
 [GUI version](https://www.microsoft.com/en-us/download/details.aspx?id=24009) - [command line version](https://www.microsoft.com/en-us/download/details.aspx?id=17148)
