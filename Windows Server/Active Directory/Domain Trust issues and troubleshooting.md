@@ -1,3 +1,5 @@
+Microsoft article on troubleshooting error 1722 RPC unavailable - https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/replication-error-1722-rpc-server-unavailable
+
 # Scenario: myForest.com has a one-way transitive trust with corporateForest.com. myForest trusts corporateForest but corporateForest does not trust myForest
 1. Corporate email/user accounts are managed / created in corporateForest.com. A user's corporate email is `user@corporateForest.com`
 2. For app dev, a separate domain was created - `myForest.com`. This allows app security and isolation along with the ability for a technical operations team to manage app dev environments without needing permissions to manage `corporateForest.com`
