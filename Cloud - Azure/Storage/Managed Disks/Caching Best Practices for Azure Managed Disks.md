@@ -15,6 +15,6 @@ As of **March 9, 2021**:
 
 | Setting  	| When to use   	| Example  	|
 |---	|---	|---	|
-| None  	| For write-only and write-heavy disks  	|   	|
-| ReadOnly  	| for read-only and read-write disks  	|   	|
-| ReadWrite  	| Don't use; use only if your application properly handles writing cached data to persistent disks when needed 	|   	|
+| None  	| For write-only and write-heavy disks  	| Logging disks (SQL transaction logs) 	|
+| ReadOnly  	| for read-only and read-write disks  	| Most disks, SQL data disks  	|
+| ReadWrite  	| Don't use; use only if your application properly handles writing cached data to persistent disks when needed 	| OS disks  	|
