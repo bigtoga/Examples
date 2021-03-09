@@ -1,0 +1,3 @@
+- [Effects of Disk Caching in Azure](https://docs.microsoft.com/en-us/learn/modules/caching-and-performance-azure-storage-and-disks/2-effect-of-caching-on-disk-performance-in-azure)
+- [Performance Guidelines for Managed Disks](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices)
+- [Designing for max performance in Azure Managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)
