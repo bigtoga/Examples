@@ -7,7 +7,12 @@ Clear-Host
 ##############################################
 
 # List all DNS zones for the DNS server
-Get-DnsServerZone | Format-Table
+$Zone = Get-DnsServerZone -Name stg.isnforest.com 
+$Zone | Format-Table
+
+$Zone | Get-DnsServerResourceRecord | Where {$_.RecordType -eq "A" -and $_.RecordData -like "172.19.2.*"}
+
+$Zone | Get-DnsServerResourceRecord -RRType 'A' | Where {$_.RecordData.ipv4address -like "172.19.2.*"}
 
 # For-Each
 $Zones = @(Get-DnsServerZone)
