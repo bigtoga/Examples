@@ -10,9 +10,7 @@ Clear-Host
 $Zone = Get-DnsServerZone -Name stg.mydomain.com 
 $Zone | Format-Table
 
-$Zone | Get-DnsServerResourceRecord | Where {$_.RecordType -eq "A" -and $_.RecordData -like "172.19.2.*"}
-
-$Zone | Get-DnsServerResourceRecord -RRType 'A' | Where {$_.RecordData.ipv4address -like "172.19.2.*"}
+$Zone | Get-DnsServerResourceRecord -RRType 'A' | Where {$_.RecordData.ipv4address -like "172.19.2.*"} | Sort-Object -Property {$_.RecordData.ipv4address}
 
 # For-Each
 $Zones = @(Get-DnsServerZone)
