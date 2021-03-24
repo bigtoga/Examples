@@ -31,6 +31,7 @@ access-list FW-INSIDE extended permit object-group AD-PORTS any object-group AD-
 - "netbios-dgm" - 138
 - "netbios-ssn" - 139
 - "ldaps" - tcp-udp 389 for `ldap` but tcp 636 for `ldaps`
+- 3343 - tcp for cluster health check
 
 **Active Directory common ports**
 - RPC - tcp 135
