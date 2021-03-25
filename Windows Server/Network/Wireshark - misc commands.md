@@ -1,4 +1,12 @@
 Wireshark has **capture filters** and **display filters**
+- Capture filters remove traffic so that the trace is small
+     - Same syntax as things like `tcpDump`, `WinDump` and any using libcap/WinPCap
+     - https://wiki.wireshark.org/CaptureFilters
+- Display filters filter the traced traffic
+     - Different syntax
+
+# Capture Filter Syntax
+- `host 172.18.5.4`
 
 # Display filters
 
