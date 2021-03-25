@@ -126,6 +126,7 @@ What you should see:
   
 4. Install Wireshark, reboot, do a packet capture
 - Query for `ip.addr == 168.63.129.16`
+- Query for `ip.dst == 168.63.129.16`
 - Query for `http` or `tcp.port == 80`
 
 You need to make certain that the Azure Services IP addresses for load balancers (168.63.129.16) are not being blocked by an NSG
