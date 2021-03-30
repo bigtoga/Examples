@@ -8,13 +8,29 @@ Resources
 | where name contains 'contoso'
 ```
 
+**RegEx example** from [this page](https://docs.microsoft.com/en-us/azure/governance/resource-graph/samples/advanced?tabs=azure-cli#vm-regex)
+- `^` - Match must start at the beginning of the string.
+- `Contoso` - The case-sensitive string.
+- `(.*)` - A subexpression match:
+- `.` - Matches any single character (except a new line).
+- `*` - Matches previous element zero or more times.
+- `[0-9]` - Character group match for numbers 0 through 9.
+- `+` - Matches previous element one or more times.
+- `$` - Match of the previous element must occur at the end of the string.
+
+```kql
+Resources
+| where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
+| project name
+| order by name asc
+```
+
 # Distinct and Union
 ```kql
 Resources
 | distinct type, apiVersion
 | where isnotnull(apiVersion)
 | order by type asc
-
 ```
 
 # Columns
