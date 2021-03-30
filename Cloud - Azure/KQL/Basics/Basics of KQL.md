@@ -2,6 +2,21 @@
 
 - `==` is case-sensitive; use `=~` for case-insensitive
 
+```kql
+Resources
+| where type=~ 'microsoft.compute/virtualmachinescalesets'
+| where name contains 'contoso'
+```
+
+# Distinct and Union
+```kql
+Resources
+| distinct type, apiVersion
+| where isnotnull(apiVersion)
+| order by type asc
+
+```
+
 # Columns
 
 **You can use `extend` or `alias`
