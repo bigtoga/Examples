@@ -16,3 +16,11 @@ Resources
 | extend OS = properties.storageProfile.osDisk.osType
 | summarize VMs = count() by tostring(OS)
 ```
+
+**Remove a column from the results** with `project-away`:
+```kql
+Resources
+| summarize resourceCount=count() by subscriptionId
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
+| project-away subscriptionId, subscriptionId1
+```
