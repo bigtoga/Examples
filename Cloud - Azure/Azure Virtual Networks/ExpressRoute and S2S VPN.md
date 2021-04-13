@@ -88,11 +88,11 @@ graph LR
 ```mermaid
 graph LR
     A(On-premise network) -- Requests to 192.168.100.0/24 --> B((ExpRt w Priv. Peer))
-    B --> C(ISP Backbone)
-    C --> D(Azure Backbone)
-    D --> E(Azure Resource)
+    B -- Encrypted traffic --> C(ISP Backbone)
+    C -- Encrypted traffic --> D(Azure Backbone)
+    D -- Encrypted traffic --> E(Azure Resource)
     A -- O365, Azure DevOps, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> F(Public internet)
-    F --> E
+    F -- Encrypted traffic --> E
 ```    
 
 ## ExpressRoute w Microsoft Peering:
@@ -105,7 +105,7 @@ Again the "source" of the request doesn't matter - Azure CLI follows the same ne
 ```mermaid
 graph LR
     A(On-premise network) -- Azure Portal request --> B((Public internet))
-    B --> C(Azure Resource)
+    B -- Encrypted traffic --> C(Azure Resource)
     A -- D365, Azure DevOps, Azure Global PaaS --> D((ISP Backbone))
     D -- Encrypted traffic --> E((Azure Backbone))
     E -- Encrypted traffic --> C
