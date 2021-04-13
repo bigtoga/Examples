@@ -43,9 +43,53 @@ Each connection comes with two redundant Border Gateway Protocol (BGP) routes in
 Scenario: 
 - Corporate network w IP space 172.16.0.0/16
 - Azure Development environment w IP space 192.168.100.0/24
-- Site-to-Site VPN configured so that local traffic sent to 192.168.100/24 routes through that VPN
 
-## Site-to-Site VPN but no ExpressRoute
+## Site-to-Site VPN
+
+1. Config: Site-to-Site VPN configured so that local traffic sent to 192.168.100/24 routes through that VPN
+1. All traffic directed to 192.168.100.0/24 travels across the S2S VPN
+2. All other traffic from the Corporate network crosses public internet - any request made to:
+    - Azure Portal
+    - Azure Portal --> Cloud Shell
+    - Azure Portal --> Azure Bastion
+    - Azure CLI (bash, Powershell, doesn't matter)
+    - Azure SDK
+    - Azure REST API
+    - Azure Powershell Module
+    - Office 365
+    - Azure DevOps
+
+```mermaid
+graph LR
+    A(On-premise network) -- Requests to 192.168.100.0/16 --> B((S2S VPN))
+    B --> C(Azure Resource)
+    A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
+    E --> C
+```    
+## ExpressRoute with Private Peering
+
+1. Config: ExpressRoute configured so that local traffic sent to 192.168.100/24 routes through that ER (Private Peering)
+1. All traffic directed to 192.168.100.0/24 travels across the ExpressRoute
+2. All other traffic from the Corporate network crosses public internet - any request made to:
+    - Azure Portal
+    - Azure Portal --> Cloud Shell
+    - Azure Portal --> Azure Bastion
+    - Azure CLI (bash, Powershell, doesn't matter)
+    - Azure SDK
+    - Azure REST API
+    - Azure Powershell Module
+    - Office 365
+    - Azure DevOps
+
+```mermaid
+graph LR
+    A(On-premise network) -- Requests to 192.168.100.0/16 --> B((ExpressRoute))
+    B --> C(Azure Resource)
+    A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
+    E --> C
+```    
+
+---------------------
 
 1. All traffic directed to 192.168.100.0/24 travels across the S2S VPN
 2. All other traffic from the Corporate network crosses public internet - any request made to:
