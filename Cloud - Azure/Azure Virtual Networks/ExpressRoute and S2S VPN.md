@@ -48,7 +48,9 @@ Scenario:
 
 1. Config: Site-to-Site VPN configured so that local traffic sent to 192.168.100/24 routes through that VPN
 1. All traffic directed to 192.168.100.0/24 travels across the S2S VPN
-2. All other traffic from the Corporate network crosses public internet - any request made to:
+   - VMs in that space
+   - Private links in that space to Azure PaaS
+3. All other traffic from the Corporate network crosses public internet - any request made to:
     - Azure Portal
     - Azure Portal --> Cloud Shell
     - Azure Portal --> Azure Bastion
@@ -61,15 +63,17 @@ Scenario:
 
 ```mermaid
 graph LR
-    A(On-premise network) -- Requests to 192.168.100.0/24 --> B((S2S VPN))
+    A(On-premise network) -- Requests to vnet for 192.168.100.0/24 --> B((S2S VPN))
     B --> C(Azure Resource)
-    A -- Microsoft SaaS, O365, Azure PaaS, Azure Portal --> E(Public internet)
+    A -- O365, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> E(Public internet)
     E --> C
 ```    
 ## ExpressRoute with Private Peering
 
 1. Config: ExpressRoute configured so that local traffic sent to 192.168.100/24 routes through that ER (Private Peering)
 1. All traffic directed to 192.168.100.0/24 travels across the ExpressRoute
+   - VMs in that space
+   - Private links in that space to Azure PaaS
 2. All other traffic from the Corporate network crosses public internet - any request made to:
     - Azure Portal
     - Azure Portal --> Cloud Shell
@@ -87,7 +91,7 @@ graph LR
     B --> C(ISP Backbone)
     C --> D(Azure Backbone)
     D --> E(Azure Resource)
-    A -- O365, Azure PaaS, Azure Portal --> F(Public internet)
+    A -- O365, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> F(Public internet)
     F --> E
 ```    
 
