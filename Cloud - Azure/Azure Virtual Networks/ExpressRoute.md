@@ -40,12 +40,12 @@ Each connection comes with two redundant Border Gateway Protocol (BGP) routes in
 
 # Data Flow
 
-## Site-to-Site VPN but no ExpressRoute
-
 Scenario: 
 - Corporate network w IP space 172.16.0.0/16
 - Azure Development environment w IP space 192.168.100.0/24
 - Site-to-Site VPN configured so that local traffic sent to 192.168.100/24 routes through that VPN
+
+## Site-to-Site VPN but no ExpressRoute
 
 1. All traffic directed to 192.168.100.0/24 travels across the S2S VPN
 2. All other traffic from the Corporate network crosses public internet - any request made to:
