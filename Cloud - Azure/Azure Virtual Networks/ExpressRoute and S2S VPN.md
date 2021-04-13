@@ -88,7 +88,7 @@ graph LR
     C --> D(Azure Backbone)
     D --> E(Azure Resource)
     A -- Microsoft SaaS, O365, Azure PaaS, Azure Portal --> F(Public internet)
-    R --> E
+    F --> E
 ```    
 
 ---------------------
