@@ -76,8 +76,7 @@ graph LR
 graph LR
     A(On-premise network) -- Requests to 192.168.100.0/16 --> B((S2S VPN))
     B --> C(Azure Resource)
-    A -- Accessing anything in your vNets --> D((ISP Backbone))
-    D -- Encrypted traffic --> E((Azure Backbone))
+    D(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> E((Public internet))
     E --> C
 ```    
 
