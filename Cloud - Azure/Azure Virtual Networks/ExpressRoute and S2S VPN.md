@@ -84,9 +84,11 @@ graph LR
 ```mermaid
 graph LR
     A(On-premise network) -- Requests to 192.168.100.0/24 --> B((ExpressRoute))
-    B --> C(Azure Resource)
-    A -- Microsoft SaaS, O365, Azure PaaS, Azure Portal --> E(Public internet)
-    E --> C
+    B --> C(ISP Backbone)
+    C --> D(Azure Backbone)
+    D --> E(Azure Resource)
+    A -- Microsoft SaaS, O365, Azure PaaS, Azure Portal --> F(Public internet)
+    R --> E
 ```    
 
 ---------------------
