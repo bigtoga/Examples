@@ -95,44 +95,8 @@ graph LR
     F --> E
 ```    
 
----------------------
+## ExpressRoute w Microsoft Peering:
 
-1. All traffic directed to 192.168.100.0/24 travels across the S2S VPN
-2. All other traffic from the Corporate network crosses public internet - any request made to:
-    - Azure Portal
-    - Azure Portal --> Cloud Shell
-    - Azure Portal --> Azure Bastion
-    - Azure CLI (bash, Powershell, doesn't matter)
-    - Azure SDK
-    - Azure REST API
-    - Azure Powershell Module
-    - Office 365
-    - Azure DevOps
-
-```mermaid
-graph LR
-    A(On-premise network) -- Requests to 192.168.100.0/16 --> B((S2S VPN))
-    B --> C(Azure Resource)
-    A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
-    E --> C
-```    
-
-
-## S2S VPN + ExpressRoute w "Azure Private Peering"
-
-With an ExpressRoute **Azure Private Peering**, your traffic flow would look a good deal different:
-1. Traffic "to your vnets in Azure" go across the ExpressRoute
-2. All other traffic goes across public internet
-
-Again the "source" of the request doesn't matter - Azure CLI follows the same network paths that the Azure Powershell module does (et al).
-```mermaid
-graph LR
-    A(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> B((Public internet))
-    B --> C(Azure Resource)
-    A -- Accessing anything in your vNets --> D((ISP Backbone))
-    D -- Encrypted traffic --> E((Azure Backbone))
-    E --> C
-```    
 With an ExpressRoute **Microsoft Peering**, your traffic flow looks different yet again:
 1. Traffic to Microsoft online services (Azure DevOps, Office 365, Azure PaaS) goes across the ExpressRoute
 2. All other traffic goes across public internet
@@ -146,6 +110,8 @@ graph LR
     D -- Encrypted traffic --> E((Azure Backbone))
     E -- Encrypted traffic --> C
 ```    
+
+## ExpressRoute w both Private Peering and Microsoft Peering
 
 If you combine both an **Azure Private Peering** ExpressRoute and a **Microsoft Peering** ExpressRoute, all traffic **except traffic to the Azure Portal** goes across the ExpressRoute.
 ```mermaid
