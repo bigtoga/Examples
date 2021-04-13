@@ -72,6 +72,14 @@ graph LR
     D -- Encrypted traffic --> E((Azure Backbone))
     E --> C
 ```    
+```mermaid
+graph LR
+    A(On-premise network) -- Requests to 192.168.100.0/16 --> B((S2S VPN))
+    B --> C(Azure Resource)
+    A -- Accessing anything in your vNets --> D((ISP Backbone))
+    D -- Encrypted traffic --> E((Azure Backbone))
+    E --> C
+```    
 
 Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
 - Azure Portal
