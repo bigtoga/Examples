@@ -64,9 +64,9 @@ Scenario:
 ```mermaid
 graph LR
     A(On-premise network) -- Requests to vnet for 192.168.100.0/24 --> B((S2S VPN))
-    B --> C(Azure Resource)
+    B -- Encrypted traffic --> C(Azure Resource)
     A -- O365, Azure DevOps, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> E(Public internet)
-    E --> C
+    E -- Encrypted traffic --> C
 ```    
 ## ExpressRoute with Private Peering
 
