@@ -61,7 +61,7 @@ Scenario:
 
 ```mermaid
 graph LR
-    A(On-premise network) -- Requests to 192.168.100.0/16 --> B((S2S VPN))
+    A(On-premise network) -- Requests to 192.168.100.0/24 --> B((S2S VPN))
     B --> C(Azure Resource)
     A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
     E --> C
@@ -83,7 +83,7 @@ graph LR
 
 ```mermaid
 graph LR
-    A(On-premise network) -- Requests to 192.168.100.0/16 --> B((ExpressRoute))
+    A(On-premise network) -- Requests to 192.168.100.0/24 --> B((ExpressRoute))
     B --> C(Azure Resource)
     A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
     E --> C
