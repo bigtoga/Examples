@@ -39,6 +39,27 @@ Each connection comes with two redundant Border Gateway Protocol (BGP) routes in
 **Premium** - 100 vNets, allows PaaS as well
 
 # Data Flow
+
+## Site-to-Site VPN but no ExpressRoute
+
+1. All traffic "within the scope of the S2S VPN" (i.e. in the address space of the remote) travels across the S2S VPN
+2. All other traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
+    - Azure Portal
+    - Azure Portal --> Cloud Shell
+    - Azure Portal --> Azure Bastion
+    - Azure CLI (bash, Powershell, doesn't matter)
+    - Azure SDK
+    - Azure REST API
+    - Azure Powershell Module
+    - Office 365
+    - Azure DevOps
+```mermaid
+graph LR
+    A(On-premise network) --> B((Public internet))
+    B --> C(Azure Resource)
+```    
+
+
 Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
 - Azure Portal
 - Azure Portal --> Cloud Shell
