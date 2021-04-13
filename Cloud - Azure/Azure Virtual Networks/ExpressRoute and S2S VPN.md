@@ -63,7 +63,7 @@ Scenario:
 graph LR
     A(On-premise network) -- Requests to 192.168.100.0/24 --> B((S2S VPN))
     B --> C(Azure Resource)
-    A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
+    A -- Microsoft SaaS, O365, Azure PaaS, Azure Portal --> E(Public internet)
     E --> C
 ```    
 ## ExpressRoute with Private Peering
@@ -85,7 +85,7 @@ graph LR
 graph LR
     A(On-premise network) -- Requests to 192.168.100.0/24 --> B((ExpressRoute))
     B --> C(Azure Resource)
-    A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
+    A -- Microsoft SaaS, O365, Azure PaaS, Azure Portal --> E(Public internet)
     E --> C
 ```    
 
