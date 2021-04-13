@@ -65,7 +65,7 @@ Scenario:
 graph LR
     A(On-premise network) -- Requests to vnet for 192.168.100.0/24 --> B((S2S VPN))
     B --> C(Azure Resource)
-    A -- O365, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> E(Public internet)
+    A -- O365, Azure DevOps, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> E(Public internet)
     E --> C
 ```    
 ## ExpressRoute with Private Peering
@@ -91,7 +91,7 @@ graph LR
     B --> C(ISP Backbone)
     C --> D(Azure Backbone)
     D --> E(Azure Resource)
-    A -- O365, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> F(Public internet)
+    A -- O365, Azure DevOps, Azure Global PaaS, Azure Non-Private Link, Azure Portal --> F(Public internet)
     F --> E
 ```    
 
@@ -106,7 +106,7 @@ Again the "source" of the request doesn't matter - Azure CLI follows the same ne
 graph LR
     A(On-premise network) -- Azure Portal request --> B((Public internet))
     B --> C(Azure Resource)
-    A -- O365, D365, Azure DevOps, Azure PaaS --> D((ISP Backbone))
+    A -- D365, Azure DevOps, Azure Global PaaS --> D((ISP Backbone))
     D -- Encrypted traffic --> E((Azure Backbone))
     E -- Encrypted traffic --> C
 ```    
