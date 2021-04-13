@@ -58,25 +58,12 @@ Scenario:
     - Azure Powershell Module
     - Office 365
     - Azure DevOps
-    - 
-```mermaid
-graph LR
-    A(On-premise network) --> B((Public internet))
-    B --> C(Azure Resource)
-```    
-```mermaid
-graph LR
-    A(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> B((Public internet))
-    B --> C(Azure Resource)
-    A -- Accessing anything in your vNets --> D((ISP Backbone))
-    D -- Encrypted traffic --> E((Azure Backbone))
-    E --> C
-```    
+
 ```mermaid
 graph LR
     A(On-premise network) -- Requests to 192.168.100.0/16 --> B((S2S VPN))
     B --> C(Azure Resource)
-    D(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> E((Public internet))
+    D(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
     E --> C
 ```    
 
