@@ -63,7 +63,7 @@ Scenario:
 graph LR
     A(On-premise network) -- Requests to 192.168.100.0/16 --> B((S2S VPN))
     B --> C(Azure Resource)
-    D(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
+    A -- Microsoft SaaS or Azure PaaS or Portal request --> E(Public internet)
     E --> C
 ```    
 
