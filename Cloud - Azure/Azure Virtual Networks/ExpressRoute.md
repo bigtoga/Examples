@@ -42,8 +42,13 @@ Each connection comes with two redundant Border Gateway Protocol (BGP) routes in
 
 ## Site-to-Site VPN but no ExpressRoute
 
-1. All traffic "within the scope of the S2S VPN" (i.e. in the address space of the remote) travels across the S2S VPN
-2. All other traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
+Scenario: 
+- Corporate network w IP space 172.16.0.0/16
+- Azure Development environment w IP space 192.168.100.0/24
+- Site-to-Site VPN configured so that local traffic sent to 192.168.100/24 routes through that VPN
+
+1. All traffic directed to 192.168.100.0/24 travels across the S2S VPN
+2. All other traffic from the Corporate network crosses public internet - any request made to:
     - Azure Portal
     - Azure Portal --> Cloud Shell
     - Azure Portal --> Azure Bastion
@@ -53,12 +58,20 @@ Each connection comes with two redundant Border Gateway Protocol (BGP) routes in
     - Azure Powershell Module
     - Office 365
     - Azure DevOps
+    - 
 ```mermaid
 graph LR
     A(On-premise network) --> B((Public internet))
     B --> C(Azure Resource)
 ```    
-
+```mermaid
+graph LR
+    A(On-premise network) -- Microsoft SaaS or Azure PaaS or Portal request --> B((Public internet))
+    B --> C(Azure Resource)
+    A -- Accessing anything in your vNets --> D((ISP Backbone))
+    D -- Encrypted traffic --> E((Azure Backbone))
+    E --> C
+```    
 
 Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
 - Azure Portal
