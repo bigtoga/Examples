@@ -67,21 +67,8 @@ graph LR
     E --> C
 ```    
 
-Without ExpressRoute (not including site-to-site VPNs), all traffic crosses public internet - it doesn't matter the "source" either. All Azure or Microsoft SaaS offerings follow the same route regardless of whether it is:
-- Azure Portal
-- Azure Portal --> Cloud Shell
-- Azure Portal --> Azure Bastion
-- Azure CLI (bash, Powershell, doesn't matter)
-- Azure SDK
-- Azure REST API
-- Azure Powershell Module
-- Office 365
-- Azure DevOps
-```mermaid
-graph LR
-    A(On-premise network) --> B((Public internet))
-    B --> C(Azure Resource)
-```    
+
+## S2S VPN + ExpressRoute w "Azure Private Peering"
 
 With an ExpressRoute **Azure Private Peering**, your traffic flow would look a good deal different:
 1. Traffic "to your vnets in Azure" go across the ExpressRoute
