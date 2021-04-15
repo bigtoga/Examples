@@ -1,4 +1,4 @@
-3 steps:
+The [Azure Bastion FAQ](https://docs.microsoft.com/en-us/azure/bastion/bastion-faq) says there are 3 steps:
 1. Grant `Reader` to the particular Bastion
 2. Grant `Reader` to the VM
 3. `Reader` to the VM's NIC
