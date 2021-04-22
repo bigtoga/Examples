@@ -9,4 +9,16 @@
 **Restore health**
 `DISM /online /cleanup-image /RestoreHealth`
 
+## Clean up disk space
+
+`dism /Online /Cleanup-Image /AnalyzeComponentStore`
+
+`dism /online /Cleanup-Image /StartComponentCleanup`
+
+1. Open **Settings**
+2. Click on **System**
+3. Click on **Storage**
+4. Click on **Temporary Files**
+5. Check the box for **Windows Update Cleanup**, **Temporary Windows Installation Files**
+
 # SFC: Source File Checker
