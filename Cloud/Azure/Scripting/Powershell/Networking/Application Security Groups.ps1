@@ -39,12 +39,22 @@ $path_to_variables = "$env:HOMEDRIVE$env:HOMEPATH\Downloads\variables.ps1"
     ASG list
     Which VMs belong in each ASG
     Which subnets the ASG should be bound to
+
     For each VM:
         1. Get it's active NIC
         2. Find out which ASGs it should belong
         3. Loop through each ASG it should be in
             3a. Test to see if it already belongs - if yes, continue, else add to ASG
 #>
+
+#region Step 1: Networking
+    # Subnets
+    $vnet = Get-AzVirtualNetwork
+    $subnets = $vnet | Get-AzVirtualNetworkSubnetConfig
+
+    # ASGs
+    $asgs_existing = Get-AzApplicationSecurityGroup
+#endregion
 
 $asg = Get-AzApplicationSecurityGroup -ResourceGroupName $rg_asgs -Name $asg_name -ErrorAction SilentlyContinue
 
