@@ -1,8 +1,11 @@
 # Azure Bicep Basics
 
 - Released in 2021 as a simpler version of JSON templates for Azure ARM templates
-- [Good Microsoft Learn module](https://docs.microsoft.com/en-us/learn/modules/introduction-to-infrastructure-as-code-using-bicep/)
+- [Microsoft Learn - Intro to Bicep](https://docs.microsoft.com/en-us/learn/modules/introduction-to-infrastructure-as-code-using-bicep/)
 - [Microsoft Learn - how to deploy ARM bicep templates with PowerShell](https://docs.microsoft.com/en-us/learn/modules/deploy-azure-resources-by-using-bicep-templates/)
+- [Github Bicep project](https://github.com/Azure/bicep)
+- [Github Bicep tutorial](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md)
+- [Word of warning against using it for everything while in preview](https://zimmergren.net/getting-started-azure-bicep/)
 
 ## Why Bicep instead of JSON?
 
