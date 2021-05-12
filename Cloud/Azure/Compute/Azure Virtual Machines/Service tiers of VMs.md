@@ -79,6 +79,7 @@ Example use cases include large SQL and NoSQL databases, ERP, SAP, and data ware
 - **L/LS-Series**: storage optimized
 
 - **M-Series**: Memory optimized
+     - Remember to look at [Enabling Write Accelerator for M series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/how-to-enable-write-accelerator)
 
 - **N-Series**: N is for NVidia, GPU machines
 
