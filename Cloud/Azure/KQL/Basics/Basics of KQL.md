@@ -1,6 +1,7 @@
-# Start here: SQL to Kusto cheat sheet
+# Start here
 
-https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet
+1. [Example queries at MSFT documentation are great](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer)
+2. The [SQL to Kusto cheat sheet](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet) is also great
 
 Send a SQL query to Kusto with the word `EXPLAIN` before it:
 ```sql
