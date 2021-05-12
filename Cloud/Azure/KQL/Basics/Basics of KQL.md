@@ -1,3 +1,20 @@
+# Start here: SQL to Kusto cheat sheet
+
+https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/sqlcheatsheet
+
+Send a SQL query to Kusto with the word `EXPLAIN` before it:
+```sql
+EXPLAIN 
+SELECT COUNT_BIG(*) as C FROM StormEvents
+```
+
+It will return:
+```
+StormEvents
+| summarize C=count()
+| project C
+```
+
 # Searching & Filtering
 
 - `==` is case-sensitive; use `=~` for case-insensitive
@@ -37,9 +54,8 @@ Resources
 
 **You can use `extend` or `alias`
 
-// =~ is for case-insentive matches
-// extend or alias will work too: summarize count() by OS = properties.storageProfile.osDisk.osType
-** Case-insensitive search** uses `=~`
+- `=~` is for case-insentive matches
+- `extend` or `alias` will work too: `summarize count() by OS = properties.storageProfile.osDisk.osType`
 
 ```kql
 Resources
