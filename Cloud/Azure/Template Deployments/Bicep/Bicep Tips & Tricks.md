@@ -47,4 +47,23 @@ resource storageNames_id ‘Microsoft.Storage/storageAccounts@2019-04-01’ = [f
 ``` 
 </details> 
 
+<details>
+<summary>Advanced looping</summary> 
+
+Use `batchSize` decorator to force ARM to only deploy 2 at a time
+
+```json
+@batchSize(2)
+resource storage_id ‘Microsoft.Storage/storageAccounts@2019-04-01’ = [for i in range(0, 4): {
+  name: ‘${i}storage${uniqueString(resourceGroup().id)}’
+  location: resourceGroup().location
+  sku: {
+    name: ‘Standard_LRS’
+  }
+  kind: ‘Storage’
+  properties: {}
+}]
+``` 
+
+
 
