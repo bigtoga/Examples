@@ -74,6 +74,10 @@ bicep —help
 # Done!
 ```
 
+## Install for Azure CLI
+
+`az bicep install`  
+
 # Workflow
 
 With previous JSON-based ARM templates, the process flow was:
