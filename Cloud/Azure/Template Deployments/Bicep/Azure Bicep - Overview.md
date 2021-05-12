@@ -12,6 +12,8 @@ Few reasons:
 
 Look below for `appServicePlan.Id` - this is the dependency beauty of Bicep:
 
+
+`main.bicep` file (no parameters)
 ```json
 // Define an app service plan:
 resource appServicePlan ‘Microsoft.Web/serverFarms@2020-06-01’ = {
@@ -48,6 +50,27 @@ resource appServiceApp ‘Microsoft.Web/sites@2020-06-01’ = {
 - Install [this extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
 - Use this to see the various API versions and properties in JSON 
 
+## Installing Bicep PowerShell module
+
+- https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/bicep-install 
+      - `choco` is easiest way
+      
+ ```powershell
+ # Create the install folder
+$installPath = “$env:USERPROFILE\.bicep”
+$installDir = New-Item -ItemType Directory -Path $installPath -Force
+$installDir.Attributes += ‘Hidden’
+# Fetch the latest Bicep CLI binary
+(New-Object Net.WebClient).DownloadFile(“https://github.com/Azure/bicep/releases/latest/download/bicep-win-x64.exe”, “$installPath\bicep.exe”)
+# Add bicep to your PATH
+$currentPath = (Get-Item -path “HKCU:\Environment” ).GetValue(‘Path’, ‘’, ‘DoNotExpandEnvironmentNames’)
+if (-not $currentPath.Contains(“%USERPROFILE%\.bicep”)) { setx PATH ($currentPath + “;%USERPROFILE%\.bicep”) }
+if (-not $env:path.Contains($installPath)) { $env:path += “;$installPath” }
+# Verify you can now access the ‘bicep’ command.
+bicep —help
+# Done!
+```
+
 # Workflow
 
 With previous JSON-based ARM templates, the process flow was:
@@ -61,3 +84,36 @@ With Bicep, an extra hidden step is added called “transpilation”:
 3. Submit a template deployment request
 4. Azure Resource Manager (ARM) then *transpilates* the Bicep IaC into a JSON version for you
 5. The ARM executes the JSON template
+
+PowerShell: 
+```powershell
+New-AzResourceGroupDeployment -TemplateFile main.bicep
+
+Get-AzResourceGroupDeployment -ResourceGroupName [sandbox resource group name] | Format-Table
+```
+
+# Parameters and Expressions in Bicep
+
+## Parameters 
+
+- No delimiter - just define with `param` declaration
+- Data types: `string, int, bool, array, object`
+- Implicit: use `var` instead of declaring a type and Bicep will figure it out
+
+## Expressions
+
+- Pipeline-like function `resourceGroup()` operates on whatever resource group it is called against - `param location string = resourceGroup().location`
+
+```json
+// Define the param
+param location string = resourceGroup().location
+
+// Now use it
+resource appServiceApp ‘Microsoft.Web/sites@2020-06-01’ = {
+  name: appServiceAppName
+  location: location
+  properties: {
+    serverFarmId: appServicePlan.id
+    httpsOnly: true
+  }
+}
