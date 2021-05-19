@@ -24,3 +24,6 @@ Management groups are needed for unified policy, access management, and subscrip
 
 # Things to Know about Management Groups
 - Root Management Group cannot be deleted; all others can
+- All MGs can only have one parent
+- A subscription can only have one MG "parent" (i.e. multiple MGs cannot be a parent of the same subscription)
+- Max of 6 levels deep
