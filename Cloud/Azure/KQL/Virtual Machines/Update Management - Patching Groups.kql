@@ -1,0 +1,10 @@
+resourcecontainers
+| where type == 'microsoft.resources/subscriptions'
+| project subscriptionId, Subscription=name
+| join (
+resources
+| where type == "microsoft.compute/virtualmachines" and tags.Patching=~'GroupA'
+| project VM=name, Location=location, Group=tostring(tags.Patching), resourceGroup, subscriptionId
+) on subscriptionId
+| project Subscription, Group, VM, Location, resourceGroup
+| sort by Subscription, VM, Group
