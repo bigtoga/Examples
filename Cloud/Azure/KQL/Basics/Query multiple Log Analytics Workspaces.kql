@@ -1,0 +1,14 @@
+union UpdateSummary,
+    workspace("dev-oms").UpdateSummary, 
+    workspace("stg-oms").UpdateSummary
+| where Computer !startswith "rs"
+| extend Environment1 = substring(Computer, 0, indexof(Computer, "-"))
+| extend Environment = case(Environment1 =~ "Stg", "Staging", 
+    Environment1 =~ "prod", "Production", 
+    Environment1 =~ "dr", "DR", 
+    Environment1 =~ "dev", "Development", 
+    Environment1 =~ "forest", "Forest", 
+    "** Unknown **")
+| summarize arg_max(TimeGenerated, TotalUpdatesMissing) by Environment, Computer 
+| project Environment, Computer, TotalUpdatesMissing, AsOf=format_datetime(TimeGenerated, 'yyyy-MM-dd')
+| sort by Environment, Computer
