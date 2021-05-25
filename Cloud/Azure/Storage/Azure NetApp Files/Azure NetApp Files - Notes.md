@@ -18,8 +18,8 @@ The [NetApp FAQ](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure
 
 ## NetApp is weird
 -	Metrics are published using MiB/s which is very confusing
--	Step 1: Based on your service tier + pool capacity, calculate your expected maximum MiB/s (use service tier to calculate)
--	Step 2: Convert MiB/s to Mbps using the MiB/s to Mbps converter
+-	Step 1: Based on your service tier + pool capacity, calculate your expected maximum MiB/s (use [this page](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-service-levels) to calculate)
+-	Step 2: Convert MiB/s to Mbps using the [MiB/s to Mbps converter](https://www.convertunits.com/from/MiB/s/to/Mbps)
 -	Step 3: Convert Mbps to IOPs using IOPS = (MBps Throughput / KB per IO) * 1024 (from the NetApp FAQ)
 
 
