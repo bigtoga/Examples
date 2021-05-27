@@ -4,7 +4,7 @@ References:
 - [Ultra SSD limitations](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal)
 
 |   	|Premium SSD  	|Ultra SSD   	|
-|---	|---	|---	|
+|---	|:-:	|:-:	|
 | Use as OS disk?  	| x  	|   	|
 | Use as data disk? 	| x  	| x  	|
 | All VM sizes support?  	| x  	|   	|
