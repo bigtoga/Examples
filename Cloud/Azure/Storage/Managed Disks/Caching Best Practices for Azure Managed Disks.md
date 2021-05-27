@@ -4,12 +4,14 @@
 - [Performance Guidelines for Managed Disks](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices)
 - [Designing for max performance in Azure Managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/premium-storage-performance)
 
-# Best Practices 
+# Things to Remember
 
 As of **March 9, 2021**: 
-- Disk caching not supported on 4TB+
+- Disk caching not supported on 4TB+ volumes
 - OS disk: ReadWrite
-- Data disk (default/general): ReadOnly
+- Data disks
+   - ReadOnly is the default and fine for most applications
+   - None: use for SQL Server transaction logs, and for clustered disks (even SQL data using Premium SSDs since [you cannot have ReadOnly host caching w maxShares > 1](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-shared#limitations))
 
 # Explanations of Disk Caching
 
