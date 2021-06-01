@@ -1,3 +1,11 @@
+# Disable Shape Protection
+
+From [this page](https://support.microsoft.com/en-us/office/prevent-or-allow-changes-to-shapes-e65decf4-0eed-4fd6-a7d9-b286abcbc7eb):
+1. File -> Options -> Advanced -> Enable Developer tab
+2. Click on the shape -> Change to Developer tab -> Click on **Protection** icon -> Disable "Format" protection
+
+# Use the Azure Stencils
+
 If you have Visio 2, it includes the Azure stencils already
 * File -> New -> Templates -> Network -> Azure
 
