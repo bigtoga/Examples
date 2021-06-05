@@ -1,9 +1,16 @@
+<details>
+  <summary>Basics</summary>
+
 Unsupervised Machine Learning tasks:
 - Clustering
 
 Supervised Machine Learning tasks:
 - Literally all other types (regression, classification)
+- 
+</details>
 
+<details>
+  <summary>Team Data Science Process</summary>
 # Team Data Science Process
 
 [Core documentation](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/)
@@ -43,3 +50,23 @@ Four steps according to MSFT:
 1. Build the models by using the training data set.
 1. Evaluate the training and the test data set. Use a series of competing machine-learning algorithms along with the various associated tuning parameters (known as a parameter sweep) that are geared toward answering the question of interest with the current data.
 1. Determine the “best” solution to answer the question by comparing the success metrics between alternative methods.
+
+</details>
+
+<details>
+  <summary>Evaluating Models</summary>
+
+# Evaluating Models
+
+[Confusion Matrix](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-understand-automated-ml#confusion-matrix) will always be `(# of labels} x (# of labels)`: 
+- Have four classes? Matrix is 4x4
+- Have eight classes? Then it is 8x8
+</details>
+
+<details>
+  <summary></summary>
+</details>
+
+<details>
+  <summary></summary>
+</details>
