@@ -5,3 +5,5 @@ Microsoft recognizes [six principles](https://docs.microsoft.com/en-us/learn/mod
 - Inclusiveness - *Inclusive design practices ... address potential barriers in a product environment that could unintentionally exclude people*
 - Accountability - AI can give you answers, but in the end, the business makes a decision on when, how to use that answer
 - Transparency - You cannot do the above unless you understand how the system arrived at an answer
+
+[How Microsoft operates using these principles](https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1:primaryr6)
