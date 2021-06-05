@@ -1,3 +1,23 @@
+
+<details>
+<summary>Types of Computer Vision</summary>
+
+# Uses of Computer Vision
+
+Three main use cases:
+1. Text extraction (OCR)
+2. Image Understanding
+3. Spatial Analysis
+
+## Image Understanding
+1. Image Classification - classifies whole images ("This is a picture of a ...")
+2. Object Detection - classifies objects within pictures ("There is an orange, 2 apples, and a banana in this picture")
+3. Image Analysis - extracts information and analytics from / about an image
+4. Face detections
+5. Semantic Segmentation - advanced ML technique that classifies individual pixels according to the object to which they belong ("given a satellite image of a golf course, classifies each pixel as playable or non-playable based on the existence of obstructions such as trees")
+
+https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/#features
+
 <details>
 <summary>Image Classification</summary>
 
@@ -21,7 +41,7 @@ Example of object detection:
 ![~](https://docs.microsoft.com/en-us/learn/wwl-data-ai/detect-objects-images-custom-vision/media/produce-objects.png)
 
 </details>
-
+</details>
 
 <details>
 <summary>Custom Vision</summary>
