@@ -42,6 +42,10 @@ Modeling has 3 main tasks:
 1. Increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features
 2. Decreases the number of features which makes model training more efficient
 
+##### Featurization is another name for Feature Engineering + Feature Selection
+
+Sort of fuzzy on why this isn't listed in the TDSP more forwardly [but here is the documentation](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-features#featurization): **Featurization is using your domain knowledge to select the label (or labels), features, scale, and normalize the data** (a.k.a. feature engineering and selection)
+
 
 #### Model Training
 
