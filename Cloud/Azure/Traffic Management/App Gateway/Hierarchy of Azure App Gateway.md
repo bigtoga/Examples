@@ -15,3 +15,7 @@ Once you have the app gateway stood up, to add a website:
 2. Create the HTTP settings 
       - If using SSL termination, configure only HTTP
       - If you want end-to-end TLS encryption, upload a certificate and configure HTTPS    
+3. Add a listener - HTTP
+4. Add a listener - HTTPS
+5. Add a rule to redirect HTTP to HTTPS
+6. Add a rule to accept HTTPS requests and forward them to the correct listener, backend pool
