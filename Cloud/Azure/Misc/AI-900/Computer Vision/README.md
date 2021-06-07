@@ -63,6 +63,19 @@ Four things:
 - Identify landmarks
 - Categorize image
 
+
+<details>
+<summary>Form Recognizer</summary>
+
+## Form Recognizer
+[Key fields that FR can extract from common receipts?](https://docs.microsoft.com/en-us/learn/modules/analyze-receipts-form-recognizer/2-receipts-azure)
+1. Time of the transaction
+2. Taxes paid
+3. Merchant information
+4. Total paid amount
+
+</details>
+
 </details>
 
 
