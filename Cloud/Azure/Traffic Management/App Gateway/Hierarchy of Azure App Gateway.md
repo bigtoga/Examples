@@ -1,6 +1,7 @@
 Pre-App GW steps
 - Provision Azure Key Vault
 - Upload certificates needed 
+- Generate a .CER for the trusted root certificate of the backend servers if needed
 
 Once you have your app ready to go, stand up a new App Gateway:
 
@@ -19,3 +20,13 @@ Once you have the app gateway stood up, to add a website:
 4. Add a listener - HTTPS
 5. Add a rule to redirect HTTP to HTTPS
 6. Add a rule to accept HTTPS requests and forward them to the correct listener, backend pool
+
+=====================================
+
+# Traffic Flow
+
+1. Traffic Manager
+2. App Gateway
+3. Listener
+4. Rule
+5. Backend pool
