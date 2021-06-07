@@ -1,0 +1,71 @@
+resources
+| where type =~ 'microsoft.compute/virtualMachines'
+//| where tags['Function']=~'Database Server'
+| extend nics=array_length(properties.networkProfile.networkInterfaces)
+| mvexpand nic=properties.networkProfile.networkInterfaces limit 400
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
+| project
+        id,
+        name,
+        subscriptionId,
+        location,
+        tags,
+        AHUB=case(
+            properties.licenseType =~ 'Windows_Server','Azure hybrid benefit',
+            properties.licenseType =~ 'Windows_Client','Windows client with multi-tenant hosting',
+            'Not enabled'
+        ),
+        nics = coalesce(tostring(nics),'-'),
+        os = properties.storageProfile.osDisk.osType,
+        disks = coalesce(
+            tostring(
+                iff(isnotempty(properties.storageProfile.osDisk) and isnotnull(properties.storageProfile.osDisk),1,0) + coalesce(array_length(properties.storageProfile.dataDisks),0)
+            ),
+            '-'
+        ),
+        availabilitySet = coalesce(extract('/availabilitySets/(.*)',1,tostring(properties.availabilitySet.id)),'-'),
+        source = coalesce(properties.storageProfile.imageReference.publisher,'-'),
+        vmSize = coalesce(tostring(properties.hardwareProfile.vmSize),'-'),
+        nicId = tostring(tolower(nic.id)),
+        powerState = tostring(split(tolower(properties.extended.instanceView.powerState.code),"powerstate/")[1]),
+        provisioningState = tostring(properties.provisioningState),
+		scaleSet = coalesce(extract('/virtualMachineScaleSets/(.*)',1,tostring(properties.virtualMachineScaleSet.id)),'-'),
+        resourceGroup
+| join kind=leftouter hint.strategy=shuffle (data 
+            | where type =~ 'Microsoft.Network/networkInterfaces' 
+            | extend ipConfigsCount=array_length(properties.ipConfigurations) 
+            | mvexpand ipconfig=properties.ipConfigurations limit 400
+            | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true' 
+            | parse kind=regex tostring(ipconfig.properties.subnet.id) with '/virtualNetworks/' virtualNetwork '/subnets/' subnet 
+            | project
+                nicId=tolower(id),
+                publicIpId=tostring(ipconfig.properties.publicIPAddress.id),
+                privateIPAddress=tostring(ipconfig.properties.privateIPAddress),
+                subnet,
+                virtualNetwork,
+                lbReferences=array_concat(
+                    ipconfig.properties.loadBalancerInboundNatRules,
+                    ipconfig.properties.loadBalancerBackendAddressPools,
+                    ipconfig.properties.applicationGatewayBackendAddressPools))
+        on nicId
+| join kind=leftouter hint.strategy=shuffle (data 
+            | where type =~ 'microsoft.network/publicipaddresses' 
+            | project publicIpId=tolower(id), publicIpAddress=tostring(properties.ipAddress), publicDnsName=tostring(properties.dnsSettings.fqdn))
+        on publicIpId
+| project-away publicIpId, publicIpId1
+| project name, 
+	location,
+	subnet, 
+	privateIPAddress, 
+	publicIpAddress, 
+	vmSize,
+	vmSize_Tier=substring(vmSize, 0, indexof(vmSize, "_")), 
+	vmSize_Sku=substring(vmSize, indexof(vmSize, "_")+1, 100),
+	disks,
+	availabilitySet,
+	AHUB,
+	resourceGroup,
+	os,
+	tags,
+	subscriptionId,
+	id
