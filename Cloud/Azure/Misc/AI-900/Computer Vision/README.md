@@ -47,6 +47,27 @@ Three things you get back:
 </details>
 
 <details>
+<summary>Cognitive Services</summary>
+
+# Cognitive Services
+
+[Found in four areas of Azure](https://docs.microsoft.com/en-us/learn/modules/get-started-ai-fundamentals/4-understand-computer-vision):
+1. Computer Vision
+2. Custom Vision
+3. Face service
+4. Form Recognizer
+
+Four things:
+- Read the text in an image
+- Detect objects
+- Identify landmarks
+- Categorize image
+
+</details>
+
+
+
+<details>
 <summary></summary>
 
 # 
