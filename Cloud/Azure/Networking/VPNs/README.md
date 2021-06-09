@@ -1,3 +1,7 @@
+# Vnet-to-Vnet VPNs
+
+
+# Site-to-Site IPSec VPNs
 If you do not have a virtual network gateway already provisioned:
 1. Get the "other side" VPN info - public IP, pre-shared key (PSK), etc
 2. Create an Azure Local Network Gateway
