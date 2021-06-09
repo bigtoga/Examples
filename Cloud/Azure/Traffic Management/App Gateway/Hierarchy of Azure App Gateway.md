@@ -30,3 +30,15 @@ Once you have the app gateway stood up, to add a website:
 3. Listener
 4. Rule
 5. Backend pool
+
+=====================================
+
+# Common Errors
+
+**Cannot test a health probe to resolve a 502 Bad Gateway error**
+- Error "Nothing to test as no HTTP Settings selected. You can still save the probe now and associate HTTP settings later."
+
+[Documentation on troubleshooting](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-backend-health-troubleshooting)
+- The default probe request is sent in the format of <protocol>://127.0.0.1:<port>/
+- The protocol and destination port are inherited from the HTTP settings
+- 
