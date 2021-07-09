@@ -2,6 +2,21 @@ Configuring MSDTC for a SQL cluster in Azure is a mix of two things:
 - Configuring the Azure load balancer
 - Configuring the cluster
 
+# Configure Azure Internal Load Balancer
+
+- Standard Sku
+
+[How to set up the load balancing rule](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure?tabs=ilb#set-load-balancing-rules)
+    1. Port - set to the TCP port that the SQL cluster is using
+    2. Enable **Floating IP** (direct server return)
+    3. Backend Port - set to the same port # as you set **Port**
+    
+[How to set up the health probe - in the ILB](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure?tabs=ilb#configure-cluster-probe)
+    1. Create the load balancer health probe - most people set to `59999`
+    
+[How to set up the cluster to respond to the probe](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure?tabs=ilb#configure-cluster-probe)
+    1. 
+
 # To Test Whether MSDTC Is Working
 
 ```sql
@@ -41,6 +56,9 @@ COMMIT TRANSACTION
 https://docs.microsoft.com/en-us/powershell/module/msdtc/test-dtc?view=windowsserver2019-ps
 
 ```powershell
+
+# View the current MSDTC
+Get-Dtc
 
 # Test the local server
 Test-Dtc -LocalComputerName "$env:COMPUTERNAME" -Verbose
