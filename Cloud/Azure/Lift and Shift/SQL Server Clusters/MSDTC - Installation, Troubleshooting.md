@@ -36,6 +36,19 @@ COMMIT TRANSACTION
 
 ### Testing Tools
 
+#### PowerShell - Test-Dtc
+
+https://docs.microsoft.com/en-us/powershell/module/msdtc/test-dtc?view=windowsserver2019-ps
+
+```powershell
+
+# Test the local server
+Test-Dtc -LocalComputerName "$env:COMPUTERNAME" -Verbose
+
+# Test a remote server
+Test-Dtc -LocalComputerName "$env:COMPUTERNAME" -RemoteComputerName "OtherServer" -ResourceManagerPort 17100 -Verbose
+```
+
 #### DTCPing
 
 [DTCPing to validate basic connectivity, issues](https://www.microsoft.com/en-us/download/details.aspx?id=2868)
