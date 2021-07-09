@@ -35,8 +35,26 @@ COMMIT TRANSACTION
 - [Ryan's walkthrough video](https://www.youtube.com/watch?v=GS12sfOdC1o)
 
 ### Testing Tools
-- [DTCPing to validate basic connectivity, issues](https://www.microsoft.com/en-us/download/details.aspx?id=2868)
-    - You have to run this on both nodes at the same time
+
+#### DTCPing
+
+[DTCPing to validate basic connectivity, issues](https://www.microsoft.com/en-us/download/details.aspx?id=2868)
+
+1. Login to node A and run DTCPing.exe
+2. Login to node B and run DTCPing.exe
+3. On node A, type the NetBIOS name of node B, and then click **Ping**
+4. On node B, type the NetBIOS name of node A, and then click **Ping**
+5. Test begins
+
+DTCPing will:
+1. Tests DNS resolution
+2. Tests Remote Procedure Call (RPC) communication
+3. Detects and display all the registry key settings touched by MSDTC
+4. Tests DTC communication between the hosts
+5. Logs the connection communication in the log files
+
+
+
 - [DTCTester when you want to go deeper](https://www.microsoft.com/en-us/download/details.aspx?id=2868&ranMID=24542&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-tlaMfOcAKzOyg32uEqp9Ag&epi=TnL5HPStwNw-tlaMfOcAKzOyg32uEqp9Ag&irgwc=1&OCID=AID2200057_aff_7593_1243925&tduid=%28ir__yd31nhn00wkfq3bhkk0sohzgke2xubrxr3pghrnh00%29%287593%29%281243925%29%28TnL5HPStwNw-tlaMfOcAKzOyg32uEqp9Ag%29%28%29&irclickid=_yd31nhn00wkfq3bhkk0sohzgke2xubrxr3pghrnh00) 
     - Only runs on one node
 
