@@ -1,1 +1,2 @@
 - [tsm command line reference](https://help.tableau.com/current/server-linux/en-us/tsm.htm)
+- [tsm settings export](https://help.tableau.com/current/server/en-us/cli_settings_tsm.htm)
