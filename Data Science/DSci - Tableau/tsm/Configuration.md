@@ -1,4 +1,6 @@
-`tsm configuration list-dynamic-keys` // Get the categories
+`tsm configuration list-dynamic-keys` // Get the list of "things you can change without restarting Tableau Server"
+
+[List of configuration keys that require a restart/pending/apply](https://help.tableau.com/current/server/en-us/cli_configuration-set_tsm.htm#viewing-the-current-value-of-a-configuration-key)
 
 # Security and TLS/SSL
 
