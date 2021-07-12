@@ -1,8 +1,8 @@
-Step 1: Browse to C:\Program Files\New Relic\newrelic-infra
+Step 1: Browse to `C:\Program Files\New Relic\newrelic-infra`
 
-Step 2: Create a folder named "logging.d" if one does not already exist
+Step 2: Create a folder named `logging.d` if one does not already exist
 
-Step 3: Copy the appropriate logging file to C:\Program Files\New Relic\newrelic-infra\logging.d\
+Step 3: Copy the appropriate logging file to `C:\Program Files\New Relic\newrelic-infra\logging.d\`
 
 Step 4: Generate some activity that should be found in infrastructure logs
 
@@ -13,8 +13,8 @@ Step 5: Verifying that it shows up in New Relic is a two phase process:
 
 Step 6: Verify that this host now shows up in the Logs UI
 - There is a 5-10 minute lag between Infrastructure and Logs (so do Step 5 first)
-- In the New Relic Logs UI, enter "hostname:" in the search. In about 10-30 seconds, you will see the list of hosts that are reporting logs. If your server is not reporting, either no traffic has been generated or you might want to restart the NR Infra service
-- Tip: Filter for hostname:"servername" (ex: enter hostname:"my-vm-2" with no space after the colon), then click on "Livetail", it will auto-refresh every 1 second
+- In the New Relic Logs UI, enter `hostname:` in the search. In about 10-30 seconds, you will see the list of hosts that are reporting logs. If your server is not reporting, either no traffic has been generated or you might want to restart the NR Infra service
+- Tip: Filter for `hostname:"servername"` (ex: enter `hostname:"my-vm-2"` with **no space after the colon**, and make sure you get the case right b/c **New Relic Logs are case-sensitive for search**), then click on "Livetail", it will auto-refresh every 1 second
 
 
 /****************************************************************
