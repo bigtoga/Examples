@@ -22,3 +22,4 @@ Then create an internal load balancer with 172.21.4.30 as that IP. Done.
 
 Misc resources:
 - https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/ping-clustered-name-fail
+- https://docs.microsoft.com/en-us/archive/blogs/askcore/building-windows-server-failover-cluster-on-azure-iaas-vm-part-2-network-and-creation
