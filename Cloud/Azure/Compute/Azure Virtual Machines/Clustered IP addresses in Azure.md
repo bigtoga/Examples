@@ -19,3 +19,6 @@ Get-ClusterResource "IP Address 172.21.4.0" | Set-ClusterParameter -Multiple $pa
 ```
 
 Then create an internal load balancer with 172.21.4.30 as that IP. Done.
+
+Misc resources:
+- https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/ping-clustered-name-fail
