@@ -78,7 +78,7 @@ df[df['first_name'].notnull() & (df['nationality'] == "USA")]
   </tbody>
 </table>
 
-~~~
+```python
 import pandas as pd  
 data = pd.read_csv("nba.csv") 
   
@@ -89,15 +89,15 @@ filter = data["Team"]=="New Boston Celtics"
   
 # printing only filtered columns  
 data.where(filter).dropna() 
-~~~
+```
 
 # indexof() in Pandas
 
-# Remove the <flname@domain.com> 
-dfChild["Assigned To"] = dfChild["Assigned To"].str.split('<').str[0]
+Remove the <flname@domain.com>: `dfChild["Assigned To"] = dfChild["Assigned To"].str.split('<').str[0]`
 
 # Remove time value from datetime
 
+```python
 dfTemp = pd.read_csv(
     'report1626712989433.csv'
     , error_bad_lines=False
@@ -113,3 +113,4 @@ dfTemp['Created']= pd.to_datetime(dfTemp['dtCreated']).dt.date
 dfTemp['Closed']= pd.to_datetime(dfTemp['dtClosed']).dt.date
 dfTemp = dfTemp.drop(columns = ["dtCreated", "dtClosed"])
 dfTemp
+```
