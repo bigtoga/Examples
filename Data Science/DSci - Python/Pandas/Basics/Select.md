@@ -90,3 +90,8 @@ filter = data["Team"]=="New Boston Celtics"
 # printing only filtered columns  
 data.where(filter).dropna() 
 ~~~
+
+# indexof() in Pandas
+
+# Remove the <flname@domain.com> 
+dfChild["Assigned To"] = dfChild["Assigned To"].str.split('<').str[0]
