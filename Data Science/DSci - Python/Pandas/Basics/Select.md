@@ -95,3 +95,21 @@ data.where(filter).dropna()
 
 # Remove the <flname@domain.com> 
 dfChild["Assigned To"] = dfChild["Assigned To"].str.split('<').str[0]
+
+# Remove time value from datetime
+
+dfTemp = pd.read_csv(
+    'report1626712989433.csv'
+    , error_bad_lines=False
+    , sep=','
+)
+
+dfTemp = dfTemp[dfTemp["Is Closed"] == True]
+dfTemp = dfTemp.drop(columns = ["Is Closed", "Status"])
+dfTemp.columns = ["Subject", "dtClosed", "TAT", "Owner", "dtCreated"]
+dfTemp.sort_values(by=['dtCreated'], inplace=True, ascending=True)
+
+dfTemp['Created']= pd.to_datetime(dfTemp['dtCreated']).dt.date
+dfTemp['Closed']= pd.to_datetime(dfTemp['dtClosed']).dt.date
+dfTemp = dfTemp.drop(columns = ["dtCreated", "dtClosed"])
+dfTemp
