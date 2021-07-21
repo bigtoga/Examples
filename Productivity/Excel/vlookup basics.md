@@ -17,6 +17,15 @@ Makes syntax easier
 - By default, `vlookup` uses approximate matching and will often return incorrect values
 - Changing to `, FALSE)` fixes 99 out of 100 `vlookup` issues for me
 
+## Tip #4: Use `LEN` to hide 0 for "rows not found"
+
+When you use `vlookup` on a table that has more rows than the comparison table, `vlookup` will return a `0` for those rows. Use `LEN()` to hide.
+- Current table: 300 rows
+- Lookup table: 100 rows
+- Result: 100 rows with a matching `vlookup` value, and 200 rows with a `0`
+
+`=IFERROR(IF(LEN(VLOOKUP([@[Vulnerability Name]], tbl20210718, 2, FALSE))=0, "", VLOOKUP([@[Vulnerability Name]], tbl20210718, 2, FALSE)), "")`
+
 # Examples
 
 Syntax: `=VLOOKUP (value, table, col_index, [range_lookup])`
