@@ -14,23 +14,6 @@
 }
 ```
 
-# Match an established pattern using Like
-
-Use `count` with `like`
-```json
-{
-    "count": {
-        "value": [ "test*", "dev*", "prod*" ],
-        "name": "pattern",
-        "where": {
-            "field": "name",
-            "like": "[current('pattern')]"
-        }
-    },
-    "greater": 0
-}
-```
-
 # Arrays
 
 Instead of `"type": "string"`, change to array:
