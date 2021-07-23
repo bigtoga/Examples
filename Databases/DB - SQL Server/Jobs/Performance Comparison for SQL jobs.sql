@@ -7,7 +7,7 @@ GO
 
 DECLARE @NumberOfJobExecutions INT		= 50 -- Review only the past 'x' job runs
 	, @OldestDateToLookBackTo DATETIME	= 'March 1, 2021'
-	, @Environment VARCHAR(25)			= 'Azure Prod'
+	, @Environment VARCHAR(25)			= 'Test'
 	, @DiscardSlowestAndFastest INT		= 2 -- Throw out fastest 'x' executions and the slowest 'x' executions 
 
 BEGIN -- Date Collector
@@ -60,10 +60,11 @@ BEGIN -- Date Collector
 	) x
 END
 
-SELECT Environment, Category, Job
+SELECT Environment, [Server], Category, Job
 	, Fastest = MIN(Duration_sec)
 	, Slowest = MAX(Duration_sec)
 	, [Average] = AVG(Duration_sec)
+	, ExecutionsReviewed
 FROM #AggregateThis a
-GROUP BY Environment, Category, Job
-ORDER BY Environment, Category, Job
+GROUP BY Environment, [Server], Category, Job, ExecutionsReviewed
+ORDER BY Environment, [Server], Category, Job, ExecutionsReviewed
