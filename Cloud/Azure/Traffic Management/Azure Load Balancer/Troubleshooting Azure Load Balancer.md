@@ -1,7 +1,7 @@
 # Resources
 - [Troubleshoot load balancer VM connectivity](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms)
 
-Show which TCP ports the local VM has open: `netstat -lp --tcp`
+Show which TCP ports the local VM has open: `Get-NetTCPConnection | Select-Object -Property *`
 
 # Assumptions for this guide
 - You have a "Port 80 website" to test (simplest test)
