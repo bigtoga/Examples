@@ -7,4 +7,6 @@ Ideas / things to consider - last updated August, 2021
 ## SQL Server VMs
 
 - Move tempdb to the ephemeral disk
-- VMs that support shared disks are capped at 2,000 MB/s throughput - consider whether you need a shared disk. If not, may be able to get a boost.
+- Shared Disks can be silent performance killers
+   - VMs w shared disks are maxed at 2,000 MBps max throughput (non-shared are 3,872 MB/s)
+   Shared disks do not support caching thus all IO counts against "uncached"
