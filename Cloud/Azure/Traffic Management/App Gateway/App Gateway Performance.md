@@ -1,7 +1,7 @@
 # App Gateway v2 as of Jul 2021
 
 App GW performance is a 3-part system:
-1. Processing power (i.e. backend hardware needed to run the App GW) is calculated as a **Compute Unit" which [is a measure of processor capacity consumed](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing) by things like redirects, SSL offloading, TLS connections/sec, URL Rewrite computations, and WAF rule processing
+1. Processing power (i.e. backend hardware needed to run the App GW) is calculated as a **Compute Unit** which [is a measure of processor capacity consumed](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant#pricing) by things like redirects, SSL offloading, TLS connections/sec, URL Rewrite computations, and WAF rule processing
 2. **Capacity Units** (CU) are a 3-dimensional metric that calculates a combination of Compute Units, # of persistent connections, and sustained throughput
 3. For the entire App GW: the number of **Compute Instances** that can be/are deployed (i.e. what you set as min/max when you configure auto-scaling)
 
