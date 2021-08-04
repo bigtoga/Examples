@@ -14,6 +14,7 @@ In other words:
 - Your App GW "scales up" when it adds Compute Instances
 - It will add additional Compute Instances are added when any one of the 3-dimensional limits are exceeded
 - Ideal for saving cost by not requiring the gateway to run at peak provisioned capacity for anticipated maximum traffic load
+- To save time when looking at Metrics in Azure, think of "Capacity Units" in the same way that you do for "Compute Units" - this is the key metric to monitor
 
 - One App GW can scale from 0 to 125 Compute Instances
 
