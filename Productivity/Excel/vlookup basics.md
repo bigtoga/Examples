@@ -1,6 +1,10 @@
 Tips on using it:
 
-## Tip #1: Format the data in the lookup sheet/table
+## Tip #1: Format the data in the lookup sheet/table so that "The search column" is the first column
+
+`vlookup` will give you an #NA error otherwise
+
+## Tip #2: Format the data in the lookup sheet/table
 
 Put "the values you want returned from `vlookup`" *to the right* of the "values you want to search for"
 
