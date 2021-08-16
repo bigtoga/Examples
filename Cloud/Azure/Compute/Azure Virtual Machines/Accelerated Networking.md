@@ -10,7 +10,7 @@ This helps in several ways:
 
 ## Tips for Measuring "Is it better or not?" (i.e. latency)
 
-1. Use [psping.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) on a client and a server to test
+1. Use [psping.exe with -L switch](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) on a client and a server to test
 2. Use [latte.exe](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-test-latency) to test before/after
 
 ## Resources
