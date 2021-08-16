@@ -8,14 +8,6 @@ This helps in several ways:
 3. **Reduced Jitter** - Virtual switch processing depends on the amount of policy that needs to be applied and the workload of the CPU that is doing the processing. Offloading the policy enforcement to the hardware removes that variability by delivering packets directly to the VM, removing the host to VM communication and all software interrupts and context switches, which is better for streaming data.
 4. **Decreased CPU Utilization** - Bypassing the virtual switch in the host leads to less CPU utilization for processing network traffic, leaving more capacity for processing large amounts of data being sent or received.
 
-Requirements:
-
-It is currently available in all regions under most general purpose VM sizes that have 2 or more vCPUs. It is also available for most hyperthreading VMs with 4 or more vCPUs.
-
-This feature can be enabled on VM creation or on an existing VM meeting criteria in the stopped state.
-
-How to Enable Acc
-
 ## Tips for Measuring "Is it better or not?" (i.e. latency)
 
 1. Use [psping.exe](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) on a client and a server to test
