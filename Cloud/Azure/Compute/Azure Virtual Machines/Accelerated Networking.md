@@ -10,8 +10,14 @@ This helps in several ways:
 
 ## Tips for Measuring "Is it better or not?" (i.e. latency)
 
+Test **Latency** with:
 1. Use [psping.exe with -L switch](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) on a client and a server to test
 2. Use [latte.exe](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-test-latency) to test before/after
+
+Test **Throughput** with:
+1. Use [NTttcp.exe](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-bandwidth-testing)
+    - Server: `ntttcp -r -p 1434 -m 64,*,192.168.1.1 -rb 10m -a 16 -t 30`
+    - Client: `ntttcp -s -p 1434 -m 8,*,192.168.1.1 -l 10m -a 2 -t 30`
 
 ## Resources
 
