@@ -1,4 +1,5 @@
-isk Assessment (RRA) of these systems to gain an understanding of the  attack surface and threats introduced by these modern systems.
+Complete a Rapid Risk Assessment (RRA) of these systems to gain an understanding of the  attack surface and threats introduced by these modern systems.
+- For each item, consider the vulnerabilities and controls that could allow an attacker to compromise the DevOps toolchain
 
 ## Version Control
 
