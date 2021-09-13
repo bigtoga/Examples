@@ -8,8 +8,10 @@ Complete a Rapid Risk Assessment (RRA) of these systems to gain an understanding
    - What SSH keys are available to this user?
 
 1. Threat actor makes an unauthorized commit to main branch, triggering a new release to production that contains a backdoor or trojan.
+   - Are branch protections enabled?
 
 1. Threat actor modifies a high risk code file (e.g. IaC, cryptography library, authentication module, etc.) without approvals from security team. Releasing changes to high risk code without approvals may violate separation of duties and change approval board requirements.
+2.    - Are there any project / webhook integrations?
 
 ## Continuous Integration (CI) / Continuous Delivery (CD)
 
