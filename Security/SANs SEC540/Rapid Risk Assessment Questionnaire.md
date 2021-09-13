@@ -4,6 +4,8 @@ Complete a Rapid Risk Assessment (RRA) of these systems to gain an understanding
 ## Version Control
 
 1. Threat actor compromises a user's version control credentials and creates an attacker controlled SSH key for accessing source code.
+   - Is MFA enabled for accounts with access? Attackers guessing or brute-forcing CI/CD accounts allows them to inject malicious code into pipelines
+   - What SSH keys are available to this user?
 
 1. Threat actor makes an unauthorized commit to main branch, triggering a new release to production that contains a backdoor or trojan.
 
