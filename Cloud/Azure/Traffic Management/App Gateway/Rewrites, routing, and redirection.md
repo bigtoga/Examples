@@ -10,12 +10,12 @@ Resources:
 - [App Gateway request routing rules](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-request-routing-rules) - defines `basic` and `path-based` rules
 - [Example URL path map](https://docs.microsoft.com/en-us/azure/application-gateway/url-route-overview)
 
-## Path-based redirects
+# Redirects
 
-Use this to 301 redirect to a new URL. Three options:
-1. Global redirection - Redirects from one listener to another listener on the gateway. Use this to force HTTP to HTTPS redirection for ex.
+Three options:
+1. Global redirection - Redirects all requests from one listener to another listener on the gateway. Use this to force HTTP to HTTPS redirection for ex.
 2. Path-based redirection - 301 redirect https://mydomain/cart/* to https://mydomain/shopping-cart/*
-3. Redirect to external site
+3. Redirect to external site - Redirects all requests from one listener to an external URL
 
 Resources:
 - [Redirection basics](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-request-routing-rules#redirection-setting)
