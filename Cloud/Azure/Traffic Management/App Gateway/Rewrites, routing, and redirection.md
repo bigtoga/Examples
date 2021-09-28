@@ -20,3 +20,13 @@ Use this to 301 redirect to a new URL. Three options:
 Resources:
 - [Redirection basics](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-request-routing-rules#redirection-setting)
 - [Overview of redirection with App GW](https://docs.microsoft.com/en-us/azure/application-gateway/redirect-overview)
+
+Examples:
+- [External site redirection using Powershell](https://docs.microsoft.com/en-us/azure/application-gateway/redirect-external-site-powershell)
+
+Powershell:
+- [New-AzApplicationGatewayRedirectConfiguration](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayredirectconfiguration?view=azps-6.4.0)
+- [New-AzApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule?view=azps-6.4.0)
+
+Azure CLI:
+- [az network application-gateway redirect-config create](https://docs.microsoft.com/en-us/cli/azure/network/application-gateway/redirect-config?view=azure-cli-latest)
