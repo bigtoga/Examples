@@ -18,12 +18,12 @@ When should you use/enable this?
 
 - Encrypted traffic flows remain encrypted throughout the network
 - Destination server name is still visible to Azure Firewall via SNI extension
-- Application Rules still able to filter traffic based on FQDN
+- Application Rules only able to filter traffic based on FQDN (Az FW can only see hostname; it cannot see the full URL)
 - Encrypted headers and body will not be inspected by IDS/IPS (IDPS)
 
 ### Inter-network traffic with TLS inspection
 - Encrypted traffic is decrypted by AzFW then re-encrypted for downstream transmissions
-- Application Rules can now inspect full destination URL (traffic filtering)
+- Application Rules can now inspect full destination URL (to do URL traffic filtering)
 - IDPS can match body, headers against signatures of "known bad"
 
 ## Traffic Flow
