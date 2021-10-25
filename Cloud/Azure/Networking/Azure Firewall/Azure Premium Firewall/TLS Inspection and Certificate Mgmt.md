@@ -3,6 +3,7 @@ Documentation:
 - [Using Enterprise CA Certificates w Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/premium-deploy-certificates-enterprise-ca)
 - [Great Youtube video from MSFT that talks about TLS inspection w AzFW](https://www.youtube.com/watch?v=A-hWyZZsFVY)
 - [John Savill video - TLS inspection starts at about 1hr 00 min](https://www.youtube.com/watch?v=JiUerkqyW0g)
+- [Azure Firewall sample rules, workbooks, etc](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall)
 
 # TLS Inspection in Azure Firewall Premium
 
