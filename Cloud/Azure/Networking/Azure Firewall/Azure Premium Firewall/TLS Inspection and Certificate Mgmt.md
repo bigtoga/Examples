@@ -10,7 +10,9 @@ When should you use/enable this?
 - You have a key / PKI server already in your network (i.e. you are your own Root Certicate Authority (CA)). You have deployed the public key certificates to all of your VMs. Now you deploy the Intermediate CA private key to Azure Key Vault, then grant a managed identity for Azure Firewall the ability to view/use that certificate. Now you only allow traffic that uses these keys (inter-network traffic only)
 - If you want the same capability but don't want to manage a key server, then you can have Azure Firewall automatically provision a new key vault + new certificates. However, once you do that, all traffic that is included in your Application Rules will stop until you also deploy the public key to each VM
 
-**Note**: This is **not** for inspecting customer-facing website requests - use App Gateway WAF for that.
+**Note**: This is **not** for inspecting customer-facing website requests - use App Gateway WAF for that. This is for two types of flow:
+- East/west traffic (inter-vnet)
+- Outbound to internet
 
 ### Inter-network traffic without TLS inspection
 
