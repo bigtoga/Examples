@@ -15,6 +15,8 @@ When should you use/enable this?
 - East/west traffic (inter-vnet)
 - Outbound to internet
 
+You can see this easily [in the documentation](https://docs.microsoft.com/en-us/azure/firewall/premium-certificates): "Azure Firewall Premium can intercept **outbound** HTTP/S traffic and auto-generate a server certificate for www.website.com."
+
 ### Inter-network traffic without TLS inspection
 
 - Encrypted traffic flows remain encrypted throughout the network
