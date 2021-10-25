@@ -11,20 +11,21 @@ Use Cases:
 
 This is **not** for inspecting customer-facing website requests - use App Gateway WAF for that.
 
-If you do NOT enable TLS inspection:
+### Inter-network traffic without TLS inspection
+
 - Encrypted traffic flows remain encrypted throughout the network
 - Destination server name is still visible to Azure Firewall via SNI extension
 - Application Rules still able to filter traffic based on FQDN
 - Encrypted headers and body will not be inspected by IDS/IPS (IDPS)
 
-If you DO enable TLS inspection:
+### Inter-network traffic with TLS inspection
 - Encrypted traffic is decrypted by AzFW then re-encrypted for downstream transmissions
 - Application Rules can now inspect full destination URL (traffic filtering)
 - IDPS can match body, headers against signatures of "known bad"
 
-# Traffic Flow
+## Traffic Flow
 
-1. Client issues a request that goes across Azure Firewall (something like https://mysite/myendpoint)
+1. vnet client issues a request that goes across Azure Firewall (something like https://mysite/myendpoint)
 2. Azure Firewall decrypts the request and inspects/processes if enabled. Blocks if "known bad"
 3. Azure Firewall sends the request to the backend node (web server)
 4. Web server/load balancer/pod validates the request against its own private key, then begins working the request
