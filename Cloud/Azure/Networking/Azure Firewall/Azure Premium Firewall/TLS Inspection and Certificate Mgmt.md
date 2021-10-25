@@ -6,10 +6,11 @@ Documentation:
 
 # TLS Inspection in Azure Firewall Premium
 
-Use Cases:
-1. Inter-network traffic (server to server, server to PaaS)
+When should you use/enable this? 
+- You have a key server already in your network. You have deployed the public key certificates to all of your VMs. Now you deploy the private key to Azure Firewall so that you only allow traffic that uses these keys (inter-network traffic only)
+- If you want the same capability but don't want to manage a key server, then you can have Azure Firewall automatically provision a new key vault + new certificates. However, once you do that, all traffic that is included in your Application Rules will stop until you also deploy the public key to each VM
 
-This is **not** for inspecting customer-facing website requests - use App Gateway WAF for that.
+**Note**: This is **not** for inspecting customer-facing website requests - use App Gateway WAF for that.
 
 ### Inter-network traffic without TLS inspection
 
