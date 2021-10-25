@@ -1,24 +1,50 @@
-Documentation: https://docs.microsoft.com/en-us/azure/firewall/premium-certificates?WT.mc_id=Portal-Microsoft_Azure_HybridNetworking
+Documentation: 
+- https://docs.microsoft.com/en-us/azure/firewall/premium-certificates?WT.mc_id=Portal-Microsoft_Azure_HybridNetworking
+- [Using Enterprise CA Certificates w Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/premium-deploy-certificates-enterprise-ca)
+- [Great Youtube video from MSFT that talks about TLS inspection w AzFW](https://www.youtube.com/watch?v=A-hWyZZsFVY)
+- [John Savill video - TLS inspection starts at about 1hr 00 min](https://www.youtube.com/watch?v=JiUerkqyW0g)
 
-## Traffic Flow
+# TLS Inspection in Azure Firewall Premium
 
-1. Client issues a request that goes across the firewall (something like https://mysite/myendpoint)
-2. Azure Firewall intercepts the request, decrypts it, inspects it, blocks it if IDS is enabled and it is "known bad"
-3. Azure Firewall re-encrypts the traffic and forwards to the web server/load balancer/pod/etc
+Use Cases:
+1. Inter-network traffic (server to server, server to PaaS)
+
+This is **not** for inspecting customer-facing website requests - use App Gateway WAF for that.
+
+If you do NOT enable TLS inspection:
+- Encrypted traffic flows remain encrypted throughout the network
+- Destination server name is still visible to Azure Firewall via SNI extension
+- Application Rules still able to filter traffic based on FQDN
+- Encrypted headers and body will not be inspected by IDS/IPS (IDPS)
+
+If you DO enable TLS inspection:
+- Encrypted traffic is decrypted by AzFW then re-encrypted for downstream transmissions
+- Application Rules can now inspect full destination URL (traffic filtering)
+- IDPS can match body, headers against signatures of "known bad"
+
+# Traffic Flow
+
+1. Client issues a request that goes across Azure Firewall (something like https://mysite/myendpoint)
+2. Azure Firewall decrypts the request and inspects/processes if enabled. Blocks if "known bad"
+3. Azure Firewall sends the request to the backend node (web server)
 4. Web server/load balancer/pod validates the request against its own private key, then begins working the request
 5. Web server/load balancer/pod sends response back to Azure Firewall
 6. Azure Firewall then decrypts the response, inspects it, blocks it if IDS is enabled and it is "known bad"
 7. Azure Firewall re-encrypts the traffic and sends it back to the original caller
 
-1. Requires an intermediate CA certificate deployed to Azure Key Vault
+## How Azure Firewall re-encrypts the traffic
+
+When you enable TLS Inspection, you provide Azure Firewall with an **Intermediate CA Certificate** *for each URL/domain that you want it to be able to inspect*. 
+
+## Requirements for the Intermediate CA Certificate
+
+Requires an intermediate CA certificate deployed to Azure Key Vault
    - This is basically a "lookup table" that allows the user/caller/browser/client to verify that the signature of the server certificate has not been revoked
    - Four types of certs:
        - Public key certificate - published by load balancer, app gateway, etc
        - Private key certificate - private storage on load balancer, app gateway, application, server, etc
        - Intermediate CA certificate
        - Root CA certificate - top-most certificate of the tree
-
-## Requirements for the Intermediate CA Certificate
 
 Ensure your CA certificate complies with the following requirements:
 - When deployed as a Key Vault secret, **you must use Password-less PFX** (Pkcs12) with a certificate and a private key
@@ -27,6 +53,9 @@ Ensure your CA certificate complies with the following requirements:
 - It must have the KeyUsage extension marked as Critical with the KeyCertSign flag (RFC 5280; 4.2.1.3 Key Usage)
 - It must have the BasicContraints extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints)
 - The CA flag must be set to TRUE
+
+ - Missing KeyUsage mandatory values KeyCertSign
+ - Missing BasicConstraint mandatory values CA and no path constraints
 
 ## Integrating with Azure Key Vault
 
