@@ -4,6 +4,7 @@ Documentation:
 - [Great Youtube video from MSFT that talks about TLS inspection w AzFW](https://www.youtube.com/watch?v=A-hWyZZsFVY)
 - [John Savill video - TLS inspection starts at about 1hr 00 min](https://www.youtube.com/watch?v=JiUerkqyW0g)
 - [Azure Firewall sample rules, workbooks, etc](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall)
+- [How to create an intermediate CA certification in Azure Key Vault](https://docs.microsoft.com/en-us/azure/firewall/premium-certificates#azure-key-vault)
 
 # TLS Inspection in Azure Firewall Premium
 
