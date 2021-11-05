@@ -1,3 +1,8 @@
+# NetApp Metrics
+
+1. NetApp metrics are loaded from the NetApp appliance into Azure **every 15 minutes**
+2. NetApp metrics are sampled **every 5 minutes** only 
+
 # NetApp and Performance
 
 Performance in NetApp is a combination of multiple things:
