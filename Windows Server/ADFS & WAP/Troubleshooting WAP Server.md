@@ -16,3 +16,4 @@ dir -recurse | where {$_.Thumbprint -eq “8F7AD90430AFDC0D39994618007C131236A86
 
 Get-WebApplicationProxySslCertificate
 ```
+Then run: `Netsh http show sslcert`
