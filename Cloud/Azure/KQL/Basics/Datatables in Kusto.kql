@@ -1,0 +1,10 @@
+let Data = datatable(Name: string, Age: int) [
+    "Paul", 11,
+    "Peter", 13,
+    "Ann", 16,
+    "Steven", 28,
+    "Natasha", 31,
+    "Don", 35
+];
+Data
+| order by Age asc
