@@ -1,3 +1,12 @@
+Easiest thing to do is:
+1. Azure Portal
+2. Azure Monitor
+3. Logs
+4. Click on "Queries" tab
+5. Search for `Firewall`
+6. Use one of the pre-built as a starter
+
+```kusto
 let web2 = "172.x.x.x";
 let pip_appgw = "22.x.x.x";
 
@@ -41,3 +50,4 @@ TargetPort = tostring(TargetPortInt)
 | where TargetIP == "22.x.x.x"
 | where TargetPort == 443
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, TranslatedDestination, TranslatedPort, Policy, RuleCollectionGroup, RuleCollection, Rule
+```
