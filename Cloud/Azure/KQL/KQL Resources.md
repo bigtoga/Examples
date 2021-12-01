@@ -8,7 +8,7 @@ Kusto was re-branded as the **Azure Data Explorer** (ADE) in October, 2020. You 
 
 **[KQL Samples documentation from Microsoft](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/samples)**
 
-**[KQL Best Practices](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices)
+**[KQL Best Practices](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/best-practices)**
 
 **[Deep dive into tech stack behind it](https://xhinker.medium.com/understand-kusto-inside-out-and-why-kusto-is-so-fast-54697e6648d7)**
 
