@@ -1,3 +1,6 @@
+Documentation and resources:
+- https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/unionoperator
+
 ```kusto
 let T1 = range x from 1 to 3 step 1;
 let T2 = range x from 11 to 13 step 1;
