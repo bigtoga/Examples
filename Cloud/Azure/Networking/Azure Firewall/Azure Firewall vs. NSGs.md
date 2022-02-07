@@ -19,7 +19,7 @@ If you rename these, it makes it easier:
 |Filters: FQDN   	|Yes  	|No   	|   	|
 |Filters: Service tags    	|   	|   	|   	|
 |Filters: Groups of IPs/devices   	|Yes via IP groups   	|Yes via Application Security Groups (ASGs)   	|   	|
-|Outbound SNAT: When a VM behind this access the internet...   	|Outbound SNAT makes it appear as though the Azure FW IP is the source   	|3 options: (1) If the VM has a public IP, that is used, (2) if no VM PIP, if you've deployed a NAT Gateway, then the NAT Gateway address appears, (3) no NAT Gateway and no public PIP? Random Azure IP   	|   	|
+|Outbound SNAT: When a VM behind this access the internet...   	|Outbound SNAT makes it appear as though the Azure FW IP is the source **but** AzFW will choose a random public IP that is assigned to the Azure Firewall. If you have only 1 pip, then it will always use that pip. If you have 2 pips, it will randomly assign ([https://docs.microsoft.com/en-us/azure/firewall/deploy-multi-public-ip-powershell](as of 2022-02-07))  	|3 options: (1) If the VM has a public IP, that is used, (2) if no VM PIP, if you've deployed a NAT Gateway, then the NAT Gateway address appears, (3) no NAT Gateway and no public PIP? Random Azure IP   	|   	|
 |Uses route tables?   	|Yes   	|Can, but usually not   	|   	|
 |Uses User-defined routes (UDRs)?   	|Yes   	|Can, but usually not 	|   	|
 |Inbound DNAT (Source Destination Address Translation): When the remote host replies to the VM's request...   	|Uses Inbound DNAT to map to the VM's private IP   	| Not available  	|   	|
