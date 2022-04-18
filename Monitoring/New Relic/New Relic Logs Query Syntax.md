@@ -1,3 +1,8 @@
+# Documentation
+
+- [New Relic](https://docs.newrelic.com/docs/logs/ui-data/query-syntax-logs#query-attributes)
+- [Lucene](https://www.lucenetutorial.com/lucene-query-syntax.html)
+
 # Virtual Machines 
 **Find shutdowns, reboots, restarts**
 
@@ -8,3 +13,7 @@
 **Clustering**
 
 `WinEventType:"Error" AND message:"*cluster*"`
+
+**Web Server logs**
+
+`logtype:iis_w3c AND hostname:"*iis*"`
