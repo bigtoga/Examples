@@ -1,3 +1,4 @@
 # Virtual Machines 
 **Find shutdowns, reboots, restarts**
-`Channel:System AND (EventID:41 OR EventID:1074 OR EventID:6088 OR EventID:6009) AND hostname:my-server`
+
+`Channel:System AND (EventID:41 OR EventID:1074 OR EventID:6008) AND hostname:my-server`
