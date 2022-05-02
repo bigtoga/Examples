@@ -1,2 +1,3 @@
 UpdateRunProgress 
 | where InstallationStatus !in ("Succeeded", "NotIncluded", "NotStarted")
+| project Computer, TimeGenerated, Title, InstallationStatus
