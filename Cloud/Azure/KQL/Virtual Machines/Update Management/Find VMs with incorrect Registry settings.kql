@@ -1,0 +1,3 @@
+UpdateSummary 
+| where WindowsUpdateSetting != "Notify before download"
+| distinct Computer, WindowsUpdateSetting
