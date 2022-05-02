@@ -1,0 +1,2 @@
+UpdateRunProgress 
+| where InstallationStatus !in ("Succeeded", "NotIncluded", "NotStarted")
