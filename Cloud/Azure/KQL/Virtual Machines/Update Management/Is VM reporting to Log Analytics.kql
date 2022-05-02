@@ -1,0 +1,4 @@
+// Reports once every 10 minutes by default
+Heartbeat
+| where Computer == "my-vm"
+| sort by TimeGenerated desc 
