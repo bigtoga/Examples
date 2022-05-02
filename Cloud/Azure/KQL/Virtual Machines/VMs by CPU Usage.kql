@@ -1,0 +1,7 @@
+InsightsMetrics
+| where TimeGenerated > ago(1d)
+| where Origin == "vm.azm.ms"
+| where Namespace == "Processor" and Name == "UtilizationPercentage"
+| where Computer startswith "my-vm"
+| summarize Avg = avg(Val), P95 = percentile(Val, 95), P90 = percentile(Val, 90) by Computer
+//| top 10 by P95
