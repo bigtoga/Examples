@@ -1,0 +1,15 @@
+let Memory = Perf
+| where TimeGenerated > ago(30d)
+| where Computer == "myVM"
+| where ObjectName == "Memory" and CounterName == "% Committed Bytes In Use"
+| project TimeGenerated, Computer, PercentMemoryInUse = CounterValue;
+let CPU = Perf
+| where TimeGenerated > ago(30d)
+| where Computer == "myVM"
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| project TimeGenerated, Computer, PercentCPUInUse = CounterValue;
+Memory
+| join(CPU)
+    on Computer, TimeGenerated
+| summarize PercentCPU=avg(PercentCPUInUse), PercentMemoryInUse=avg(PercentMemoryInUse) by bin(TimeGenerated, 1h)
+| render timechart  
