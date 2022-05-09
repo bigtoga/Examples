@@ -26,6 +26,8 @@
 
 Capabilities, Features, Integrations
 
+Authentication, Authorization
+
 | **Layer**   | **Identity**               | **Perimeter**  | **Network**               | **Compute**                             | **Application**                                     | **Data**  | **Secrets** |
 |-------------|----------------------------|----------------|---------------------------|-----------------------------------------|-----------------------------------------------------|-----------|-------------|
 | Application | 1. Hard-code username, pwd | WAF vs. no WAF | Manage own network access | Scale up, down. Integrate with existing | Configuration. Integration with existing/other apps | Access to | Access to   |
