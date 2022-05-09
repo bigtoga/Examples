@@ -23,3 +23,17 @@
     - Code Deployments
     - Optimization (for speed, for regional performance, etc)
 1. Secrets
+
+
+--------------------------
+| Layer       | Identity                   | Perimeter      | Network                   | Compute                                 | Application                                         | Data      |   |   |   |
+|-------------|----------------------------|----------------|---------------------------|-----------------------------------------|-----------------------------------------------------|-----------|---|---|---|
+| Application | 1. Hard-code username, pwd | WAF vs. no WAF | Manage own network access | Scale up, down. Integrate with existing | Configuration. Integration with existing/other apps | Access to |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
+|             |                            |                |                           |                                         |                                                     |           |   |   |   |
