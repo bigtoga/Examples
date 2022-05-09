@@ -24,6 +24,7 @@
     - Optimization (for speed, for regional performance, etc)
 1. Secrets
 
+Capabilities, Features, Integrations
 
 | **Layer**   | **Identity**               | **Perimeter**  | **Network**               | **Compute**                             | **Application**                                     | **Data**  | **Secrets** |
 |-------------|----------------------------|----------------|---------------------------|-----------------------------------------|-----------------------------------------------------|-----------|-------------|
