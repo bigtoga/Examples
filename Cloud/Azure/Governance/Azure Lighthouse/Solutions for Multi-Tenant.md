@@ -23,6 +23,7 @@
     - Code Deployments
     - Optimization (for speed, for regional performance, etc)
 1. Secrets
+2. Support
 
 Capabilities, Features, Integrations
 
