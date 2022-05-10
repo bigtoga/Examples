@@ -1,0 +1,10 @@
+// 35273
+// 35274
+// 41048
+// 41049    Local Windows Server Failover Clustering node is no longer online					
+// 41421
+Event
+| where EventLog == 'Application'
+    and (EventID == 35273 or EventID == 35274 or EventID == 41048 or EventID == 41049 or EventID == 41421)
+    and Source contains 'MSSQL'
+| summarize arg_max(TimeGenerated, *) by Computer, RenderedDescription
