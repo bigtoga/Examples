@@ -1,0 +1,47 @@
+AzureActivity
+| where (OperationNameValue =~ 'Backup Protected Item' or OperationNameValue =~ 'Microsoft.RecoveryServices/recoveryServicesVault/Backup' or OperationNameValue =~ 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems/backup/action') and ActivityStatusValue =~ 'Failed'
+| extend Computer = tolower(tostring(todynamic(Properties).['entity Name']))
+| summarize arg_max(TimeGenerated, *) by Computer, _ResourceId
+| summarize AggregatedValue = count() by _ResourceId, Computer, bin(TimeGenerated, 1140m)
+| join kind= leftouter (AzureActivity
+    | where (OperationNameValue =~ 'Backup Protected Item' or OperationNameValue =~ 'Microsoft.RecoveryServices/recoveryServicesVault/Backup' or OperationNameValue =~ 'Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems/backup/action')
+    | extend Computer = tolower(tostring(todynamic(Properties).['entity Name']))
+    | extend LatestStatus=ActivityStatusValue
+    | extend LastStatusTime=TimeGenerated
+    | summarize arg_max(TimeGenerated, *) by Computer
+    | project
+        Computer,
+        LatestStatus,
+        LastStatusTime,
+        OperationNameValue,
+        ActivityStatusValue,
+        Properties,
+        ResourceProviderValue)
+    on Computer
+| where (LatestStatus !~ 'Succeeded') and (LatestStatus !~ 'Started')
+| summarize arg_max(TimeGenerated, *) by Computer
+| join kind= leftouter(Heartbeat
+    | summarize arg_max(TimeGenerated, *) by Computer
+    | extend Computer = tostring(tolower((split(tostring(Computer), '.')[0]))))
+    on Computer
+| where OSType != 'Linux'
+| extend Resource = tostring(tolower((split(tostring(_ResourceId), '/')[-1])))
+| project
+    TimeGenerated,
+    LastStatusTime,
+    Computer,
+    ComputerResourceGroup=ResourceGroup,
+    ComputerResourceId=ResourceId,
+    AggregatedValue,
+    OperationName=OperationNameValue,
+    ActivityStatus=ActivityStatusValue,
+    LatestStatus,
+    Properties,
+    ResourceProvider=ResourceProviderValue,
+    SubscriptionId=split(_ResourceId, '/')[2],
+    TenantId,
+    ResourceId=_ResourceId,
+    Resource=split(_ResourceId, '/')[-1],
+    ResourceGroup=split(_ResourceId, '/')[4],
+    OSType,
+    OSMajorVersion
