@@ -14,7 +14,7 @@ Most logs are written to `...\Tableau Server\data\tabsvc\logs\`
 my-server-name 172.10.10.10 - 2022-06-23T00:10:41.806 "-0000" 80 "HEAD /favicon.ico HTTP/1.1" "-" 200 - "-" 1000 YmNerfe8_tMrJvNfEXJ5QAAAgc - - - - "-"
 ```
 
-**VizPortal logs** use the standard Common Log Format:
+**VizPortal logs** use the standard Common Log Format and are at `...\Tableau Server\data\tabsvc\logs\vizportal\`:
     - Host
     - IP address
     - RFC 1413 Identity and/or - User ID (or "-" if trusted ticket)
@@ -24,22 +24,8 @@ my-server-name 172.10.10.10 - 2022-06-23T00:10:41.806 "-0000" 80 "HEAD /favicon.
     - Object size in bytes
     - Content-Length
     - Response time
-    - Unique_ID
+    - Unique_ID - a 24-digit alphumeric unique string 
 
+## Relationship between Apache's 'Access logs' and VizPortal logs
 
-There are multiple log files.
-
-The Apache log configuration is in the httpd.conf file which is located at `.../data/tabsvc/config/gateway_{some internal version number{/httpd.conf`.
-
-## Querying Logs
-
-Show all log events containing a 404 error: `where(/HTTP\/1\.1″ “-” (?P\d{3})/ status=404)`
-
-Count how many users are appending “.csv” to specified views: `where((/.csv/i OR /.csv/i OR /.csv/i)) calculate(count)`
-
-Distribute the count of all downloads over 100 data points within a given period of time: `where(/download/i) calculate(count) timeslice(100)`
-
-
-
-
- 
+The `Unique_ID` field is a lookup - you can see initial requests coming in via the Access logs, then look up in the VizPortal logs using the `Unique_ID` to see more details
