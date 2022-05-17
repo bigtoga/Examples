@@ -8,8 +8,13 @@ Most logs are written to `...\Tableau Server\data\tabsvc\logs\`
 
 # Viewing client-facing logs
 
-**Access logs** represent 'clients hitting Tableau' and are the Apache web server logs: `...\Tableau Server\data\tabsvc\logs\httpd\`
-- Tableau uses the standard Common Log Format
+**Access logs** represent 'clients hitting Tableau' and are the Apache web server logs: `...\Tableau Server\data\tabsvc\logs\httpd\`. Example:
+
+```
+my-server-name 172.10.10.10 - 2022-06-23T00:10:41.806 "-0000" 80 "HEAD /favicon.ico HTTP/1.1" "-" 200 - "-" 1000 YmNerfe8_tMrJvNfEXJ5QAAAgc - - - - "-"
+```
+
+**VizPortal logs** use the standard Common Log Format:
     - Host
     - IP address
     - RFC 1413 Identity and/or - User ID (or "-" if trusted ticket)
@@ -21,10 +26,6 @@ Most logs are written to `...\Tableau Server\data\tabsvc\logs\`
     - Response time
     - Unique_ID
 
-Example:
-
-`
-my-server-name 172.10.10.10 - 2022-06-23T00:10:41.806 "-0000" 80 "HEAD /favicon.ico HTTP/1.1" "-" 200 - "-" 1000 YmNerfe8_tMrJvNfEXJ5QAAAgc - - - - "-"
 
 There are multiple log files.
 
