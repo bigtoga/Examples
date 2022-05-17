@@ -12,7 +12,7 @@ Most logs are written to `...\Tableau Server\data\tabsvc\logs\`
 
 # Viewing client-facing logs
 
-**Access logs** represent 'clients hitting Tableau' and are the Apache web server logs: `...\Tableau Server\data\tabsvc\logs\httpd\`. Example:
+**Access logs** (a.k.a. **Activity Logs**) represent 'clients hitting Tableau' and are the Apache web server logs: `...\Tableau Server\data\tabsvc\logs\httpd\`. Example:
 
 ```
 my-server-name 172.10.10.10 - 2022-06-23T00:10:41.806 "-0000" 80 "HEAD /favicon.ico HTTP/1.1" "-" 200 - "-" 1000 YmNerfe8_tMrJvNfEXJ5QAAAgc - - - - "-"
@@ -34,6 +34,10 @@ my-server-name 172.10.10.10 - 2022-06-23T00:10:41.806 "-0000" 80 "HEAD /favicon.
     - ???
     - ???
     - ???
+
+RegEx example [here](https://github.com/msolbrig/Format-Apache-Logs-For-Tableau/blob/master/ApacheLogToCSV.java)
+    
+    
 
 **VizPortal logs** use the standard Common Log Format and are at `...\Tableau Server\data\tabsvc\logs\vizportal\`:
     - Host
