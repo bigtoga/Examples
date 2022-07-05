@@ -1,4 +1,4 @@
-ASE's console is a debugger of sorts that can help you identify:
+ASE's console is a **very** limited debugger of sorts that can help you identify:
 - DNS issues
 - Virtual Network integration issues
 
@@ -10,20 +10,10 @@ Note: this is NOT Kudu. Azure's Kudu implementation is part of the SCM site and 
 
 # Commands
 
-## General Troubleshooting 
-
-- `help` to list available Kudu commands
-- `echo` to list environment or local variables / values
-- `set` to set environment or local variables
-     - `set PATH` to see paths available to the web app
-
-## Network
-
-- `tcpping 192.168.0.1:1443` (include port after colon)
-
 ## DNS
 
 - `nslookup myresource.mydomain.com`
+- `nslookup myresource.mydomain.com 8.8.8.8`
 
 ## File System
 
@@ -33,6 +23,7 @@ Note: this is NOT Kudu. Azure's Kudu implementation is part of the SCM site and 
 - `mkdir` to create a directory
 - `rd` to remove a directory
 
+https://www.thomas-krenn.com/en/wiki/Cmd_commands_under_Windows 
 
 # Networking 
 
