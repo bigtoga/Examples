@@ -10,9 +10,18 @@ Note: this is NOT Kudu. Azure's Kudu implementation is part of the SCM site and 
 
 # Commands
 
+## Network
+
+-  `tracert`
+
 ## DNS
 
 - `nslookup myresource.mydomain.com`
 - `nslookup myresource.mydomain.com 8.8.8.8`
 
+# Update from 2022-07
+
 That's really all I've been able to find as of 2022-07. Everything else fails with "Failed to execute the command" error
+
+It appears that the ASE Console runs inside a custom Windows container. That's why things like `nameresolver.exe` do not work ([source](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#troubleshooting))
+
