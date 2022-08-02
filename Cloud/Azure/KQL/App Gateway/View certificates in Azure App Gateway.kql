@@ -1,0 +1,9 @@
+resources 
+	| where type =~ "Microsoft.Network/applicationGateways" 
+	| join kind=leftouter (
+        resourcecontainers 
+	        | where type=="microsoft.resources/subscriptions" 
+	        | project subscriptionName=name, subscriptionId
+        ) on subscriptionId 
+	| project Subscription = subscriptionName, appGw = name, location
+        , sslCertificates = properties.sslCertificates[0].name
