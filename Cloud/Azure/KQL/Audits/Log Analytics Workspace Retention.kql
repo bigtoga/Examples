@@ -1,0 +1,9 @@
+resources
+| where type == "microsoft.operationalinsights/workspaces"
+| join kind=inner (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
+| extend RetentionDays = properties.retentionInDays
+| project
+        SubName, 
+        location,
+        Workspace = name, 
+        RetentionDays
