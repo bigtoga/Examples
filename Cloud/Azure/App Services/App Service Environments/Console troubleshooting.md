@@ -16,6 +16,8 @@ Note: this is NOT Kudu. Azure's Kudu implementation is part of the SCM site and 
 - `nslookup myresource.mydomain.com 8.8.8.8`
 - `nslookup myresource.mydomain.com 172.29.1.4` # uses a specific private DNS server
 
+To view the current DNS servers that the vnet / app is using: `set WEBSITE_DNS_SERVER_FROM_VNET`
+
 ## Ping
 - `tcpping 172.29.2.4`
 
