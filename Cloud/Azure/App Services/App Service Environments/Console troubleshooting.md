@@ -12,8 +12,12 @@ Note: this is NOT Kudu. Azure's Kudu implementation is part of the SCM site and 
 
 ## DNS
 
-- `nslookup myresource.mydomain.com`
+- `nslookup myresource.mydomain.com` # uses the Azure magic IP address only
 - `nslookup myresource.mydomain.com 8.8.8.8`
+- `nslookup myresource.mydomain.com 172.29.1.4` # uses a specific private DNS server
+
+## Ping
+- `tcpping 172.29.2.4`
 
 # Update from 2022-07
 
