@@ -9,10 +9,20 @@ Function GetNumbersOnly(S As String) As Double
         GetNumbersOnly = GetNumbersOnly + Val(V)
     Next
 End Function
+
+Function GetTextOnly(Text As String) As String
+    With CreateObject("VBScript.RegExp")
+        .Global = True
+        .Pattern = "[0-9]"
+        
+        GetTextOnly = .Replace(Text, "")
+    End With
+End Function
+
 ```
 
-4. In the cell, reference it by name: `=GetNumbersOnly(A2)`
+4.
 
 # Excel How To
-1. Get numbers only from a string (see example above)
-2. Get text characters only from a string
+1. Get numbers only from a string:  In the cell, `=GetNumbersOnly(A2)`
+2. Get text characters only from a string:  In the cell, `=GetTextOnly(A2)`
