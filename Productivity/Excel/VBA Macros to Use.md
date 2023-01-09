@@ -21,8 +21,6 @@ End Function
 
 ```
 
-4.
-
 # Excel How To
 1. Get numbers only from a string:  In the cell, `=GetNumbersOnly(A2)`
 2. Get text characters only from a string:  In the cell, `=GetTextOnly(A2)`
