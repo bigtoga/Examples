@@ -6,9 +6,13 @@ To add VBA code:
 ```vb
 Function GetNumbersOnly(S As String) As Double
     For Each V In Split(S)
-        result = result + Val(V)
+        GetNumbersOnly = GetNumbersOnly + Val(V)
     Next
 End Function
 ```
 
 4. In the cell, reference it by name: `=GetNumbersOnly(A2)`
+
+# Excel How To
+1. Get numbers only from a string (see example above)
+2. Get text characters only from a string
