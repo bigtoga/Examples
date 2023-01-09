@@ -19,6 +19,10 @@ Function GetTextOnly(Text As String) As String
     End With
 End Function
 
+' Case-sensitive
+Function IndexOf(InputText As String, StringToFind As String, StartingCharacter As Double) As Double
+    IndexOf = InStr(StartingCharacter, InputText, StringToFind, vbBinaryCompare)
+End Function
 ```
 
 # Excel How To
