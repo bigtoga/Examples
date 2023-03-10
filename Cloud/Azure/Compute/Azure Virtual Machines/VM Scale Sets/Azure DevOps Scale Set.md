@@ -1,4 +1,30 @@
-# Background
+# Options for Running Build and Release Pipelines within Azure DevOps
+
+[Core documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser)
+
+- Option 1: Use the Microsoft Hosted agents
+    - Free tier
+    - 
+
+# Why Use Self-Hosted Azure DevOps Agents?
+
+The [Microsoft Hosted Agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) have limitations:
+1. Limited hardware = limited runs + long build times (as of 2023-03, these VMs are auto-managed by Azure and are 2 CPU, 7GB of RAM)
+2. Only 10GB of free space for artifacts and you cannot increase it
+3. No private link or vnet integration or even VPN/ExpressRoute; these are shared VMs on a public cloud
+4. Max of 10 parallel jobs / 6 hours each for free tier
+5. No ability to write to a UNC file share
+6. Integration with a vnet / private resource is near impossible
+     - There is no Service Tag for Azure DevOps which means you have to identify the IP address range 
+     - You must then whitelist inbound IP if you want to deploy code 
+7. [Full list of limitations](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#capabilities-and-limitations)
+
+### Scale Set Agents
+
+The [documentation on VMSS agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/scale-set-agents?view=azure-devops):
+- Self-hosted agents
+- Use these when you need more memory, CPU, or IO than Microsoft hosted agents allow
+- You need more agents than MSFT allows
 
 # Details
 
