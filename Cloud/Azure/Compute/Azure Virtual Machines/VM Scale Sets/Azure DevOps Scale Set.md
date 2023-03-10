@@ -18,6 +18,15 @@
     - Free tier, Premium options
     - The agent pool is called **Azure Pipelines** in the UI
 
+- Option 2: TFS Server
+    - Not discussed here
+
+- Option 3: Self-Hosted Agents
+    - [Windows agents docs](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops)
+    - This is [what the Azure DevOps dev team uses](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops#hardware-specs)
+        - *...the **hosted agents code** using pipelines that utilize hosted agents*
+        - *...the bulk of Azure DevOps code is built by 24 CPU VMs that each run 4 self-hosted agents*
+
 # Why Use Self-Hosted Azure DevOps Agents?
 
 The [Microsoft Hosted Agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) have limitations:
