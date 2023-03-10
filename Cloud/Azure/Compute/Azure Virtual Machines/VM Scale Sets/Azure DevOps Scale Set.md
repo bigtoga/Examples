@@ -121,9 +121,23 @@ Azure DevOps self-hosted agents use a **pull** model:
 1. Create your VM 
 2. Create an agent pool in Microsoft Azure DevOps.
 3. Create an access token to authenticate your agent with Azure DevOps
-4. Configure your VM with the software that's required 
-5. Configure your agent to connect to Azure DevOps so that it can receive build jobs.
-6. Verify that the agent is connected to Azure DevOps and ready to receive build jobs.
+4. Configure your VM with the software that's required (build tools, security tooling)
+5. Install the agent software on the VM. This is how it will receive build jobs.
+6. Verify that the agent is connected to Azure DevOps and ready to receive build jobs
+    - Project Settings => Agent Pools => view the pool details
+    - Verify it says **Online** under the agent VM
+        
+### How to trigger a build pipeline run
+        
+1. In Visual Studio, open the project's `azure-pipelines.yml` file
+2. Update the `pool` section to use your agent pool
+        
+```yaml
+pool:
+  name: 'MyAgentPool'
+  demands:
+  - npm
+```
         
 </details>
 
@@ -150,6 +164,7 @@ When you create VMSS, you can specify startup script that applies to each VM at 
 
 ### Azure:
 1. Create and configure your VM
+2. Install build tools, required software on the VM
 2. Deprovision and generalize the VM
 3. Create a new custom VM image
 4. Deploy a scale set that uses the image
