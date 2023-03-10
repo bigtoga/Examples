@@ -1,6 +1,8 @@
 <details>
-        <summary># Basics of How Azure DevOps Runs Pipelines</summary>
+        <summary>Basics of How Azure DevOps Runs Pipelines</summary>
 
+# Basics of How Azure DevOps Runs Pipelines
+        
 1. You configure a **deployment group**
 2. You configure a **deployment pool**
 3. You configure an **agent pool** (Settings => Organization Settings => Pipelines)
@@ -14,6 +16,8 @@
 
 </details>
 
+<details>
+        <summary>Options for Running Build and Release Pipelines within Azure DevOps</summary>
 # Options for Running Build and Release Pipelines within Azure DevOps
 
 [Core documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser)
@@ -38,6 +42,11 @@
 
 [How to configure the agent settings](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#configure-agent-capabilities)
 
+</details>
+
+<details>
+        <summary>Why Use Self-Hosted Azure DevOps Agents?</summary>
+        
 # Why Use Self-Hosted Azure DevOps Agents?
 
 The [Microsoft Hosted Agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) have limitations:
@@ -58,7 +67,12 @@ The [documentation on VMSS agents](https://learn.microsoft.com/en-us/azure/devop
 - Use these when you need more memory, CPU, or IO than Microsoft hosted agents allow
 - You need more agents than MSFT allows
 
-# Details
+</details>
+
+<details>
+        <summary>VM Scale Set Agents</summary>
+        
+# VM Scale Set Agents
 
 The "type of agent pool" matters: 
 1. It can allow you to dynamically create VMs if there are jobs in pool queue. When queue is empty all created machines are deleted. 
@@ -78,9 +92,14 @@ When you create VMSS, you can specify startup script that applies to each VM at 
 2. Choose the "type of target" (Windows or Linux)
 3. Windows => copy the auto-created Powershell script
 
+</details>
+
+<details>
+        <summary>Best Practices</summary>
 # Best Practices
 
 ## Self-Hosted Agents
 
 1. Run 1 agent per VM ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install))
 
+</details>
