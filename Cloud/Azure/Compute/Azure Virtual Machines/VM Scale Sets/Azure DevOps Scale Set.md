@@ -14,6 +14,9 @@
 9. The agent runs the job
 10. When the job completes, the "compute resource" is destroyed     
 
+## Tutorials
+- [How to how self-hosted **build** agents](https://learn.microsoft.com/en-us/training/modules/host-build-agent/)
+        
 </details>
 
 <details>
