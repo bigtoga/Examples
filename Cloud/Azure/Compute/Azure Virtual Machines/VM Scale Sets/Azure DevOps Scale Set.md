@@ -82,6 +82,15 @@ Azure DevOps self-hosted agents use a **pull** model:
         - Uses port 443 outbound from the VM
         - As a result, there is no need to whitelist inbound IPs or have a public IP on the VM/scale set
         
+## Setup of the Agent
+        1. Create your agent pool in Azure DevOps organization settings
+        2. Create your VM/scale set
+        3. Register the agent 
+            - You run the auto-generated code from inside Azure DevOps
+            - This installs the agent and registers this VM to the agent pool
+        4. Once registered, the agent starts polling to see if there are any jobs in the queue
+        5. Once a job is available, the agent downloads the job
+        
 </details>
 
 <details>
