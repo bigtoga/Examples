@@ -69,6 +69,19 @@ The [documentation on VMSS agents](https://learn.microsoft.com/en-us/azure/devop
 
 </details>
 
+
+<details>
+        <summary>Basics of Self-Hosted Agents</summary>
+        
+# Basics of Self-Hosted Agents
+
+## Networking
+        
+Azure DevOps self-hosted agents use a **pull** model: 
+        - *[To determine when/what to run,] communication is always initiated by the agent [to Azure DevOps]* ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#communication-with-tfs))
+        
+</details>
+
 <details>
         <summary>VM Scale Set Agents</summary>
         
