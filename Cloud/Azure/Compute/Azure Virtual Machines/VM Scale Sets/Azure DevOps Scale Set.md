@@ -1,19 +1,22 @@
 # Basics of How Azure DevOps Runs Pipelines
 
-1. A pipeline is executed / run
-2. Azure DevOps creates a backend **job**
-3. A new VM is spun up (see below for options here)
-4. The job reaches out to an **agent** installed on the VM
-5. The agent runs the job
-6. When the job completes, the VM is destroyed
+1. You configure a **deployment group**
+2. You configure a **deployment pool**
+3. You configure a pipeline to target a deployment group
+4. The pipeline is executed / run
+5. Azure DevOps creates a backend **job**
+6. A new "compute resource" is spun up (VM, container, scale set)
+7. The job reaches out to an **agent** installed on the "compute resource"
+8. The agent runs the job
+9. When the job completes, the "compute resource" is destroyed
 
 # Options for Running Build and Release Pipelines within Azure DevOps
 
 [Core documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser)
 
-- Option 1: Use the Microsoft Hosted agents
+- Option 1: Use the [Microsoft Hosted agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml)
     - Free tier, Premium options
-    - Each time you run a pipeline, a "fresh" (new) VM is created
+    - The agent pool is called **Azure Pipelines** in the UI
 
 # Why Use Self-Hosted Azure DevOps Agents?
 
