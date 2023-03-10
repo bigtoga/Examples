@@ -16,22 +16,22 @@
 [Core documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser)
 
 ## Option 1: Use the [Microsoft Hosted agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml)
-    - Free tier, Premium options
-    - The agent pool is called **Azure Pipelines** in the UI
+- Free tier, Premium options
+- The agent pool is called **Azure Pipelines** in the UI
 
 ## Option 2: TFS Server
-    - Not discussed here
+- Not discussed here
 
 ## Option 3: Self-Hosted Agents
-    - [Windows agents docs](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops)
-    - This is [what the Azure DevOps dev team uses](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops#hardware-specs)
+- [Windows agents docs](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops)
+- This is [what the Azure DevOps dev team uses](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops#hardware-specs)
         - *...the **hosted agents code** using pipelines that utilize hosted agents*
         - *...the bulk of Azure DevOps code is built by 24 CPU VMs that each run 4 self-hosted agents*
 
 ## Option 4: Azure VM Scale Set Agents (a.k.a. Scale Set Agents)
-    - A type/form of self-hosted agents
-    - Auto-scale
-    - You define "minimum number of standby VMs" and "maximum number of total VMs" and ADO manages the rest
+- A type/form of self-hosted agents
+- Auto-scale
+- You define "minimum number of standby VMs" and "maximum number of total VMs" and ADO manages the rest
 
 [How to configure the agent settings](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#configure-agent-capabilities)
 
