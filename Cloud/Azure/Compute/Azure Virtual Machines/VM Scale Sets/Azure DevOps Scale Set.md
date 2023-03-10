@@ -2,22 +2,9 @@
 
 1. [2019: Building VM Scale Sets for Azure DevOps](http://hypernephelist.com/2020/03/06/scalable-azure-devops-pools-using-scale-sets.html) - uses Packer
 2. [2021: Building VM Scale Sets for Azure DevOps](https://www.mikestephenson.me/2021/09/19/notes-on-setting-up-an-azure-scale-set-as-a-self-hosted-build-server/)
-3. [2020: Building VM Scale Sets for Azure DevOps](https://cgfootman.com/2020/10/07/azure-devops-scale-set-agents-part-1/)
+3. [2020: Building VM Scale Sets for Azure DevOps](https://cgfootman.com/2020/10/07/azure-devops-scale-set-agents-part-3/)
 
 ## Basic Starter Steps
-
-### Azure DevOps:
-1. Create an agent pool of type "Azure virtual machine scale set"
-   - **Automatically tear down virtual machines after every use**
-   - **Maximum number of virtual machines in the scale set**
-   - **Number of agents to keep on standby**
-   - **Delay in minutes before deleting excess idle agents** - If you submit 1 build, DevOps will deploy a number of agents - which seems to depend on the maximum size of your build agent pool. If you set the timeout too low, it’s possible that the other build agents will have been made unavailable before you submit your next build. You would then be in the situation of having to wait for a new set of build agents each time you run a build. Which could become more of a problem if you have set the maximum number of build agents too low.
-3. Choose the "type of target" (Windows or Linux)
-4. Windows => copy the auto-created Powershell script
-
-![Azure DevOps](https://cgfootman.com/2020/11/29/azure-devops-scale-set-agents-part-3/createBAPool3_hue6018d3e00333691bc7f45080b08b0b0_47265_800x0_resize_q75_box.jpg)
-
-![image](https://cgfootman.com/2020/11/29/azure-devops-scale-set-agents-part-3/createBAPool5_hu5625b85f79426907fa7805b2b81d38b8_82482_800x0_resize_q75_box.jpg)
 
 ### Azure:
 1. Create and configure a single VM to match your needs 
@@ -25,6 +12,25 @@
 2. Deprovision and generalize the VM
 3. Create a new custom VM image
 4. Deploy a scale set that uses the image
+
+
+### Azure DevOps:
+1. Create an agent pool of type "Azure virtual machine scale set" with options
+3. Choose the "type of target" (Windows or Linux)
+4. Windows => copy the auto-created Powershell script
+
+![Azure DevOps](https://cgfootman.com/2020/11/29/azure-devops-scale-set-agents-part-3/createBAPool3_hue6018d3e00333691bc7f45080b08b0b0_47265_800x0_resize_q75_box.jpg)
+
+Choose the correct VM Scale Set:
+
+![correct](https://cgfootman.com/2020/11/29/azure-devops-scale-set-agents-part-3/createBAPool4_hua16eab1ce391f9649f654004f783b427_150484_800x0_resize_q75_box.jpg)
+
+Choose the right options
+
+![image](https://cgfootman.com/2020/11/29/azure-devops-scale-set-agents-part-3/createBAPool5_hu5625b85f79426907fa7805b2b81d38b8_82482_800x0_resize_q75_box.jpg)
+
+## Back in Azure Portal
+5. Browse to the selected scale set - there is a new extension installed (`Microsoft.Azure.DevOps.Pipeline.Agent`)
 
 ```bash
 az vmss create --resource-group $resourceGroup --name $name --image $image \
