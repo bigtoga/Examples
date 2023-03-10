@@ -146,3 +146,17 @@ When you create VMSS, you can specify startup script that applies to each VM at 
 1. Run 1 agent per VM ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install))
 
 </details>
+
+<details>
+        <summary>Questions</summary>
+# Questions
+        
+## Builds
+
+
+        
+## Releases
+        
+
+</details>        
+
