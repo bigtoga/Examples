@@ -1,21 +1,21 @@
 <details>
         <summary>Basics of How Azure DevOps Runs Pipelines</summary>
 
-# Basics of How Azure DevOps Runs Pipelines
+        # Basics of How Azure DevOps Runs Pipelines
         
-1. You configure a **deployment group**
-2. You configure a **deployment pool**
-3. You configure an **agent pool** (Settings => Organization Settings => Pipelines)
-4. You configure a pipeline to target a deployment group
-5. The pipeline is executed / run
-6. Azure DevOps creates a backend **job**
-7. A new "compute resource" is spun up (VM, container, scale set)
-8. The job reaches out to an **agent** installed on the "compute resource"
-9. The agent runs the job
-10. When the job completes, the "compute resource" is destroyed     
+        1. You configure a **deployment group**
+        2. You configure a **deployment pool**
+        3. You configure an **agent pool** (Settings => Organization Settings => Pipelines)
+        4. You configure a pipeline to target a deployment group
+        5. The pipeline is executed / run
+        6. Azure DevOps creates a backend **job**
+        7. A new "compute resource" is spun up (VM, container, scale set)
+        8. The job reaches out to an **agent** installed on the "compute resource"
+        9. The agent runs the job
+        10. When the job completes, the "compute resource" is destroyed     
 
-## Tutorials
-- [How to how self-hosted **build** agents](https://learn.microsoft.com/en-us/training/modules/host-build-agent/)
+        ## Tutorials
+        - [How to how self-hosted **build** agents](https://learn.microsoft.com/en-us/training/modules/host-build-agent/)
         
 </details>
 
