@@ -1,4 +1,5 @@
-# Basics of How Azure DevOps Runs Pipelines
+<details>
+        <summary># Basics of How Azure DevOps Runs Pipelines</summary>
 
 1. You configure a **deployment group**
 2. You configure a **deployment pool**
@@ -10,6 +11,8 @@
 8. The job reaches out to an **agent** installed on the "compute resource"
 9. The agent runs the job
 10. When the job completes, the "compute resource" is destroyed
+
+</details>
 
 # Options for Running Build and Release Pipelines within Azure DevOps
 
