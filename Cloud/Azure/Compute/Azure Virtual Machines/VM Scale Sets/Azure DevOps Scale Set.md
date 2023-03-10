@@ -78,7 +78,9 @@ The [documentation on VMSS agents](https://learn.microsoft.com/en-us/azure/devop
 ## Networking
         
 Azure DevOps self-hosted agents use a **pull** model: 
-        - *[To determine when/what to run,] communication is always initiated by the agent [to Azure DevOps]* ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#communication-with-tfs))
+        - *(To determine when/what to run,) communication is always initiated by the agent (to Azure DevOps)* ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#communication-with-tfs))
+        - Uses port 443 outbound from the VM
+        - As a result, there is no need to whitelist inbound IPs or have a public IP on the VM/scale set
         
 </details>
 
