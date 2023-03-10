@@ -91,6 +91,25 @@ Azure DevOps self-hosted agents use a **pull** model:
 4. Once registered, the agent starts polling to see if there are any jobs in the queue
 5. Once a job is available, the agent downloads the job
         
+[!General networking model](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/media/agent-connections-devops.png?view=azure-devops)        
+        
+</details>
+
+<details>
+        <summary>Build Pipelines and Self-Hosted Agents</summary>
+        
+# Build Pipelines and Self-Hosted Agents
+
+        
+</details>
+
+
+<details>
+        <summary>Release Pipelines and Self-Hosted Agents</summary>
+        
+# Release Pipelines and Self-Hosted Agents
+
+        
 </details>
 
 <details>
