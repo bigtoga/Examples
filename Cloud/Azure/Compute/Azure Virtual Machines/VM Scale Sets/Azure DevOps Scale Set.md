@@ -144,6 +144,12 @@ When you create VMSS, you can specify startup script that applies to each VM at 
 ## Self-Hosted Agents
 
 1. Run 1 agent per VM ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install))
+        
+## Security
+        
+1. Have the identity that runs the agent be different from the identity that has permissions to connect the agent to the pool
+    - In other words, if your personal account is "the account with permissions to connect the agent to the pool", do not run the agent using your personal account
+    - Instead, set up a dedicated account just for the agent to run under
 
 </details>
 
