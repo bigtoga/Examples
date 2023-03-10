@@ -12,7 +12,7 @@
 7. A new "compute resource" is spun up (VM, container, scale set)
 8. The job reaches out to an **agent** installed on the "compute resource"
 9. The agent runs the job
-10. When the job completes, the "compute resource" is destroyed
+10. When the job completes, the "compute resource" is destroyed     
 
 </details>
 
