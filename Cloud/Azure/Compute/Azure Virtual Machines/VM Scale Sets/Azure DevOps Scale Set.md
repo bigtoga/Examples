@@ -55,6 +55,7 @@ The [Microsoft Hosted Agents](https://learn.microsoft.com/en-us/azure/devops/pip
 3. No private link or vnet integration or even VPN/ExpressRoute; these are shared VMs on a public cloud
 4. Max of 10 parallel jobs / 6 hours each for free tier
 5. No ability to write to a UNC file share
+6. Full builds only; no incremental builds
 6. Integration with a vnet / private resource is near impossible
      - There is no Service Tag for Azure DevOps which means you have to identify the IP address range 
      - You must then whitelist inbound IP if you want to deploy code 
@@ -74,6 +75,13 @@ The [documentation on VMSS agents](https://learn.microsoft.com/en-us/azure/devop
         <summary>Basics of Self-Hosted Agents</summary>
         
 # Basics of Self-Hosted Agents
+        
+## Overview
+
+1. Provision a "compute resource" in your private network
+2. Grant it network access to your servers that you want to "deploy code to" 
+3. Enroll it as an "agent" in the "agent pool" in Azure DevOps
+4.         
 
 ## Networking
         
@@ -144,6 +152,9 @@ When you create VMSS, you can specify startup script that applies to each VM at 
 ## Self-Hosted Agents
 
 1. Run 1 agent per VM ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install))
+    - However, [other documentation says it is fine to have more than 1 per VM](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#can-i-install-multiple-self-hosted-agents-on-the-same-machine)
+    - "Can I install multiple self-hosted agents on the same machine?" Yes. This approach can work well for agents that run jobs that don't consume many shared resources. For example, you could try it for agents that run releases that mostly orchestrate deployments and don't do much work on the agent itself.
+    - ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#can-i-install-multiple-self-hosted-agents-on-the-same-machine))
         
 ## Security
         
