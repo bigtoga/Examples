@@ -68,3 +68,9 @@ When you create VMSS, you can specify startup script that applies to each VM at 
 2. Choose the "type of target" (Windows or Linux)
 3. Windows => copy the auto-created Powershell script
 
+# Best Practices
+
+## Self-Hosted Agents
+
+1. Run 1 agent per VM ([source](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install))
+
