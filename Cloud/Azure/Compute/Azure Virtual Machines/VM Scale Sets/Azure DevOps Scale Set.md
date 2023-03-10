@@ -28,6 +28,13 @@
         - *...the **hosted agents code** using pipelines that utilize hosted agents*
         - *...the bulk of Azure DevOps code is built by 24 CPU VMs that each run 4 self-hosted agents*
 
+- Option 4: Azure VM Scale Set Agents (a.k.a. Scale Set Agents)
+    - A type/form of self-hosted agents
+    - Auto-scale
+    - You define "minimum number of standby VMs" and "maximum number of total VMs" and ADO manages the rest
+
+[How to configure the agent settings](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#configure-agent-capabilities)
+
 # Why Use Self-Hosted Azure DevOps Agents?
 
 The [Microsoft Hosted Agents](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) have limitations:
