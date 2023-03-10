@@ -14,8 +14,15 @@
         9. The agent runs the job
         10. When the job completes, the "compute resource" is destroyed     
 
-        ## Tutorials
+        ## Build Agents
         - [How to how self-hosted **build** agents](https://learn.microsoft.com/en-us/training/modules/host-build-agent/)
+        - *A build agent is a system that performs build tasks. Think of it as a dedicated server that runs your build process.* ([source](https://learn.microsoft.com/en-us/training/modules/host-build-agent/2-choose-a-build-agent)
+        - When a build is triggered, Azure Pipelines selects an available build agent from the configured **agent pool**
+        - When you have self-hosted agents, you install the agent on the VM and it is then added to the agent pool
+
+        ## Releases
+
+
         
 </details>
 
@@ -111,6 +118,12 @@ Azure DevOps self-hosted agents use a **pull** model:
         
 # Build Pipelines and Self-Hosted Agents
 
+1. Create your VM 
+2. Create an agent pool in Microsoft Azure DevOps.
+3. Create an access token to authenticate your agent with Azure DevOps
+4. Configure your VM with the software that's required 
+5. Configure your agent to connect to Azure DevOps so that it can receive build jobs.
+6. Verify that the agent is connected to Azure DevOps and ready to receive build jobs.
         
 </details>
 
