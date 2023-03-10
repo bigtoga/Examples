@@ -2,13 +2,14 @@
 
 1. You configure a **deployment group**
 2. You configure a **deployment pool**
-3. You configure a pipeline to target a deployment group
-4. The pipeline is executed / run
-5. Azure DevOps creates a backend **job**
-6. A new "compute resource" is spun up (VM, container, scale set)
-7. The job reaches out to an **agent** installed on the "compute resource"
-8. The agent runs the job
-9. When the job completes, the "compute resource" is destroyed
+3. You configure an **agent pool** (Settings => Organization Settings => Pipelines)
+4. You configure a pipeline to target a deployment group
+5. The pipeline is executed / run
+6. Azure DevOps creates a backend **job**
+7. A new "compute resource" is spun up (VM, container, scale set)
+8. The job reaches out to an **agent** installed on the "compute resource"
+9. The agent runs the job
+10. When the job completes, the "compute resource" is destroyed
 
 # Options for Running Build and Release Pipelines within Azure DevOps
 
