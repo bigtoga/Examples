@@ -3,3 +3,4 @@
      - If you use something like `resourceId()` function as a parameter, then the portal page may mess it up
      - Move it to a variable instead of a parameter
 3. Binding NICs to a load balancer must be done to the NIC, not the load balancer...
+4. Deploying an empty resource group using ARM template will not erase/delete any resources if that resource group already exists; it will "do nothing" 
