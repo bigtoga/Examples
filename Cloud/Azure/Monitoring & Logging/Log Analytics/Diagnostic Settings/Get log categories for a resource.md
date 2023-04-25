@@ -11,6 +11,17 @@ Another Option is to use the "All Resources" page in [Azure portal](https://port
 2. Browse to "All Services"
 3. In left menu, filter for category
 
+Network category - these have Diagnostic Settings:
+1. Virtual Network
+- Network Security Groups (NSGs)
+- Bastions
+- Firewalls
+- Network interfaces (NICs)
+- Load balancers
+- Public IP addresses
+- Traffic Manager Profiles
+- Application Gateways
+
 If you have a resource deployed to Azure, then you can check available diagnostic settings this way:
 
 ```powershell
