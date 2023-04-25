@@ -5,10 +5,11 @@
 - [Network - Public IPs and DDoS Mitigation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkpublicipaddresses)
 - [Network - vnet Gateways](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkvirtualnetworkgateways)
 - [Network - VPN Gateways](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkvpngateways)
-- []()
-- []()
-- []()
-- []()
+
+Another Option is to use the "All Resources" page in [Azure portal](https://portal.azure.com/#allservices)
+1. Go to Azure Portal
+2. Browse to "All Services"
+3. In left menu, filter for category
 
 If you have a resource deployed to Azure, then you can check available diagnostic settings this way:
 
