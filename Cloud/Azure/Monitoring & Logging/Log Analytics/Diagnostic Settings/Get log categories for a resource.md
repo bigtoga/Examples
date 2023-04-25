@@ -1,3 +1,15 @@
+[Documentation page is here](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories)
+- [Bastion Hosts](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkbastionhosts)
+- [Network - Load Balancers](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkloadbalancers)
+- [Network - NSGs](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworknetworksecuritygroups)
+- [Network - Public IPs and DDoS Mitigation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkpublicipaddresses)
+- [Network - vnet Gateways](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkvirtualnetworkgateways)
+- [Network - VPN Gateways](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkvpngateways)
+- []()
+- []()
+- []()
+- []()
+
 If you have a resource deployed to Azure, then you can check available diagnostic settings this way:
 
 ```powershell
