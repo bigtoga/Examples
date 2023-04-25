@@ -6,22 +6,25 @@
 - [Network - vnet Gateways](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkvirtualnetworkgateways)
 - [Network - VPN Gateways](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkvpngateways)
 
+# All Resources view 
+
 Another Option is to use the "All Resources" page in [Azure portal](https://portal.azure.com/#allservices)
 1. Go to Azure Portal
 2. Browse to "All Services"
 3. In left menu, filter for category
 
-Network category - these have Diagnostic Settings:
+### Network category - these have Diagnostic Settings:
 1. Virtual Network
-- Network Security Groups (NSGs)
-- Bastions
-- Firewalls
-- Network interfaces (NICs)
-- Load balancers
-- Public IP addresses
-- Traffic Manager Profiles
-- Application Gateways
+1. Network Security Groups (NSGs)
+1. Bastions
+1. Firewalls
+1. Network interfaces (NICs)
+1. Load balancers
+1. Public IP addresses
+1. Traffic Manager Profiles
+1. Application Gateways
 
+# Code
 If you have a resource deployed to Azure, then you can check available diagnostic settings this way:
 
 ```powershell
