@@ -1,0 +1,87 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "environment_abbreviation": {"type": "string"},
+        "relativeName":             {"type": "string"},
+        "buildBy":                  {"type": "string"},
+        "name_pip_rg":              {"type": "string"},
+        "name_pip":                 {"type": "string"},
+        "maxReturn":                {"type": "int"},
+        "ttl":                      {"type": "int"},
+        "trafficRoutingMethod": {
+            "type": "string",
+            "allowedValues": [
+                "Performance",
+                "Weighted",
+                "Priority",
+                "Geographic",
+                "MultiValue",
+                "Subnet"
+            ]
+        },
+        "buildDate": {
+            "type": "string",
+            "defaultValue": "[utcNow('yyyy-MM-dd')]",
+            "metadata": {
+              "description": "utcNow() is only available as a template parameter default value. It cannot be placed anywhere else"
+            }
+        }
+    },
+    "variables": {
+        "app_or_platform": "myapp",          
+        "name": "[concat('tmgr-', variables('app_or_platform'), '-', parameters('environment_abbreviation'))]",
+
+        "resourceId_pip":       "[resourceId(parameters('name_pip_rg'), 'Microsoft.Network/publicIPAddresses', parameters('name_pip'))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2022-04-01",
+            "type": "Microsoft.Network/trafficmanagerprofiles",
+            "name": "[variables('name')]",
+            "location": "global",
+            "tags": {
+                "App_Or_Platform":  "[variables('app_or_platform')]",
+                "BuildBy":          "[parameters('buildBy')]",
+                "BuildDate":        "[parameters('buildDate')]"
+            },
+            "properties": {
+                "trafficRoutingMethod": "[parameters('trafficRoutingMethod')]",
+                "maxReturn":            "[parameters('maxReturn')]",
+                "dnsConfig": {
+                    "relativeName": "[parameters('relativeName')]",
+                    "ttl":          "[parameters('ttl')]"
+                },
+                "monitorConfig": {
+                    "protocol": "HTTP",
+                    "port": 80,
+                    "path": "/",
+                    "intervalInSeconds": 30,
+                    "toleratedNumberOfFailures": 3,
+                    "timeoutInSeconds": 10,
+                    "customHeaders": [],
+                    "expectedStatusCodeRanges": []
+                },
+                "endpoints": [
+                    {
+                        "id": "[concat(resourceId('Microsoft.Network/trafficManagerProfiles', variables('name')), '/azureEndpoints/endpoint-myapp')]",
+                        "name": "endpoint-myapp",
+                        "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+                        "properties": {
+                            "endpointStatus": "Enabled",
+                            "endpointMonitorStatus": "Degraded",
+                            "targetResourceId": "[variables('resourceId_pip')]",
+                            "target": "pip-myapp.cloudapp.azure.com",
+                            "weight": 1,
+                            "priority": 1,
+                            "endpointLocation": "East US 2",
+                            "alwaysServe": "Disabled"
+                        }
+                    }
+                ],
+                "trafficViewEnrollmentStatus": "Enabled"
+            }
+            }
+        }
+    ]
+}
