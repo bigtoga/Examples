@@ -10,6 +10,10 @@ Note: this is NOT Kudu. Azure's Kudu implementation is part of the SCM site and 
 
 # Commands
 
+## Files / Directories
+
+- `dir` and `ls`
+
 ## DNS
 
 - `nslookup myresource.mydomain.com` # uses the Azure magic IP address only
