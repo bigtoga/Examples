@@ -3,11 +3,11 @@ ASE's console is a **very** limited debugger of sorts that can help you identify
 - Virtual Network integration issues
 
 Resources:
-- [Networking related commands for App Services](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/networking-related-commands-for-azure-app-services/ba-p/392410)
+- [Kudu Networking related commands for App Services](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/networking-related-commands-for-azure-app-services/ba-p/392410)
 
 # How to Access
 
-In the ASE's App page, scroll to the `Console` blade and click
+In the ASE's **App** page, scroll to the `Console` blade and click
 
 Note: this is NOT Kudu. Azure's Kudu implementation is part of the SCM site and is based on Powershell
 
