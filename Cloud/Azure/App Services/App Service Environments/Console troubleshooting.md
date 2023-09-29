@@ -2,6 +2,9 @@ ASE's console is a **very** limited debugger of sorts that can help you identify
 - DNS issues
 - Virtual Network integration issues
 
+Resources:
+- [Networking related commands for App Services](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/networking-related-commands-for-azure-app-services/ba-p/392410)
+
 # How to Access
 
 In the ASE's App page, scroll to the `Console` blade and click
