@@ -27,3 +27,7 @@ That's really all I've been able to find as of 2022-07. Everything else fails wi
 
 It appears that the ASE Console runs inside a custom Windows container. That's why things like `nameresolver.exe` and `tcpping` do not work ([source](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#troubleshooting))
 
+# Update for 2023-09
+
+Still not a lot out there. I even see `nslookup` failing with "Failed to execute the command" error sometimes
+
