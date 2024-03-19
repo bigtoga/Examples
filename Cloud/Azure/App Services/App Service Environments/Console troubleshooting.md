@@ -40,3 +40,9 @@ It appears that the ASE Console runs inside a custom Windows container. That's w
 
 Still not a lot out there. I even see `nslookup` failing with "Failed to execute the command" error sometimes
 
+# Update for 2024-03
+
+Still nothing. Now, nothing works - all fail with "Failed to execute the command" error:
+- `printenv`
+- `nslookup` or `dig`
+- `ls` or `dir`
