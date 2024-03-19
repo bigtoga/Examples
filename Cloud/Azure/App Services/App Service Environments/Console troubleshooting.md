@@ -3,6 +3,8 @@ ASE's console is a **very** limited debugger of sorts that can help you identify
 - Virtual Network integration issues
 
 Resources:
+
+- [Using the console sandbox for Azure Functions](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)
 - [Kudu Networking related commands for App Services](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/networking-related-commands-for-azure-app-services/ba-p/392410)
 
 # How to Access
