@@ -17,3 +17,6 @@
 **Web Server logs**
 
 `logtype:iis_w3c AND hostname:"*iis*"`
+
+**NOT**
+Channel:"Application" AND -message:*activated* AND -EventID:3303
