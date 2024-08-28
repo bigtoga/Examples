@@ -13,6 +13,7 @@
       - [Script and source code](https://github.com/drwetter/testssl.sh)
       - [Web page with instructions](https://testssl.sh/)
       - [A "How To"](https://www.whiteoaksecurity.com/blog/installation-use-of-testssl-sh-tool/)
+      - [hexdump for Windows](https://www.di-mgt.com.au/hexdump-for-windows.html)
    - [sshscan](https://github.com/evict/SSHScan)
 
 # Resources
