@@ -8,7 +8,12 @@
    - [sslscan](https://github.com/rbsec/sslscan)
    - [Qualys SSL Labs](https://www.ssllabs.com/ssltest/)
 
-- Scan SFTP server for cipher strength: [sshscan](https://en.kali.tools/all/?tool=1345)
+- Scan SFTP server for cipher strength:
+   - testssl.sh
+      - [Script and source code](https://github.com/drwetter/testssl.sh)
+      - [Web page with instructions](https://testssl.sh/)
+      - [A "How To"](https://www.whiteoaksecurity.com/blog/installation-use-of-testssl-sh-tool/)
+   - [sshscan](https://github.com/evict/SSHScan)
 
 # Resources
 
