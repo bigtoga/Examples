@@ -15,6 +15,7 @@
       - [A "How To"](https://www.whiteoaksecurity.com/blog/installation-use-of-testssl-sh-tool/)
       - [hexdump for Windows](https://www.di-mgt.com.au/hexdump-for-windows.html)
       - **Reminder** that you must run it from command line like this: `./testssl.sh`
+         - If you run it without the `./`, you will get `command not found` errors
    - [sshscan](https://github.com/evict/SSHScan)
 
 # Resources
