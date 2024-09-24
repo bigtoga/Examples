@@ -10,3 +10,9 @@
 
 
 `tsm licenses list` of `https://localhost:8850/` and then go to Configuration, licensing
+
+### By default, Tableau will auto-renew expiring licenses 
+
+You will see "License expires" and, when you look, it will say "October 7, 2024" (on September 24). On/about September 30, Tableau Server will check-in to the Tableau licensing service and auto-download the new license. 
+
+In theory...
