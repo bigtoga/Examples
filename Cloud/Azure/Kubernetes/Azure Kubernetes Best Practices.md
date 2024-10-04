@@ -4,6 +4,7 @@ Resources:
 - [Microsoft's AKS BP](https://learn.microsoft.com/en-us/azure/aks/best-practices)
     - [Cluster Operator Best Practices](https://learn.microsoft.com/en-us/azure/aks/best-practices#cluster-operator-best-practices)
     - [Network Best Practices](https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-network)
+- [Microsoft's AKS FAQ](https://learn.microsoft.com/en-us/azure/aks/faq)
  
 # Network Best Practices
 
