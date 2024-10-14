@@ -35,6 +35,7 @@ To view the current DNS servers that the vnet / app is using: `set WEBSITE_DNS_S
 That's really all I've been able to find as of 2022-07. Everything else fails with "Failed to execute the command" error
 
 It appears that the ASE Console runs inside a custom Windows container. That's why things like `nameresolver.exe` and `tcpping` do not work ([source](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#troubleshooting))
+- https://learn.microsoft.com/en-us/azure/app-service/environment/network-info#customer-dns 
 
 # Update for 2023-09
 
