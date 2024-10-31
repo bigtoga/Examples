@@ -3,7 +3,7 @@ https://learn.microsoft.com/en-us/windows-server/administration/windows-commands
 |Command   | Details  |
 |---|---|
 |`netstat -n`   | List active TCP connections  |
-|`netstat -na | find "80"` | Find all active connections on port 80  |
+|`netstat -na \| find "80"` | Find all active connections on port 80  |
 |`netstat -o`   | Active TCP connections and process ID  |
 |`netstat -P <protocol>`   | Use `tcp`, `tcpv6`  |
 |`netstat -b`   | Display the executable (admin req'd)  |
