@@ -1,3 +1,16 @@
+2024 - this works inside Log Analytics Workspace:
+```kql
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+    and Namespace == "LogicalDisk"
+    and Name == "FreeSpacePercentage"
+    and Val <= 20
+| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
+| summarize Disk_Free_Space = round(avg(Val), 2) by Computer, Disk, _ResourceId
+| project Computer, Disk, Disk_Free_Space
+```
+
+2024: Not sure the below works after the Azure Monitor Agent migration
 ```kql
 Perf
 | where TimeGenerated > ago(1d)
