@@ -1,0 +1,8 @@
+InsightsMetrics
+| where Origin == "vm.azm.ms"
+    and Namespace == "LogicalDisk"
+    and Name == "FreeSpacePercentage"
+    and Val <= 20
+| extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
+| summarize Disk_Free_Space = round(avg(Val), 2) by Computer, Disk, _ResourceId
+| project Computer, Disk, Disk_Free_Space
