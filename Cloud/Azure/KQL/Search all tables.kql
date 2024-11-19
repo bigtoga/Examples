@@ -1,0 +1,5 @@
+// https://learn.microsoft.com/en-us/kusto/query/search-operator
+
+// Use Limit operator
+search *
+| where TimeGenerated between (datetime_add("minute", -15, datetime("2026-11-18T10:13:27.740Z")) .. (datetime_add("minute", 15, datetime("2026-11-18T10:13:27.740Z"))))
