@@ -9,7 +9,10 @@ https://learn.microsoft.com/en-us/windows-server/administration/windows-commands
 |`netstat -b`   | Display the executable (admin req'd)  |
 |`netstat -n \| find "80"`   | List action TCP connections with "80" in either the IP address or port  |
 |`netstat \| find "172.16.1.24"`   | List any connections to 172.16.1.24  |
-|`netstat -aof | findstr :6405` | What is listening for port 6405?
+|`netstat -aof | findstr :6405` | What is listening for port 6405? |
+
+Get-Process -Id (Get-NetTCPConnection -LocalPort 6405).OwningProcess
+
 
 Combine for more fun
 `netstat -n -b` - List active TCP connections with executable
