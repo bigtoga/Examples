@@ -1,3 +1,3 @@
 ```shell
-uname -a
+uname -r
 ```
