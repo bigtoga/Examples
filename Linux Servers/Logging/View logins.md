@@ -12,4 +12,4 @@ sudo grep 'COMMAND=' /var/log/auth.log
 
 - `last` - displays a list of recently logged-in users
 - `lastlog` - Last login time for each user
-- - `journalctl -u sshd` - SSH logins
+- `journalctl -u sshd` - SSH logins
