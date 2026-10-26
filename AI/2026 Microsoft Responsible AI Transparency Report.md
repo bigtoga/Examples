@@ -40,3 +40,23 @@ The first 4 were "technology solutions" - they allowed "technologists" to levera
     - Consumer-facing AI agents
     - Data explosion with banks having 100PB of data to manage
     - Data analytics is king - data lakes, warehouses, unstructured, but still heavily siloed
+
+# Phases of AI Growth
+
+## Phase 1: Humans + AI Assistants
+
+Every employee has a Copilot-like tool available. 
+
+## Phase 2: Humans + AI Agents
+
+Agents join teams as "digital colleagues", taking on specific tasks at human direction. Examples:
+- Review alerts proactively and escalate "true positives"
+- Identify anomalies in metrics proactively
+
+## Phase 3: Humans + Teams + Workflows of AI Agents
+
+Humans set direction and agents run entire business processes and workflows, checking in as needed.
+
+- Mission Control = your single pane of glass to view all agents, teams, results
+- Sentinel = anticipate and mitigate risks. Score vulnerabilities, recommend clear actions to protect workloads
+- Decision Hub = where the teams collaborate and respond to AI Agents approval needs
