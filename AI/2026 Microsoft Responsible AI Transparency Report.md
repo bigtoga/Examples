@@ -45,7 +45,46 @@ The first 4 were "technology solutions" - they allowed "technologists" to levera
 
 ## Phase 1: Humans + AI Assistants
 
-Every employee has a Copilot-like tool available. 
+Every employee has a Copilot-like tool available. Examples:
+
+### DBAs
+
+- Explain a Query Store plan regression or parameter sniffing issue
+- Draft index, AG, and maintenance scripts for peer review
+- Summarize wait stats and blocking chains into a findings note
+- Turn vendor docs into runbook steps, wiki entries
+
+### SREs
+
+- Write KQL against Log Analytics and App Insights during an incident
+- Explain .NET stack traces and IIS/app pool failures
+- Draft postmortems from the incident timeline and Teams thread
+- Size VM SKUs against East US 2 quota
+
+### Platform Engineers
+
+- Write and review IaC templates
+- Draft alert rules and runbook updates
+- Convert ADO YAML pipelines to GitHub Actions
+- Explain Azure Policy denials and RBAC errors
+
+### Network Engineers
+
+- Find shadowed or overlapping NSG and firewall rules
+- Troubleshoot Private Endpoint and DNS resolution chains
+- Draft change requests for peering and route tables
+
+### DevOps Engineers
+
+- Diff config between environments (for example PRV and STG)
+- Write multi-language documentation for both sites
+- Check GDPR data residency questions against architectures
+
+### Project Management
+
+- Turn standup notes into status updates
+- Draft exec summaries and stakeholder decks
+- Maintain risk registers and ISO evidence summaries
 
 ## Phase 2: Humans + AI Agents
 
